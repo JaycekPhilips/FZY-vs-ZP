@@ -1,0 +1,329 @@
+Process is running in low integrity mode...
+Mono path[0] = 'C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/burst-test-player/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/burst-test-player/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/burst-test-player/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.073 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.778900 ms
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.163200 ms
+
+Unloading 113 unused Assets to reduce memory usage. Loaded Objects now: 1008.
+Total: 0.417400 ms (FindLiveObjects: 0.046400 ms CreateObjectMapping: 0.016700 ms MarkObjects: 0.160700 ms  DeleteObjects: 0.193100 ms)
+
+NEW PASS native kick clip actually plays and finishes 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS kick-only animation rate is correct skills=False backward=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS after shot animation returns to normal speed 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS faster kick preserves skeleton joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW SHOT skills=False back=False duration=0.34 joint=0.08566977 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.794600 ms
+
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 1054.
+Total: 1.033600 ms (FindLiveObjects: 0.030400 ms CreateObjectMapping: 0.007300 ms MarkObjects: 0.206300 ms  DeleteObjects: 0.789300 ms)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+NEW PASS native kick clip actually plays and finishes 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS kick-only animation rate is correct skills=True backward=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS after shot animation returns to normal speed 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS faster kick preserves skeleton joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS quick shot has its own skill animation 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW SHOT skills=True back=False duration=0.28 joint=0.08566977 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS native shot duration reflects 25 percent swing-speed boost classic=0.34 quick=0.28 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.259900 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1054.
+Total: 1.179200 ms (FindLiveObjects: 0.028100 ms CreateObjectMapping: 0.007500 ms MarkObjects: 0.180900 ms  DeleteObjects: 0.962500 ms)
+
+NEW PASS pre-shot backward cadence is 2x 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS native kick clip actually plays and finishes 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS kick-only animation rate is correct skills=True backward=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS after shot animation returns to normal speed 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS faster kick preserves skeleton joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS quick shot has its own skill animation 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW SHOT skills=True back=True duration=0.28 joint=0.05041813 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.253000 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1054.
+Total: 1.192900 ms (FindLiveObjects: 0.029600 ms CreateObjectMapping: 0.007700 ms MarkObjects: 0.180100 ms  DeleteObjects: 0.975100 ms)
+
+NEW PASS aerial strike makes a real instep contact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS aerial instep shot cannot trigger ground burst 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS aerial shot still benefits from quicker swing 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.242400 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1055.
+Total: 1.233100 ms (FindLiveObjects: 0.030400 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.180800 ms  DeleteObjects: 1.013600 ms)
+
+NEW PASS ground burst begins with actual pitch contact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS grounded non-contest ball is eligible 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS ground shot has genuine instep contact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS ground burst still triggers on real ground shot 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS ground burst remains fast and low 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.232100 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1055.
+Total: 1.232300 ms (FindLiveObjects: 0.091700 ms CreateObjectMapping: 0.015200 ms MarkObjects: 0.218100 ms  DeleteObjects: 0.906800 ms)
+
+NEW DROP skills=False rear=False rising=True landing=0.96 minVy=-6.995911 joint=0.07591061 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS player lands through genuine ground collision 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop leaves original gravity scale intact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop retains all 9 native joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS classic creates no drop skill 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.309900 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1055.
+Total: 1.128100 ms (FindLiveObjects: 0.029400 ms CreateObjectMapping: 0.007200 ms MarkObjects: 0.198700 ms  DeleteObjects: 0.892400 ms)
+
+NEW DROP skills=True rear=False rising=True landing=0.2999997 minVy=-8.238543 joint=0.02884325 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS player lands through genuine ground collision 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop leaves original gravity scale intact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop retains all 9 native joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS S triggers down skill air rear=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop lands substantially sooner than ordinary fall 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS rapid descent is bounded 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop ends automatically on landing 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS accelerated descent and landing keep limbs joined 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.269900 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1055.
+Total: 0.910800 ms (FindLiveObjects: 0.049500 ms CreateObjectMapping: 0.007800 ms MarkObjects: 0.263100 ms  DeleteObjects: 0.590200 ms)
+
+NEW DROP skills=True rear=True rising=True landing=0.3000002 minVy=-8.239542 joint=0.02858963 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS player lands through genuine ground collision 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop leaves original gravity scale intact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop retains all 9 native joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS S triggers down skill air rear=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop lands substantially sooner than ordinary fall 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS rapid descent is bounded 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop ends automatically on landing 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS accelerated descent and landing keep limbs joined 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.328200 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1055.
+Total: 1.033900 ms (FindLiveObjects: 0.059700 ms CreateObjectMapping: 0.015400 ms MarkObjects: 0.307100 ms  DeleteObjects: 0.651100 ms)
+
+NEW DROP skills=True rear=False rising=False landing=0.2800007 minVy=-8.239542 joint=0.00882394 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS player lands through genuine ground collision 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop leaves original gravity scale intact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop retains all 9 native joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS S triggers down skill air rear=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop lands substantially sooner than ordinary fall 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS rapid descent is bounded 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop ends automatically on landing 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS accelerated descent and landing keep limbs joined 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.251300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1055.
+Total: 0.994800 ms (FindLiveObjects: 0.084700 ms CreateObjectMapping: 0.015700 ms MarkObjects: 0.249300 ms  DeleteObjects: 0.644800 ms)
+
+NEW PASS S on ground does not trigger 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS rear ball retains prior shooting skill restriction 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.322500 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1055.
+Total: 1.053100 ms (FindLiveObjects: 0.037200 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.265700 ms  DeleteObjects: 0.741400 ms)
+
+NEW PASS pause check observes active quicker shot 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS pausing restores quicker shot animation rate 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.321600 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1055.
+Total: 1.084800 ms (FindLiveObjects: 0.033000 ms CreateObjectMapping: 0.018600 ms MarkObjects: 0.204200 ms  DeleteObjects: 0.828800 ms)
+
+NEW PASS reset check observes active drop 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS round reset clears drop state and animation 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.289600 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1055.
+Total: 1.073900 ms (FindLiveObjects: 0.039100 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.241400 ms  DeleteObjects: 0.784100 ms)
+
+NEW PASS Fan AI requests down command for reachable ball below 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+QUICK SHOT DROP COMPLETE checks=59 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 1bf8 -> priority: 1 
+  Thread -> id: 7b04 -> priority: 1 
+  Thread -> id: 5214 -> priority: 1 
+  Thread -> id: 33a8 -> priority: 1 
+  Thread -> id: 94dc -> priority: 1 
+  Thread -> id: 3b98 -> priority: 1 
+  Thread -> id: 5744 -> priority: 1 
+  Thread -> id: 850 -> priority: 1 
+  Thread -> id: 4ee8 -> priority: 1 
+  Thread -> id: b68 -> priority: 1 
+  Thread -> id: 9e6c -> priority: 1 
+  Thread -> id: 6b8c -> priority: 1 

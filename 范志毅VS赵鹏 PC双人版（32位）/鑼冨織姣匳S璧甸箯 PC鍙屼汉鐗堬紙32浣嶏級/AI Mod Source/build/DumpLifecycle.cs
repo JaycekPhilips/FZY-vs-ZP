@@ -1,0 +1,2 @@
+using System;using Mono.Cecil;
+class DumpLifecycle{static void Show(TypeDefinition t){if(t.FullName.Contains("GameManager"))foreach(var m in t.Methods)if(m.HasBody){Console.WriteLine("METHOD "+m.FullName);foreach(var i in m.Body.Instructions)Console.WriteLine(i);}foreach(var n in t.NestedTypes)Show(n);}static void Main(string[] a){using(var m=ModuleDefinition.ReadModule(a[0]))foreach(var t in m.Types)Show(t);}}

@@ -1,0 +1,460 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/rescue-balance-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/rescue-balance-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/rescue-balance-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.125 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.562900 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.160400 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1009.
+Total: 0.537000 ms (FindLiveObjects: 0.035200 ms CreateObjectMapping: 0.009400 ms MarkObjects: 0.190800 ms  DeleteObjects: 0.301200 ms)
+
+AIMATCH PARAM side=Zhao skills=False scale=0.75 jump=5.2 gravity=1 head=0.1168774 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS real contest recognized Zhao skills=False airborne=False frames=73 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS contest uses directions instead of striking Zhao skills=False airborne=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction opposes the human player Zhao skills=False airborne=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction pushing preserves joints Zhao skills=False airborne=False error=0.1344143 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS separation releases contest suppression Zhao skills=False airborne=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.377300 ms
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 1054.
+Total: 1.638400 ms (FindLiveObjects: 0.051000 ms CreateObjectMapping: 0.015900 ms MarkObjects: 0.336000 ms  DeleteObjects: 1.235100 ms)
+
+AIMATCH PARAM side=Zhao skills=False scale=0.75 jump=5.2 gravity=1 head=0.1168774 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS real contest recognized Zhao skills=False airborne=True frames=33 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS contest uses directions instead of striking Zhao skills=False airborne=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction opposes the human player Zhao skills=False airborne=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction pushing preserves joints Zhao skills=False airborne=True error=0.1218117 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS separation releases contest suppression Zhao skills=False airborne=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.335600 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1054.
+Total: 1.216500 ms (FindLiveObjects: 0.050400 ms CreateObjectMapping: 0.015600 ms MarkObjects: 0.251300 ms  DeleteObjects: 0.898800 ms)
+
+AIMATCH PARAM side=Zhao skills=False scale=0.75 jump=5.2 gravity=1 head=0.1168774 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS normal free ball shooting remains available Zhao skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS unreachable rising ball avoids premature actions Zhao skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS moving high ball leads future descent Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS reachable descending ball schedules jump Zhao skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS fast overhead pass avoids futile jump Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS serve advances without retreat or meaningless jump Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS paused AI has no commands Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.288600 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1054.
+Total: 1.521700 ms (FindLiveObjects: 0.037000 ms CreateObjectMapping: 0.009700 ms MarkObjects: 0.355900 ms  DeleteObjects: 1.118700 ms)
+
+AIMATCH PARAM side=Zhao skills=False scale=0.75 jump=5.2 gravity=1 head=0.1168774 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS live lob plans reachable contact Zhao skills=False jump=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS live lob intercepted by native collision or existing head skill Zhao skills=False collision=True header=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS lob interception preserves skeleton Zhao error=0.08294564 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.273400 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1059.
+Total: 1.470000 ms (FindLiveObjects: 0.034300 ms CreateObjectMapping: 0.020000 ms MarkObjects: 0.222000 ms  DeleteObjects: 1.193400 ms)
+
+AIMATCH PARAM side=Fan skills=False scale=0.75 jump=5.2 gravity=1 head=0.113004 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS real contest recognized Fan skills=False airborne=False frames=28 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS contest uses directions instead of striking Fan skills=False airborne=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction opposes the human player Fan skills=False airborne=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction pushing preserves joints Fan skills=False airborne=False error=0.3412097 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS separation releases contest suppression Fan skills=False airborne=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.459300 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1055.
+Total: 2.104200 ms (FindLiveObjects: 0.045400 ms CreateObjectMapping: 0.020000 ms MarkObjects: 0.409500 ms  DeleteObjects: 1.628900 ms)
+
+AIMATCH PARAM side=Fan skills=False scale=0.75 jump=5.2 gravity=1 head=0.113004 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS real contest recognized Fan skills=False airborne=True frames=16 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS contest uses directions instead of striking Fan skills=False airborne=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction opposes the human player Fan skills=False airborne=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction pushing preserves joints Fan skills=False airborne=True error=0.0966188 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS separation releases contest suppression Fan skills=False airborne=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.273500 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1055.
+Total: 1.108900 ms (FindLiveObjects: 0.051000 ms CreateObjectMapping: 0.015300 ms MarkObjects: 0.235900 ms  DeleteObjects: 0.806100 ms)
+
+AIMATCH PARAM side=Fan skills=False scale=0.75 jump=5.2 gravity=1 head=0.1100431 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS normal free ball shooting remains available Fan skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS unreachable rising ball avoids premature actions Fan skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS moving high ball leads future descent Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS reachable descending ball schedules jump Fan skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS fast overhead pass avoids futile jump Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS serve advances without retreat or meaningless jump Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS paused AI has no commands Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.234300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1055.
+Total: 1.178000 ms (FindLiveObjects: 0.052500 ms CreateObjectMapping: 0.016200 ms MarkObjects: 0.256800 ms  DeleteObjects: 0.851800 ms)
+
+AIMATCH PARAM side=Fan skills=False scale=0.75 jump=5.2 gravity=1 head=0.1100431 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS live lob plans reachable contact Fan skills=False jump=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS live lob intercepted by native collision or existing head skill Fan skills=False collision=True header=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS lob interception preserves skeleton Fan error=0.1042154 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.013900 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.312100 ms (FindLiveObjects: 0.030700 ms CreateObjectMapping: 0.034200 ms MarkObjects: 0.175400 ms  DeleteObjects: 1.071600 ms)
+
+AIMATCH PARAM side=Zhao skills=True scale=0.75 jump=6.119894 gravity=1 head=0.1135373 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS real contest recognized Zhao skills=True airborne=False frames=46 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS contest uses directions instead of striking Zhao skills=True airborne=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction opposes the human player Zhao skills=True airborne=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction pushing preserves joints Zhao skills=True airborne=False error=0.146848 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS separation releases contest suppression Zhao skills=True airborne=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.275400 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 1.251700 ms (FindLiveObjects: 0.056700 ms CreateObjectMapping: 0.017800 ms MarkObjects: 0.253100 ms  DeleteObjects: 0.923500 ms)
+
+AIMATCH PARAM side=Zhao skills=True scale=0.75 jump=6.119894 gravity=1 head=0.1147858 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS real contest recognized Zhao skills=True airborne=True frames=12 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS contest uses directions instead of striking Zhao skills=True airborne=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction opposes the human player Zhao skills=True airborne=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction pushing preserves joints Zhao skills=True airborne=True error=0.1090828 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS separation releases contest suppression Zhao skills=True airborne=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.339500 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.305200 ms (FindLiveObjects: 0.053700 ms CreateObjectMapping: 0.007600 ms MarkObjects: 0.299200 ms  DeleteObjects: 0.944400 ms)
+
+AIMATCH PARAM side=Zhao skills=True scale=0.75 jump=6.119894 gravity=1 head=0.1135373 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS normal free ball shooting remains available Zhao skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS unreachable rising ball avoids premature actions Zhao skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS moving high ball leads future descent Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS reachable descending ball schedules jump Zhao skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS fast overhead pass avoids futile jump Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS serve advances without retreat or meaningless jump Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS paused AI has no commands Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.239300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.094500 ms (FindLiveObjects: 0.031800 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.166900 ms  DeleteObjects: 0.887500 ms)
+
+AIMATCH PARAM side=Zhao skills=True scale=0.75 jump=6.119894 gravity=1 head=0.1127222 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS live lob plans reachable contact Zhao skills=True jump=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS live lob intercepted by native collision or existing head skill Zhao skills=True collision=True header=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS lob interception preserves skeleton Zhao error=0.1332691 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.264400 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 1.177400 ms (FindLiveObjects: 0.032200 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.167200 ms  DeleteObjects: 0.969000 ms)
+
+AIMATCH PARAM side=Fan skills=True scale=0.75 jump=5.2 gravity=1 head=0.113004 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS real contest recognized Fan skills=True airborne=False frames=72 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS contest uses directions instead of striking Fan skills=True airborne=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction opposes the human player Fan skills=True airborne=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction pushing preserves joints Fan skills=True airborne=False error=0.09388802 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS separation releases contest suppression Fan skills=True airborne=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.340600 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.134900 ms (FindLiveObjects: 0.029700 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.167000 ms  DeleteObjects: 0.929700 ms)
+
+AIMATCH PARAM side=Fan skills=True scale=0.75 jump=5.2 gravity=1 head=0.1106254 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS real contest recognized Fan skills=True airborne=True frames=22 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS contest uses directions instead of striking Fan skills=True airborne=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction opposes the human player Fan skills=True airborne=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS direction pushing preserves joints Fan skills=True airborne=True error=0.07592325 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS separation releases contest suppression Fan skills=True airborne=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.330600 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.071300 ms (FindLiveObjects: 0.030100 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.167300 ms  DeleteObjects: 0.865700 ms)
+
+AIMATCH PARAM side=Fan skills=True scale=0.75 jump=5.2 gravity=1 head=0.1100431 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS normal free ball shooting remains available Fan skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS unreachable rising ball avoids premature actions Fan skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS moving high ball leads future descent Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS reachable descending ball schedules jump Fan skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS fast overhead pass avoids futile jump Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS serve advances without retreat or meaningless jump Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS paused AI has no commands Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.338800 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.881400 ms (FindLiveObjects: 0.055900 ms CreateObjectMapping: 0.017400 ms MarkObjects: 0.354300 ms  DeleteObjects: 1.453300 ms)
+
+AIMATCH PARAM side=Fan skills=True scale=0.75 jump=5.2 gravity=1 head=0.113004 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH LOB step=0 ball=(-2.5, 2.4) velocity=(3.2, -0.7) player=(-2.0, -0.3) run=(-0.9, 6.1) head=(-1.9, 0.2, 0.2) target=-1.685529 eta=0.3399999 jump=False heading=False plan=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH LOB step=8 ball=(-2.0, 2.1) velocity=(3.2, -2.3) player=(-2.0, 0.4) run=(0.8, 3.5) head=(-1.9, 0.9, 0.2) target=-1.678502 eta=0.18 jump=False heading=False plan=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH LOB step=16 ball=(-1.2, 1.9) velocity=(11.1, 2.0) player=(-1.8, 0.8) run=(0.4, 1.9) head=(-1.9, 1.3, 0.2) target=5.701219 eta=1.6 jump=False heading=False plan=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH LOB step=24 ball=(0.6, 2.1) velocity=(11.1, 0.4) player=(-1.7, 1.0) run=(-0.4, 0.4) head=(-1.6, 1.5, 0.2) target=5.701219 eta=1.6 jump=False heading=False plan=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH LOB step=32 ball=(2.4, 2.0) velocity=(11.1, -1.1) player=(-1.4, 0.9) run=(1.5, -1.0) head=(-1.0, 1.2, 0.2) target=5.387281 eta=1.6 jump=False heading=False plan=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH LOB step=40 ball=(4.1, 1.7) velocity=(11.1, -2.7) player=(-1.2, 0.6) run=(2.0, -2.7) head=(-1.1, 1.1, 0.2) target=5.701219 eta=1.6 jump=False heading=False plan=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH LOB step=48 ball=(5.9, 1.1) velocity=(11.1, -4.3) player=(-0.8, -0.1) run=(2.7, -4.5) head=(-0.9, 0.5, 0.2) target=5.701219 eta=1.6 jump=False heading=False plan=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH LOB step=56 ball=(6.9, -0.1) velocity=(3.0, -9.1) player=(-0.4, -0.8) run=(2.8, -3.8) head=(-0.4, -0.3, 0.2) target=5.701219 eta=1.6 jump=False heading=False plan=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH LOB step=64 ball=(7.4, -1.6) velocity=(-0.2, 8.6) player=(0.2, -0.9) run=(4.1, 1.6) head=(0.5, -0.4, 0.2) target=5.701219 eta=1.6 jump=False heading=False plan=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH LOB step=72 ball=(7.3, -0.4) velocity=(-0.2, 7.0) player=(0.9, -0.6) run=(3.9, 1.5) head=(1.2, -0.2, 0.2) target=5.701219 eta=1.6 jump=False heading=False plan=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH LOB step=80 ball=(6.9, 0.0) velocity=(-4.5, -1.0) player=(1.6, -0.4) run=(5.1, 0.5) head=(1.6, 0.1, 0.2) target=5.701219 eta=1.6 jump=False heading=False plan=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH LOB step=88 ball=(6.2, -0.3) velocity=(-4.5, -2.5) player=(2.5, -0.4) run=(4.7, 0.3) head=(2.4, 0.1, 0.2) target=5.701219 eta=1.6 jump=False heading=False plan=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH LOB step=96 ball=(5.5, -0.9) velocity=(-4.5, -4.1) player=(3.2, -0.4) run=(3.4, -0.4) head=(3.3, 0.1, 0.2) target=5.701219 eta=1.6 jump=False heading=False plan=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS live lob plans reachable contact Fan skills=True jump=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS live lob intercepted by native collision or existing head skill Fan skills=True collision=False header=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH PASS lob interception preserves skeleton Fan error=0.1103181 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+AIMATCH COMPLETE checks=80 lobTouches=4 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 8304 -> priority: 1 
+  Thread -> id: a7f4 -> priority: 1 
+  Thread -> id: 76cc -> priority: 1 
+  Thread -> id: 83ec -> priority: 1 
+  Thread -> id: 4564 -> priority: 1 
+  Thread -> id: 4dac -> priority: 1 
+  Thread -> id: 7bbc -> priority: 1 
+  Thread -> id: a25c -> priority: 1 
+  Thread -> id: 6414 -> priority: 1 
+  Thread -> id: a72c -> priority: 1 
+  Thread -> id: 84c8 -> priority: 1 
+  Thread -> id: 7c1c -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

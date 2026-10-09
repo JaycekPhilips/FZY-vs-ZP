@@ -1,0 +1,739 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/rescue-balance-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/rescue-balance-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/rescue-balance-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.095 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.799300 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.174200 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1009.
+Total: 0.612800 ms (FindLiveObjects: 0.044800 ms CreateObjectMapping: 0.009300 ms MarkObjects: 0.310600 ms  DeleteObjects: 0.247800 ms)
+
+BALANCE HEADER Zhao before=(-4.2, -1.2) after=(-3.7, -1.1) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=False fan=False rear=False command=True one reduction only reduced=1 assisted=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=False fan=False rear=False command=True velocity is exactly 90% of prior header 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=False fan=False rear=False command=True real head contact or reachable native assisted strike 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=False fan=False rear=False command=True skeleton stable error=0.01410069 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.413700 ms
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.182800 ms (FindLiveObjects: 0.034700 ms CreateObjectMapping: 0.008500 ms MarkObjects: 0.346600 ms  DeleteObjects: 0.792700 ms)
+
+BALANCE HEADER Zhao before=(-2.6, -0.7) after=(-2.3, -0.7) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=True fan=False rear=False command=True one reduction only reduced=1 assisted=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=True fan=False rear=False command=True velocity is exactly 90% of prior header 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=True fan=False rear=False command=True real head contact or reachable native assisted strike 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=True fan=False rear=False command=True skeleton stable error=0.007590334 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.987000 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1064.
+Total: 1.050900 ms (FindLiveObjects: 0.035000 ms CreateObjectMapping: 0.007900 ms MarkObjects: 0.180300 ms  DeleteObjects: 0.827500 ms)
+
+BALANCE HEADER Fan before=(4.5, -1.3) after=(4.1, -1.2) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=False fan=True rear=False command=True one reduction only reduced=1 assisted=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=False fan=True rear=False command=True velocity is exactly 90% of prior header 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=False fan=True rear=False command=True real head contact or reachable native assisted strike 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=False fan=True rear=False command=True skeleton stable error=0.02175216 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.273800 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 0.973200 ms (FindLiveObjects: 0.032500 ms CreateObjectMapping: 0.007800 ms MarkObjects: 0.174400 ms  DeleteObjects: 0.758300 ms)
+
+BALANCE PASS header skills=True fan=True rear=False command=True one reduction only reduced=0 assisted=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=True fan=True rear=False command=True velocity is exactly 90% of prior header 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=True fan=True rear=False command=True real head contact or reachable native assisted strike 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=True fan=True rear=False command=True skeleton stable error=0.004078189 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.341900 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.032300 ms (FindLiveObjects: 0.034500 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.188300 ms  DeleteObjects: 0.801100 ms)
+
+BALANCE HEADER Fan before=(-0.4, 0.0) after=(-0.4, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=True fan=True rear=True command=True one reduction only reduced=1 assisted=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=True fan=True rear=True command=True velocity is exactly 90% of prior header 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=True fan=True rear=True command=True real head contact or reachable native assisted strike 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=True fan=True rear=True command=True skeleton stable error=0.01002776 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.264900 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 0.977200 ms (FindLiveObjects: 0.060300 ms CreateObjectMapping: 0.017400 ms MarkObjects: 0.184800 ms  DeleteObjects: 0.714500 ms)
+
+BALANCE PASS header skills=False fan=False rear=False command=False passive head collision is unchanged 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=False fan=False rear=False command=False passive physical fixture touched head 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS header skills=False fan=False rear=False command=False skeleton stable error=0.008695463 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.258400 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 0.972000 ms (FindLiveObjects: 0.056200 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.181900 ms  DeleteObjects: 0.725200 ms)
+
+BALANCE PASS existing real head contact before command fan=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE HEADER Zhao before=(0.1, 0.1) after=(0.1, 0.1) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ongoing head contact reduced once on release fan=False reduced=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ongoing head release velocity is exactly 90% fan=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ongoing head contact keeps native skeleton fan=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.263900 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1064.
+Total: 1.011600 ms (FindLiveObjects: 0.031600 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.177900 ms  DeleteObjects: 0.793100 ms)
+
+BALANCE PASS existing real head contact before command fan=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE HEADER Fan before=(-0.3, 0.4) after=(-0.3, 0.3) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ongoing head contact reduced once on release fan=True reduced=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ongoing head release velocity is exactly 90% fan=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ongoing head contact keeps native skeleton fan=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.256900 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.134100 ms (FindLiveObjects: 0.034500 ms CreateObjectMapping: 0.009900 ms MarkObjects: 0.327000 ms  DeleteObjects: 0.762500 ms)
+
+BALANCE PASS classic manual backward speed retained 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.294200 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.019000 ms (FindLiveObjects: 0.037600 ms CreateObjectMapping: 0.008800 ms MarkObjects: 0.222700 ms  DeleteObjects: 0.749600 ms)
+
+BALANCE PASS front ball keeps original manual retreat 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS original skill retreat speed retained 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS rear ball alone cannot auto activate 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS auto retreat never exceeds twice ordinary native speed 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS stationary reachable ball uses less than maximum speed 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS fast rear ball reaches the two-times cap 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS tap continues bounded automatic retreat 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS opposite steering cancels rescue 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS manual kick cancels automatic retreat 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS pause clears auto commands 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS round reset clears rescue and balance 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS unreachable rescue has a time limit 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS tight own-goal space brakes instead of running through rear ball 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.298300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.213800 ms (FindLiveObjects: 0.033600 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.266900 ms  DeleteObjects: 0.904700 ms)
+
+BALANCE RETREAT low frame=0 body=(-2.0, -0.3) ball=(-0.2, -1.6) velocity=(-0.3, 7.5) tilt=3.443589 headed=False waiting=True height=2.15242 width=0.5137253 head=(-2.1, 0.2, 0.2) deadline=2.593695 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=20 body=(-1.2, 1.3) ball=(-0.2, -1.6) velocity=(3.5, 2.2) tilt=4.755207 headed=False waiting=False height=2.15242 width=0.5137253 head=(-1.2, 1.8, 0.2) deadline=2.193695 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=40 body=(0.1, 1.3) ball=(-0.2, -1.6) velocity=(2.6, -1.8) tilt=-2.368364 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.1, 1.8, 0.2) deadline=1.793694 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=60 body=(0.4, -0.2) ball=(-0.2, -1.6) velocity=(0.2, -5.8) tilt=5.884491 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.3, 0.3, 0.2) deadline=-13.28 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=80 body=(0.4, -0.4) ball=(-0.2, -1.6) velocity=(-0.8, 2.4) tilt=13.148 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.3, 0.1, 0.2) deadline=-13.68 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=100 body=(0.4, -0.4) ball=(-0.4, -1.6) velocity=(0.1, -1.8) tilt=5.021214 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.3, 0.2, 0.2) deadline=-14.08 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=120 body=(0.3, -0.4) ball=(-0.7, -1.6) velocity=(-0.1, -0.1) tilt=9.968225 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.2, 0.1, 0.2) deadline=-14.48 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=140 body=(0.3, -0.4) ball=(-1.0, -1.6) velocity=(0.2, 0.0) tilt=10.27876 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.2, 0.1, 0.2) deadline=-14.88 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=160 body=(0.3, -0.4) ball=(-1.3, -1.6) velocity=(0.0, 0.0) tilt=8.158697 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.2, 0.1, 0.2) deadline=-15.28 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=180 body=(0.3, -0.4) ball=(-1.6, -1.6) velocity=(-0.1, 0.0) tilt=9.740757 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.2, 0.1, 0.2) deadline=-15.68 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=200 body=(0.3, -0.4) ball=(-1.9, -1.6) velocity=(0.1, 0.0) tilt=10.07186 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.2, 0.1, 0.2) deadline=-16.08 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.8 nearGoal=False falling=False no own goal during rescue 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.8 nearGoal=False falling=False all joints stay connected error=0.07008681 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.8 nearGoal=False falling=False native skeleton retained 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.8 nearGoal=False falling=False balanced after recovery tilt=10.46744 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.8 nearGoal=False falling=False native jump clears low ball 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.8 nearGoal=False falling=False reaches goal side of ball 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.8 nearGoal=False falling=False bounded auto action ended 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.266800 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.095400 ms (FindLiveObjects: 0.052100 ms CreateObjectMapping: 0.029900 ms MarkObjects: 0.180200 ms  DeleteObjects: 0.832800 ms)
+
+BALANCE RETREAT low frame=0 body=(3.5, -0.3) ball=(4.6, -1.6) velocity=(-0.1, 7.4) tilt=3.908976 headed=False waiting=True height=2.15242 width=0.5137253 head=(3.4, 0.2, 0.2) deadline=2.590089 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=20 body=(4.2, 1.3) ball=(4.6, -1.6) velocity=(3.4, 2.0) tilt=4.946559 headed=False waiting=False height=2.15242 width=0.5137253 head=(4.2, 1.8, 0.2) deadline=2.190088 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=40 body=(5.1, 1.2) ball=(4.6, -1.6) velocity=(0.0, -1.9) tilt=-2.021553 headed=False waiting=False height=2.15242 width=0.5137253 head=(5.1, 1.8, 0.2) deadline=-17.64 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=60 body=(5.2, -0.4) ball=(4.6, -1.6) velocity=(0.2, -5.9) tilt=5.754975 headed=False waiting=False height=2.15242 width=0.5137253 head=(5.1, 0.2, 0.2) deadline=-18.04 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=80 body=(5.2, -0.4) ball=(4.6, -1.6) velocity=(-0.2, 1.2) tilt=10.36418 headed=False waiting=False height=2.15242 width=0.5137253 head=(5.0, 0.2, 0.2) deadline=-18.44 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=100 body=(5.2, -0.4) ball=(4.3, -1.6) velocity=(0.0, 0.2) tilt=8.896041 headed=False waiting=False height=2.15242 width=0.5137253 head=(5.1, 0.1, 0.2) deadline=-18.84 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=120 body=(5.2, -0.4) ball=(4.0, -1.6) velocity=(-0.1, 0.0) tilt=6.97598 headed=False waiting=False height=2.15242 width=0.5137253 head=(5.1, 0.1, 0.2) deadline=-19.24 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=140 body=(5.2, -0.4) ball=(3.8, -1.6) velocity=(0.1, 0.0) tilt=7.781345 headed=False waiting=False height=2.15242 width=0.5137253 head=(5.1, 0.1, 0.2) deadline=-19.64 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=160 body=(5.2, -0.4) ball=(3.5, -1.6) velocity=(-0.1, 0.0) tilt=7.293167 headed=False waiting=False height=2.15242 width=0.5137253 head=(5.1, 0.1, 0.2) deadline=-20.04 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=180 body=(5.2, -0.4) ball=(3.2, -1.6) velocity=(0.0, 0.0) tilt=7.540053 headed=False waiting=False height=2.15242 width=0.5137253 head=(5.1, 0.1, 0.2) deadline=-20.44 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=200 body=(5.2, -0.4) ball=(2.9, -1.6) velocity=(0.0, 0.0) tilt=7.323661 headed=False waiting=False height=2.15242 width=0.5137253 head=(5.1, 0.1, 0.2) deadline=-20.84 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.1 nearGoal=True falling=False no own goal during rescue 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.1 nearGoal=True falling=False all joints stay connected error=0.08753439 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.1 nearGoal=True falling=False native skeleton retained 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.1 nearGoal=True falling=False balanced after recovery tilt=7.409271 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.1 nearGoal=True falling=False native jump clears low ball 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.1 nearGoal=True falling=False reaches goal side of ball 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.1 nearGoal=True falling=False bounded auto action ended 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.266800 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.197800 ms (FindLiveObjects: 0.054900 ms CreateObjectMapping: 0.008300 ms MarkObjects: 0.178400 ms  DeleteObjects: 0.955800 ms)
+
+BALANCE RETREAT head frame=0 body=(-2.0, -0.4) ball=(-0.2, 0.1) velocity=(0.1, 0.1) tilt=11.2513 headed=False waiting=False height=2.15242 width=0.5137253 head=(-2.1, 0.1, 0.2) deadline=2.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=20 body=(-0.8, -1.0) ball=(-0.2, 0.1) velocity=(3.1, -1.2) tilt=5.470903 headed=True waiting=False height=2.15242 width=0.5137253 head=(-0.9, -0.4, 0.2) deadline=2.200001 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE CLEARANCE (9.0, 3.8) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=40 body=(-0.7, -0.4) ball=(0.5, 0.5) velocity=(-0.8, 2.0) tilt=-43.22306 headed=True waiting=False height=2.15242 width=0.5137253 head=(-0.5, 0.0, 0.2) deadline=-22.38 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=60 body=(-0.8, -0.4) ball=(4.1, 2.0) velocity=(0.0, 0.3) tilt=10.78124 headed=True waiting=False height=2.15242 width=0.5137253 head=(-0.9, 0.1, 0.2) deadline=-22.78 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=80 body=(-0.7, -0.4) ball=(7.7, 3.5) velocity=(0.1, 0.0) tilt=10.64014 headed=False waiting=False height=2.15242 width=0.5137253 head=(-0.8, 0.1, 0.2) deadline=-23.18 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=100 body=(-0.7, -0.4) ball=(6.7, 4.7) velocity=(0.1, 0.0) tilt=9.683783 headed=False waiting=False height=2.15242 width=0.5137253 head=(-0.8, 0.1, 0.2) deadline=-23.58 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=120 body=(-0.7, -0.4) ball=(4.2, 4.5) velocity=(-0.1, 0.0) tilt=9.758578 headed=False waiting=False height=2.15242 width=0.5137253 head=(-0.8, 0.1, 0.2) deadline=-23.98 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=140 body=(-0.7, -0.4) ball=(2.0, 3.6) velocity=(0.0, 0.0) tilt=10.38402 headed=False waiting=False height=2.15242 width=0.5137253 head=(-0.8, 0.1, 0.2) deadline=-24.38 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=160 body=(-0.7, -0.4) ball=(-0.3, 2.8) velocity=(0.1, 0.0) tilt=10.11512 headed=False waiting=False height=2.15242 width=0.5137253 head=(-0.8, 0.1, 0.2) deadline=-24.78 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=180 body=(6.1, -0.2) ball=(3.6, 3.3) velocity=(0.1, -1.2) tilt=9.028728 headed=False waiting=False height=2.15242 width=0.5137253 head=(6.0, 0.3, 0.2) deadline=-25.18 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=200 body=(6.0, -0.4) ball=(3.6, 3.3) velocity=(-0.3, 0.1) tilt=8.484821 headed=False waiting=False height=2.15242 width=0.5137253 head=(5.9, 0.1, 0.2) deadline=-25.58 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=False no own goal during rescue 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=False all joints stay connected error=0.05561822 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=False native skeleton retained 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=False balanced after recovery tilt=13.50043 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=False real backward waist arch degrees=-57.64288 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=False native header and real safe-clearance collision count=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=False heads ball out or safely away 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=False bounded auto action ended 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.265300 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1064.
+Total: 1.242000 ms (FindLiveObjects: 0.032000 ms CreateObjectMapping: 0.008500 ms MarkObjects: 0.233000 ms  DeleteObjects: 0.968200 ms)
+
+BALANCE RETREAT head frame=0 body=(3.5, -0.4) ball=(4.6, 0.1) velocity=(0.3, 0.1) tilt=11.51243 headed=False waiting=False height=2.15242 width=0.5137253 head=(3.4, 0.1, 0.2) deadline=2.59416 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE CLEARANCE (-7.2, 7.2) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=20 body=(4.1, -0.5) ball=(3.5, 1.3) velocity=(0.0, 1.0) tilt=-25.02627 headed=True waiting=False height=2.15242 width=0.5137253 head=(4.1, 0.0, 0.2) deadline=-26.74 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=40 body=(4.0, -0.4) ball=(0.6, 4.2) velocity=(0.0, -0.3) tilt=24.12476 headed=True waiting=False height=2.15242 width=0.5137253 head=(3.8, 0.0, 0.2) deadline=-27.14 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=60 body=(4.0, -0.4) ball=(-1.4, 3.5) velocity=(-0.1, 0.0) tilt=8.876091 headed=True waiting=False height=2.15242 width=0.5137253 head=(3.9, 0.1, 0.2) deadline=-27.54 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=80 body=(4.0, -0.4) ball=(-3.0, 1.2) velocity=(-0.1, 0.0) tilt=9.760906 headed=True waiting=False height=2.15242 width=0.5137253 head=(3.9, 0.1, 0.2) deadline=-27.94 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=100 body=(4.0, -0.4) ball=(-4.6, -1.1) velocity=(0.0, 0.0) tilt=9.896091 headed=True waiting=False height=2.15242 width=0.5137253 head=(3.9, 0.1, 0.2) deadline=-28.34 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=120 body=(4.0, -0.4) ball=(-5.3, -0.1) velocity=(0.0, 0.0) tilt=9.233133 headed=True waiting=False height=2.15242 width=0.5137253 head=(3.9, 0.1, 0.2) deadline=-28.74 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=140 body=(4.0, -0.4) ball=(-5.7, 1.6) velocity=(0.0, 0.0) tilt=9.589418 headed=True waiting=False height=2.15242 width=0.5137253 head=(3.9, 0.1, 0.2) deadline=-29.14 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=160 body=(4.0, -0.4) ball=(-4.2, 1.2) velocity=(0.0, 0.0) tilt=9.699151 headed=True waiting=False height=2.15242 width=0.5137253 head=(3.9, 0.1, 0.2) deadline=-29.54 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=180 body=(4.0, -0.4) ball=(-2.7, 0.9) velocity=(0.0, 0.0) tilt=9.348952 headed=True waiting=False height=2.15242 width=0.5137253 head=(3.9, 0.1, 0.2) deadline=-29.94 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=200 body=(4.0, -0.4) ball=(-1.2, 0.6) velocity=(0.0, 0.0) tilt=9.602232 headed=True waiting=False height=2.15242 width=0.5137253 head=(3.9, 0.1, 0.2) deadline=-30.34 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.1 nearGoal=True falling=False no own goal during rescue 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.1 nearGoal=True falling=False all joints stay connected error=0.05195005 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.1 nearGoal=True falling=False native skeleton retained 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.1 nearGoal=True falling=False balanced after recovery tilt=9.695618 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.1 nearGoal=True falling=False real backward waist arch degrees=-47.23853 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.1 nearGoal=True falling=False native header and real safe-clearance collision count=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.1 nearGoal=True falling=False heads ball out or safely away 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.1 nearGoal=True falling=False bounded auto action ended 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.302300 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1064.
+Total: 0.997600 ms (FindLiveObjects: 0.034500 ms CreateObjectMapping: 0.008300 ms MarkObjects: 0.233000 ms  DeleteObjects: 0.721400 ms)
+
+BALANCE RETREAT low frame=0 body=(-2.0, -0.4) ball=(-0.2, -1.6) velocity=(-0.1, 0.1) tilt=11.2562 headed=False waiting=True height=2.15242 width=0.5137253 head=(-2.1, 0.1, 0.2) deadline=2.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=20 body=(-0.9, 1.3) ball=(0.4, -1.6) velocity=(5.7, 2.4) tilt=-0.361906 headed=False waiting=False height=2.15242 width=0.5137253 head=(-0.9, 1.8, 0.2) deadline=2.200001 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=40 body=(0.7, 1.4) ball=(0.9, -1.6) velocity=(3.0, -1.6) tilt=-2.3067 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.7, 1.9, 0.2) deadline=1.800001 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=60 body=(1.9, -0.1) ball=(1.5, -1.6) velocity=(1.9, -5.1) tilt=12.27583 headed=False waiting=True height=2.15242 width=0.5137253 head=(1.8, 0.4, 0.2) deadline=1.400002 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=80 body=(2.0, -0.4) ball=(1.3, -1.6) velocity=(-0.7, 1.6) tilt=13.70745 headed=False waiting=False height=2.15242 width=0.5137253 head=(1.8, 0.1, 0.2) deadline=-32.68 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=100 body=(1.9, -0.4) ball=(0.9, -1.6) velocity=(-0.2, 0.2) tilt=7.845557 headed=False waiting=False height=2.15242 width=0.5137253 head=(1.9, 0.1, 0.2) deadline=-33.08 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=120 body=(1.9, -0.4) ball=(0.5, -1.6) velocity=(0.1, 0.0) tilt=7.076439 headed=False waiting=False height=2.15242 width=0.5137253 head=(1.9, 0.1, 0.2) deadline=-33.48 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=140 body=(2.0, -0.4) ball=(0.1, -1.6) velocity=(0.0, 0.0) tilt=6.505848 headed=False waiting=False height=2.15242 width=0.5137253 head=(1.9, 0.1, 0.2) deadline=-33.88 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=160 body=(2.0, -0.4) ball=(-0.4, -1.6) velocity=(0.0, 0.0) tilt=7.205395 headed=False waiting=False height=2.15242 width=0.5137253 head=(1.9, 0.1, 0.2) deadline=-34.28 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=180 body=(2.0, -0.4) ball=(-0.8, -1.6) velocity=(0.1, 0.0) tilt=6.876096 headed=False waiting=False height=2.15242 width=0.5137253 head=(1.9, 0.1, 0.2) deadline=-34.68 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT low frame=200 body=(2.0, -0.4) ball=(-1.2, -1.6) velocity=(0.0, 0.0) tilt=6.702145 headed=False waiting=False height=2.15242 width=0.5137253 head=(1.9, 0.1, 0.2) deadline=-35.08 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.8 nearGoal=False falling=False no own goal during rescue 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.8 nearGoal=False falling=False all joints stay connected error=0.05845786 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.8 nearGoal=False falling=False native skeleton retained 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.8 nearGoal=False falling=False balanced after recovery tilt=6.994843 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.8 nearGoal=False falling=False native jump clears low ball 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.8 nearGoal=False falling=False reaches goal side of ball 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS low gap=1.8 nearGoal=False falling=False bounded auto action ended 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.293100 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.193400 ms (FindLiveObjects: 0.050300 ms CreateObjectMapping: 0.013400 ms MarkObjects: 0.208900 ms  DeleteObjects: 0.920500 ms)
+
+BALANCE RETREAT head frame=0 body=(-2.0, -0.4) ball=(-0.2, 0.1) velocity=(0.4, -0.3) tilt=13.36311 headed=False waiting=False height=2.15242 width=0.5137253 head=(-2.1, 0.1, 0.2) deadline=2.591572 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=20 body=(-1.5, -0.4) ball=(-0.2, -1.6) velocity=(-1.1, 1.8) tilt=-8.668237 headed=False waiting=True height=2.15242 width=0.5137253 head=(-1.5, 0.2, 0.2) deadline=2.191574 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=40 body=(-1.3, -0.5) ball=(-0.2, -0.3) velocity=(3.2, -2.2) tilt=21.31477 headed=False waiting=False height=2.15242 width=0.5137253 head=(-1.5, 0.0, 0.2) deadline=1.791573 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=60 body=(-0.9, -0.2) ball=(-0.2, -0.6) velocity=(0.3, 2.0) tilt=14.55916 headed=False waiting=True height=2.15242 width=0.5137253 head=(-1.1, 0.4, 0.2) deadline=1.391571 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=80 body=(-0.9, -0.3) ball=(-0.2, -1.1) velocity=(0.1, -2.3) tilt=1.372573 headed=False waiting=True height=2.15242 width=0.5137253 head=(-1.0, 0.2, 0.2) deadline=0.9915733 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=100 body=(-0.9, 0.8) ball=(-0.2, -0.8) velocity=(-0.4, 3.7) tilt=7.802512 headed=False waiting=True height=2.15242 width=0.5137253 head=(-1.0, 1.4, 0.2) deadline=1.240723 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=120 body=(0.0, 1.5) ball=(-0.2, -1.3) velocity=(3.3, -0.2) tilt=8.017363 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.0, 2.0, 0.2) deadline=0.8407249 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=140 body=(0.3, 0.6) ball=(-0.2, -1.2) velocity=(0.0, -4.1) tilt=-1.807721 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.4, 1.1, 0.2) deadline=-38.64 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=160 body=(0.4, -0.5) ball=(-0.4, -1.3) velocity=(0.8, 0.5) tilt=6.723326 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.3, 0.0, 0.2) deadline=-39.04 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=180 body=(0.4, -0.4) ball=(-0.7, -1.4) velocity=(0.0, -0.2) tilt=11.02224 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.3, 0.1, 0.2) deadline=-39.44 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT head frame=200 body=(0.4, -0.4) ball=(-0.9, -1.5) velocity=(0.0, 0.0) tilt=6.479369 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.3, 0.1, 0.2) deadline=-39.84 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=True no own goal during rescue 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=True all joints stay connected error=0.07973875 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=True native skeleton retained 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=True balanced after recovery tilt=6.541443 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=True native header and real safe-clearance collision count=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=True heads ball out or safely away 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS head gap=1.8 nearGoal=False falling=True bounded auto action ended 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.273600 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.288200 ms (FindLiveObjects: 0.065700 ms CreateObjectMapping: 0.009000 ms MarkObjects: 0.240800 ms  DeleteObjects: 0.972200 ms)
+
+BALANCE RETREAT high frame=0 body=(-2.0, -0.4) ball=(0.0, 2.1) velocity=(0.0, 0.2) tilt=10.88491 headed=False waiting=False height=2.15242 width=0.5137253 head=(-2.1, 0.1, 0.2) deadline=2.593586 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=20 body=(-0.8, -1.0) ball=(0.0, 2.1) velocity=(3.3, -1.8) tilt=6.407795 headed=False waiting=False height=2.15242 width=0.5137253 head=(-0.9, -0.5, 0.2) deadline=2.193584 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=40 body=(0.3, -1.2) ball=(0.0, 2.1) velocity=(2.1, 0.8) tilt=6.453488 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.3, -0.6, 0.2) deadline=1.793587 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=60 body=(0.3, -0.2) ball=(0.0, 2.1) velocity=(-0.6, 3.3) tilt=-5.058687 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.2, 0.3, 0.2) deadline=-41.8 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=80 body=(0.3, 0.3) ball=(0.0, 2.1) velocity=(0.1, -0.7) tilt=1.640518 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.3, 0.8, 0.2) deadline=-42.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=100 body=(0.4, -0.5) ball=(0.0, 2.1) velocity=(0.0, 0.2) tilt=27.86822 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.2, 0.0, 0.2) deadline=-42.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=120 body=(0.2, -0.4) ball=(0.0, 2.1) velocity=(-0.1, -0.2) tilt=11.51515 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.1, 0.1, 0.2) deadline=-43 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=140 body=(0.2, -0.4) ball=(0.0, 2.1) velocity=(0.2, 0.0) tilt=11.11794 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.1, 0.1, 0.2) deadline=-43.4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=160 body=(0.3, -0.4) ball=(0.0, 2.1) velocity=(0.2, 0.0) tilt=10.31436 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.2, 0.1, 0.2) deadline=-43.8 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=180 body=(0.3, -0.4) ball=(0.0, 2.1) velocity=(0.0, 0.0) tilt=9.955673 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.2, 0.1, 0.2) deadline=-44.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=200 body=(0.3, -0.4) ball=(0.0, 2.1) velocity=(-0.1, 0.0) tilt=10.78837 headed=False waiting=False height=2.15242 width=0.5137253 head=(0.2, 0.1, 0.2) deadline=-44.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS high gap=2 nearGoal=False falling=False no own goal during rescue 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS high gap=2 nearGoal=False falling=False all joints stay connected error=0.05387681 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS high gap=2 nearGoal=False falling=False native skeleton retained 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS high gap=2 nearGoal=False falling=False balanced after recovery tilt=10.88358 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS high gap=2 nearGoal=False falling=False above-height ball does not request header 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS high gap=2 nearGoal=False falling=False high ball keeps ground running 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS high gap=2 nearGoal=False falling=False fast ground run reaches goal side peak=3.515431 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS high gap=2 nearGoal=False falling=False bounded auto action ended 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.249000 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.181400 ms (FindLiveObjects: 0.028800 ms CreateObjectMapping: 0.007800 ms MarkObjects: 0.170200 ms  DeleteObjects: 0.974400 ms)
+
+BALANCE RETREAT high frame=0 body=(2.6, -0.4) ball=(4.6, 2.1) velocity=(0.8, -0.4) tilt=13.92671 headed=False waiting=False height=2.15242 width=0.5137253 head=(2.5, 0.1, 0.2) deadline=2.59066 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=20 body=(3.7, -0.8) ball=(4.6, 0.4) velocity=(0.0, 2.3) tilt=2.131132 headed=False waiting=True height=2.15242 width=0.5137253 head=(3.6, -0.3, 0.2) deadline=2.190662 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=40 body=(3.8, -0.4) ball=(4.6, -0.8) velocity=(-0.1, -1.0) tilt=12.53929 headed=False waiting=True height=2.15242 width=0.5137253 head=(3.6, 0.1, 0.2) deadline=1.790661 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=60 body=(4.7, -0.8) ball=(4.6, 0.8) velocity=(3.4, -1.7) tilt=7.724791 headed=False waiting=False height=2.15242 width=0.5137253 head=(4.6, -0.3, 0.2) deadline=1.390663 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=80 body=(5.0, -0.4) ball=(4.6, 0.8) velocity=(-1.8, 4.3) tilt=6.377695 headed=False waiting=False height=2.15242 width=0.5137253 head=(4.9, 0.1, 0.2) deadline=-46.96 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=100 body=(4.9, 0.2) ball=(3.8, 0.5) velocity=(0.3, -0.6) tilt=5.83532 headed=False waiting=False height=2.15242 width=0.5137253 head=(4.9, 0.7, 0.2) deadline=-47.36 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=120 body=(5.0, -0.5) ball=(2.9, -1.2) velocity=(-0.1, 0.3) tilt=21.69724 headed=False waiting=False height=2.15242 width=0.5137253 head=(4.8, 0.0, 0.2) deadline=-47.76 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=140 body=(4.9, -0.4) ball=(2.1, -0.3) velocity=(-0.2, -0.1) tilt=13.7666 headed=False waiting=False height=2.15242 width=0.5137253 head=(4.8, 0.1, 0.2) deadline=-48.16 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=160 body=(4.9, -0.4) ball=(1.4, -0.2) velocity=(0.1, 0.0) tilt=11.54875 headed=False waiting=False height=2.15242 width=0.5137253 head=(4.8, 0.1, 0.2) deadline=-48.56 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=180 body=(4.9, -0.4) ball=(0.6, -1.6) velocity=(0.1, 0.0) tilt=9.468186 headed=False waiting=False height=2.15242 width=0.5137253 head=(4.8, 0.1, 0.2) deadline=-48.96 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE RETREAT high frame=200 body=(4.9, -0.4) ball=(-0.1, -0.6) velocity=(-0.1, 0.0) tilt=10.18702 headed=False waiting=False height=2.15242 width=0.5137253 head=(4.8, 0.1, 0.2) deadline=-49.36 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS high gap=2 nearGoal=True falling=True no own goal during rescue 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS high gap=2 nearGoal=True falling=True all joints stay connected error=0.1118627 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS high gap=2 nearGoal=True falling=True native skeleton retained 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS high gap=2 nearGoal=True falling=True balanced after recovery tilt=10.59033 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS high gap=2 nearGoal=True falling=True bounded auto action ended 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE COMPLETE checks=102 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 381c -> priority: 1 
+  Thread -> id: 6a8c -> priority: 1 
+  Thread -> id: a1d0 -> priority: 1 
+  Thread -> id: 2e58 -> priority: 1 
+  Thread -> id: 8f08 -> priority: 1 
+  Thread -> id: 41fc -> priority: 1 
+  Thread -> id: 646c -> priority: 1 
+  Thread -> id: 283c -> priority: 1 
+  Thread -> id: 42f4 -> priority: 1 
+  Thread -> id: 964c -> priority: 1 
+  Thread -> id: 4a44 -> priority: 1 
+  Thread -> id: 5758 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

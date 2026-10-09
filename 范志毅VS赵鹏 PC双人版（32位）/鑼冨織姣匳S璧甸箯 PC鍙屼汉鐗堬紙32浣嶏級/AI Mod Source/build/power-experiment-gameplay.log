@@ -1,0 +1,311 @@
+Process is running in low integrity mode...
+Mono path[0] = 'C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/power-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/power-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/power-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.120 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.485600 ms
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.161500 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1010.
+Total: 0.562900 ms (FindLiveObjects: 0.033300 ms CreateObjectMapping: 0.009100 ms MarkObjects: 0.248700 ms  DeleteObjects: 0.271600 ms)
+
+POWER PASS keypad 0 selects kick, never header 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS right Shift selects header, never kick 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS L selects Fan powered native kick 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS double ordinary shooting no longer arms burst 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS round reset clears powered shooting request 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.676000 ms
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1059.
+Total: 1.051400 ms (FindLiveObjects: 0.033800 ms CreateObjectMapping: 0.008800 ms MarkObjects: 0.209900 ms  DeleteObjects: 0.798600 ms)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+POWER PASS native kick action actually ran Fan powered=False skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS one real contact launch, ordinary shot has none Fan powered=False launches=0 skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS shooting keeps the connected skeleton Fan error=0.06852366 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS classic power shot requires no special skill component 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.256200 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1059.
+Total: 1.079400 ms (FindLiveObjects: 0.036000 ms CreateObjectMapping: 0.008900 ms MarkObjects: 0.226600 ms  DeleteObjects: 0.807400 ms)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+POWER PASS native kick action actually ran Fan powered=True skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS one real contact launch, ordinary shot has none Fan powered=True launches=1 skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS Fan real collision ball speed +20% ratio=1.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS shooting keeps the connected skeleton Fan error=0.06852366 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS classic power shot requires no special skill component 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.243000 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1059.
+Total: 1.120700 ms (FindLiveObjects: 0.049100 ms CreateObjectMapping: 0.014200 ms MarkObjects: 0.223100 ms  DeleteObjects: 0.833800 ms)
+
+POWER PASS native kick action actually ran Zhao powered=False skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS one real contact launch, ordinary shot has none Zhao powered=False launches=0 skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS shooting keeps the connected skeleton Zhao error=0.1011824 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS classic power shot requires no special skill component 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.237900 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1059.
+Total: 1.090700 ms (FindLiveObjects: 0.032100 ms CreateObjectMapping: 0.008000 ms MarkObjects: 0.191300 ms  DeleteObjects: 0.859000 ms)
+
+POWER PASS native kick action actually ran Zhao powered=True skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS one real contact launch, ordinary shot has none Zhao powered=True launches=1 skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS Zhao real contact power speed skills=False vx=-20.4 expected=20.4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS Zhao powered shot is driven low even in air vy=-9.201896 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS shooting keeps the connected skeleton Zhao error=0.1032937 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS classic power shot requires no special skill component 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.257500 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1059.
+Total: 1.044000 ms (FindLiveObjects: 0.031500 ms CreateObjectMapping: 0.007900 ms MarkObjects: 0.170800 ms  DeleteObjects: 0.833500 ms)
+
+POWER PASS native kick action actually ran Fan powered=False skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS one real contact launch, ordinary shot has none Fan powered=False launches=0 skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS shooting keeps the connected skeleton Fan error=0.06852366 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.303000 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1059.
+Total: 1.187700 ms (FindLiveObjects: 0.057200 ms CreateObjectMapping: 0.017000 ms MarkObjects: 0.266700 ms  DeleteObjects: 0.846200 ms)
+
+POWER PASS native kick action actually ran Fan powered=True skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS one real contact launch, ordinary shot has none Fan powered=True launches=1 skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS Fan real collision ball speed +20% ratio=1.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS shooting keeps the connected skeleton Fan error=0.06822187 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.230100 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1059.
+Total: 1.124500 ms (FindLiveObjects: 0.050800 ms CreateObjectMapping: 0.014800 ms MarkObjects: 0.266300 ms  DeleteObjects: 0.792100 ms)
+
+POWER PASS native kick action actually ran Zhao powered=False skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS one real contact launch, ordinary shot has none Zhao powered=False launches=0 skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS shooting keeps the connected skeleton Zhao error=0.1094105 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.276600 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1059.
+Total: 1.129000 ms (FindLiveObjects: 0.051400 ms CreateObjectMapping: 0.016100 ms MarkObjects: 0.189800 ms  DeleteObjects: 0.871300 ms)
+
+POWER PASS native kick action actually ran Zhao powered=True skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS one real contact launch, ordinary shot has none Zhao powered=True launches=1 skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS Zhao real contact power speed skills=True vx=-22.44 expected=22.44 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS Zhao powered shot is driven low even in air vy=-6.255536 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS keypad 0 displays burst skill/highlight 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS shooting keeps the connected skeleton Zhao error=0.1105525 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.250100 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1059.
+Total: 1.026400 ms (FindLiveObjects: 0.032100 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.185200 ms  DeleteObjects: 0.800400 ms)
+
+POWER PASS same curve at 90% speed, spatial sample=0.15 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS same curve at 90% speed, spatial sample=0.3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS same curve at 90% speed, spatial sample=0.45 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER CONTACT solid=L_Up_Arm 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS leaf ball physically hits opponent body 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS leaf ball never tunnels through body 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS solid collision ends curve drive instead of pushing through 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS skill ball uses continuous detection 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.272000 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.025000 ms (FindLiveObjects: 0.032500 ms CreateObjectMapping: 0.016600 ms MarkObjects: 0.187300 ms  DeleteObjects: 0.788100 ms)
+
+POWER PASS emergency retreat keeps moving at real speed=4.270797 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS emergency retreat remains balanced deviation=10.27834 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS retreat limbs remain joined error=0.03341834 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.260400 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.155000 ms (FindLiveObjects: 0.049000 ms CreateObjectMapping: 0.015500 ms MarkObjects: 0.258000 ms  DeleteObjects: 0.832100 ms)
+
+POWER PASS stronger tackle uses real body contact air=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS 30% stronger impact keeps skeleton joined error=0.09434144 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS impact does not fold Fan body angle=34.14309 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS balance recovers promptly after impact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.236500 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.331400 ms (FindLiveObjects: 0.051500 ms CreateObjectMapping: 0.014700 ms MarkObjects: 0.174800 ms  DeleteObjects: 1.089600 ms)
+
+POWER PASS stronger tackle uses real body contact air=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS 30% stronger impact keeps skeleton joined error=0.1632076 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS impact does not fold Fan body angle=46.82348 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS balance recovers promptly after impact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER PASS tackle strength +30%, duration unchanged 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+POWER COMPLETE checks=59 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 4248 -> priority: 1 
+  Thread -> id: 923c -> priority: 1 
+  Thread -> id: 2114 -> priority: 1 
+  Thread -> id: 8b20 -> priority: 1 
+  Thread -> id: 3384 -> priority: 1 
+  Thread -> id: 9170 -> priority: 1 
+  Thread -> id: 7cbc -> priority: 1 
+  Thread -> id: 2bdc -> priority: 1 
+  Thread -> id: b28 -> priority: 1 
+  Thread -> id: 314 -> priority: 1 
+  Thread -> id: 2d50 -> priority: 1 
+  Thread -> id: 3960 -> priority: 1 

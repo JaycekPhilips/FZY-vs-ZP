@@ -1,0 +1,136 @@
+Process is running in low integrity mode...
+Mono path[0] = 'C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/FanZhiYi_Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; threaded=0
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.079 seconds
+Microsoft Media Foundation video decoding to texture disabled: graphics device is Null, only Direct3D 11 and Direct3D 12 (only on desktop) are supported for hardware-accelerated video decoding.
+UnloadTime: 0.552800 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.162700 ms
+
+Unloading 113 unused Assets to reduce memory usage. Loaded Objects now: 1003.
+Total: 0.487500 ms (FindLiveObjects: 0.032700 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.170800 ms  DeleteObjects: 0.274900 ms)
+
+VOLLEY PASS low aerial ball below old height threshold is airborne 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS side of foot accepted beyond old narrow end strip 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS upper shin and knee still excluded 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS foot contact without a kick command remains inactive 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS rapid second kick refreshes contact window 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS head contact with a kick command does not trigger volley 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS resting ground ball is not airborne 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS grounded ball cannot trigger aerial skill 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY FOOT 0 (-3.7, -0.1) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS kick remains valid beyond old .32 second window, direction 0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS real foot lifted by original jump physics, direction 0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS real aerial foot collision triggers kick with direction 0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS contact supplies lifted shot, direction 0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS one activation per kick command 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS all limb joints remain intact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.815600 ms
+
+Unloading 36 unused Assets to reduce memory usage. Loaded Objects now: 1047.
+Total: 1.239900 ms (FindLiveObjects: 0.035200 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.188900 ms  DeleteObjects: 1.006600 ms)
+
+VOLLEY FOOT 1 (-4.4, -1.1) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS kick remains valid beyond old .32 second window, direction -1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS real foot lifted by original jump physics, direction -1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS real aerial foot collision triggers kick with direction -1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS contact supplies lifted shot, direction -1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS one activation per kick command 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS all limb joints remain intact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.279700 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1047.
+Total: 1.334700 ms (FindLiveObjects: 0.039300 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.220500 ms  DeleteObjects: 1.066000 ms)
+
+VOLLEY FOOT 2 (-3.2, -0.9) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS kick remains valid beyond old .32 second window, direction 1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS real foot lifted by original jump physics, direction 1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS real aerial foot collision triggers kick with direction 1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS contact supplies lifted shot, direction 1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS one activation per kick command 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY PASS all limb joints remain intact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+VOLLEY RULES COMPLETE failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: db8 -> priority: 1 
+  Thread -> id: 5008 -> priority: 1 
+  Thread -> id: bbc -> priority: 1 
+  Thread -> id: 7d70 -> priority: 1 
+  Thread -> id: 3c94 -> priority: 1 
+  Thread -> id: 9798 -> priority: 1 
+  Thread -> id: 76d0 -> priority: 1 
+  Thread -> id: 1e48 -> priority: 1 
+  Thread -> id: 322c -> priority: 1 
+  Thread -> id: 7938 -> priority: 1 
+  Thread -> id: 53d0 -> priority: 1 
+  Thread -> id: 7dac -> priority: 1 

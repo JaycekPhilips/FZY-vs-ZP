@@ -1,0 +1,523 @@
+Process is running in low integrity mode...
+Mono path[0] = 'C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/burst-test-player/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/burst-test-player/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/burst-test-player/FanZhiYi_Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; threaded=0
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.083 seconds
+Microsoft Media Foundation video decoding to texture disabled: graphics device is Null, only Direct3D 11 and Direct3D 12 (only on desktop) are supported for hardware-accelerated video decoding.
+UnloadTime: 0.488300 ms
+NEW PASS original main-screen rules button opens original panel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS original rules include classic J header 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS rules use exact requested hint 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS rules omit special skill descriptions 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS all rules characters fit at width=800 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+RULE LAYOUT 800 rect=(x:-189.00, y:-166.70, width:378.00, height:333.40) font=20 chars=92 len=92 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS all rules characters fit at width=1280 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+RULE LAYOUT 1280 rect=(x:-189.00, y:-166.70, width:378.00, height:333.40) font=20 chars=92 len=92 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS original rules close button still works 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.138200 ms
+
+Unloading 145 unused Assets to reduce memory usage. Loaded Objects now: 1003.
+Total: 0.482300 ms (FindLiveObjects: 0.047900 ms CreateObjectMapping: 0.018500 ms MarkObjects: 0.160000 ms  DeleteObjects: 0.255400 ms)
+
+NEW PASS native input hook receives first shot Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS single native tap cannot arm skill Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS second native tap arms contact window Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS double tap alone needs contact Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS sole remains excluded after double tap Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS upper shin remains excluded Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS accepted lower-shin contact triggers double skill Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS contact consumes pair Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS same pair cannot trigger twice Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS third tap starts new pair instead of retriggering Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS fourth tap completes new pair Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS slow second tap does not count Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS same-frame repeated commands count once Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS expired real-contact window rejects skill Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS pause clears first tap Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS ball reset clears first tap Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS rear ball breaks pending pair Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS double tap rear ball does not activate Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS jump alone no longer substitutes for double tap 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.667000 ms
+
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 1049.
+Total: 1.131200 ms (FindLiveObjects: 0.050700 ms CreateObjectMapping: 0.016100 ms MarkObjects: 0.206400 ms  DeleteObjects: 0.857300 ms)
+
+NEW PASS native input hook receives first shot Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS single native tap cannot arm skill Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS second native tap arms contact window Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS double tap alone needs contact Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS sole remains excluded after double tap Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS upper shin remains excluded Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS accepted lower-shin contact triggers double skill Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS contact consumes pair Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS same pair cannot trigger twice Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS third tap starts new pair instead of retriggering Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS fourth tap completes new pair Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS slow second tap does not count Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS same-frame repeated commands count once Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS expired real-contact window rejects skill Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS pause clears first tap Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS ball reset clears first tap Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS rear ball breaks pending pair Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS double tap rear ball does not activate Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS burst has no height limit 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS close contested ball still blocks burst 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.247600 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1049.
+Total: 1.112700 ms (FindLiveObjects: 0.049400 ms CreateObjectMapping: 0.015700 ms MarkObjects: 0.164300 ms  DeleteObjects: 0.882700 ms)
+
+NEW PASS Fan jumping shot makes real instep contact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS Fan native double tap triggers real aerial volley 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS Fan volley preserves high arcing trajectory 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.271200 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.153500 ms (FindLiveObjects: 0.048400 ms CreateObjectMapping: 0.015600 ms MarkObjects: 0.186000 ms  DeleteObjects: 0.903200 ms)
+
+NEW PASS classic double shots have no special skills 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.210600 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.187300 ms (FindLiveObjects: 0.049100 ms CreateObjectMapping: 0.012200 ms MarkObjects: 0.232200 ms  DeleteObjects: 0.893400 ms)
+
+NEW PASS Fan ground ball still cannot trigger aerial volley 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.282300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.124600 ms (FindLiveObjects: 0.050100 ms CreateObjectMapping: 0.007900 ms MarkObjects: 0.216400 ms  DeleteObjects: 0.849700 ms)
+
+NEW PASS native kick clip actually plays and finishes 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS kick-only animation rate is correct skills=False backward=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS after shot animation returns to normal speed 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS faster kick preserves skeleton joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW SHOT skills=False back=False duration=0.3400002 joint=0.08575899 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.237600 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.211100 ms (FindLiveObjects: 0.047400 ms CreateObjectMapping: 0.015000 ms MarkObjects: 0.236900 ms  DeleteObjects: 0.911400 ms)
+
+NEW PASS native kick clip actually plays and finishes 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS kick-only animation rate is correct skills=True backward=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS after shot animation returns to normal speed 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS faster kick preserves skeleton joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS quick shot has its own skill animation 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW SHOT skills=True back=False duration=0.2599998 joint=0.08566977 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS native shot duration reflects 25 percent swing-speed boost classic=0.3400002 quick=0.2599998 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.271400 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.089200 ms (FindLiveObjects: 0.052800 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.215100 ms  DeleteObjects: 0.812600 ms)
+
+NEW PASS pre-shot backward cadence is 2x 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS native kick clip actually plays and finishes 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS kick-only animation rate is correct skills=True backward=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS after shot animation returns to normal speed 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS faster kick preserves skeleton joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS quick shot has its own skill animation 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW SHOT skills=True back=True duration=0.2800007 joint=0.07304481 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.216700 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.192800 ms (FindLiveObjects: 0.047800 ms CreateObjectMapping: 0.016300 ms MarkObjects: 0.273800 ms  DeleteObjects: 0.854400 ms)
+
+NEW PASS aerial strike makes a real instep contact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS double-tap aerial instep shot now triggers burst 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS aerial burst remains fast and pressed low 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS aerial shot still benefits from quicker swing 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.218700 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.351100 ms (FindLiveObjects: 0.049400 ms CreateObjectMapping: 0.015900 ms MarkObjects: 0.298900 ms  DeleteObjects: 0.986500 ms)
+
+NEW PASS ground burst begins with actual pitch contact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS grounded non-contest ball is eligible 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS ground shot has genuine instep contact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW FAIL ground burst still triggers on real ground shot 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW FAIL ground burst remains fast and low 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.243400 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.228200 ms (FindLiveObjects: 0.051800 ms CreateObjectMapping: 0.016200 ms MarkObjects: 0.201300 ms  DeleteObjects: 0.958400 ms)
+
+NEW DROP skills=False rear=False rising=True landing=0.96 minVy=-6.995324 joint=0.07557766 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS player lands through genuine ground collision 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop leaves original gravity scale intact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop retains all 9 native joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS classic creates no drop skill 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.236100 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.113300 ms (FindLiveObjects: 0.052000 ms CreateObjectMapping: 0.012900 ms MarkObjects: 0.155600 ms  DeleteObjects: 0.892500 ms)
+
+NEW DROP skills=True rear=False rising=True landing=0.2999992 minVy=-8.237917 joint=0.02939347 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS player lands through genuine ground collision 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop leaves original gravity scale intact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop retains all 9 native joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS S triggers down skill air rear=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop lands substantially sooner than ordinary fall 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS rapid descent is bounded 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop ends automatically on landing 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS accelerated descent and landing keep limbs joined 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.235700 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.118800 ms (FindLiveObjects: 0.058600 ms CreateObjectMapping: 0.034500 ms MarkObjects: 0.158700 ms  DeleteObjects: 0.866600 ms)
+
+NEW DROP skills=True rear=True rising=True landing=0.2999992 minVy=-8.241313 joint=0.02849224 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS player lands through genuine ground collision 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop leaves original gravity scale intact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop retains all 9 native joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS S triggers down skill air rear=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop lands substantially sooner than ordinary fall 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS rapid descent is bounded 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop ends automatically on landing 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS accelerated descent and landing keep limbs joined 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.240700 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.158800 ms (FindLiveObjects: 0.050800 ms CreateObjectMapping: 0.015800 ms MarkObjects: 0.165500 ms  DeleteObjects: 0.926100 ms)
+
+NEW DROP skills=True rear=False rising=False landing=0.2799988 minVy=-8.241312 joint=0.00861438 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS player lands through genuine ground collision 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop leaves original gravity scale intact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop retains all 9 native joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS S triggers down skill air rear=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop lands substantially sooner than ordinary fall 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS rapid descent is bounded 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS drop ends automatically on landing 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS accelerated descent and landing keep limbs joined 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.218100 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.202900 ms (FindLiveObjects: 0.048400 ms CreateObjectMapping: 0.015800 ms MarkObjects: 0.158900 ms  DeleteObjects: 0.979500 ms)
+
+NEW PASS S on ground does not trigger 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS rear ball retains prior shooting skill restriction 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.250500 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.200300 ms (FindLiveObjects: 0.050800 ms CreateObjectMapping: 0.015600 ms MarkObjects: 0.241900 ms  DeleteObjects: 0.891400 ms)
+
+NEW PASS pause check observes active quicker shot 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS pausing restores quicker shot animation rate 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.318300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.123900 ms (FindLiveObjects: 0.028700 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.184900 ms  DeleteObjects: 0.901500 ms)
+
+NEW PASS reset check observes active drop 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS round reset clears drop state and animation 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.232200 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.212800 ms (FindLiveObjects: 0.030700 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.217400 ms  DeleteObjects: 0.955700 ms)
+
+NEW PASS Fan AI requests down command for reachable ball below 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.291300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.172400 ms (FindLiveObjects: 0.034700 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.208300 ms  DeleteObjects: 0.920800 ms)
+
+NEW PASS AI emits actual double shot through native hook mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS AI reset clears pending second shot mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.271500 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1050.
+Total: 1.318400 ms (FindLiveObjects: 0.050300 ms CreateObjectMapping: 0.015700 ms MarkObjects: 0.220400 ms  DeleteObjects: 1.031600 ms)
+
+NEW PASS AI emits actual double shot through native hook mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+NEW PASS AI reset clears pending second shot mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DOUBLE SHOT COMPLETE checks=115 failures=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 608 -> priority: 1 
+  Thread -> id: 3a98 -> priority: 1 
+  Thread -> id: 4088 -> priority: 1 
+  Thread -> id: 27dc -> priority: 1 
+  Thread -> id: 3db8 -> priority: 1 
+  Thread -> id: 5544 -> priority: 1 
+  Thread -> id: 6c30 -> priority: 1 
+  Thread -> id: 8b88 -> priority: 1 
+  Thread -> id: 1fc4 -> priority: 1 
+  Thread -> id: 2768 -> priority: 1 
+  Thread -> id: 69f0 -> priority: 1 
+  Thread -> id: 942c -> priority: 1 

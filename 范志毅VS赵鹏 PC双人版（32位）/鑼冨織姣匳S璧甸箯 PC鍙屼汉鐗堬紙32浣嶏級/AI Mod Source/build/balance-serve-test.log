@@ -1,0 +1,415 @@
+Process is running in low integrity mode...
+Mono path[0] = 'C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/burst-test-player/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/burst-test-player/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/burst-test-player/FanZhiYi_Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; threaded=0
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.115 seconds
+Microsoft Media Foundation video decoding to texture disabled: graphics device is Null, only Direct3D 11 and Direct3D 12 (only on desktop) are supported for hardware-accelerated video decoding.
+UnloadTime: 0.481200 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.171900 ms
+
+Unloading 113 unused Assets to reduce memory usage. Loaded Objects now: 1003.
+Total: 0.529900 ms (FindLiveObjects: 0.029200 ms CreateObjectMapping: 0.009700 ms MarkObjects: 0.227900 ms  DeleteObjects: 0.262700 ms)
+
+BALANCE PASS Fan reset origin on goal line mode=0 skills=False actual=-6.051219 expected=-6.051219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Zhao reset origin on goal line mode=0 skills=False actual=6.101219 expected=6.101219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS center ball spawn unchanged actual=0 expected=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ball drop height unchanged actual=3.27 expected=3.27 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS left ball spawn unchanged actual=-3.6 expected=-3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS right ball spawn unchanged actual=3.6 expected=3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS initial goal-line placement preserves connected skeletons 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Fan retreat is 65 percent of old 1.5x actual=0.975 expected=0.975 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Zhao retreat matches old Fan 1.5x actual=1.5 expected=1.5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS attack sprint is 10 percent only in stunt mode actual=1 expected=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS native sprint force matches cap multiplier actual=1000 expected=1000 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.328100 ms
+
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 1044.
+Total: 1.227400 ms (FindLiveObjects: 0.064000 ms CreateObjectMapping: 0.020700 ms MarkObjects: 0.283700 ms  DeleteObjects: 0.858300 ms)
+
+BALANCE PASS Fan reset origin on goal line mode=0 skills=True actual=-6.051219 expected=-6.051219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Zhao reset origin on goal line mode=0 skills=True actual=6.101219 expected=6.101219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS center ball spawn unchanged actual=0 expected=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ball drop height unchanged actual=3.27 expected=3.27 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS left ball spawn unchanged actual=-3.6 expected=-3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS right ball spawn unchanged actual=3.6 expected=3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS initial goal-line placement preserves connected skeletons 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Fan retreat is 65 percent of old 1.5x actual=0.975 expected=0.975 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Zhao retreat matches old Fan 1.5x actual=1.5 expected=1.5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS attack sprint is 10 percent only in stunt mode actual=1.1 expected=1.1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS native sprint force matches cap multiplier actual=1100 expected=1100 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS emergency retreat animation still triggers automatically 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.848600 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1048.
+Total: 0.781500 ms (FindLiveObjects: 0.029500 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.187200 ms  DeleteObjects: 0.556300 ms)
+
+BALANCE PASS Fan reset origin on goal line mode=1 skills=False actual=-6.051219 expected=-6.051219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Zhao reset origin on goal line mode=1 skills=False actual=6.101219 expected=6.101219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS center ball spawn unchanged actual=0 expected=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ball drop height unchanged actual=3.27 expected=3.27 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS left ball spawn unchanged actual=-3.6 expected=-3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS right ball spawn unchanged actual=3.6 expected=3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS initial goal-line placement preserves connected skeletons 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI never retreats during untouched opening side=Zhao skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI avoids distant opening jumps side=Zhao skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI actively advances from goal line side=Zhao displacement=7.028406 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI native movement keeps limbs connected error=0.08659597 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS native reset returns player to goal line actual=6.101219 expected=6.101219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.238500 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1048.
+Total: 1.063600 ms (FindLiveObjects: 0.080400 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.217300 ms  DeleteObjects: 0.757400 ms)
+
+BALANCE PASS Fan reset origin on goal line mode=2 skills=False actual=-6.051219 expected=-6.051219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Zhao reset origin on goal line mode=2 skills=False actual=6.101219 expected=6.101219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS center ball spawn unchanged actual=0 expected=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ball drop height unchanged actual=3.27 expected=3.27 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS left ball spawn unchanged actual=-3.6 expected=-3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS right ball spawn unchanged actual=3.6 expected=3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS initial goal-line placement preserves connected skeletons 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI never retreats during untouched opening side=Fan skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI avoids distant opening jumps side=Fan skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI actively advances from goal line side=Fan displacement=6.870896 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI native movement keeps limbs connected error=0.0667836 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS native reset returns player to goal line actual=-6.051219 expected=-6.051219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.261300 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1048.
+Total: 1.085100 ms (FindLiveObjects: 0.048900 ms CreateObjectMapping: 0.016400 ms MarkObjects: 0.184700 ms  DeleteObjects: 0.834900 ms)
+
+BALANCE PASS Fan reset origin on goal line mode=1 skills=True actual=-6.051219 expected=-6.051219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Zhao reset origin on goal line mode=1 skills=True actual=6.101219 expected=6.101219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS center ball spawn unchanged actual=0 expected=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ball drop height unchanged actual=3.27 expected=3.27 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS left ball spawn unchanged actual=-3.6 expected=-3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS right ball spawn unchanged actual=3.6 expected=3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS initial goal-line placement preserves connected skeletons 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI never retreats during untouched opening side=Zhao skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI avoids distant opening jumps side=Zhao skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI actively advances from goal line side=Zhao displacement=6.972765 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI native movement keeps limbs connected error=0.09611779 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS native reset returns player to goal line actual=6.101219 expected=6.101219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.284600 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1048.
+Total: 1.156100 ms (FindLiveObjects: 0.118000 ms CreateObjectMapping: 0.010000 ms MarkObjects: 0.264000 ms  DeleteObjects: 0.763600 ms)
+
+BALANCE PASS Fan reset origin on goal line mode=2 skills=True actual=-6.051219 expected=-6.051219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Zhao reset origin on goal line mode=2 skills=True actual=6.101219 expected=6.101219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS center ball spawn unchanged actual=0 expected=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ball drop height unchanged actual=3.27 expected=3.27 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS left ball spawn unchanged actual=-3.6 expected=-3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS right ball spawn unchanged actual=3.6 expected=3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS initial goal-line placement preserves connected skeletons 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI never retreats during untouched opening side=Fan skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI avoids distant opening jumps side=Fan skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI actively advances from goal line side=Fan displacement=7.074451 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS AI native movement keeps limbs connected error=0.07244606 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS native reset returns player to goal line actual=-6.051219 expected=-6.051219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.244400 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1048.
+Total: 1.046300 ms (FindLiveObjects: 0.051300 ms CreateObjectMapping: 0.015200 ms MarkObjects: 0.179100 ms  DeleteObjects: 0.800400 ms)
+
+BALANCE PASS Fan reset origin on goal line mode=0 skills=False actual=-6.051219 expected=-6.051219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Zhao reset origin on goal line mode=0 skills=False actual=6.101219 expected=6.101219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS center ball spawn unchanged actual=0 expected=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ball drop height unchanged actual=3.27 expected=3.27 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS left ball spawn unchanged actual=-3.6 expected=-3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS right ball spawn unchanged actual=3.6 expected=3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS initial goal-line placement preserves connected skeletons 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS opening brake never uses backward input Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS opening brake avoids premature jump Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS distant aerial ball does not cause jump Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS aligned reachable descending ball allows attacking jump Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS normal play still recovers rear ball Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS opening brake never uses backward input Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS opening brake avoids premature jump Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS distant aerial ball does not cause jump Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS aligned reachable descending ball allows attacking jump Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS normal play still recovers rear ball Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.244300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1048.
+Total: 0.951400 ms (FindLiveObjects: 0.031600 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.209600 ms  DeleteObjects: 0.701600 ms)
+
+BALANCE PASS Fan reset origin on goal line mode=0 skills=False actual=-6.051219 expected=-6.051219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Zhao reset origin on goal line mode=0 skills=False actual=6.101219 expected=6.101219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS center ball spawn unchanged actual=0 expected=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ball drop height unchanged actual=3.27 expected=3.27 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS left ball spawn unchanged actual=-3.6 expected=-3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS right ball spawn unchanged actual=3.6 expected=3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS initial goal-line placement preserves connected skeletons 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Fan native retreat cap all modes actual=3.9 expected=3.9 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Zhao native retreat cap matches prior Fan all modes actual=6 expected=6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS both retreat gaits keep native joints connected skills=False error=0.1374458 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS both physically retreat under native controller skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.229200 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1048.
+Total: 1.087300 ms (FindLiveObjects: 0.051900 ms CreateObjectMapping: 0.009200 ms MarkObjects: 0.244600 ms  DeleteObjects: 0.781200 ms)
+
+BALANCE PASS Fan reset origin on goal line mode=0 skills=True actual=-6.051219 expected=-6.051219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Zhao reset origin on goal line mode=0 skills=True actual=6.101219 expected=6.101219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS center ball spawn unchanged actual=0 expected=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS ball drop height unchanged actual=3.27 expected=3.27 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS left ball spawn unchanged actual=-3.6 expected=-3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS right ball spawn unchanged actual=3.6 expected=3.6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS initial goal-line placement preserves connected skeletons 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Fan native retreat cap all modes actual=3.9 expected=3.9 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS Zhao native retreat cap matches prior Fan all modes actual=6 expected=6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS both retreat gaits keep native joints connected skills=True error=0.1173336 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE PASS both physically retreat under native controller skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+BALANCE SERVE COMPLETE checks=110 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 8b68 -> priority: 1 
+  Thread -> id: 1120 -> priority: 1 
+  Thread -> id: 80c -> priority: 1 
+  Thread -> id: 31b0 -> priority: 1 
+  Thread -> id: 4fac -> priority: 1 
+  Thread -> id: 8620 -> priority: 1 
+  Thread -> id: 86f8 -> priority: 1 
+  Thread -> id: 6da8 -> priority: 1 
+  Thread -> id: 84fc -> priority: 1 
+  Thread -> id: 930c -> priority: 1 
+  Thread -> id: 5f0c -> priority: 1 
+  Thread -> id: 9c7c -> priority: 1 

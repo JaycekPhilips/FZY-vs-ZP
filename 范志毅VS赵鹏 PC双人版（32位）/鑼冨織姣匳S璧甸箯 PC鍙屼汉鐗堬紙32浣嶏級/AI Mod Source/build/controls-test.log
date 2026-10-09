@@ -1,0 +1,228 @@
+Process is running in low integrity mode...
+Mono path[0] = 'C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/controls-test-player/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/controls-test-player/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Desktop/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/controls-test-player/FanZhiYi_Data/UnitySubsystems
+Forcing GfxDevice: Direct3D 11
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+FMOD failed to initialize. This may be because your sound card is configured to give applications exclusive access, thus preventing Unity from using this device. You can change this in Control Panel > Audio Devices and Sound Themes > Playback Device > Properties > Options ... : "Soundcard does not support the minimum features needed for this soundsystem (16bit stereo output). " (59) 
+(Filename:  Line: 1659)
+
+Forced to initialize FMOD to to the device driver's system output rate 44100, this may impact performance and/or give inconsistent experiences compared to selected sample rate 48000 
+(Filename:  Line: 1597)
+
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.112 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.487400 ms
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+CONTROLS PASS start menu offers binding settings 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS menu button opens settings overlay 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS all twelve default slots include Zhao keypad header 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+CONTROLS PASS settings buttons remain inside viewport (1280.0, 720.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS settings screenshot captured 1280 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+CONTROLS PASS settings buttons remain inside viewport (800.0, 600.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS settings screenshot captured 800 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS UI rejects another player's occupied key 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS UI captures and displays new key 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS UI binding persists after reload 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS UI restores original defaults 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS done closes overlay 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.184200 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1013.
+Total: 0.507800 ms (FindLiveObjects: 0.039700 ms CreateObjectMapping: 0.009100 ms MarkObjects: 0.197300 ms  DeleteObjects: 0.261400 ms)
+
+CONTROLS PASS default binding p=0 action=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=0 action=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=0 action=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=0 action=3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=0 action=4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=0 action=5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=1 action=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=1 action=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=1 action=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=1 action=3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=1 action=4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=1 action=5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS custom left drives native movement 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS opposite movement keys cancel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS custom right drives native movement 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS custom shooting key reaches native Kick slot 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS old shooting key stops after rebinding 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS custom down reaches Fan quick drop 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS custom jump reaches native jump slot 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS both players' changes persist 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS cross-player key conflicts rejected 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.349600 ms
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.339100 ms (FindLiveObjects: 0.058300 ms CreateObjectMapping: 0.008500 ms MarkObjects: 0.254100 ms  DeleteObjects: 1.017700 ms)
+
+CONTROLS PASS native Zhao head slot assigned skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS CLIPS Zhao Kick,Jump,Walk,Idle,BackWalk,Head, 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS human key executes Zhao header animation skills=False remapped=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header preserves actual head-ball collision skills=False remapped=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header retains connected model error=0.03199323 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.281300 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1059.
+Total: 1.427700 ms (FindLiveObjects: 0.039900 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.306000 ms  DeleteObjects: 1.072900 ms)
+
+CONTROLS PASS native Zhao head slot assigned skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS CLIPS Zhao Kick,Jump,Walk,Idle,BackWalk,Head, 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS human key executes Zhao header animation skills=True remapped=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header preserves actual head-ball collision skills=True remapped=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header retains connected model error=0.03259876 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.699300 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1064.
+Total: 1.341500 ms (FindLiveObjects: 0.039200 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.285800 ms  DeleteObjects: 1.007700 ms)
+
+CONTROLS PASS native Zhao head slot assigned skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS CLIPS Zhao Kick,Jump,Walk,Idle,BackWalk,Head, 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS human key executes Zhao header animation skills=True remapped=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header preserves actual head-ball collision skills=True remapped=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header retains connected model error=0.03259876 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS COMPLETE checks=45 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: cd0 -> priority: 1 
+  Thread -> id: 18e8 -> priority: 1 
+  Thread -> id: 4924 -> priority: 1 
+  Thread -> id: 7798 -> priority: 1 
+  Thread -> id: 76b8 -> priority: 1 
+  Thread -> id: 1c34 -> priority: 1 
+  Thread -> id: 58f0 -> priority: 1 
+  Thread -> id: 5e28 -> priority: 1 
+  Thread -> id: 7e50 -> priority: 1 
+  Thread -> id: 5030 -> priority: 1 
+  Thread -> id: b20 -> priority: 1 
+  Thread -> id: 8d6c -> priority: 1 

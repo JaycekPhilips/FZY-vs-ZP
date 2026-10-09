@@ -1,0 +1,314 @@
+using System;
+using System.Collections.Generic;
+using System.Reflection;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+// Kept in a separate assembly so the original game's serialized components stay intact.
+public static class GameAIMod
+{
+    // 0: two players; 1: Fan is human; 2: Zhao is human.
+    private static int mode;
+    private static readonly Dictionary<int, AIState> states = new Dictionary<int, AIState>();
+    private static Rigidbody2D ballBody;
+    private static Type ballType;
+    private static Component menuPanel;
+    private static GameObject modeOverlay;
+
+    private sealed class AIState
+    {
+        public Rigidbody2D body;
+        public Rigidbody2D opponentBody;
+        public Transform foot;
+        public Transform headTransform;
+        public FieldInfo groundField;
+        public int frame = -1;
+        public float axis;
+        public bool jump;
+        public bool kick;
+        public bool head;
+        public float lastJump = -10f;
+        public float lastKick = -10f;
+        public float lastHead = -10f;
+    }
+
+    public static void SetupMenu(Component panel)
+    {
+        states.Clear();
+        ballBody = null;
+        menuPanel = panel;
+        modeOverlay = null;
+        Button start = null;
+        Button[] buttons = panel.GetComponentsInChildren<Button>(true);
+        foreach (Button candidate in buttons)
+        {
+            if (candidate.gameObject.name == "btn_Start")
+            {
+                start = candidate;
+                break;
+            }
+        }
+        if (start == null) return;
+        start.onClick.RemoveAllListeners();
+        Button startButton = start;
+        start.onClick.AddListener(delegate { ShowModeMenu(panel, startButton); });
+    }
+
+    private static void ShowModeMenu(Component panel, Button template)
+    {
+        Canvas canvas = panel.GetComponentInParent<Canvas>();
+        Transform parent = canvas != null ? canvas.transform : panel.transform;
+        Transform existing = parent.Find("AI Mode Selection");
+        if (existing != null)
+        {
+            modeOverlay = existing.gameObject;
+            existing.gameObject.SetActive(true);
+            existing.SetAsLastSibling();
+            return;
+        }
+
+        GameObject overlay = new GameObject("AI Mode Selection", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+        modeOverlay = overlay;
+        overlay.transform.SetParent(parent, false);
+        overlay.transform.SetAsLastSibling();
+        RectTransform area = (RectTransform)overlay.transform;
+        area.anchorMin = Vector2.zero;
+        area.anchorMax = Vector2.one;
+        area.offsetMin = Vector2.zero;
+        area.offsetMax = Vector2.zero;
+        Image shade = overlay.GetComponent<Image>();
+        shade.color = new Color(0.025f, 0.055f, 0.09f, 0.94f);
+        shade.raycastTarget = true;
+
+        Text originalText = template.GetComponentInChildren<Text>(true);
+        if (originalText != null)
+        {
+            GameObject titleObject = new GameObject("Mode Title", typeof(RectTransform), typeof(CanvasRenderer), typeof(Text));
+            titleObject.transform.SetParent(overlay.transform, false);
+            RectTransform titleRect = (RectTransform)titleObject.transform;
+            titleRect.anchorMin = titleRect.anchorMax = new Vector2(0.5f, 0.5f);
+            titleRect.sizeDelta = new Vector2(560f, 60f);
+            titleRect.anchoredPosition = new Vector2(0f, 185f);
+            Text title = titleObject.GetComponent<Text>();
+            title.font = originalText.font;
+            title.fontSize = 34;
+            title.color = Color.white;
+            title.alignment = TextAnchor.MiddleCenter;
+            title.text = "选择对战模式";
+        }
+
+        AddChoice(template, overlay.transform, "双人对战", 90f, delegate { StartGame(0); });
+        AddChoice(template, overlay.transform, "操控范志毅 · 挑战赵鹏 AI", 10f, delegate { StartGame(1); });
+        AddChoice(template, overlay.transform, "操控赵鹏 · 挑战范志毅 AI", -70f, delegate { StartGame(2); });
+        AddChoice(template, overlay.transform, "返回", -160f, delegate
+        {
+            overlay.SetActive(false);
+            UnityEngine.Object.Destroy(overlay);
+            modeOverlay = null;
+        });
+    }
+
+    private static void AddChoice(Button template, Transform parent, string label, float y, UnityEngine.Events.UnityAction action)
+    {
+        Button choice = UnityEngine.Object.Instantiate<Button>(template);
+        choice.transform.SetParent(parent, false);
+        choice.gameObject.name = "mode_" + label;
+        RectTransform rect = choice.GetComponent<RectTransform>();
+        rect.anchorMin = rect.anchorMax = new Vector2(0.5f, 0.5f);
+        rect.pivot = new Vector2(0.5f, 0.5f);
+        rect.anchoredPosition = new Vector2(0f, y);
+        rect.sizeDelta = new Vector2(460f, 65f);
+        rect.localScale = Vector3.one;
+        Text text = choice.GetComponentInChildren<Text>(true);
+        if (text != null)
+        {
+            text.text = label;
+            text.fontSize = 25;
+            text.alignment = TextAnchor.MiddleCenter;
+        }
+        choice.onClick.RemoveAllListeners();
+        choice.onClick.AddListener(action);
+    }
+
+    private static void StartGame(int selectedMode)
+    {
+        mode = selectedMode;
+        states.Clear();
+        ballBody = null;
+        if (modeOverlay != null)
+        {
+            modeOverlay.SetActive(false);
+            UnityEngine.Object.Destroy(modeOverlay);
+            modeOverlay = null;
+        }
+        HideMainMenu();
+        SceneManager.LoadScene("GameScene");
+    }
+
+    private static void HideMainMenu()
+    {
+        if (menuPanel == null) return;
+        // UIManager's canvas survives scene loads. Remove its panel dictionary entry
+        // through the same HidePanel path used by the game's original Start button.
+        menuPanel.gameObject.SetActive(false);
+        Type uiType = menuPanel.GetType().Assembly.GetType("UIManager");
+        Type singletonType = menuPanel.GetType().Assembly.GetType("SingletonBase`1");
+        object manager = singletonType.MakeGenericType(uiType)
+            .GetMethod("GetInstance", BindingFlags.Public | BindingFlags.Static)
+            .Invoke(null, null);
+        uiType.GetMethod("HidePanel", BindingFlags.Public | BindingFlags.Instance)
+            .Invoke(manager, new object[] { "MainPanel" });
+        menuPanel = null;
+    }
+
+    public static float GetAxis(string axisName, Component controller)
+    {
+        if (!IsAI(controller)) return Input.GetAxisRaw(axisName);
+        AIState state = GetState(controller);
+        UpdateDecision(controller, state);
+        return state.axis;
+    }
+
+    // The original FixedUpdate has an extra horizontal-force branch. Give both
+    // AI sides the same extra push; preserve the original check for human input.
+    public static float GetExtraPushGate(string axisName, Component controller)
+    {
+        return IsAI(controller) ? -1f : Input.GetAxisRaw(axisName);
+    }
+
+    public static bool GetButtonDown(KeyCode key, Component controller)
+    {
+        if (!IsAI(controller)) return Input.GetKeyDown(key);
+        AIState state = GetState(controller);
+        UpdateDecision(controller, state);
+        // The game's PlayerInput maps each side to these keys.
+        if (key == KeyCode.W || key == KeyCode.UpArrow) return state.jump;
+        if (key == KeyCode.K || key == KeyCode.KeypadEnter) return state.kick;
+        if (key == KeyCode.J) return state.head;
+        // The original Zhao input has no head key assigned, but its AI can use the move.
+        if (key == KeyCode.None && controller.gameObject.name == "Zhao") return state.head;
+        return false;
+    }
+
+    private static bool IsAI(Component controller)
+    {
+        if (controller == null) return false;
+        string name = controller.gameObject.name;
+        return (mode == 1 && name == "Zhao") || (mode == 2 && name == "Fan");
+    }
+
+    private static AIState GetState(Component controller)
+    {
+        int id = controller.GetInstanceID();
+        AIState state;
+        if (!states.TryGetValue(id, out state) || state.body == null)
+        {
+            state = new AIState();
+            Type type = controller.GetType();
+            FieldInfo bodyField = type.GetField("rb", BindingFlags.Instance | BindingFlags.Public);
+            FieldInfo footField = type.GetField("footTrans", BindingFlags.Instance | BindingFlags.Public);
+            state.groundField = type.GetField("isOnGround", BindingFlags.Instance | BindingFlags.Public);
+            if (bodyField != null) state.body = bodyField.GetValue(controller) as Rigidbody2D;
+            if (footField != null) state.foot = footField.GetValue(controller) as Transform;
+            state.headTransform = controller.transform.Find("Head");
+            GameObject opponent = GameObject.Find(controller.gameObject.name == "Fan" ? "Zhao" : "Fan");
+            if (opponent != null)
+            {
+                Transform otherBody = opponent.transform.Find("Body");
+                if (otherBody != null) state.opponentBody = otherBody.GetComponent<Rigidbody2D>();
+            }
+            states[id] = state;
+        }
+        return state;
+    }
+
+    private static Rigidbody2D FindBall()
+    {
+        if (ballBody != null) return ballBody;
+        if (ballType == null) ballType = Type.GetType("Ball, Assembly-CSharp");
+        if (ballType == null) return null;
+        Component ball = UnityEngine.Object.FindObjectOfType(ballType) as Component;
+        if (ball != null) ballBody = ball.GetComponent<Rigidbody2D>();
+        return ballBody;
+    }
+
+    private static void UpdateDecision(Component controller, AIState state)
+    {
+        if (state.frame == Time.frameCount) return;
+        state.frame = Time.frameCount;
+        state.axis = 0f;
+        state.jump = state.kick = state.head = false;
+
+        Rigidbody2D ball = FindBall();
+        Rigidbody2D player = state.body;
+        if (ball == null || player == null) return;
+
+        Vector2 ballPosition = ball.position;
+        Vector2 ballVelocity = ball.velocity;
+        Vector2 playerPosition = player.position;
+        float attackDirection = controller.gameObject.name == "Fan" ? 1f : -1f;
+
+        // Lead a moving ball, with a shorter horizon when the ball is close.
+        float distance = Mathf.Abs(ballPosition.x - playerPosition.x);
+        float horizon = Mathf.Clamp(distance / 9f, 0.06f, 0.48f);
+        float interceptX = ballPosition.x + ballVelocity.x * horizon;
+        float gravity = Physics2D.gravity.y * ball.gravityScale;
+        float interceptY = ballPosition.y + ballVelocity.y * horizon + 0.5f * gravity * horizon * horizon;
+
+        float headY = state.headTransform != null ? state.headTransform.position.y : playerPosition.y + 0.9f;
+        float headX = state.headTransform != null ? state.headTransform.position.x : playerPosition.x;
+        float footY = state.foot != null ? state.foot.position.y : playerPosition.y - 2.2f;
+        float forwardBall = attackDirection * (ballPosition.x - playerPosition.x);
+        float opponentGap = state.opponentBody != null
+            ? Mathf.Abs(ballPosition.x - state.opponentBody.position.x) : 100f;
+        bool duel = distance < 2.0f && opponentGap < 2.0f;
+
+        // Hold the goal side while approaching, then drive through a contested
+        // ball. Stopping behind it was the main cause of losing pushing duels.
+        float targetX = interceptX - attackDirection * 0.55f;
+        if (duel && forwardBall > -0.4f)
+        {
+            state.axis = attackDirection;
+        }
+        else if (distance < 1.1f && forwardBall > -0.3f)
+        {
+            state.axis = attackDirection;
+        }
+        else
+        {
+            float difference = targetX - playerPosition.x;
+            if (Mathf.Abs(difference) > 0.18f) state.axis = Mathf.Sign(difference);
+        }
+
+        float now = Time.time;
+        float footGap = ballPosition.y - footY;
+        float headGap = ballPosition.y - headY;
+        float forwardHead = attackDirection * (ballPosition.x - headX);
+        bool grounded = state.groundField != null && (bool)state.groundField.GetValue(controller);
+
+        bool reachableAirBall = interceptY > headY - 0.1f ||
+            (duel && footGap > 1.55f && ballPosition.y > footY + 1.55f);
+        if (grounded && now - state.lastJump > 0.72f &&
+            Mathf.Abs(interceptX - playerPosition.x) < 2.35f &&
+            reachableAirBall && interceptY < headY + 2.7f)
+        {
+            state.jump = true;
+            state.lastJump = now;
+        }
+        float kickCooldown = duel ? 0.28f : 0.4f;
+        if (distance < 1.65f && forwardBall > -0.65f &&
+            footGap > -0.3f && footGap < 2.15f && now - state.lastKick > kickCooldown)
+        {
+            state.kick = true;
+            state.lastKick = now;
+        }
+        float headCooldown = duel ? 0.3f : 0.45f;
+        if (Mathf.Abs(forwardHead) < 1.45f && forwardHead > -0.55f &&
+            headGap > -1.35f && headGap < 1.35f && now - state.lastHead > headCooldown)
+        {
+            state.head = true;
+            state.lastHead = now;
+        }
+    }
+}

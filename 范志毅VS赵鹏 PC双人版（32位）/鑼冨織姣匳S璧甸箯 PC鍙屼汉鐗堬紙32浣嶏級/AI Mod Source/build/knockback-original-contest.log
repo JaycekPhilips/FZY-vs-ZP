@@ -1,0 +1,302 @@
+Process is running in low integrity mode...
+Mono path[0] = 'C:/Users/Alienware/OneDrive/文档/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/knockback-test-player-original/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/OneDrive/文档/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/knockback-test-player-original/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/OneDrive/文档/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/knockback-test-player-original/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.115 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.522400 ms
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.153500 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1010.
+Total: 0.502000 ms (FindLiveObjects: 0.033400 ms CreateObjectMapping: 0.008900 ms MarkObjects: 0.184200 ms  DeleteObjects: 0.275100 ms)
+
+CONTEST PASS idle ball control causes no remote shove 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Curl error 7: Failed to connect to 127.0.0.1 port 7897: Bad access
+ 
+(Filename:  Line: 867)
+
+CONTEST PASS single-player ball touch cannot stagger distant opponent 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.738900 ms
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.191500 ms (FindLiveObjects: 0.035100 ms CreateObjectMapping: 0.008500 ms MarkObjects: 0.198100 ms  DeleteObjects: 0.949400 ms)
+
+CONTEST PASS classic contest uses only ordinary physics 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.267000 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.033000 ms (FindLiveObjects: 0.031800 ms CreateObjectMapping: 0.008900 ms MarkObjects: 0.177500 ms  DeleteObjects: 0.814300 ms)
+
+CONTEST PASS reset clears cached shared contact/pressure 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS pause disables contest benefit 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS aerial tackle strength/duration unchanged 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS ground direct linear +40%, tipping +35% 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.254000 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.158600 ms (FindLiveObjects: 0.045800 ms CreateObjectMapping: 0.007800 ms MarkObjects: 0.199300 ms  DeleteObjects: 0.905100 ms)
+
+CONTEST HIT bridge=True air=False gap=1.002378 shared=True upperTouch=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS through-ball pushes Fan two body widths actual=2.000974 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST RUN sustained=False bridge=1 direct=0 force=1305 tilt=18.72558,13.54666 error=0.05405162 recovery=0.4400001 interval=100 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS ground contest triggers through a football sustained=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS both feet and pitch really touch same ball at trigger 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS bridge tackle works without upper-body contact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS Fan visibly loses balance briefly tilt=18.72558 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS impact never folds or disconnects either rig 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS Zhao can brace during ground pushing 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS magnetic foot preserves strong real pushing force=1305 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS Fan recovers quickly after one hit=0.4400001 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS temporary ground brace mass restored 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.279500 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.214200 ms (FindLiveObjects: 0.039200 ms CreateObjectMapping: 0.009400 ms MarkObjects: 0.224800 ms  DeleteObjects: 0.940600 ms)
+
+CONTEST HIT bridge=True air=False gap=1.005645 shared=True upperTouch=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST HIT bridge=False air=False gap=0.8755724 shared=False upperTouch=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST HIT bridge=False air=False gap=0.8856367 shared=False upperTouch=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST RUN sustained=True bridge=1 direct=2 force=1305 tilt=42.13425,13.05933 error=0.09499215 recovery=0.6800003 interval=1.059999 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS ground contest triggers through a football sustained=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS both feet and pitch really touch same ball at trigger 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS bridge tackle works without upper-body contact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS Fan visibly loses balance briefly tilt=42.13425 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS impact never folds or disconnects either rig 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS Zhao can brace during ground pushing 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS magnetic foot preserves strong real pushing force=1305 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS shared cooldown prevents continuous stun 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.290900 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.215700 ms (FindLiveObjects: 0.032000 ms CreateObjectMapping: 0.008500 ms MarkObjects: 0.186300 ms  DeleteObjects: 0.988500 ms)
+
+CONTEST HIT bridge=False air=False gap=0.9227485 shared=False upperTouch=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS real direct-body tackle air=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS direct pushes two body widths air=False actual=2.166112 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS direct tackle staggers intact rig air=False tilt=24.93928 error=0.07421225 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS direct balance recovers air=False time=0.4799995 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS shove finishes air=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS reset clears shove air=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.243900 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.296800 ms (FindLiveObjects: 0.029700 ms CreateObjectMapping: 0.007600 ms MarkObjects: 0.209600 ms  DeleteObjects: 1.049700 ms)
+
+CONTEST HIT bridge=False air=True gap=1.063382 shared=False upperTouch=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS real direct-body tackle air=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS direct pushes two body widths air=True actual=1.999433 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS direct tackle staggers intact rig air=True tilt=30.45633 error=0.06290264 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS direct balance recovers air=True time=0.54 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS shove finishes air=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS reset clears shove air=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.261800 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.169600 ms (FindLiveObjects: 0.032300 ms CreateObjectMapping: 0.008000 ms MarkObjects: 0.175300 ms  DeleteObjects: 0.953700 ms)
+
+CONTEST HIT bridge=True air=False gap=1.065163 shared=True upperTouch=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS lifecycle starts from real tackle pause=True blocked=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS shove is active before cancellation or obstruction 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS pause/reset clears active shove pause=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS pause/reset restores muscle and mass parameters 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS shove does not restart after resume/reset 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.291800 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.199400 ms (FindLiveObjects: 0.058200 ms CreateObjectMapping: 0.008900 ms MarkObjects: 0.283700 ms  DeleteObjects: 0.848300 ms)
+
+CONTEST HIT bridge=True air=False gap=1.100409 shared=True upperTouch=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS lifecycle starts from real tackle pause=False blocked=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS shove is active before cancellation or obstruction 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS pause/reset clears active shove pause=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS pause/reset restores muscle and mass parameters 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS shove does not restart after resume/reset 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.283200 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.351500 ms (FindLiveObjects: 0.071100 ms CreateObjectMapping: 0.017500 ms MarkObjects: 0.219200 ms  DeleteObjects: 1.043400 ms)
+
+CONTEST HIT bridge=True air=False gap=1.189209 shared=True upperTouch=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS lifecycle starts from real tackle pause=False blocked=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS shove is active before cancellation or obstruction 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS real wall blocks full shove distance travel=0.7373576 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS shove cannot pass through obstruction or disconnect rig 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST PASS blocked shove times out 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTEST COMPLETE checks=52 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 930 -> priority: 1 
+  Thread -> id: 4540 -> priority: 1 
+  Thread -> id: 5d34 -> priority: 1 
+  Thread -> id: 9ec0 -> priority: 1 
+  Thread -> id: 4970 -> priority: 1 
+  Thread -> id: f48 -> priority: 1 
+  Thread -> id: 6f3c -> priority: 1 
+  Thread -> id: 9e90 -> priority: 1 
+  Thread -> id: 8b18 -> priority: 1 
+  Thread -> id: 2158 -> priority: 1 
+  Thread -> id: 84e0 -> priority: 1 
+  Thread -> id: 7b84 -> priority: 1 
