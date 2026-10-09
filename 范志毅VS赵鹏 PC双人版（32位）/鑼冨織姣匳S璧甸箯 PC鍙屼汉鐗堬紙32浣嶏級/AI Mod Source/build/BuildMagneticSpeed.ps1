@@ -1,4 +1,4 @@
-param([ValidateSet('Original','Experiment','Win64')][string]$Edition='Original',[ValidateSet('Gameplay','Controls','Boundary','Defense','Goals','Magnetic','Contest','AI','Drop','Corner','Balance')][string]$Suite='Gameplay',[switch]$Baseline)
+﻿param([ValidateSet('Original','Experiment','Win64')][string]$Edition='Original',[ValidateSet('Gameplay','Controls','Boundary','Defense','Goals','Magnetic','Contest','AI','Drop','Corner','Balance')][string]$Suite='Gameplay',[switch]$Baseline)
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $gameRoot = if ($Edition -eq 'Experiment') { Join-Path $taskRoot '实验版（模型75%）' } else { $taskRoot }
@@ -25,7 +25,7 @@ if (-not (Test-Path -LiteralPath (Join-Path $testPlayer 'FanZhiYi.exe'))) {
 }
 $managed = Join-Path $gameRoot 'FanZhiYi_Data\Managed'
 $refs = @('netstandard.dll','UnityEngine.dll','UnityEngine.CoreModule.dll','UnityEngine.Physics2DModule.dll','UnityEngine.AnimationModule.dll','UnityEngine.UIModule.dll','UnityEngine.UI.dll','UnityEngine.InputLegacyModule.dll','UnityEngine.IMGUIModule.dll','UnityEngine.AudioModule.dll','UnityEngine.TextRenderingModule.dll','UnityEngine.ScreenCaptureModule.dll','UnityEngine.ImageConversionModule.dll') | ForEach-Object { '/r:' + (Join-Path $managed $_) }
-$sources = @('GameAIMod.cs','PlayerSkills.cs','PlayerMovement.cs','ZhaoHeader.cs','ControlBindings.cs','PowerShot.cs','MagneticFoot.cs') | ForEach-Object { Join-Path $source $_ }
+$sources = @('GameAIMod.cs','PlayerSkills.cs','PlayerMovement.cs','ZhaoHeader.cs','ControlBindings.cs','PowerShot.cs','MagneticFoot.cs','LanMultiplayer.cs') | ForEach-Object { Join-Path $source $_ }
 if ($Edition -eq 'Experiment') { $sources += Join-Path $source 'ExperimentScale.cs' }
 $csc = 'C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe'
 & $csc /nologo /target:library /optimize+ ('/out:' + (Join-Path $release 'GameAIMod.dll')) $refs $sources

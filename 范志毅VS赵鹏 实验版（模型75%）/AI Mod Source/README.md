@@ -19,6 +19,10 @@
 
 点击主菜单的“开始”，先选择经典模式或特技模式，再选择双人对战、操控范志毅挑战赵鹏 AI、操控赵鹏挑战范志毅 AI。重新开始保持当前玩法和对战方式；返回主菜单可重新选择。左下角显示当前玩法。
 
+## 局域网对战
+
+两台 Windows 电脑连接同一局域网后，在两边进入相同的经典／特技模式并点击“局域网对战”。一台电脑点“创建房间”，把界面显示的局域网 IPv4 地址告诉另一位玩家；另一台输入地址并加入。房主操控范志毅，加入者操控赵鹏，连接成功后自动开赛。两端必须使用同一游戏版本和相同玩法；若 Windows 防火墙询问，请允许游戏在专用网络通信。需要 UDP 28950 端口可通。此功能仅支持同一局域网直连，不提供公网中继。
+
 ## 操作与键位设置
 
 主菜单点击“开始”，在玩法选择页点击“键位设置”。点击对应动作后按新键即可修改并自动保存；重复按键会被拒绝，Esc 可取消当前修改，也可恢复默认键位。主屏幕操作说明会显示当前设置。
@@ -79,6 +83,7 @@ AI 每帧根据球的速度和重力预判截球位置，从己方球门一侧�
 
 - `GameAIMod.cs`：模式菜单与双方 AI 的源码。
 - `ControlBindings.cs`：双方键位映射、设置界面与 INI 配置保存。
+- `LanMultiplayer.cs`：房间创建与加入、UDP 输入传输、主机物理状态同步和断线提示。
 - `ZhaoHeader.cs`：赵鹏真实甩头动作的独立采样与头部、躯干角度镜像；保留腿脚朝向。
 - `build/ControlsTests.cs`：隔离测试中的默认键位、改键、保存恢复、普通头球动作及真实碰撞测试。
 - `build/ZhaoVolleyTests.cs`：隔离测试中的真实弧线射门、赵鹏防守与开球回归测试；另与修改前 AI 使用相同射门位置对比。
@@ -93,7 +98,7 @@ AI 每帧根据球的速度和重力预判截球位置，从己方球门一侧�
 
 编译源码可使用 Windows .NET Framework C# 编译器。`PatchGame.cs` 依赖 NuGet 的 Mono.Cecil 0.11.6；游戏运行不需要 Mono.Cecil。
 
-正式版只编译 GameAIMod.cs、PlayerSkills.cs、PlayerMovement.cs、ControlBindings.cs、ZhaoHeader.cs、PowerShot.cs、ExperimentScale.cs；没有测试组件或自动操作入口。
+正式版编译 `GameAIMod.cs`、`PlayerSkills.cs`、`PlayerMovement.cs`、`ControlBindings.cs`、`ZhaoHeader.cs`、`PowerShot.cs`、`MagneticFoot.cs`、`ExperimentScale.cs` 和 `LanMultiplayer.cs`；没有测试组件或自动操作入口。
 
 用户要求：本次及以后的修改都要测试后更新。除编译外，应在隔离的游戏副本中运行与修改相关的实际场景测试，检查正常玩法和修复后的行为；测试代码不能编入正式游戏。本次门后出界测试源码为 `build/BehindGoalTests.cs`，覆盖经典和特技模式、左右两侧出界、门后地面及空中球、反弹返回球门、正常进球、重新发球和暂停恢复。
 

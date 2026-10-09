@@ -322,6 +322,10 @@ public static class GameAIMod
             AddChoice(template, overlay.transform, "双人对战", 90f, delegate { StartGame(0); });
             AddChoice(template, overlay.transform, "操控范志毅 · 挑战赵鹏 AI", 10f, delegate { StartGame(1); });
             AddChoice(template, overlay.transform, "操控赵鹏 · 挑战范志毅 AI", -70f, delegate { StartGame(2); });
+            AddChoice(template, overlay.transform, "局域网对战", -145f, delegate
+            {
+                LanMultiplayer.OpenLobby(PlayerSkills.Enabled, delegate { ShowSelection(panel, template, true); });
+            });
         }
         else
         {
@@ -391,6 +395,11 @@ public static class GameAIMod
         }
         HideMainMenu();
         SceneManager.LoadScene("GameScene");
+    }
+
+    public static void StartLanGame()
+    {
+        StartGame(0);
     }
 
     public static void OnBallReset()
