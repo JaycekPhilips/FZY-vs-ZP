@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Small host-authoritative LAN bridge for the original Unity player build.
 // Both copies simulate the match, while the joining copy follows host physics
@@ -16,11 +17,11 @@ public sealed class LanMultiplayer : MonoBehaviour
     private const int Protocol = 1;
     private enum State { Off, Hosting, Joining, Connected, InGame, Failed }
     private static LanMultiplayer instance;
-    private static GUIStyle lobbyWindowStyle, lobbyFrameStyle, lobbyTitleStyle, lobbyBodyStyle;
-    private static GUIStyle lobbyMutedStyle, lobbyCardStyle, lobbyPrimaryButtonStyle, lobbyButtonStyle;
-    private static GUIStyle lobbyTextFieldStyle, lobbyStatusStyle;
-    private static Texture2D lobbyWindowTexture, lobbyFrameTexture, lobbyCardTexture;
-    private static Texture2D lobbyPrimaryTexture, lobbyButtonTexture, lobbyFieldTexture;
+    private GameObject lobbyRoot;
+    private RectTransform lobbyContent;
+    private Text lobbyStatus, lobbyAddress;
+    private InputField lobbyInput;
+    private Button lobbyCreate, lobbyJoin, lobbyCopy;
     private Socket socket;
     private State state;
     private bool isHost, selectedStyle, lobbyVisible;
@@ -62,6 +63,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         if (instance == null || !instance.launchSent || instance.matchStarted) return;
         instance.matchStarted = true;
         instance.lobbyVisible = false;
+        instance.DestroyLobby();
         instance.state = State.InGame;
         GameAIMod.StartLanGame();
     }
@@ -97,7 +99,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         StopSession();
         IPAddress ip;
         if (!IPAddress.TryParse(hostAddress.Trim(), out ip) || ip.AddressFamily != AddressFamily.InterNetwork)
-        { message = "请输入有效的 IPv4 地址，例如 192.168.1.20。"; return; }
+        { message = "请输入有效的房主 IP"; state = State.Failed; return; }
         try
         {
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
@@ -114,6 +116,7 @@ public sealed class LanMultiplayer : MonoBehaviour
 
     private void Update()
     {
+        RefreshLobby();
         if (remotePressFrame >= 0 && remotePressFrame < Time.frameCount) { remotePressMask = 0; remotePressFrame = -1; }
         if (state == State.Off || state == State.Failed) return;
         ReceivePackets();
@@ -410,185 +413,148 @@ public sealed class LanMultiplayer : MonoBehaviour
         return true;
     }
 
+    public static void OpenLobby(bool style, Action back, Transform parent, Button template)
+    {
+        OpenLobby(style, back);
+        instance.BuildLobby(parent, template);
+    }
+
+    private void BuildLobby(Transform parent, Button template)
+    {
+        DestroyLobby();
+        lobbyRoot = new GameObject("LAN Lobby", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+        lobbyRoot.transform.SetParent(parent, false);
+        lobbyRoot.transform.SetAsLastSibling();
+        RectTransform area = (RectTransform)lobbyRoot.transform;
+        area.anchorMin = Vector2.zero; area.anchorMax = Vector2.one;
+        area.offsetMin = area.offsetMax = Vector2.zero;
+        Image surface = lobbyRoot.GetComponent<Image>();
+        surface.color = Color.clear;
+        surface.raycastTarget = true;
+
+        GameObject content = new GameObject("Lobby Content", typeof(RectTransform));
+        content.transform.SetParent(area, false);
+        lobbyContent = (RectTransform)content.transform;
+        PositionLobby(lobbyContent, new Vector2(0, 0), new Vector2(660, 600));
+        Text original = template.GetComponentInChildren<Text>(true);
+        Font font = original != null ? original.font : Resources.GetBuiltinResource<Font>("Arial.ttf");
+        Text title = AddLobbyText("Lobby Title", font, "局域网对战", new Vector2(0, 250), new Vector2(640, 60), 36);
+        title.fontStyle = FontStyle.Bold;
+        lobbyStatus = AddLobbyText("Lobby Status", font, "", new Vector2(0, 185), new Vector2(640, 60), 22);
+        lobbyCreate = AddLobbyButton(template, "Lobby Create", "创建房间", 100, StartHost);
+
+        GameObject input = new GameObject("Lobby IP", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image), typeof(InputField));
+        input.transform.SetParent(content.transform, false);
+        PositionLobby((RectTransform)input.transform, new Vector2(0, 0), new Vector2(560, 70));
+        Image fieldImage = input.GetComponent<Image>();
+        Image originalImage = template.GetComponent<Image>();
+        if (originalImage != null) { fieldImage.sprite = originalImage.sprite; fieldImage.type = originalImage.type; }
+        fieldImage.color = new Color(1, 1, 1, .94f);
+        lobbyInput = input.GetComponent<InputField>();
+        Text value = AddInputText(input.transform, font, "IP Value", "", Color.black);
+        Text placeholder = AddInputText(input.transform, font, "IP Placeholder", "输入房主 IP", new Color(.4f, .4f, .4f, 1));
+        lobbyInput.targetGraphic = fieldImage;
+        lobbyInput.textComponent = value;
+        lobbyInput.placeholder = placeholder;
+        lobbyInput.characterLimit = 15;
+        lobbyInput.text = address;
+        lobbyInput.onValueChanged.AddListener(delegate(string text) { address = text; });
+        lobbyJoin = AddLobbyButton(template, "Lobby Join", "加入房间", -100, delegate { Join(lobbyInput.text); });
+        lobbyAddress = AddLobbyText("Lobby Address", font, "", new Vector2(0, 50), new Vector2(640, 65), 34);
+        lobbyCopy = AddLobbyButton(template, "Lobby Copy", "复制 IP", -70, delegate { GUIUtility.systemCopyBuffer = address; });
+        AddLobbyButton(template, "Lobby Back", "返回", -240, CloseLobby);
+        RefreshLobby();
+    }
+
+    private void RefreshLobby()
+    {
+        if (lobbyRoot == null || !lobbyVisible) return;
+        RectTransform area = (RectTransform)lobbyRoot.transform;
+        float scale = Mathf.Min(area.rect.width / 760f, area.rect.height / 650f);
+        lobbyContent.localScale = Vector3.one * Mathf.Max(.1f, scale);
+        bool idle = state == State.Off || state == State.Failed;
+        lobbyCreate.gameObject.SetActive(idle);
+        lobbyInput.gameObject.SetActive(idle);
+        lobbyJoin.gameObject.SetActive(idle);
+        lobbyAddress.gameObject.SetActive(!idle);
+        lobbyCopy.gameObject.SetActive(state == State.Hosting);
+        lobbyAddress.text = state == State.Hosting ? address : (peer != null ? peer.Address.ToString() : address);
+        lobbyStatus.text = state == State.Failed ? message : state == State.Hosting ? "等待加入" :
+            state == State.Joining ? "正在连接…" : state == State.Connected ? "正在开赛…" : "";
+        if (Input.GetKeyDown(KeyCode.Escape)) CloseLobby();
+    }
+
+    private void CloseLobby()
+    {
+        StopSession();
+        lobbyVisible = false;
+        DestroyLobby();
+        if (returnToMenu != null) returnToMenu();
+    }
+
+    private void DestroyLobby()
+    {
+        if (lobbyRoot != null)
+        {
+            lobbyRoot.SetActive(false);
+            UnityEngine.Object.Destroy(lobbyRoot);
+            lobbyRoot = null;
+        }
+    }
+
+    private Button AddLobbyButton(Button template, string name, string label, float y, UnityEngine.Events.UnityAction action)
+    {
+        Button button = UnityEngine.Object.Instantiate<Button>(template);
+        button.transform.SetParent(lobbyContent, false);
+        button.gameObject.name = name;
+        PositionLobby(button.GetComponent<RectTransform>(), new Vector2(0, y), new Vector2(560, 70));
+        button.transform.localScale = Vector3.one;
+        button.gameObject.SetActive(true);
+        Text text = button.GetComponentInChildren<Text>(true);
+        if (text != null) { text.text = label; text.fontSize = 27; text.alignment = TextAnchor.MiddleCenter; }
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(action);
+        return button;
+    }
+
+    private Text AddLobbyText(string name, Font font, string value, Vector2 position, Vector2 size, int fontSize)
+    {
+        GameObject obj = new GameObject(name, typeof(RectTransform), typeof(CanvasRenderer), typeof(Text), typeof(Shadow));
+        obj.transform.SetParent(lobbyContent, false);
+        PositionLobby((RectTransform)obj.transform, position, size);
+        Text text = obj.GetComponent<Text>();
+        text.font = font; text.text = value; text.fontSize = fontSize;
+        text.color = Color.white; text.alignment = TextAnchor.MiddleCenter; text.raycastTarget = false;
+        obj.GetComponent<Shadow>().effectColor = new Color(0, 0, 0, .75f);
+        obj.GetComponent<Shadow>().effectDistance = new Vector2(2, -2);
+        return text;
+    }
+
+    private static Text AddInputText(Transform parent, Font font, string name, string value, Color color)
+    {
+        GameObject obj = new GameObject(name, typeof(RectTransform), typeof(CanvasRenderer), typeof(Text));
+        obj.transform.SetParent(parent, false);
+        RectTransform rect = (RectTransform)obj.transform;
+        rect.anchorMin = Vector2.zero; rect.anchorMax = Vector2.one;
+        rect.offsetMin = new Vector2(20, 5); rect.offsetMax = new Vector2(-20, -5);
+        Text text = obj.GetComponent<Text>();
+        text.font = font; text.fontSize = 26; text.text = value; text.color = color;
+        text.alignment = TextAnchor.MiddleCenter; text.raycastTarget = false;
+        text.supportRichText = false;
+        return text;
+    }
+
+    private static void PositionLobby(RectTransform rect, Vector2 position, Vector2 size)
+    {
+        rect.anchorMin = rect.anchorMax = rect.pivot = new Vector2(.5f, .5f);
+        rect.anchoredPosition = position; rect.sizeDelta = size;
+    }
+
     private void OnGUI()
     {
-        EnsureLobbyStyles();
-        if (lobbyVisible)
-        {
-            float width = Mathf.Min(640f, Screen.width - 32f);
-            float height = Mathf.Min(438f, Screen.height - 32f);
-            Rect window = new Rect((Screen.width - width) * 0.5f, (Screen.height - height) * 0.5f, width, height);
-            GUI.Box(window, GUIContent.none, lobbyFrameStyle);
-            window.x += 2f; window.y += 2f; window.width -= 4f; window.height -= 4f;
-            GUI.Window(90210, window, DrawLobby, GUIContent.none, lobbyWindowStyle);
-        }
-        else if (matchStarted)
-        {
-            string label = state == State.InGame ? (isHost ? "局域网 · 房主（范志毅）" : "局域网 · 客机（赵鹏）") : "局域网已断开";
-            GUI.Box(new Rect(12, 12, 520, 38), GUIContent.none, lobbyCardStyle);
-            GUI.Label(new Rect(24, 17, 496, 28), label + "   " + message, lobbyBodyStyle);
-        }
-    }
-
-    private void DrawLobby(int id)
-    {
-        GUILayout.BeginVertical();
-        GUILayout.Space(8);
-        GUILayout.BeginHorizontal();
-        GUILayout.Label("局域网对战", lobbyTitleStyle, GUILayout.Height(38));
-        GUILayout.FlexibleSpace();
-        GUILayout.Label("LAN  ·  UDP " + Port, lobbyStatusStyle, GUILayout.Width(146), GUILayout.Height(30));
-        GUILayout.EndHorizontal();
-        GUILayout.Label("两台电脑同网直连   /   经典模式与特技模式均可使用", lobbyMutedStyle, GUILayout.Height(25));
-        GUILayout.Space(5);
-
-        GUILayout.BeginVertical(lobbyCardStyle, GUILayout.ExpandWidth(true));
-        GUILayout.BeginHorizontal();
-        GUILayout.Label(StateLabel(), lobbyStatusStyle, GUILayout.Width(104), GUILayout.Height(26));
-        GUILayout.Label(message, lobbyBodyStyle, GUILayout.ExpandWidth(true), GUILayout.MinHeight(30));
-        GUILayout.EndHorizontal();
-        GUILayout.EndVertical();
-
-        if (state == State.Off || state == State.Failed)
-        {
-            GUILayout.Space(12);
-            if (GUILayout.Button("创建房间   ·   我来做房主", lobbyPrimaryButtonStyle, GUILayout.Height(48))) StartHost();
-            GUILayout.Space(9);
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("房主 IP", lobbyBodyStyle, GUILayout.Width(82), GUILayout.Height(38));
-            address = GUILayout.TextField(address, lobbyTextFieldStyle, GUILayout.ExpandWidth(true), GUILayout.Height(38));
-            GUILayout.Space(8);
-            if (GUILayout.Button("加入房间", lobbyButtonStyle, GUILayout.Width(128), GUILayout.Height(38))) Join(address);
-            GUILayout.EndHorizontal();
-            GUILayout.Space(8);
-            GUILayout.BeginVertical(lobbyCardStyle);
-            GUILayout.Label("本机局域网地址", lobbyMutedStyle, GUILayout.Height(20));
-            GUILayout.Label(localAddress, lobbyBodyStyle, GUILayout.Height(24));
-            GUILayout.EndVertical();
-        }
-        else if (state == State.Hosting)
-        {
-            GUILayout.Space(12);
-            GUILayout.BeginVertical(lobbyCardStyle);
-            GUILayout.Label("把下面的地址发给加入者", lobbyMutedStyle, GUILayout.Height(23));
-            GUILayout.BeginHorizontal();
-            GUILayout.Label(address, lobbyTitleStyle, GUILayout.ExpandWidth(true), GUILayout.Height(42));
-            if (GUILayout.Button("复制 IP", lobbyButtonStyle, GUILayout.Width(112), GUILayout.Height(36))) GUIUtility.systemCopyBuffer = address;
-            GUILayout.EndHorizontal();
-            GUILayout.EndVertical();
-        }
-        else if (state == State.Joining || state == State.Connected)
-        {
-            GUILayout.Space(12);
-            GUILayout.BeginVertical(lobbyCardStyle);
-            GUILayout.Label("连接目标", lobbyMutedStyle, GUILayout.Height(23));
-            GUILayout.Label(peer != null ? peer.Address.ToString() : address, lobbyTitleStyle, GUILayout.Height(38));
-            GUILayout.EndVertical();
-        }
-        GUILayout.FlexibleSpace();
-        GUILayout.Label("房主操控范志毅   ·   加入者操控赵鹏   ·   防火墙需允许专用网络通信", lobbyMutedStyle, GUILayout.Height(24));
-        if (GUILayout.Button("返回菜单", lobbyButtonStyle, GUILayout.Height(38)))
-        {
-            StopSession(); lobbyVisible = false;
-            if (returnToMenu != null) returnToMenu();
-        }
-        GUILayout.EndVertical();
-        GUI.DragWindow(new Rect(0, 0, 640, 44));
-    }
-
-    private string StateLabel()
-    {
-        if (state == State.Hosting) return "等待加入";
-        if (state == State.Joining) return "正在连接";
-        if (state == State.Connected || state == State.InGame) return "已连接";
-        if (state == State.Failed) return "连接失败";
-        return "准备就绪";
-    }
-
-    private static void EnsureLobbyStyles()
-    {
-        if (lobbyWindowStyle != null) return;
-        lobbyWindowTexture = MakeLobbyTexture(new Color(.035f, .075f, .11f, .99f));
-        lobbyFrameTexture = MakeLobbyTexture(new Color(.55f, .39f, .16f, .96f));
-        lobbyCardTexture = MakeLobbyTexture(new Color(.075f, .14f, .19f, .98f));
-        lobbyPrimaryTexture = MakeLobbyTexture(new Color(.68f, .48f, .19f, 1f));
-        lobbyButtonTexture = MakeLobbyTexture(new Color(.13f, .25f, .32f, 1f));
-        lobbyFieldTexture = MakeLobbyTexture(new Color(.025f, .06f, .085f, 1f));
-
-        lobbyWindowStyle = new GUIStyle(GUI.skin.window);
-        lobbyWindowStyle.normal.background = lobbyWindowTexture;
-        lobbyWindowStyle.onNormal.background = lobbyWindowTexture;
-        lobbyWindowStyle.border = new RectOffset(12, 12, 12, 12);
-        lobbyWindowStyle.padding = new RectOffset(22, 22, 16, 18);
-        lobbyWindowStyle.normal.textColor = Color.white;
-        lobbyWindowStyle.fontSize = 18;
-
-        lobbyFrameStyle = new GUIStyle(GUI.skin.box);
-        lobbyFrameStyle.normal.background = lobbyFrameTexture;
-        lobbyFrameStyle.border = new RectOffset(0, 0, 0, 0);
-        lobbyFrameStyle.padding = new RectOffset(0, 0, 0, 0);
-
-        lobbyTitleStyle = new GUIStyle(GUI.skin.label);
-        lobbyTitleStyle.fontSize = 27; lobbyTitleStyle.fontStyle = FontStyle.Bold;
-        lobbyTitleStyle.normal.textColor = new Color(.96f, .91f, .78f, 1f);
-        lobbyTitleStyle.alignment = TextAnchor.MiddleLeft;
-
-        lobbyBodyStyle = new GUIStyle(GUI.skin.label);
-        lobbyBodyStyle.fontSize = 16; lobbyBodyStyle.wordWrap = true;
-        lobbyBodyStyle.normal.textColor = new Color(.91f, .94f, .96f, 1f);
-        lobbyBodyStyle.alignment = TextAnchor.MiddleLeft;
-
-        lobbyMutedStyle = new GUIStyle(lobbyBodyStyle);
-        lobbyMutedStyle.fontSize = 13;
-        lobbyMutedStyle.normal.textColor = new Color(.59f, .71f, .77f, 1f);
-
-        lobbyCardStyle = new GUIStyle(GUI.skin.box);
-        lobbyCardStyle.normal.background = lobbyCardTexture;
-        lobbyCardStyle.border = new RectOffset(0, 0, 0, 0);
-        lobbyCardStyle.padding = new RectOffset(13, 13, 9, 9);
-        lobbyCardStyle.margin = new RectOffset(0, 0, 5, 5);
-
-        lobbyPrimaryButtonStyle = new GUIStyle(GUI.skin.button);
-        SetLobbyButton(lobbyPrimaryButtonStyle, lobbyPrimaryTexture, MakeLobbyTexture(new Color(.78f, .59f, .3f, 1f)));
-        lobbyPrimaryButtonStyle.normal.textColor = new Color(.06f, .09f, .1f, 1f);
-        lobbyPrimaryButtonStyle.fontSize = 19; lobbyPrimaryButtonStyle.fontStyle = FontStyle.Bold;
-
-        lobbyButtonStyle = new GUIStyle(GUI.skin.button);
-        SetLobbyButton(lobbyButtonStyle, lobbyButtonTexture, MakeLobbyTexture(new Color(.2f, .36f, .43f, 1f)));
-        lobbyButtonStyle.normal.textColor = Color.white;
-        lobbyButtonStyle.fontSize = 16; lobbyButtonStyle.fontStyle = FontStyle.Bold;
-
-        lobbyTextFieldStyle = new GUIStyle(GUI.skin.textField);
-        lobbyTextFieldStyle.normal.background = lobbyFieldTexture;
-        lobbyTextFieldStyle.focused.background = lobbyFieldTexture;
-        lobbyTextFieldStyle.normal.textColor = Color.white;
-        lobbyTextFieldStyle.focused.textColor = Color.white;
-        lobbyTextFieldStyle.fontSize = 17;
-        lobbyTextFieldStyle.padding = new RectOffset(11, 10, 7, 7);
-
-        lobbyStatusStyle = new GUIStyle(GUI.skin.label);
-        lobbyStatusStyle.fontSize = 13; lobbyStatusStyle.fontStyle = FontStyle.Bold;
-        lobbyStatusStyle.normal.textColor = new Color(.91f, .72f, .38f, 1f);
-        lobbyStatusStyle.alignment = TextAnchor.MiddleCenter;
-    }
-
-    private static void SetLobbyButton(GUIStyle style, Texture2D normal, Texture2D hover)
-    {
-        style.normal.background = normal;
-        style.hover.background = hover;
-        style.active.background = hover;
-        style.focused.background = normal;
-        style.border = new RectOffset(5, 5, 5, 5);
-        style.padding = new RectOffset(10, 10, 6, 6);
-    }
-
-    private static Texture2D MakeLobbyTexture(Color color)
-    {
-        Texture2D texture = new Texture2D(1, 1);
-        texture.hideFlags = HideFlags.HideAndDontSave;
-        texture.SetPixel(0, 0, color);
-        texture.Apply();
-        return texture;
+        if (!matchStarted) return;
+        string label = state == State.InGame ? (isHost ? "局域网 · 房主（范志毅）" : "局域网 · 客机（赵鹏）") : "局域网已断开";
+        GUI.Label(new Rect(12, 12, 520, 28), label + "   " + message);
     }
 
     private void Send(string text) { SendBytes(Encoding.UTF8.GetBytes(text)); }

@@ -308,7 +308,7 @@ public static class GameAIMod
             RectTransform titleRect = (RectTransform)titleObject.transform;
             titleRect.anchorMin = titleRect.anchorMax = new Vector2(0.5f, 0.5f);
             titleRect.sizeDelta = new Vector2(560f, 60f);
-            titleRect.anchoredPosition = new Vector2(0f, 185f);
+            titleRect.anchoredPosition = new Vector2(0f, chooseOpponent ? 220f : 185f);
             Text title = titleObject.GetComponent<Text>();
             title.font = originalText.font;
             title.fontSize = 34;
@@ -319,12 +319,24 @@ public static class GameAIMod
 
         if (chooseOpponent)
         {
-            AddChoice(template, overlay.transform, "双人对战", 90f, delegate { StartGame(0); });
-            AddChoice(template, overlay.transform, "操控范志毅 · 挑战赵鹏 AI", 10f, delegate { StartGame(1); });
-            AddChoice(template, overlay.transform, "操控赵鹏 · 挑战范志毅 AI", -70f, delegate { StartGame(2); });
-            AddChoice(template, overlay.transform, "局域网对战", -145f, delegate
+            AddChoice(template, overlay.transform, "双人对战", 120f, delegate { StartGame(0); });
+            AddChoice(template, overlay.transform, "操控范志毅 · 挑战赵鹏 AI", 40f, delegate { StartGame(1); });
+            AddChoice(template, overlay.transform, "操控赵鹏 · 挑战范志毅 AI", -40f, delegate { StartGame(2); });
+            AddChoice(template, overlay.transform, "局域网对战", -120f, delegate
             {
-                LanMultiplayer.OpenLobby(PlayerSkills.Enabled, delegate { ShowSelection(panel, template, true); });
+                overlay.SetActive(false);
+                List<GameObject> hidden = new List<GameObject>();
+                foreach (Button button in panel.GetComponentsInChildren<Button>(true))
+                {
+                    if (!button.gameObject.activeSelf) continue;
+                    hidden.Add(button.gameObject);
+                    button.gameObject.SetActive(false);
+                }
+                LanMultiplayer.OpenLobby(PlayerSkills.Enabled, delegate
+                {
+                    foreach (GameObject button in hidden) if (button != null) button.SetActive(true);
+                    ShowSelection(panel, template, true);
+                }, parent, template);
             });
         }
         else
@@ -336,7 +348,7 @@ public static class GameAIMod
                 ControlsSettingsPanel.Open(parent, template, UpdateRulesIntroduction);
             });
         }
-        AddChoice(template, overlay.transform, "返回", chooseOpponent ? -160f : -200f, delegate
+        AddChoice(template, overlay.transform, "返回", chooseOpponent ? -220f : -200f, delegate
         {
             overlay.name = "Retired Selection";
             overlay.SetActive(false);

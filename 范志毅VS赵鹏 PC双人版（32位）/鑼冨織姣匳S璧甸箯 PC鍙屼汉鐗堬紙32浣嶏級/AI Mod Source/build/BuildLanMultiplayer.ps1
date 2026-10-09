@@ -1,4 +1,4 @@
-﻿param([ValidateSet('Original','Experiment')][string]$Edition='Original',[switch]$Test)
+﻿param([ValidateSet('Original','Experiment')][string]$Edition='Original',[switch]$Test,[switch]$UiTest)
 $ErrorActionPreference='Stop'
 $taskRoot=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $gameRoot=if($Edition -eq 'Experiment'){(Get-ChildItem -LiteralPath $taskRoot -Directory | Where-Object {Test-Path -LiteralPath (Join-Path $_.FullName 'AI Mod Source\ExperimentScale.cs')} | Select-Object -First 1).FullName}else{$taskRoot}
@@ -18,7 +18,7 @@ Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'Mono.Cecil.dll') -Destination $
 & (Join-Path $release 'PatchGame.exe') (Join-Path $source 'Assembly-CSharp.original.dll') (Join-Path $release 'GameAIMod.dll') (Join-Path $release 'Assembly-CSharp.dll')
 if($LASTEXITCODE -ne 0){throw 'Game patching failed'}
 Write-Output ('LAN production assemblies compiled for '+$Edition+': '+$release)
-if($Test){
+if($Test -or $UiTest){
     $testBuild=Join-Path $PSScriptRoot ('lan-'+$Edition.ToLower()+'-test-build')
     $testPlayer=Join-Path $PSScriptRoot ('lan-test-player-'+$Edition.ToLower())
     New-Item -ItemType Directory -Path $testBuild,$testPlayer -Force | Out-Null
@@ -27,12 +27,13 @@ if($Test){
         foreach($name in @('FanZhiYi_Data','MonoBleedingEdge')){Copy-Item -LiteralPath (Join-Path $gameRoot $name) -Destination $testPlayer -Recurse}
         if(Test-Path -LiteralPath (Join-Path $gameRoot '按键设置.ini')){Copy-Item -LiteralPath (Join-Path $gameRoot '按键设置.ini') -Destination $testPlayer}
     }
-    $bridge=[IO.File]::ReadAllText((Join-Path $source 'GameAIMod.cs')).Replace('        menuPanel = panel;','        LanMultiplayerTests.Boot();'+[Environment]::NewLine+'        menuPanel = panel;')
+    $testClass=if($UiTest){'LanMenuUiTests'}else{'LanMultiplayerTests'}
+    $bridge=[IO.File]::ReadAllText((Join-Path $source 'GameAIMod.cs')).Replace('        menuPanel = panel;',('        '+$testClass+'.Boot();')+[Environment]::NewLine+'        menuPanel = panel;')
     [IO.File]::WriteAllText((Join-Path $testBuild 'GameAIMod.cs'),$bridge,[Text.UTF8Encoding]::new($false))
     $testSources=$sources | Where-Object {(Split-Path $_ -Leaf) -notin @('GameAIMod.cs','ControlBindings.cs')}
     $testSources+=(Join-Path $testBuild 'GameAIMod.cs')
     $testSources+=(Join-Path $source 'ControlBindings.cs')
-    $testSources+=(Join-Path $PSScriptRoot 'LanMultiplayerTests.cs')
+    $testSources+=(Join-Path $PSScriptRoot ($testClass+'.cs'))
     & $csc /nologo /target:library /optimize+ ('/out:'+(Join-Path $testBuild 'GameAIMod.dll')) $refs $testSources
     if($LASTEXITCODE -ne 0){throw 'LAN test assembly compilation failed'}
     $testManaged=Join-Path $testPlayer 'FanZhiYi_Data\Managed'
