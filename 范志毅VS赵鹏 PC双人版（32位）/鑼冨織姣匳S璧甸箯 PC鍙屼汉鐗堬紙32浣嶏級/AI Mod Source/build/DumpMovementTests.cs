@@ -1,9 +1,0 @@
-using System;using System.Collections;using System.Reflection;using UnityEngine;
-public sealed class SkillTests : MonoBehaviour
-{
- public static bool TestAxes=true,JumpPulse;public static float TestAxis;private static bool started;
- public static void Boot(){if(started)return;started=true;GameObject o=new GameObject("MovementProbe");UnityEngine.Object.DontDestroyOnLoad(o);o.AddComponent<SkillTests>();}
- private IEnumerator Start(){Application.targetFrameRate=60;Application.runInBackground=true;QualitySettings.vSyncCount=0;AudioListener.volume=0;yield return new WaitForSeconds(.2f);PlayerSkills.Enabled=false;typeof(GameAIMod).GetMethod("StartGame",BindingFlags.Static|BindingFlags.NonPublic).Invoke(null,new object[]{0});yield return new WaitForSeconds(.3f);foreach(string n in new[]{"Fan","Zhao"}){Component p=GameObject.Find(n).GetComponent(Type.GetType("PlayerController, Assembly-CSharp"));Animator a=p.GetType().GetField("anim").GetValue(p) as Animator;Debug.Log("MOVE DUMP "+n+" force="+p.GetType().GetField("playerSpeed").GetValue(p)+" limit="+p.GetType().GetField("maxVelocity").GetValue(p)+" animator="+a.speed);foreach(AnimationClip c in a.runtimeAnimatorController.animationClips)Debug.Log("MOVE CLIP "+n+" "+c.name+" duration="+c.length);}
- foreach(float axis in new[]{1f,-1f}){TestAxis=axis;yield return new WaitForSeconds(.25f);foreach(string n in new[]{"Fan","Zhao"}){Animator a=GameObject.Find(n).GetComponent<Animator>();AnimatorStateInfo s=a.GetCurrentAnimatorStateInfo(0);Debug.Log("MOVE STATE "+n+" axis="+axis+" duration="+s.length+" speed="+s.speed+" mult="+s.speedMultiplier+" animator="+a.speed);foreach(AnimatorClipInfo c in a.GetCurrentAnimatorClipInfo(0))Debug.Log("MOVE ACTIVE "+n+" "+c.clip.name+" duration="+c.clip.length);}}
- Debug.Log("MOVE DUMP COMPLETE");Application.Quit();}
-}

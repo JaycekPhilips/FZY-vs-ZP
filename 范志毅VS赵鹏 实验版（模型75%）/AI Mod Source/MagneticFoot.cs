@@ -15,6 +15,7 @@ public sealed class MagneticFoot : MonoBehaviour
     private Collider2D ballCollider;
     private FieldInfo stopping;
     private Leg[] legs;
+    private float direction;
     private float protectedUntil = -1f, lastEffect = -10f, balanceUntil = -1f;
     public bool Active { get; private set; }
     private sealed class Leg
@@ -31,9 +32,9 @@ public sealed class MagneticFoot : MonoBehaviour
 
     public static void Attach(Component player)
     {
-        if (!PlayerSkills.Enabled || player == null || player.name != "Zhao" || player.GetComponent<MagneticFoot>() != null) return;
+        if (player == null || (!PlayerSkills.Enabled && !AbilityMode.Has(player,8)) || (player.name != "Zhao" && !AbilityMode.Has(player,8)) || player.GetComponent<MagneticFoot>() != null) return;
         MagneticFoot skill = player.gameObject.AddComponent<MagneticFoot>();
-        skill.controller = player;
+        skill.controller = player; skill.direction = player.name=="Fan"?1f:-1f;
         Type pt = player.GetType(), st = pt.Assembly.GetType("StickManController");
         skill.stick = player.GetComponent(st);
         skill.body = pt.GetField("rb").GetValue(player) as Rigidbody2D;
@@ -60,7 +61,7 @@ public sealed class MagneticFoot : MonoBehaviour
             leg.upperGain = (float)leg.force.GetValue(leg.upperMuscle); leg.lowerGain = (float)leg.force.GetValue(leg.lowerMuscle);
             // Front-facing lower-shin/instep face. TransformVector handles
             // both the native orientation and the 75% experimental scale.
-            float sideX = Vector2.Dot(leg.lower.transform.TransformVector(Vector2.right),Vector2.left) > 0f ? 1f : -1f;
+            float sideX = Vector2.Dot(leg.lower.transform.TransformVector(Vector2.right),Vector2.right*skill.direction) > 0f ? 1f : -1f;
             leg.instep = leg.collider.offset + new Vector2(sideX * leg.collider.size.x * .5f, -leg.collider.size.y * .30f);
             skill.legs[i] = leg;
         }
@@ -81,10 +82,10 @@ public sealed class MagneticFoot : MonoBehaviour
     public static float MovementMultiplier(Component player, float input)
     {
         MagneticFoot skill = player != null ? player.GetComponent<MagneticFoot>() : null;
-        if (skill == null || !skill.Active || input >= -.1f || !skill.Eligible()) return 1f;
+        if (skill == null || !skill.Active || input * skill.direction <= .1f || !skill.Eligible()) return 1f;
         // Match Fan's ordinary forward speed while magnetic foot owns the
         // feet. Its short control pose remains independent of the speed cap.
-        return 1f / PlayerMovement.ZhaoForwardMultiplier;
+        return skill.direction < 0f ? 1f / PlayerMovement.ZhaoForwardMultiplier : 1f;
     }
     public static Vector3 VisualAnchor(Component player)
     {
@@ -94,16 +95,16 @@ public sealed class MagneticFoot : MonoBehaviour
     public static float MovementForceMultiplier(Component player, float input)
     {
         MagneticFoot skill = player != null ? player.GetComponent<MagneticFoot>() : null;
-        if (skill == null || !skill.Active || input >= -.1f || !skill.Eligible() || !PlayerSkills.IsGroundBallContest(player)) return 1f;
+        if (skill == null || !skill.Active || input * skill.direction <= .1f || !skill.Eligible() || !PlayerSkills.IsGroundBallContest(player)) return 1f;
         // Preserve the existing contest pushing force independently of speed.
         // This changes only the player's native movement force, never the ball.
         return GroundPressureForceMultiplier / MovementMultiplier(player, input);
     }
     private bool Eligible()
     {
-        if (!PlayerSkills.Enabled || controller == null || ball == null || ballCollider == null || legs == null || Time.timeScale <= 0f || Time.time < protectedUntil ||
+        if ((!PlayerSkills.Enabled && !AbilityMode.Has(controller,8)) || controller == null || ball == null || ballCollider == null || legs == null || Time.timeScale <= 0f || Time.time < protectedUntil ||
             (manager != null && (bool)stopping.GetValue(manager))) return false;
-        float ahead = body.position.x - ball.position.x;
+        float ahead = direction * (ball.position.x - body.position.x);
         if (ahead < 0f || ahead > 1.25f * Mathf.Abs(transform.lossyScale.x) / .8f) return false;
         // Only balls at foot height and manageable relative speed. A distant
         // incoming shot cannot be caught or slowed without a real collision.
@@ -115,7 +116,7 @@ public sealed class MagneticFoot : MonoBehaviour
         {
             Vector2 hip = leg.hip.connectedBody.transform.TransformPoint(leg.hip.connectedAnchor);
             float length = Link(leg.upper,leg.knee.connectedAnchor-leg.hip.anchor).magnitude + Link(leg.lower,leg.instep-leg.knee.anchor).magnitude;
-            if (Vector2.Distance(hip,ball.position+Vector2.right*ballCollider.bounds.extents.x) < length * 1.045f &&
+            if (Vector2.Distance(hip,ball.position-Vector2.right*direction*ballCollider.bounds.extents.x) < length * 1.045f &&
                 Vector2.Distance(leg.collider.ClosestPoint(ball.position),ball.position) <= ballCollider.bounds.extents.x + .20f * Mathf.Abs(transform.lossyScale.x) / .8f) return true;
         }
         return false;
@@ -165,7 +166,7 @@ public sealed class MagneticFoot : MonoBehaviour
         // Follow a short prediction with the physical instep on the rear side
         // of the ball. Closing balls are cushioned by moving the foot back;
         // outgoing balls are pushed through the same real contact.
-        Vector2 target=skill.ball.position+skill.ball.velocity*.025f+new Vector2(radius*.94f+.012f,radius*.30f);
+        Vector2 target=skill.ball.position+skill.ball.velocity*.025f+new Vector2(-skill.direction*(radius*.94f+.012f),radius*.30f);
         target.x += Mathf.Min(0f, skill.body.velocity.x - skill.ball.velocity.x) * .04f;
         if (PlayerSkills.IsGroundBallContest(skill.controller)) target.x -= .025f * Mathf.Abs(skill.transform.lossyScale.x) / .8f;
         skill.Pose(skill.legs[0],target);

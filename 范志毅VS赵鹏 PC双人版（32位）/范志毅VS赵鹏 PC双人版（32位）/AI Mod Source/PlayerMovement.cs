@@ -78,7 +78,7 @@ public sealed class PlayerMovement : MonoBehaviour
         float baseMultiplier = input * facing < -.1f ? BackwardMultiplier : 1f;
         if (movement.fan && input * facing < -.1f) baseMultiplier *= FanRetreatReduction;
         if (!movement.fan && input * facing > .1f) baseMultiplier *= ZhaoForwardMultiplier;
-        return baseMultiplier * PlayerSkills.GetMovementSkillMultiplier(player, input) * MagneticFoot.MovementMultiplier(player, input);
+        return baseMultiplier * PlayerSkills.GetMovementSkillMultiplier(player, input) * MagneticFoot.MovementMultiplier(player, input) * AbilityMode.Movement(player, input);
     }
 
     public static float GetMovementForce(float original, Component player)

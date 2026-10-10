@@ -142,6 +142,7 @@ public sealed class ControlsSettingsPanel : MonoBehaviour
         RectTransform rect = (RectTransform)overlay.transform;
         rect.anchorMin = Vector2.zero; rect.anchorMax = Vector2.one; rect.offsetMin = rect.offsetMax = Vector2.zero;
         overlay.GetComponent<Image>().color = new Color(.025f, .055f, .09f, .98f);
+        MenuBackdrop.Apply(overlay);
         ControlsSettingsPanel panel = overlay.GetComponent<ControlsSettingsPanel>();
         panel.onClose = closed;
         panel.Build(template);

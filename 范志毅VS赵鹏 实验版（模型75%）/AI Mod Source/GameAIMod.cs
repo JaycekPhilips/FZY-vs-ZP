@@ -226,6 +226,7 @@ public static class GameAIMod
         ballBody = null;
         ballOutThisRally = false;
         menuPanel = panel;
+        MenuBackdrop.Watch(panel);
         ControlBindings.EnsureLoaded();
         modeOverlay = null;
         Button start = null;
@@ -304,6 +305,7 @@ public static class GameAIMod
         Image shade = overlay.GetComponent<Image>();
         shade.color = new Color(0.025f, 0.055f, 0.09f, 0.94f);
         shade.raycastTarget = true;
+        MenuBackdrop.Apply(overlay);
 
         Text originalText = template.GetComponentInChildren<Text>(true);
         if (originalText != null)
@@ -319,7 +321,7 @@ public static class GameAIMod
             title.fontSize = 34;
             title.color = Color.white;
             title.alignment = TextAnchor.MiddleCenter;
-            title.text = chooseOpponent ? (PlayerSkills.Enabled ? "特技模式 · 选择对战方式" : "经典模式 · 选择对战方式") : "选择玩法";
+            title.text = chooseOpponent ? (AbilityMode.Enabled ? "加点模式 · 选择对战方式" : PlayerSkills.Enabled ? "特技模式 · 选择对战方式" : "经典模式 · 选择对战方式") : "选择玩法";
         }
 
         if (chooseOpponent)
@@ -330,9 +332,10 @@ public static class GameAIMod
         }
         else
         {
-            AddChoice(template, overlay.transform, "经典模式 · 原版玩法", 70f, delegate { ChooseStyle(panel, template, false); });
-            AddChoice(template, overlay.transform, "特技模式 · 球员技能", -20f, delegate { ChooseStyle(panel, template, true); });
-            AddChoice(template, overlay.transform, "键位设置", -110f, delegate
+            AddChoice(template, overlay.transform, "经典模式 · 原版玩法", 95f, delegate { ChooseStyle(panel, template, false); });
+            AddChoice(template, overlay.transform, "特技模式 · 球员技能", 20f, delegate { ChooseStyle(panel, template, true); });
+            AddChoice(template, overlay.transform, "加点模式 · 自选能力与特技", -55f, delegate { ChooseAbilityStyle(panel, template); });
+            AddChoice(template, overlay.transform, "键位设置", -130f, delegate
             {
                 ControlsSettingsPanel.Open(parent, template, UpdateRulesIntroduction);
             });
@@ -349,6 +352,7 @@ public static class GameAIMod
 
     private static void ChooseStyle(Component panel, Button template, bool enabled)
     {
+        AbilityMode.Enabled = false;
         PlayerSkills.Enabled = enabled;
         if (modeOverlay != null)
         {
@@ -360,6 +364,13 @@ public static class GameAIMod
         ShowSelection(panel, template, true);
     }
 
+    private static void ChooseAbilityStyle(Component panel, Button template)
+    {
+        ChooseStyle(panel, template, false);
+        AbilityMode.Enabled = true; AbilityMode.Reset();
+        if (modeOverlay != null) { modeOverlay.name = "Retired Selection"; modeOverlay.SetActive(false); UnityEngine.Object.Destroy(modeOverlay); modeOverlay = null; }
+        ShowSelection(panel, template, true);
+    }
     private static void AddChoice(Button template, Transform parent, string label, float y, UnityEngine.Events.UnityAction action)
     {
         Button choice = UnityEngine.Object.Instantiate<Button>(template);
@@ -383,6 +394,17 @@ public static class GameAIMod
     }
 
     private static void StartGame(int selectedMode)
+    {
+        if (!AbilityMode.Enabled) { BeginGame(selectedMode); return; }
+        Button template = menuPanel != null ? menuPanel.GetComponentInChildren<Button>(true) : null;
+        if (template == null) return;
+        Canvas canvas = menuPanel.GetComponentInParent<Canvas>();
+        Transform parent = canvas != null ? canvas.transform : menuPanel.transform;
+        if (modeOverlay != null) modeOverlay.SetActive(false);
+        AbilitySetupPanel.Open(parent, template, selectedMode, delegate { BeginGame(selectedMode); }, delegate { if (modeOverlay != null) modeOverlay.SetActive(true); });
+    }
+
+    private static void BeginGame(int selectedMode)
     {
         mode = selectedMode;
         states.Clear();
@@ -525,10 +547,10 @@ public static class GameAIMod
 
     public static float GetAxis(string axisName, Component controller)
     {
-        if (!IsAI(controller)) return PlayerSkills.RescueAxis(controller, ControlBindings.GetHorizontal(controller));
+        if (!IsAI(controller)) return AbilityMode.Axis(controller, PlayerSkills.RescueAxis(controller, ControlBindings.GetHorizontal(controller)));
         AIState state = GetState(controller);
         UpdateDecision(controller, state);
-        return PlayerSkills.RescueAxis(controller, state.axis, state.rescuing);
+        return AbilityMode.Axis(controller, PlayerSkills.RescueAxis(controller, state.axis, state.rescuing));
     }
 
     // The original FixedUpdate has an extra horizontal-force branch. Give both
@@ -536,7 +558,7 @@ public static class GameAIMod
     // Preserve the original check for human input.
     public static float GetExtraPushGate(string axisName, Component controller)
     {
-        if (!IsAI(controller)) return PlayerSkills.RescueAxis(controller, ControlBindings.GetHorizontal(controller));
+        if (!IsAI(controller)) return AbilityMode.Axis(controller, PlayerSkills.RescueAxis(controller, ControlBindings.GetHorizontal(controller)));
         AIState state = GetState(controller);
         UpdateDecision(controller, state);
         return state.contesting ? -1f : 0f;
@@ -544,15 +566,17 @@ public static class GameAIMod
 
     public static bool GetButtonDown(KeyCode key, Component controller)
     {
-        if ((key == KeyCode.W || key == KeyCode.UpArrow) && PlayerSkills.RescueButton(controller, true)) return true;
+        if ((key == KeyCode.W || key == KeyCode.UpArrow) && (AbilityMode.Button(controller, true) || PlayerSkills.RescueButton(controller, true))) return true;
         if ((key == KeyCode.None || key == KeyCode.Keypad0) && controller != null && controller.name == "Zhao" && PlayerSkills.RescueButton(controller, false)) return true;
+        if ((key == KeyCode.J || key == KeyCode.None || key == KeyCode.Keypad0) && AbilityMode.Button(controller, false)) return true;
         if (!IsAI(controller)) return ControlBindings.GetNativeButtonDown(key, controller);
         AIState state = GetState(controller);
         UpdateDecision(controller, state);
         // The game's PlayerInput maps each side to these keys.
-        if (key == KeyCode.W || key == KeyCode.UpArrow) return state.jump;
+        if (key == KeyCode.W || key == KeyCode.UpArrow) return state.jump && (!AbilityMode.Enabled || AbilityMode.For(controller).Levels[2]>0 || AbilityMode.Has(controller,2));
         if (key == KeyCode.K || key == KeyCode.KeypadEnter)
         {
+            if (AbilityMode.Has(controller,5) && !AbilityMode.Has(controller,4)) state.power = false;
             if (state.kick && state.power) PowerShot.Request(controller);
             return state.kick;
         }
@@ -567,7 +591,7 @@ public static class GameAIMod
         if (!IsAI(controller)) return ControlBindings.GetActionDown(GameControlAction.Down, controller);
         AIState state = GetState(controller);
         UpdateDecision(controller, state);
-        return controller.name == "Fan" && state.down;
+        return (controller.name == "Fan" || AbilityMode.Enabled) && state.down;
     }
 
     private static bool IsAI(Component controller)
@@ -601,6 +625,8 @@ public static class GameAIMod
                 if (jump != null && rigMass > 0f)
                     state.jumpSpeed = Mathf.Clamp(PlayerSkills.GetJumpForce((float)jump.GetValue(controller), controller) *
                         Time.fixedDeltaTime * Time.fixedDeltaTime / rigMass, 3f, 8f);
+                if (AbilityMode.Enabled && AbilityMode.For(controller).Levels[2]==10 && jump!=null && rigMass>0f) state.jumpSpeed=Mathf.Clamp((float)jump.GetValue(controller)*Time.fixedDeltaTime*Time.fixedDeltaTime/rigMass,3f,8f)*Mathf.Sqrt(AbilityMode.Strength(10))*(AbilityMode.Has(controller,2)?PlayerSkills.ZhaoJumpMultiplier:1f);
+                if (AbilityMode.Enabled && AbilityMode.For(controller).Levels[2]==0 && !AbilityMode.Has(controller,2)) state.jumpSpeed=0f;
                 Type goals = type.Assembly.GetType("GoalTrigger");
                 if (goals != null)
                     foreach (UnityEngine.Object item in UnityEngine.Object.FindObjectsOfType(goals))

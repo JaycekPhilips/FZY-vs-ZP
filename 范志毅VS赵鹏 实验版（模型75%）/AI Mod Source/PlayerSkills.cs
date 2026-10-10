@@ -256,6 +256,7 @@ public sealed class PlayerSkills : MonoBehaviour
     }
     public static bool GetGrounded(bool native, Component player)
     {
+        if (AbilityMode.Enabled) return AbilityMode.Grounded(native, player);
         if (native) return true;
         PlayerSkills s = player != null ? player.GetComponent<PlayerSkills>() : null;
         return s != null && !s.fan && !s.Stopped() && !GameAIMod.BallOutThisRally && Time.time <= s.retreatUntil &&
@@ -307,10 +308,9 @@ public sealed class PlayerSkills : MonoBehaviour
     {
         if (player == null || (player.name != "Fan" && player.name != "Zhao")) return;
         PlayerMovement.Attach(player);
+        AbilityMode.Attach(player);
         PowerShot.Attach(player);
         ZhaoHeader.Attach(player);
-        if (player.name == "Fan" && player.GetComponent<GameStyleIndicator>() == null)
-            player.gameObject.AddComponent<GameStyleIndicator>();
         if (!Enabled) return;
         MagneticFoot.Attach(player);
         PlayerSkills skills = player.GetComponent<PlayerSkills>();
@@ -327,6 +327,7 @@ public sealed class PlayerSkills : MonoBehaviour
         animator.SetTrigger(action);
         Attach(player);
         PowerShot.OnAction(player, action);
+        AbilityMode.OnAction(player, action);
         PlayerSkills skills = player.GetComponent<PlayerSkills>();
         if (skills != null) skills.BeginAction(action);
         ZhaoHeader.OnAction(player, action);
@@ -335,11 +336,12 @@ public sealed class PlayerSkills : MonoBehaviour
 
     public static float GetJumpForce(float original, Component player)
     {
-        return Enabled && player != null && player.name == "Zhao" ? original * ZhaoJumpMultiplier : original;
+        return AbilityMode.JumpForce(Enabled && player != null && player.name == "Zhao" ? original * ZhaoJumpMultiplier : original, player);
     }
 
     public static void ResetAll()
     {
+        AbilityMode.ResetRound();
         PowerShot.ResetAll();
         MagneticFoot.ResetAll();
         foreach (PlayerSkills skills in players)
@@ -523,6 +525,7 @@ public sealed class PlayerSkills : MonoBehaviour
 
     public static void ShowMagneticFoot(Component player)
     {
+        if (AbilityMode.Enabled) { AbilityMode.ShowSkill(player, 8); return; }
         PlayerSkills skills = player != null ? player.GetComponent<PlayerSkills>() : null;
         if (skills != null) skills.Show(8);
     }
@@ -902,6 +905,7 @@ public sealed class PlayerSkills : MonoBehaviour
     {
         foreach (PlayerSkills owner in players) if (owner != null && !owner.fan) owner.UpdateGroundBallContest();
         bool power = PowerShot.OnBallCollision(collision);
+        AbilityMode.Collision(collision);
         Collider2D touched = collision.collider;
         if (touched == null) return;
         PlayerSkills playerAtContact = touched.GetComponentInParent<PlayerSkills>();
@@ -1231,6 +1235,7 @@ public sealed class PlayerSkills : MonoBehaviour
         ZhaoHeader.BeforeMuscles(stick);
         PlayerMovement.BeforeMuscles(stick);
         MagneticFoot.BeforeMuscles(stick);
+        AbilityMode.BeforeMuscles(stick);
         PlayerSkills skills = stick.GetComponent<PlayerSkills>();
         if (skills != null)
         {
@@ -1411,13 +1416,25 @@ public sealed class PlayerSkills : MonoBehaviour
     private void OnGUI()
     {
         if (Event.current.type != EventType.Repaint || Stopped()) return;
+        DrawSkillEffects(controller, body, head, foot, effects, glowOwner == this, ball, glowUntil, glowColor, ballTrail);
+    }
+
+    // Both skill modes render the same animation. This entry performs no physics.
+    public static Color EffectColor(int index) { return colors[index]; }
+    public static void DrawSkillEffects(Component controller, Rigidbody2D body, Transform head, Transform foot,
+        float[] effects, bool highlight, Rigidbody2D ball, float glowUntil, Color glowColor, List<Vector2> ballTrail)
+    {
+        if (Event.current.type != EventType.Repaint || controller == null || body == null) return;
+        bool fan = controller.name == "Fan";
+        float direction = fan ? 1f : -1f;
+        if (skillFont == null) skillFont = Font.CreateDynamicFontFromOSFont(new string[] { "Microsoft YaHei", "SimHei", "Arial" }, 22);
         Camera camera = Camera.main;
         if (camera == null || head == null) return;
         Color savedColor = GUI.color;
         Matrix4x4 savedMatrix = GUI.matrix;
         float scale = Mathf.Clamp(Screen.height / 720f, .7f, 1.5f);
         int labelRow = 0;
-        if (glowOwner == this && ball != null && Time.time < glowUntil) DrawBallHighlight(camera, scale);
+        if (highlight && ball != null && Time.time < glowUntil) DrawBallHighlight(camera, scale, ball, glowUntil, glowColor, ballTrail);
         for (int index = 0; index < effects.Length; index++)
         {
             float age = Time.time - effects[index];
@@ -1529,7 +1546,7 @@ public sealed class PlayerSkills : MonoBehaviour
         GUI.matrix = saved;
     }
 
-    private void DrawBallHighlight(Camera camera, float scale)
+    private static void DrawBallHighlight(Camera camera, float scale, Rigidbody2D ball, float glowUntil, Color glowColor, List<Vector2> ballTrail)
     {
         if (haloTexture == null)
         {
@@ -1583,18 +1600,3 @@ public sealed class PowerTackleContact : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) { if (owner != null) owner.OnBodyContact(collision); }
     private void OnCollisionStay2D(Collision2D collision) { if (owner != null) owner.OnBodyContact(collision); }
 }
-
-public sealed class GameStyleIndicator : MonoBehaviour
-{
-    private Font font;
-    private void OnGUI()
-    {
-        if (font == null) font = Font.CreateDynamicFontFromOSFont(new string[] { "Microsoft YaHei", "SimHei", "Arial" }, 18);
-        GUIStyle style = new GUIStyle(GUI.skin.label);
-        style.font = font;
-        style.fontSize = 16;
-        style.normal.textColor = PlayerSkills.Enabled ? new Color(1f, .86f, .38f) : Color.white;
-        GUI.Label(new Rect(12f, Screen.height - 32f, 160f, 26f), PlayerSkills.Enabled ? "特技模式" : "经典模式", style);
-    }
-}
-

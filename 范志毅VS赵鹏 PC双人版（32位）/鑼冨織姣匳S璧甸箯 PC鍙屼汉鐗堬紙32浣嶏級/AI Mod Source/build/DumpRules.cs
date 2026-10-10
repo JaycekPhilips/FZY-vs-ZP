@@ -1,2 +1,0 @@
-using System.Collections;using UnityEngine;using UnityEngine.UI;
-public class DumpRules:MonoBehaviour { public static void Boot(){new GameObject("DumpRules").AddComponent<DumpRules>();} IEnumerator Start(){yield return null;var prefab=Resources.Load<GameObject>("UI/TeachPanel");Debug.Log("RULE PREFAB "+prefab);if(prefab!=null)foreach(var t in prefab.GetComponentsInChildren<Text>(true))Debug.Log("RULE TEXT "+t.name+" RECT "+t.rectTransform.rect+" VALUE "+t.text);Application.Quit();}}
