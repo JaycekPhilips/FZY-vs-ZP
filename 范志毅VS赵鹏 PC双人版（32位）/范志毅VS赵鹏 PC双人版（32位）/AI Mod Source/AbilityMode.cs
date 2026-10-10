@@ -1,17 +1,17 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
-// A twelve-point redistribution of classic players. Purchased moves are
-// independent entitlements, including when their ordinary attribute is zero.
+// Sixteen-point classic allocation. Ordinary ability retains a usable floor;
+// purchased moves remain available, with shooting power tied to shooting level.
 public static class AbilityMode
 {
     public static bool Enabled;
-    public const int Budget=12, SkillCost=2, MaxLevel=10;
+    public const int Budget=16, SkillCost=2, MaxLevel=8;
     public static readonly string[] Skills={"旋风盘带","炮弹式头球","空中堡垒","强力抢断","掠地瞬击","弧线落叶射门","紧急回防","进攻提速","磁力脚","伸脚抢截"};
-    public static readonly string[] Descriptions={"接触脚边足球时加快盘带","头球键：强力向前头球","跳跃键：强化起跳，0跳跃仍可起跳","真实接触或隔球顶牛：失衡击退","大力射门键：真实脚部接触后低平瞬击","射门键：真实脚部接触后弧线落叶","向己方球门移动：加速回防，身后球自动救球","向对方球门移动且球在前方：加速","实际脚边低球：伸脚控制足球","向下键：空中急落；来球在大腿以下时自动落地抢截"};
+    public static readonly string[] Descriptions={"接触脚边足球时加快盘带","头球键：强力向前头球","跳跃键：强化起跳","真实接触或隔球顶牛：失衡击退","大力射门键：真实脚部接触后低平瞬击","射门键：真实脚部接触后弧线落叶","向己方球门移动：加速回防，身后球自动救球","向对方球门移动且球在前方：加速","实际脚边低球：伸脚控制足球","向下键：空中急落；来球在大腿以下时自动落地抢截"};
     public sealed class Build
     {
         public readonly int[] Levels={4,4,4}; public int Purchased;
@@ -20,12 +20,14 @@ public static class AbilityMode
         public bool Change(int index,int amount){if(index<0||index>2)return false;int next=Levels[index]+amount;if(next<0||next>MaxLevel||Used+amount>Budget)return false;Levels[index]=next;return true;}
         public bool Toggle(int index){if(index<0||index>=Skills.Length)return false;if(!Has(index)&&Used+SkillCost>Budget)return false;Purchased^=1<<index;return true;}
         public void Reset(){Levels[0]=Levels[1]=Levels[2]=4;Purchased=0;}
-        public bool Valid {get{return Used==Budget&&(Purchased&~1023)==0&&Array.TrueForAll(Levels,delegate(int n){return n>=0&&n<=MaxLevel;});}}
+        public bool Valid {get{return Used<=Budget&&(Purchased&~1023)==0&&Array.TrueForAll(Levels,delegate(int n){return n>=0&&n<=MaxLevel;});}}
     }
     public static readonly Build[] Builds={new Build(),new Build()};
     static int Count(int mask){int n=0;while(mask!=0){n+=mask&1;mask>>=1;}return n;}
     public static Build For(Component player){return Builds[player!=null&&player.name=="Zhao"?1:0];}
-    public static float Strength(int level){return level==0?.2f:1f+(level-4)*.1f;}
+    public static float Strength(int level){return .6f+Mathf.Clamp(level,0,MaxLevel)*.05f;}
+    // Skill power falls faster than ordinary ability, but never removes a bought move.
+    public static float ShotSkillStrength(int level){float progress=Mathf.Clamp(level,0,MaxLevel)/(float)MaxLevel;return .25f+.75f*progress*progress;}
     public static bool Has(Component player,int skill){return Enabled&&For(player).Has(skill);}
     public static void Reset(){foreach(Build b in Builds)b.Reset();}
     public static void Randomize(int player)
@@ -37,10 +39,9 @@ public static class AbilityMode
     public static float JumpForce(float native,Component player)
     {
         if(!Enabled)return native;
-        Build b=For(player);bool fortress=b.Has(2),rescue=BuildPlayer.Rescuing(player);
-        if(b.Levels[2]==0&&!fortress&&!rescue)return 0f;
-        if(b.Levels[2]==10)return 0f; // Connected rig receives a bounded rapid lift.
-        BuildPlayer p=player!=null?player.GetComponent<BuildPlayer>():null;float suppression=p!=null&&p.Staggered&&!fortress?.25f:1f;return native*Mathf.Sqrt(b.Levels[2]==0?1f:Strength(b.Levels[2]))*(fortress?PlayerSkills.ZhaoJumpMultiplier:1f)*suppression;
+        Build b=For(player);bool fortress=b.Has(2);
+        if(b.Levels[2]==MaxLevel)return 0f; // Connected rig receives a bounded rapid lift.
+        BuildPlayer p=player!=null?player.GetComponent<BuildPlayer>():null;float suppression=p!=null&&p.Staggered&&!fortress?.25f:1f;return native*Mathf.Sqrt(Strength(b.Levels[2]))*(fortress?PlayerSkills.ZhaoJumpMultiplier:1f)*suppression;
     }
     public static bool Grounded(bool native,Component player){ if(native || !Enabled)return native; BuildPlayer p=player!=null?player.GetComponent<BuildPlayer>():null;return p!=null&&p.RescueSupport(); }
     public static float Movement(Component player,float input)
@@ -75,7 +76,7 @@ public sealed class AbilitySetupPanel : MonoBehaviour
     {
         var obj=new GameObject("Allocation Content",typeof(RectTransform));obj.transform.SetParent(transform,false);content=(RectTransform)obj.transform;content.anchorMin=content.anchorMax=new Vector2(.5f,.5f);content.sizeDelta=new Vector2(1080,700);Resize();
         AddText("赛前加点",new Vector2(0,315),32,new Vector2(1000,45));
-        AddText("总预算 12 点 · 每项上限 10 · 4点为经典强度 · 每点10% · 特技每个2点",new Vector2(0,275),19,new Vector2(1030,35));
+        AddText("总预算 16 点 · 每项上限 8 · 特技每个 2 点",new Vector2(0,275),19,new Vector2(1030,35));
         for(int side=0;side<2;side++){
             int p=side;float x=side==0?-260:260;if(AI(side))AbilityMode.Randomize(side);
             totals[side]=AddText("",new Vector2(x,229),24,new Vector2(490,40));
@@ -84,14 +85,14 @@ public sealed class AbilitySetupPanel : MonoBehaviour
             for(int i=0;i<10;i++){int skill=i;skills[side,i]=AddButton("",new Vector2(x+(i%2==0?-118:118),-5-(i/2)*40),new Vector2(228,35),delegate{bool ok=AbilityMode.Builds[p].Toggle(skill);hint.text=ok?AbilityMode.Skills[skill]+"："+AbilityMode.Descriptions[skill]:"剩余点数不足，请先减少能力点。";Refresh();});}
             AddButton(AI(side)?"重新随机":"恢复 4 / 4 / 4",new Vector2(x,-213),new Vector2(250,36),delegate{if(AI(p))AbilityMode.Randomize(p);else AbilityMode.Builds[p].Reset();Refresh();});
         }
-        hint=AddText("减少能力点可腾出购买预算；0点弱化普通能力，已购特技仍然有效。",new Vector2(0,-258),18,new Vector2(1030,38));
+        hint=AddText("自由分配能力与特技；剩余点数可以保留，双方配置确认后即可开始。",new Vector2(0,-258),18,new Vector2(1030,38));
         AddButton("返回",new Vector2(-210,-308),new Vector2(260,42),delegate{gameObject.SetActive(false);Destroy(gameObject);cancelled();});start=AddButton("开始比赛",new Vector2(210,-308),new Vector2(260,42),delegate{if(!AbilityMode.Builds[0].Valid||!AbilityMode.Builds[1].Valid)return;gameObject.SetActive(false);Destroy(gameObject);started();});Refresh();
     }
     void Resize(){if(content==null)return;RectTransform r=(RectTransform)transform;content.localScale=Vector3.one*Mathf.Min(r.rect.width/1120f,r.rect.height/730f);}
     void Update(){Resize();}
     Text AddText(string value,Vector2 xy,int size,Vector2 dimensions){var obj=new GameObject("Allocation Label",typeof(RectTransform),typeof(CanvasRenderer),typeof(Text));obj.transform.SetParent(content,false);var r=(RectTransform)obj.transform;r.anchorMin=r.anchorMax=new Vector2(.5f,.5f);r.anchoredPosition=xy;r.sizeDelta=dimensions;Text t=obj.GetComponent<Text>();t.font=font;t.fontSize=size;t.text=value;t.color=Color.white;t.alignment=TextAnchor.MiddleCenter;t.raycastTarget=false;return t;}
     Button AddButton(string label,Vector2 xy,Vector2 dimensions,UnityEngine.Events.UnityAction action){Button b=Instantiate<Button>(template);b.transform.SetParent(content,false);var r=b.GetComponent<RectTransform>();r.anchorMin=r.anchorMax=new Vector2(.5f,.5f);r.anchoredPosition=xy;r.sizeDelta=dimensions;r.localScale=Vector3.one;Text text=b.GetComponentInChildren<Text>(true);text.text=label;text.fontSize=19;text.resizeTextForBestFit=false;text.alignment=TextAnchor.MiddleCenter;text.color=new Color(.07f,.10f,.14f);RectTransform tr=text.GetComponent<RectTransform>();tr.anchorMin=Vector2.zero;tr.anchorMax=Vector2.one;tr.offsetMin=new Vector2(4,2);tr.offsetMax=new Vector2(-4,-2);b.onClick.RemoveAllListeners();b.onClick.AddListener(action);return b;}
-    void Refresh(){for(int p=0;p<2;p++){var b=AbilityMode.Builds[p];totals[p].text=(p==0?"范志毅":"赵鹏")+(AI(p)?" AI":"")+" · 剩余 "+(12-b.Used)+" 点";for(int d=0;d<3;d++){stats[p,d].text=Labels[d]+"   "+b.Levels[d]+" / 10";minus[p,d].interactable=!AI(p)&&b.Levels[d]>0;plus[p,d].interactable=!AI(p)&&b.Levels[d]<10&&b.Used<12;}for(int i=0;i<10;i++){skills[p,i].GetComponentInChildren<Text>(true).text=(b.Has(i)?"✓ ":"2点 · ")+AbilityMode.Skills[i];skills[p,i].interactable=!AI(p);}}if(start!=null)start.interactable=AbilityMode.Builds[0].Valid&&AbilityMode.Builds[1].Valid;}
+    void Refresh(){for(int p=0;p<2;p++){var b=AbilityMode.Builds[p];totals[p].text=(p==0?"范志毅":"赵鹏")+(AI(p)?" AI":"")+" · 剩余 "+(AbilityMode.Budget-b.Used)+" 点";for(int d=0;d<3;d++){stats[p,d].text=Labels[d]+"   "+b.Levels[d]+" / "+AbilityMode.MaxLevel;minus[p,d].interactable=!AI(p)&&b.Levels[d]>0;plus[p,d].interactable=!AI(p)&&b.Levels[d]<AbilityMode.MaxLevel&&b.Used<AbilityMode.Budget;}for(int i=0;i<10;i++){skills[p,i].GetComponentInChildren<Text>(true).text=(b.Has(i)?"✓ ":"2点 · ")+AbilityMode.Skills[i];skills[p,i].interactable=!AI(p);}}if(start!=null)start.interactable=AbilityMode.Builds[0].Valid&&AbilityMode.Builds[1].Valid;}
 }
 
 // All launches and contacts use the connected physical rig. No teleport,
@@ -137,7 +138,7 @@ public sealed class BuildPlayer : MonoBehaviour
     }
     Vector2 RigVelocity(){Vector2 v=Vector2.zero;foreach(var b in limbs)if(b!=null)v+=b.velocity*b.mass;return v/mass;}
     void Impulse(Vector2 v){foreach(var b in limbs)if(b!=null)b.AddForce(v*b.mass,ForceMode2D.Impulse);}
-    void Stable(){float spin=Mathf.Clamp(Mathf.DeltaAngle(body.rotation,0f)*5f-body.angularVelocity,-600f*Time.fixedDeltaTime,600f*Time.fixedDeltaTime)*Mathf.Deg2Rad;Vector2 center=body.position;foreach(var b in limbs)if(b!=null){Vector2 off=b.position-center;b.AddForce(new Vector2(-off.y,off.x)*spin*b.mass,ForceMode2D.Impulse);b.AddTorque(spin*b.inertia,ForceMode2D.Impulse);}}
+    void Stable(float response=5f,float acceleration=600f){float spin=Mathf.Clamp(Mathf.DeltaAngle(body.rotation,0f)*response-body.angularVelocity,-acceleration*Time.fixedDeltaTime,acceleration*Time.fixedDeltaTime)*Mathf.Deg2Rad;Vector2 center=body.position;foreach(var b in limbs)if(b!=null){Vector2 off=b.position-center;b.AddForce(new Vector2(-off.y,off.x)*spin*b.mass,ForceMode2D.Impulse);b.AddTorque(spin*b.inertia,ForceMode2D.Impulse);}}
     public bool Staggered {get{return !Stopped()&&Time.time<staggerUntil;}}
     public void Command(string action)
     {
@@ -146,7 +147,7 @@ public sealed class BuildPlayer : MonoBehaviour
         if(action=="Head"){headUntil=Time.time+.55f;ShowSkill(1);}
         if(action=="Jump"){
             lastJump=Time.time;ShowSkill(2);
-            if(Level(2)==10&&!Staggered){float speed=normalJumpSpeed*Mathf.Sqrt(AbilityMode.Strength(10))*(Has(2)?PlayerSkills.ZhaoJumpMultiplier:1f);float lift=speed*speed/(2f*Mathf.Max(.1f,-Physics2D.gravity.y*body.gravityScale));fastApex=body.position.y+lift;fastUntil=Time.time+.16f;}
+            if(Level(2)==AbilityMode.MaxLevel&&!Staggered){float speed=normalJumpSpeed*Mathf.Sqrt(AbilityMode.Strength(AbilityMode.MaxLevel))*(Has(2)?PlayerSkills.ZhaoJumpMultiplier:1f);float lift=speed*speed/(2f*Mathf.Max(.1f,-Physics2D.gravity.y*body.gravityScale));fastApex=body.position.y+lift;fastUntil=Time.time+.16f;}
         }
     }
     public static bool Rescuing(Component p){BuildPlayer s=p!=null?p.GetComponent<BuildPlayer>():null;return s!=null&&!s.Stopped()&&Time.time<=s.rescueUntil;}
@@ -186,19 +187,20 @@ public sealed class BuildPlayer : MonoBehaviour
     {
         if(Stopped()||other==null||other.Stopped())return;
         int level=Level(1),op=other.Level(1);float now=Time.time;
-        if(level==0&&!Has(3)){staggerUntil=Mathf.Max(staggerUntil,now+.65f);return;}
         bool tackle=Has(3);if(now-lastContest<(tackle?1.05f:.8f))return;
         if(!tackle&&level<=op)return;
-        lastContest=now;float strength=AbilityMode.Strength(level)/Mathf.Max(.2f,AbilityMode.Strength(op));bool ultimate=level==10&&op<10;
+        lastContest=now;float strength=AbilityMode.Strength(level)/Mathf.Max(.2f,AbilityMode.Strength(op));bool ultimate=level==AbilityMode.MaxLevel&&op<AbilityMode.MaxLevel;
         if(tackle)ShowSkill(3);
-        if(tackle||ultimate||op==0){other.staggerUntil=now+(ultimate?.65f:.28f);other.Impulse(new Vector2(direction*(ultimate?3.2f:1.5f)*scale,-(Ground()&&other.Ground()?0f:2f)*scale));if(tackle){other.knockOrigin=other.body.position.x;other.knockSign=direction;other.knockDistance=width*PlayerSkills.TackleKnockbackBodyWidths;other.knockUntil=now+.75f;}}
+        if(tackle||ultimate){other.staggerUntil=now+(ultimate?.65f:.28f);other.Impulse(new Vector2(direction*(ultimate?3.2f:1.5f)*scale,-(Ground()&&other.Ground()?0f:2f)*scale));if(tackle){other.knockOrigin=other.body.position.x;other.knockSign=direction;other.knockDistance=width*PlayerSkills.TackleKnockbackBodyWidths;other.knockUntil=now+.75f;}}
         else {other.Impulse(new Vector2(direction*Mathf.Min(1.2f,(strength-1f)*2f)*scale,0));}
     }
     public void Pose()
     {
         if(Stopped()){Restore();return;}
-        float multiplier=AbilityMode.Strength(Level(1));bool down=Time.time<staggerUntil;
-        for(int i=0;i<muscles.Length;i++)gain.SetValue(muscles[i],normalGains[i]*(down?.04f:Level(1)==0?.18f:multiplier));
+        // Supporting the body and driving the gait must not depend on contest points.
+        // Contest disadvantage is applied only by real opponent contacts.
+        bool down=Time.time<staggerUntil;
+        for(int i=0;i<muscles.Length;i++)gain.SetValue(muscles[i],normalGains[i]*(down?.04f:1f));
         if(down){SetTarget(0,-direction*45f);SetTarget(1,direction*30f);SetTarget(2,direction*65f);SetTarget(3,-direction*80f);SetTarget(4,direction*55f);SetTarget(5,-direction*70f);}
         else if(Has(6)&&headRescue&&Time.time<=rescueUntil){SetTarget(0,-direction*24f);SetTarget(1,direction*28f);}
 
@@ -209,15 +211,18 @@ public sealed class BuildPlayer : MonoBehaviour
     {
         if(Stopped()){Clear();return;}
         float now=Time.time;
+        // Ground support is independent of ability allocation; release it during actions and contests.
+        bool supported=Ground()||(Mathf.Abs(RigVelocity().y)<1.2f&&Bottom()<Floor()+height*.18f);
+        if(!Staggered&&supported&&now-lastJump>.35f&&now>kickUntil&&now>headUntil&&now>rescueRecover)Stable(8f,1200f);
         if(glowOwner==this&&now<glowUntil&&now-lastTrail>=.035f){lastTrail=now;ballTrail.Add(ball.position);if(ballTrail.Count>9)ballTrail.RemoveAt(0);}
         if (animator!=null) animator.speed=now<=dribbleUntil&&Has(0)?animatorSpeed*PlayerSkills.FanDribbleAnimationMultiplier:animatorSpeed;
         if(now<=knockUntil){float remaining=knockDistance-knockSign*(body.position.x-knockOrigin);if(remaining<=.02f)knockUntil=-1f;else {float vx=knockSign*RigVelocity().x;float target=Mathf.Min(5f*scale,remaining/Mathf.Max(.1f,knockUntil-now));Impulse(Vector2.right*knockSign*Mathf.Clamp(target-vx,-15f*Time.fixedDeltaTime,15f*Time.fixedDeltaTime));}}
-        if(Level(2)==10&&now<=fastUntil){float remaining=fastApex-body.position.y;float velocity=remaining>0?Mathf.Min(normalJumpSpeed*12f,remaining/Mathf.Max(Time.fixedDeltaTime,fastUntil-now)):0f;Impulse(Vector2.up*(velocity-RigVelocity().y));if(remaining<=.025f)fastUntil=-1f;}
-        if(Level(2)==10&&!Ground()&&GameAIMod.GetDownCommand(controller))dropUntil=now+.5f;
+        if(Level(2)==AbilityMode.MaxLevel&&now<=fastUntil){float remaining=fastApex-body.position.y;float velocity=remaining>0?Mathf.Min(normalJumpSpeed*12f,remaining/Mathf.Max(Time.fixedDeltaTime,fastUntil-now)):0f;Impulse(Vector2.up*(velocity-RigVelocity().y));if(remaining<=.025f)fastUntil=-1f;}
+        if(Level(2)==AbilityMode.MaxLevel&&!Ground()&&GameAIMod.GetDownCommand(controller))dropUntil=now+.5f;
         if(Has(9)&&!Ground()&&(GameAIMod.GetDownCommand(controller)||(Front()&&ball.position.y<Floor()+height*.6f&&-direction*ball.velocity.x>.5f&&Mathf.Abs(ball.position.x-body.position.x)<3f*scale))){ShowSkill(9);dropUntil=now+.5f;}
         if(now<=dropUntil){fastUntil=-1f;if(Ground()){dropUntil=-1f;}else Impulse(Vector2.up*(Mathf.Max(-30f*scale,-Mathf.Sqrt(2f*60f*Mathf.Max(.01f,Bottom()-Floor())))-RigVelocity().y));}
         if(now<=rescueRecover){Stable();float target=now<=rescueUntil&&!rescueWaiting?-direction*rescueSpeed:0f;float vx=RigVelocity().x;Impulse(Vector2.right*Mathf.Clamp(target-vx,-35f*Time.fixedDeltaTime,35f*Time.fixedDeltaTime));}
-        if(Has(3)||Level(1)==0||Level(1)==10){BuildPlayer other=Opponent();if(other!=null){bool ours=false,theirs=false;foreach(var c in colliders)if(c.IsTouching(ballShape))ours=true;foreach(var c in other.colliders)if(c.IsTouching(ballShape))theirs=true;if(ours&&theirs){PlayerContact(other,true);other.PlayerContact(this,true);}}}
+        {BuildPlayer other=Opponent();if(other!=null){bool ours=false,theirs=false;foreach(var c in colliders)if(c.IsTouching(ballShape))ours=true;foreach(var c in other.colliders)if(c.IsTouching(ballShape))theirs=true;if(ours&&theirs){PlayerContact(other,true);other.PlayerContact(this,true);}}}
         if(now<=flatUntil){float floor=BallBoundaryGuard.FindGoalFloor(goal)+ballShape.bounds.extents.y+.03f;float vy=ball.position.y>floor+.1f?-Mathf.Clamp((ball.position.y-floor)*12f,2f,16f):.2f;ball.AddForce(Vector2.up*(vy-ball.velocity.y)*ball.mass,ForceMode2D.Impulse);}
         if(flightOwner==this)Flight();
     }
@@ -235,7 +240,7 @@ public sealed class BuildPlayer : MonoBehaviour
             if(isHead&&headRescue){float line=direction>0?ownGoal.bounds.max.x:ownGoal.bounds.min.x;float gap=-direction*(line-ball.position.x);float vx=-direction*10f,vy=8f;float t=gap/10f;float bar=BallBoundaryGuard.FindGoalCeiling(ownGoal)+ballShape.bounds.extents.y+.3f;if(t<.2f){vx=direction*8f;}else vy=Mathf.Max(3f,(bar-ball.position.y)/t-.5f*Physics2D.gravity.y*t+1f);Launch(new Vector2(vx,vy)*PowerShot.HeaderSpeedMultiplier);Highlight(6,.85f);headUntil=rescueUntil=-1f;return;}
             float goalward=-direction*ball.velocity.x;if(goalward>0){ball.AddForce(Vector2.right*direction*goalward*ball.mass,ForceMode2D.Impulse);}return;
         }
-        if(isHead&&now<=headUntil){headUntil=-1f;if(Has(1)){Launch(new Vector2(direction*17f,4f)*PowerShot.HeaderSpeedMultiplier);Highlight(1,.85f);PowerShot.CompleteHeader(controller);}else if(Level(0)!=4){Launch(ball.velocity*(Level(0)==0?.2f:AbilityMode.Strength(Level(0))));PowerShot.CompleteHeader(controller);}return;}
+        if(isHead&&now<=headUntil){headUntil=-1f;if(Has(1)){Launch(new Vector2(direction*17f,4f)*PowerShot.HeaderSpeedMultiplier*AbilityMode.ShotSkillStrength(Level(0)));Highlight(1,.85f);PowerShot.CompleteHeader(controller);}else {Launch(ball.velocity*AbilityMode.Strength(Level(0)));PowerShot.CompleteHeader(controller);}return;}
         bool eligible=false;for(int i=0;i<c.contactCount;i++){var pt=c.GetContact(i);Vector2 normal=pt.normal;if(Vector2.Dot(normal,ball.position-pt.point)<0)normal=-normal;if(PlayerSkills.IsStrikeFoot(controller,c.collider,pt.point,normal,Has(4)||Has(5)))eligible=true;}
         if(!eligible)return;
         if(now<=kickUntil&&Front()&&now-lastKickContact>.06f){kickUntil=-1f;lastKickContact=now;Strike();return;}
@@ -245,16 +250,15 @@ public sealed class BuildPlayer : MonoBehaviour
     void Strike()
     {
         int level=Level(0);bool leaf=Has(5)&&!power,burst=Has(4)&&power;
-        if(level==0&&!leaf&&!burst){BuildPlayer defender=Opponent();Vector2 aim=defender!=null?(Vector2)defender.head.position:ball.position+Vector2.right*direction;Vector2 v=(aim-ball.position).normalized*4f;Launch(v);return;}
-        float strength=leaf||burst?Mathf.Max(1f,AbilityMode.Strength(level)):AbilityMode.Strength(level);
+        float strength=leaf||burst?AbilityMode.ShotSkillStrength(level):AbilityMode.Strength(level);
         if(burst){Launch(new Vector2(direction*22f*strength,.2f));Highlight(4,.85f);flatUntil=Time.time+.6f;return;}
-        if(level==4&&!leaf){Launch(ball.velocity);return;}
         float radius=ballShape.bounds.extents.y;float x=direction>0?goal.bounds.min.x+radius*.3f:goal.bounds.max.x-radius*.3f;float ceiling=BallBoundaryGuard.FindGoalCeiling(goal);Vector2 target=new Vector2(x,ceiling-radius-.10f*scale);
-        bool weird=leaf||UnityEngine.Random.value<(level==10?.85f:Mathf.Max(0,level-4)*.10f);
-        float distance=Mathf.Abs(x-ball.position.x);float speed=18f*strength;float time=Mathf.Clamp(distance/speed,.18f,1.6f);
-        if(weird){flightOrigin=ball.position;flightTarget=target;flightDuration=Mathf.Max(time,.55f);flightLift=(leaf?4.2f:UnityEngine.Random.Range(2.2f,4.2f))*scale;flightKind=!leaf&&UnityEngine.Random.value<.5f?1:0;flightStart=Time.time;flightOwner=this;ball.collisionDetectionMode=CollisionDetectionMode2D.Continuous;if(leaf)Highlight(5,flightDuration+.8f);Flight();return;}
-        float error=level==10?0:UnityEngine.Random.Range(-1f,1f)*Mathf.Max(0,10-level)*.07f*scale;target.y+=error;
-        Vector2 velocity=new Vector2((target.x-ball.position.x)/time,(target.y-ball.position.y)/time-.5f*Physics2D.gravity.y*ball.gravityScale*time);Launch(level<10&&!leaf?velocity.normalized*ball.velocity.magnitude*strength:velocity);
+        if(leaf){float progress=level/(float)AbilityMode.MaxLevel;target.y=Mathf.Lerp(ball.position.y,target.y,strength)+UnityEngine.Random.Range(-1f,1f)*(1f-progress)*1.8f*scale;}
+        bool weird=leaf||UnityEngine.Random.value<(level==AbilityMode.MaxLevel?.85f:Mathf.Max(0,level-4)*.10f);
+        float distance=Mathf.Abs(x-ball.position.x);float speed=18f*strength;float time=Mathf.Clamp(distance/speed,leaf?.55f:.18f,leaf?6f:1.6f);
+        if(weird){flightOrigin=ball.position;flightTarget=target;flightDuration=Mathf.Max(time,.55f);flightLift=(leaf?4.2f*strength:UnityEngine.Random.Range(2.2f,4.2f))*scale;flightKind=!leaf&&UnityEngine.Random.value<.5f?1:0;flightStart=Time.time;flightOwner=this;ball.collisionDetectionMode=CollisionDetectionMode2D.Continuous;if(leaf)Highlight(5,flightDuration+.8f);Flight();return;}
+        float error=level==AbilityMode.MaxLevel?0:UnityEngine.Random.Range(-1f,1f)*Mathf.Max(0,AbilityMode.MaxLevel-level)*.07f*scale;target.y+=error;
+        Vector2 velocity=new Vector2((target.x-ball.position.x)/time,(target.y-ball.position.y)/time-.5f*Physics2D.gravity.y*ball.gravityScale*time);Launch(velocity.normalized*ball.velocity.magnitude*strength);
     }
     void Flight()
     {

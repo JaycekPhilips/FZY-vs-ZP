@@ -1,0 +1,286 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.917 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.577000 ms
+ABILITY PASS 16 budget keeps 4/4/4 with four unspent points 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS cap eight, cost two, refund and invalid allocations 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS AI random allocations obey new budget and cap 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS equal five-percentage-point ability schedule with retained 60 percent floor 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS allocation UI hides percentages/zero-point effects and default can start 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.173000 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1014.
+Total: 0.683700 ms (FindLiveObjects: 0.063000 ms CreateObjectMapping: 0.011300 ms MarkObjects: 0.209600 ms  DeleteObjects: 0.399400 ms)
+
+ABILITY FAIL stable stand/walk/dribble Fan contest=0 jump=4 walk=1.558112 carry=3.992107 ball=2.214801 angle=41.52633 joints=0.1119218 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.450600 ms
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.009800 ms (FindLiveObjects: 0.032100 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.183300 ms  DeleteObjects: 0.785600 ms)
+
+ABILITY PASS stable stand/walk/dribble Fan contest=4 jump=0 walk=1.65805 carry=3.234694 ball=2.791075 angle=32.41531 joints=0.09537023 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.306100 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.229900 ms (FindLiveObjects: 0.063800 ms CreateObjectMapping: 0.009000 ms MarkObjects: 0.314400 ms  DeleteObjects: 0.842200 ms)
+
+ABILITY FAIL stable stand/walk/dribble Fan contest=0 jump=0 walk=1.644206 carry=3.602597 ball=2.222002 angle=41.19598 joints=0.0878351 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.282100 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.037900 ms (FindLiveObjects: 0.035200 ms CreateObjectMapping: 0.016400 ms MarkObjects: 0.204900 ms  DeleteObjects: 0.780900 ms)
+
+ABILITY FAIL zero jump retains real reduced jump Fan rise=0.004553646 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.318200 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.111600 ms (FindLiveObjects: 0.055800 ms CreateObjectMapping: 0.009100 ms MarkObjects: 0.262500 ms  DeleteObjects: 0.783800 ms)
+
+ABILITY PASS new cap rapid jump/descent Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.326100 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.116100 ms (FindLiveObjects: 0.060100 ms CreateObjectMapping: 0.009800 ms MarkObjects: 0.269100 ms  DeleteObjects: 0.776800 ms)
+
+ABILITY FAIL stable stand/walk/dribble Zhao contest=0 jump=4 walk=1.986351 carry=4.476595 ball=2.182476 angle=41.81012 joints=0.1869304 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.287700 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.105100 ms (FindLiveObjects: 0.033800 ms CreateObjectMapping: 0.008000 ms MarkObjects: 0.217800 ms  DeleteObjects: 0.845200 ms)
+
+ABILITY PASS stable stand/walk/dribble Zhao contest=4 jump=0 walk=1.986077 carry=4.636195 ball=2.853215 angle=39.89346 joints=0.1807168 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.317600 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.060900 ms (FindLiveObjects: 0.041700 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.243000 ms  DeleteObjects: 0.767000 ms)
+
+ABILITY FAIL stable stand/walk/dribble Zhao contest=0 jump=0 walk=1.98018 carry=4.142703 ball=2.703947 angle=47.57092 joints=0.1319466 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.315800 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.170600 ms (FindLiveObjects: 0.041700 ms CreateObjectMapping: 0.008800 ms MarkObjects: 0.249300 ms  DeleteObjects: 0.870300 ms)
+
+ABILITY FAIL zero jump retains real reduced jump Zhao rise=0.01510163 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.308000 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.221300 ms (FindLiveObjects: 0.041000 ms CreateObjectMapping: 0.009100 ms MarkObjects: 0.337200 ms  DeleteObjects: 0.833700 ms)
+
+ABILITY PASS new cap rapid jump/descent Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.251600 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.045500 ms (FindLiveObjects: 0.033500 ms CreateObjectMapping: 0.007900 ms MarkObjects: 0.216200 ms  DeleteObjects: 0.787600 ms)
+
+ABILITY PASS ordinary shots retain linear power rather than the old zero-point weak special case 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PROFILE burst=5.5,9.625,22 lift=1.05,1.8375,4.2 error=1.044141,0.5220706,0 angle=0.06288736,0.1163044,0.2664704 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS burst shooting 0/4/8 markedly scales ball speed 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS leaf shooting 0/4/8 scales height, angle and accuracy 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.256300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.122900 ms (FindLiveObjects: 0.036300 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.292200 ms  DeleteObjects: 0.785400 ms)
+
+ABILITY PASS real collision, scaled shot and preserved animation Fan skill=1 shooting=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.316600 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.066300 ms (FindLiveObjects: 0.033800 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.228200 ms  DeleteObjects: 0.795900 ms)
+
+ABILITY PASS real collision, scaled shot and preserved animation Fan skill=1 shooting=4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.353200 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.040700 ms (FindLiveObjects: 0.039100 ms CreateObjectMapping: 0.009000 ms MarkObjects: 0.234500 ms  DeleteObjects: 0.757700 ms)
+
+ABILITY PASS real collision, scaled shot and preserved animation Fan skill=1 shooting=8 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.333300 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.139600 ms (FindLiveObjects: 0.041900 ms CreateObjectMapping: 0.009000 ms MarkObjects: 0.244300 ms  DeleteObjects: 0.843800 ms)
+
+ABILITY PASS real collision, scaled shot and preserved animation Fan skill=4 shooting=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.301200 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.274000 ms (FindLiveObjects: 0.052000 ms CreateObjectMapping: 0.009700 ms MarkObjects: 0.270600 ms  DeleteObjects: 0.941200 ms)
+
+ABILITY PASS real collision, scaled shot and preserved animation Fan skill=5 shooting=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.254200 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 0.989200 ms (FindLiveObjects: 0.032400 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.194200 ms  DeleteObjects: 0.754100 ms)
+
+ABILITY PASS real collision, scaled shot and preserved animation Zhao skill=1 shooting=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.265700 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1062.
+Total: 1.064600 ms (FindLiveObjects: 0.033800 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.220100 ms  DeleteObjects: 0.802100 ms)
+
+ABILITY PASS real collision, scaled shot and preserved animation Zhao skill=1 shooting=4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.320100 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1062.
+Total: 1.201800 ms (FindLiveObjects: 0.044100 ms CreateObjectMapping: 0.009300 ms MarkObjects: 0.271600 ms  DeleteObjects: 0.876200 ms)
+
+ABILITY PASS real collision, scaled shot and preserved animation Zhao skill=1 shooting=8 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.310800 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1062.
+Total: 1.282700 ms (FindLiveObjects: 0.041100 ms CreateObjectMapping: 0.008900 ms MarkObjects: 0.225900 ms  DeleteObjects: 1.006600 ms)
+
+ABILITY PASS real collision, scaled shot and preserved animation Zhao skill=4 shooting=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.436400 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.128000 ms (FindLiveObjects: 0.038000 ms CreateObjectMapping: 0.008500 ms MarkObjects: 0.301200 ms  DeleteObjects: 0.779900 ms)
+
+ABILITY PASS real collision, scaled shot and preserved animation Zhao skill=5 shooting=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.277800 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.148700 ms (FindLiveObjects: 0.042200 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.216300 ms  DeleteObjects: 0.881700 ms)
+
+ABILITY PASS equal low contest does not auto-collapse on contact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS cap eight contest advantage applies only in opponent contact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.301300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.116500 ms (FindLiveObjects: 0.058300 ms CreateObjectMapping: 0.009700 ms MarkObjects: 0.217200 ms  DeleteObjects: 0.830800 ms)
+
+ABILITY PASS AI capability reads retained zero-point jump 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS pause safely suppresses build actions 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS classic parameters and removed bottom text preserved 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.291400 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1058.
+Total: 1.132000 ms (FindLiveObjects: 0.037800 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.262200 ms  DeleteObjects: 0.823100 ms)
+
+ABILITY PASS original special mode loads without allocation overrides 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=34 failures=6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 9938 -> priority: 1 
+  Thread -> id: 7f80 -> priority: 1 
+  Thread -> id: 2a60 -> priority: 1 
+  Thread -> id: 78f0 -> priority: 1 
+  Thread -> id: 9e50 -> priority: 1 
+  Thread -> id: 9b84 -> priority: 1 
+  Thread -> id: 3730 -> priority: 1 
+  Thread -> id: 6208 -> priority: 1 
+  Thread -> id: 71ec -> priority: 1 
+  Thread -> id: 6928 -> priority: 1 
+  Thread -> id: 8e1c -> priority: 1 
+  Thread -> id: 4150 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

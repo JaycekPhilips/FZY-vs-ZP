@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -569,7 +569,7 @@ public static class GameAIMod
         AIState state = GetState(controller);
         UpdateDecision(controller, state);
         // The game's PlayerInput maps each side to these keys.
-        if (key == KeyCode.W || key == KeyCode.UpArrow) return state.jump && (!AbilityMode.Enabled || AbilityMode.For(controller).Levels[2]>0 || AbilityMode.Has(controller,2));
+        if (key == KeyCode.W || key == KeyCode.UpArrow) return state.jump;
         if (key == KeyCode.K || key == KeyCode.KeypadEnter)
         {
             if (AbilityMode.Has(controller,5) && !AbilityMode.Has(controller,4)) state.power = false;
@@ -621,8 +621,7 @@ public static class GameAIMod
                 if (jump != null && rigMass > 0f)
                     state.jumpSpeed = Mathf.Clamp(PlayerSkills.GetJumpForce((float)jump.GetValue(controller), controller) *
                         Time.fixedDeltaTime * Time.fixedDeltaTime / rigMass, 3f, 8f);
-                if (AbilityMode.Enabled && AbilityMode.For(controller).Levels[2]==10 && jump!=null && rigMass>0f) state.jumpSpeed=Mathf.Clamp((float)jump.GetValue(controller)*Time.fixedDeltaTime*Time.fixedDeltaTime/rigMass,3f,8f)*Mathf.Sqrt(AbilityMode.Strength(10))*(AbilityMode.Has(controller,2)?PlayerSkills.ZhaoJumpMultiplier:1f);
-                if (AbilityMode.Enabled && AbilityMode.For(controller).Levels[2]==0 && !AbilityMode.Has(controller,2)) state.jumpSpeed=0f;
+                if (AbilityMode.Enabled && jump!=null && rigMass>0f) state.jumpSpeed=Mathf.Clamp((float)jump.GetValue(controller)*Time.fixedDeltaTime*Time.fixedDeltaTime/rigMass,3f,8f)*Mathf.Sqrt(AbilityMode.Strength(AbilityMode.MaxLevel))*(AbilityMode.Has(controller,2)?PlayerSkills.ZhaoJumpMultiplier:1f);
                 Type goals = type.Assembly.GetType("GoalTrigger");
                 if (goals != null)
                     foreach (UnityEngine.Object item in UnityEngine.Object.FindObjectsOfType(goals))

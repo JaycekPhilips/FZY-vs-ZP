@@ -1,4 +1,4 @@
-﻿param([ValidateSet('Original','Experiment','Win64')][string]$Edition='Original',[ValidateSet('Gameplay','Controls','Boundary','Defense','Goals','Magnetic','Contest','AI','Drop','Corner','Balance','Strategy','SelfPlay','Rolling','FanStrategy','Ability','Visual')][string]$Suite='Gameplay',[switch]$Baseline,[int]$GoalTarget=2000,[ValidateRange(1,64)][int]$SelfPlaySpeed=24,[switch]$PrepareSelfPlay)
+param([ValidateSet('Original','Experiment','Win64')][string]$Edition='Original',[ValidateSet('Gameplay','Controls','Boundary','Defense','Goals','Magnetic','Contest','AI','Drop','Corner','Balance','Strategy','SelfPlay','Rolling','FanStrategy','Ability','Visual')][string]$Suite='Gameplay',[switch]$Baseline,[int]$GoalTarget=2000,[ValidateRange(1,64)][int]$SelfPlaySpeed=24,[switch]$PrepareSelfPlay)
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $workspace = Split-Path (Split-Path $taskRoot -Parent) -Parent
@@ -50,12 +50,6 @@ if ($Suite -in @('Defense','AI','Strategy','SelfPlay','FanStrategy','Ability','V
 [IO.File]::WriteAllText((Join-Path $testBuild 'GameAIMod.cs'),$bridge,[Text.UTF8Encoding]::new($false))
 [IO.File]::WriteAllText((Join-Path $testBuild 'ControlBindings.cs'),$bindings,[Text.UTF8Encoding]::new($false))
 $testSources = $sources | Where-Object { (Split-Path $_ -Leaf) -notin @('GameAIMod.cs','ControlBindings.cs') }
-if ($Suite -eq 'Ability') {
-    $ability = [IO.File]::ReadAllText((Join-Path $source 'AbilityMode.cs')).Replace('void Launch(Vector2 velocity){','void Launch(Vector2 velocity){AbilityModeTests.Launched(controller,velocity);')
-    [IO.File]::WriteAllText((Join-Path $testBuild 'AbilityMode.cs'),$ability,[Text.UTF8Encoding]::new($false))
-    $testSources = $testSources | Where-Object { (Split-Path $_ -Leaf) -ne 'AbilityMode.cs' }
-    $testSources += Join-Path $testBuild 'AbilityMode.cs'
-}
 if ($Suite -eq 'Gameplay') {
     $skills = [IO.File]::ReadAllText((Join-Path $source 'PlayerSkills.cs')).Replace('        bool power = PowerShot.OnBallCollision(collision);', '        BurstRangeTests.BeforeContact(collision);' + [Environment]::NewLine + '        bool power = PowerShot.OnBallCollision(collision);' + [Environment]::NewLine + '        BurstRangeTests.AfterContact(collision, power);')
     [IO.File]::WriteAllText((Join-Path $testBuild 'PlayerSkills.cs'),$skills,[Text.UTF8Encoding]::new($false))

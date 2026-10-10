@@ -1,13 +1,16 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
+// Focused regression for the current allocation update, rather than the historical full suite.
 public sealed class AbilityModeTests : MonoBehaviour
 {
     public static bool UseAI;static bool booted;static readonly HashSet<KeyCode> keys=new HashSet<KeyCode>();
     public static bool ReadKey(KeyCode k){return keys.Contains(k);}public static bool ReadDown(KeyCode k){return keys.Contains(k);}
+    static readonly Dictionary<string,Vector2> launches=new Dictionary<string,Vector2>();
+    public static void Launched(Component p,Vector2 velocity){launches[p.name]=velocity;}
     public static void Boot(){if(booted)return;booted=true;ControlBindings.settingsPath=System.IO.Path.Combine(Application.dataPath,"..","ability-test-bindings.ini");GameObject o=new GameObject("AbilityModeTests");DontDestroyOnLoad(o);o.AddComponent<AbilityModeTests>();}
     int checks,failures;Component fan,zhao,manager;Type pt;Rigidbody2D ball,fb,zb;BuildPlayer fp,zp;float scale;const BindingFlags Hidden=BindingFlags.Static|BindingFlags.NonPublic;
     void Check(bool ok,string name){checks++;if(!ok)failures++;Debug.Log((ok?"ABILITY PASS ":"ABILITY FAIL ")+name);}
@@ -15,78 +18,79 @@ public sealed class AbilityModeTests : MonoBehaviour
     void Write(BuildPlayer p,string name,object value){typeof(BuildPlayer).GetField(name,BindingFlags.Instance|BindingFlags.NonPublic).SetValue(p,value);}
     void Move(Component p,Vector2 v){var body=(Rigidbody2D)pt.GetField("rb").GetValue(p);p.transform.position+=(Vector3)(v-body.position);foreach(var b in p.GetComponentsInChildren<Rigidbody2D>()){b.velocity=Vector2.zero;b.angularVelocity=0;}Physics2D.SyncTransforms();}
     float Error(Component p){float e=0;foreach(var j in p.GetComponentsInChildren<HingeJoint2D>())if(j.connectedBody!=null)e=Mathf.Max(e,Vector2.Distance(j.transform.TransformPoint(j.anchor),j.connectedBody.transform.TransformPoint(j.connectedAnchor)));return e;}
-    IEnumerator Scene(int[] f,int[] z,int fs,int zs){keys.Clear();Time.timeScale=1;UseAI=false;PlayerSkills.Enabled=false;AbilityMode.Enabled=true;AbilityMode.Reset();for(int i=0;i<3;i++){AbilityMode.Builds[0].Levels[i]=f[i];AbilityMode.Builds[1].Levels[i]=z[i];}AbilityMode.Builds[0].Purchased=fs;AbilityMode.Builds[1].Purchased=zs;typeof(GameAIMod).GetMethod("BeginGame",Hidden).Invoke(null,new object[]{0});yield return new WaitForSeconds(.3f);pt=Type.GetType("PlayerController, Assembly-CSharp");fan=GameObject.Find("Fan").GetComponent(pt);zhao=GameObject.Find("Zhao").GetComponent(pt);manager=FindObjectOfType(pt.Assembly.GetType("GameManager")) as Component;ball=(FindObjectOfType(pt.Assembly.GetType("Ball")) as Component).GetComponent<Rigidbody2D>();fb=(Rigidbody2D)pt.GetField("rb").GetValue(fan);zb=(Rigidbody2D)pt.GetField("rb").GetValue(zhao);fp=fan.GetComponent<BuildPlayer>();zp=zhao.GetComponent<BuildPlayer>();scale=Mathf.Abs(fan.transform.lossyScale.x)/.8f;CapturePitch();Move(fan,new Vector2(-1f*scale,fb.position.y));Move(zhao,new Vector2(4f*scale,zb.position.y));ball.position=new Vector2(0,10);ball.gravityScale=0;yield return new WaitForSeconds(.2f);GameAIMod.OnBallReset();}
-    void Budget(){AbilityMode.Reset();var b=AbilityMode.Builds[0];Check(b.Valid&&b.Used==12,"default 4/4/4 uses twelve existing points");Check(!b.Change(0,1),"no free extra points");Check(b.Change(2,-2)&&b.Toggle(6)&&b.Valid,"skill costs exactly two from same budget");Check(!b.Toggle(5),"overbudget purchase rejected");Check(b.Toggle(6)&&b.Used==10,"refund restores budget");b.Levels[0]=10;b.Levels[1]=1;b.Levels[2]=1;Check(b.Valid&&!b.Change(0,1),"10/1/1 valid and maximum enforced");Check(!b.Change(1,-2),"negative levels rejected");bool random=true,skill=false,edge=false;for(int i=0;i<500;i++){AbilityMode.Randomize(i%2);var c=AbilityMode.Builds[i%2];random&=c.Valid;skill|=c.Purchased!=0;edge|=c.Levels[0]==0||c.Levels[1]==0||c.Levels[2]==0;}Check(random&&skill&&edge,"500 random AI builds respect budget, cap and purchased skills");Check(Mathf.Approximately(AbilityMode.Strength(4),1)&&Mathf.Approximately(AbilityMode.Strength(10),1.6f)&&Mathf.Approximately(AbilityMode.Strength(3),.9f),"four is baseline and each redistributed point is ten percent");}
-    IEnumerator UI(){AbilityMode.Enabled=false;AbilityMode.Reset();Component menu=FindObjectOfType(Type.GetType("MainPanel, Assembly-CSharp")) as Component;Check(menu!=null,"main menu available");if(menu==null)yield break;Button start=menu.transform.Find("btn_Start")!=null?menu.transform.Find("btn_Start").GetComponent<Button>():null;if(start==null)foreach(var b in menu.GetComponentsInChildren<Button>(true))if(b.name=="btn_Start")start=b;Check(start!=null,"start button available");if(start==null)yield break;start.onClick.Invoke();yield return null;Button ability=null;foreach(var b in FindObjectsOfType<Button>())if(b.GetComponentInChildren<Text>()!=null&&b.GetComponentInChildren<Text>().text.Contains("加点模式"))ability=b;Check(ability!=null,"third game style visible");if(ability==null)yield break;ability.onClick.Invoke();yield return null;Button two=null;foreach(var b in FindObjectsOfType<Button>())if(b.GetComponentInChildren<Text>()!=null&&b.GetComponentInChildren<Text>().text=="双人对战")two=b;Check(two!=null,"build mode chooses opponent before allocation");if(two==null)yield break;two.onClick.Invoke();yield return null;Check(FindObjectOfType<AbilitySetupPanel>()!=null,"allocation overlay opens before match");int bought=0;foreach(var b in FindObjectsOfType<Button>())if(b.GetComponentInChildren<Text>()!=null&&b.GetComponentInChildren<Text>().text.StartsWith("2点"))bought++;Check(bought==20,"both players see all ten cross-character skills");yield return new WaitForEndOfFrame();Snapshot();yield return null;foreach(var b in FindObjectsOfType<Button>())if(b.GetComponentInChildren<Text>()!=null&&b.GetComponentInChildren<Text>().text=="返回"&&b.transform.IsChildOf(FindObjectOfType<AbilitySetupPanel>().transform)){b.onClick.Invoke();break;}yield return null;Check(FindObjectOfType<AbilitySetupPanel>()==null,"return cancels allocation without loading match");}
-    IEnumerator Jump(){yield return Scene(new int[]{1,10,1},new int[]{4,4,4},0,0);float native=(float)pt.GetField("jumpForce").GetValue(fan);AbilityMode.Builds[0].Levels[2]=0;Check(PlayerSkills.GetJumpForce(native,fan)==0,"zero jump has zero ordinary impulse");AbilityMode.Builds[0].Purchased=1<<2;Check(PlayerSkills.GetJumpForce(native,fan)>native,"zero jump plus aerial fortress still jumps");AbilityMode.Builds[0].Purchased=1<<6;Write(fp,"rescueUntil",Time.time+1);Check(PlayerSkills.GetJumpForce(native,fan)>0,"zero jump plus emergency rescue permits rescue jump");fp.Clear();AbilityMode.Builds[0].Purchased=0;AbilityMode.Builds[0].Levels[2]=10;float start=fb.position.y;PlayerSkills.SetAction((Animator)pt.GetField("anim").GetValue(fan),"Jump",fan);float peak=start,error=0;for(int i=0;i<12;i++){yield return new WaitForFixedUpdate();peak=Mathf.Max(peak,fb.position.y);error=Mathf.Max(error,Error(fan));}Check(peak>start+.3f*scale,"maximum jump rapidly lifts connected physical rig");Check(error<.4f,"maximum jump joint safety error="+error);keys.Add(KeyCode.S);yield return new WaitForFixedUpdate();yield return new WaitForFixedUpdate();keys.Clear();Check(fb.velocity.y<0,"S triggers rapid descent");for(int i=0;i<30;i++)yield return new WaitForFixedUpdate();Check(Error(fan)<.4f,"descent retains connected skeleton");}
-    IEnumerator Contest(){yield return Scene(new int[]{1,10,1},new int[]{6,0,6},0,0);fp.PlayerContact(zp,false);zp.Pose();Check((float)Read(zp,"staggerUntil")>Time.time,"zero contest falls upon contact");Check((float)Read(fp,"staggerUntil")<Time.time,"maximum contest remains braced against zero");yield return new WaitForSeconds(.15f);Check(Error(zhao)<.5f,"folded opponent keeps joints connected");fp.Clear();zp.Clear();AbilityMode.Builds[0].Levels[1]=0;AbilityMode.Builds[0].Purchased=1<<3;AbilityMode.Builds[1].Levels[1]=4;fp.PlayerContact(zp,false);Check((float)Read(zp,"staggerUntil")>Time.time,"purchased tackle works even at zero contest");}
-    IEnumerator Rescue(){yield return Scene(new int[]{4,4,2},new int[]{4,4,4},1<<6,0);ball.gravityScale=1;ball.position=new Vector2(fb.position.x-.9f*scale,(float)Read(fp,"groundY")+ball.GetComponent<Collider2D>().bounds.extents.y+.02f);ball.velocity=Vector2.left;Physics2D.SyncTransforms();float axis=fp.RescueAxis(-1);Check(BuildPlayer.Rescuing(fan),"Fan can buy rescue and start towards left own goal");Check(axis==0,"low rescue waits for jump clearance instead of own-goal shove");Check((float)Read(fp,"rescueSpeed")<=(float)pt.GetField("maxVelocity").GetValue(fan)*2+.001f,"adaptive rescue respects double-speed ceiling");pt.GetField("isOnGround").SetValue(fan,true);Check(fp.RescueButton(true),"mirrored Fan rescue requests low-ball jump");float original=fb.position.x;keys.Add(KeyCode.A);float err=0;for(int i=0;i<75;i++){yield return new WaitForFixedUpdate();err=Mathf.Max(err,Error(fan));}keys.Clear();Check(fb.position.x<original,"live Fan rescue retreats left");Check(err<.55f,"live rescue retains rig error="+err);Check((int)manager.GetType().GetField("p2Score").GetValue(manager)==0,"live mirrored rescue does not score own goal");GameAIMod.OnBallReset();Check(!BuildPlayer.Rescuing(fan),"rally reset clears rescue");}
-    IEnumerator Shooting(){yield return Scene(new int[]{0,6,6},new int[]{4,4,4},0,0);ball.gravityScale=0;ball.position=new Vector2(fb.position.x+.8f*scale,fb.position.y-.5f*scale);ball.velocity=Vector2.right*18;typeof(BuildPlayer).GetMethod("Strike",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(fp,null);Check(ball.velocity.magnitude<=4.1f,"zero shooting ordinary ball is weak");fp.Clear();AbilityMode.Builds[0].Purchased=1<<5;typeof(BuildPlayer).GetMethod("Strike",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(fp,null);Check((float)Read(fp,"flightStart")>=Time.time-.02f,"zero shooting purchased leaf flight remains armed");fp.Clear();AbilityMode.Builds[0].Purchased=1<<4;Write(fp,"power",true);typeof(BuildPlayer).GetMethod("Strike",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(fp,null);Check(ball.velocity.x>20,"zero shooting purchased burst retains skill strength");fp.Clear();AbilityMode.Builds[0].Purchased=0;AbilityMode.Builds[0].Levels[0]=10;Write(fp,"power",false);UnityEngine.Random.InitState(2031);int curves=0;bool targeted=true;for(int i=0;i<50;i++){fp.Clear();ball.position=new Vector2(fb.position.x+.8f*scale,fb.position.y);ball.velocity=Vector2.zero;typeof(BuildPlayer).GetMethod("Strike",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(fp,null);if((float)Read(fp,"flightStart")>0){curves++;Vector2 t=(Vector2)Read(fp,"flightTarget");Collider2D goal=(Collider2D)Read(fp,"goal");targeted&=t.x>0&&t.y<BallBoundaryGuard.FindGoalCeiling(goal);}}Check(curves>=30&&targeted,"maximum shooting frequently curves towards opponent upper corner count="+curves);fp.Clear();Time.timeScale=0;fp.Pose();Check(fp.Stopped(),"pause suppresses ability actions");Time.timeScale=1;}
-    IEnumerator BalanceChecks()
-    {
-        yield return Scene(new int[]{4,4,4},new int[]{4,4,4},0,0);
-        float jump=(float)pt.GetField("jumpForce").GetValue(fan);bool matched=true;
-        for(int level=1;level<=9;level++){
-            fp.Clear();AbilityMode.Builds[0].Levels[0]=level;AbilityMode.Builds[0].Levels[1]=level;AbilityMode.Builds[0].Levels[2]=level;float multiplier=AbilityMode.Strength(level);
-            // Squared jump impulse is proportional to rise height.
-            float jf=PlayerSkills.GetJumpForce(jump,fan)/jump;matched&=Mathf.Abs(jf*jf-multiplier)<.001f;
-            fp.Pose();object[] m=(object[])Read(fp,"muscles");float[] gains=(float[])Read(fp,"normalGains");float actual=(float)m[0].GetType().GetField("force").GetValue(m[0]);matched&=Mathf.Abs(actual/gains[0]-multiplier)<.001f;
-            bool sampled=false;for(int trial=0;trial<20&&!sampled;trial++){fp.Clear();ball.position=new Vector2(fb.position.x+.8f*scale,fb.position.y);ball.velocity=Vector2.right*15f;typeof(BuildPlayer).GetMethod("Strike",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(fp,null);if((float)Read(fp,"flightStart")<0){matched&=Mathf.Abs(ball.velocity.magnitude/15f-multiplier)<.002f;sampled=true;}}
-            matched&=sampled;
+    IEnumerator Scene(int[] f,int[] z,int fs,int zs){keys.Clear();Time.timeScale=1;UseAI=false;PlayerSkills.Enabled=false;AbilityMode.Enabled=true;AbilityMode.Reset();for(int i=0;i<3;i++){AbilityMode.Builds[0].Levels[i]=f[i];AbilityMode.Builds[1].Levels[i]=z[i];}AbilityMode.Builds[0].Purchased=fs;AbilityMode.Builds[1].Purchased=zs;typeof(GameAIMod).GetMethod("BeginGame",Hidden).Invoke(null,new object[]{0});yield return new WaitForSeconds(.3f);pt=Type.GetType("PlayerController, Assembly-CSharp");fan=GameObject.Find("Fan").GetComponent(pt);zhao=GameObject.Find("Zhao").GetComponent(pt);manager=FindObjectOfType(pt.Assembly.GetType("GameManager")) as Component;ball=(FindObjectOfType(pt.Assembly.GetType("Ball")) as Component).GetComponent<Rigidbody2D>();fb=(Rigidbody2D)pt.GetField("rb").GetValue(fan);zb=(Rigidbody2D)pt.GetField("rb").GetValue(zhao);fp=fan.GetComponent<BuildPlayer>();zp=zhao.GetComponent<BuildPlayer>();scale=Mathf.Abs(fan.transform.lossyScale.x)/.8f;Move(fan,new Vector2(-3f*scale,fb.position.y));Move(zhao,new Vector2(3f*scale,zb.position.y));ball.position=new Vector2(0,10);ball.gravityScale=0;yield return new WaitForSeconds(.2f);GameAIMod.OnBallReset();}
+
+    void Rules(){
+        AbilityMode.Reset();var b=AbilityMode.Builds[0];
+        Check(b.Valid&&b.Used==12&&AbilityMode.Budget==16&&b.Levels[0]==4&&b.Levels[1]==4&&b.Levels[2]==4,"16 budget keeps 4/4/4 with four unspent points");
+        b.Change(0,4);bool cap=b.Levels[0]==8&&!b.Change(0,1)&&!b.Toggle(4);b.Change(0,-2);bool buy=b.Toggle(4)&&b.Valid&&b.Used==16;b.Toggle(4);
+        Check(cap&&buy&&b.Used==14&&!b.Change(1,-5),"cap eight, cost two, refund and invalid allocations");
+        bool legal=true;for(int i=0;i<20;i++){AbilityMode.Randomize(i%2);var c=AbilityMode.Builds[i%2];legal&=c.Valid&&c.Used==16;}
+        Check(legal,"AI random allocations obey new budget and cap");
+        bool schedule=true;for(int i=0;i<=8;i++)schedule&=Mathf.Abs(AbilityMode.Strength(i)-(.6f+i*.05f))<.0001f;
+        Check(schedule,"equal five-percentage-point ability schedule with retained 60 percent floor");
+    }
+    IEnumerator UI(){
+        AbilityMode.Enabled=false;AbilityMode.Reset();Component menu=FindObjectOfType(Type.GetType("MainPanel, Assembly-CSharp")) as Component;
+        Button entry=null;foreach(var b in menu.GetComponentsInChildren<Button>(true))if(b.name=="btn_Start")entry=b;entry.onClick.Invoke();yield return null;
+        foreach(var b in FindObjectsOfType<Button>())if(b.GetComponentInChildren<Text>()!=null&&b.GetComponentInChildren<Text>().text.Contains("加点模式")){b.onClick.Invoke();break;}yield return null;
+        foreach(var b in FindObjectsOfType<Button>())if(b.GetComponentInChildren<Text>()!=null&&b.GetComponentInChildren<Text>().text=="双人对战"){b.onClick.Invoke();break;}yield return null;
+        var panel=FindObjectOfType<AbilitySetupPanel>();bool clean=panel!=null,ready=false;int left=0;foreach(Text t in panel.GetComponentsInChildren<Text>()){clean&=!t.text.Contains("%")&&!t.text.Contains("0点")&&!t.text.Contains("0跳跃");if(t.text.Contains("剩余 4 点"))left++;}
+        foreach(var button in panel.GetComponentsInChildren<Button>())if(button.GetComponentInChildren<Text>().text=="开始比赛")ready=button.interactable;
+        Check(clean&&ready&&left==2,"allocation UI hides percentages/zero-point effects and default can start");
+        yield return new WaitForEndOfFrame();Snapshot();
+        foreach(var button in panel.GetComponentsInChildren<Button>())if(button.GetComponentInChildren<Text>().text=="返回"){button.onClick.Invoke();break;}yield return null;
+    }
+    IEnumerator Mobility(bool isFan,int contest,int jump){
+        yield return Scene(new int[]{4,contest,jump},new int[]{4,contest,jump},0,0);
+        Component actor=isFan?fan:zhao;BuildPlayer owner=isFan?fp:zp;Rigidbody2D body=isFan?fb:zb;float dir=isFan?1f:-1f;Move(isFan?zhao:fan,new Vector2(body.position.x-dir*4f*scale,body.position.y));
+        float angle=0,err=0;bool stagger=false;for(int i=0;i<25;i++){yield return new WaitForFixedUpdate();angle=Mathf.Max(angle,Mathf.Abs(Mathf.DeltaAngle(body.rotation,0)));err=Mathf.Max(err,Error(actor));stagger|=owner.Staggered;}
+        float idleAngle=angle;float walkStart=body.position.x;keys.Add(ControlBindings.Get(isFan,isFan?GameControlAction.Right:GameControlAction.Left));for(int i=0;i<35;i++){yield return new WaitForFixedUpdate();angle=Mathf.Max(angle,Mathf.Abs(Mathf.DeltaAngle(body.rotation,0)));err=Mathf.Max(err,Error(actor));}keys.Clear();float walked=dir*(body.position.x-walkStart);float gaitAngle=angle;
+        for(int i=0;i<15;i++)yield return new WaitForFixedUpdate();
+        float radius=ball.GetComponent<Collider2D>().bounds.extents.y;ball.position=new Vector2(body.position.x+dir*.65f*scale,(float)Read(owner,"groundY")+radius+.025f);ball.velocity=Vector2.zero;ball.gravityScale=1;Physics2D.SyncTransforms();float start=body.position.x,ballStart=ball.position.x;
+        keys.Add(ControlBindings.Get(isFan,isFan?GameControlAction.Right:GameControlAction.Left));for(int i=0;i<65;i++){yield return new WaitForFixedUpdate();angle=Mathf.Max(angle,Mathf.Abs(Mathf.DeltaAngle(body.rotation,0)));err=Mathf.Max(err,Error(actor));stagger|=owner.Staggered;}keys.Clear();
+        float carry=dir*(body.position.x-start),movedBall=dir*(ball.position.x-ballStart);float target=(float)((FieldInfo[])Read(owner,"targetFields"))[0].GetValue((Component)Read(owner,"stick"));Debug.Log("ABILITY POSE "+actor.name+" idle="+idleAngle+" gait="+gaitAngle+" carry="+angle+" bodyTarget="+target+" body="+body.rotation);
+        Check(!stagger&&idleAngle<15f&&angle<40f&&err<.5f&&walked>.4f*scale&&carry>.25f*scale&&movedBall>.15f*scale,"stable stand/walk/dribble "+actor.name+" contest="+contest+" jump="+jump+" walk="+walked+" carry="+carry+" ball="+movedBall+" angle="+angle+" joints="+err);
+    }
+    IEnumerator Jumping(bool isFan){
+        yield return Scene(new int[]{4,0,0},new int[]{4,0,0},0,0);Component actor=isFan?fan:zhao;BuildPlayer owner=isFan?fp:zp;Rigidbody2D body=isFan?fb:zb;float native=(float)pt.GetField("jumpForce").GetValue(actor);
+        float jf=PlayerSkills.GetJumpForce(native,actor)/native,start=body.position.y,peak=start;keys.Add(ControlBindings.Get(isFan,GameControlAction.Jump));
+        for(int i=0;i<30;i++){yield return new WaitForFixedUpdate();if(i==2)keys.Clear();peak=Mathf.Max(peak,body.position.y);}
+        Check(Mathf.Abs(jf*jf-.6f)<.001f&&peak>start+.15f*scale&&Error(actor)<.5f,"zero jump retains real reduced jump "+actor.name+" rise="+(peak-start));
+        yield return Scene(new int[]{4,0,8},new int[]{4,0,8},0,0);actor=isFan?fan:zhao;body=isFan?fb:zb;start=body.position.y;peak=start;PlayerSkills.SetAction((Animator)pt.GetField("anim").GetValue(actor),"Jump",actor);for(int i=0;i<12;i++){yield return new WaitForFixedUpdate();peak=Mathf.Max(peak,body.position.y);}keys.Add(ControlBindings.Get(isFan,GameControlAction.Down));for(int i=0;i<5;i++)yield return new WaitForFixedUpdate();keys.Clear();
+        Check(peak>start+.3f*scale&&body.velocity.y<0&&Error(actor)<.5f,"new cap rapid jump/descent "+actor.name);
+    }
+    IEnumerator ShotProfiles(){
+        yield return Scene(new int[]{4,4,4},new int[]{4,4,4},0,0);bool ordinary=true;
+        foreach(int level in new int[]{0,4,7}){AbilityMode.Builds[0].Levels[0]=level;fp.Clear();ball.position=fb.position+Vector2.right*1.8f*scale;ball.velocity=Vector2.right*15f;UnityEngine.Random.InitState(2);typeof(BuildPlayer).GetMethod("Strike",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(fp,null);ordinary&=Mathf.Abs(ball.velocity.magnitude-15f*AbilityMode.Strength(level))<.01f;}
+        Check(ordinary,"ordinary shots retain linear power rather than the old zero-point weak special case");
+        float[] burst=new float[3],lift=new float[3],error=new float[3],angle=new float[3];int[] levels={0,4,8};Collider2D goal=(Collider2D)Read(fp,"goal");float ideal=BallBoundaryGuard.FindGoalCeiling(goal)-ball.GetComponent<Collider2D>().bounds.extents.y-.10f*scale;
+        for(int i=0;i<3;i++){
+            AbilityMode.Builds[0].Levels[0]=levels[i];AbilityMode.Builds[0].Purchased=1<<4;fp.Clear();Write(fp,"power",true);ball.position=fb.position+Vector2.right*1.8f*scale;ball.velocity=Vector2.zero;typeof(BuildPlayer).GetMethod("Strike",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(fp,null);burst[i]=ball.velocity.x;
+            AbilityMode.Builds[0].Purchased=1<<5;Write(fp,"power",false);float sum=0,sumAngle=0;for(int trial=0;trial<20;trial++){
+                fp.Clear();ball.position=fb.position+Vector2.right*1.8f*scale;ball.velocity=Vector2.zero;UnityEngine.Random.InitState(230+trial);typeof(BuildPlayer).GetMethod("Strike",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(fp,null);
+                lift[i]=(float)Read(fp,"flightLift");Vector2 target=(Vector2)Read(fp,"flightTarget"),origin=(Vector2)Read(fp,"flightOrigin");float expected=Mathf.Lerp(origin.y,ideal,AbilityMode.ShotSkillStrength(levels[i]));sum+=(target.y-expected)*(target.y-expected);sumAngle+=Mathf.Atan2(target.y-origin.y,Mathf.Abs(target.x-origin.x));
+            }error[i]=Mathf.Sqrt(sum/20);angle[i]=sumAngle/20;
         }
-        Check(matched,"ordinary shot speed, contest gain and jump HEIGHT use equal ten-percent schedule");
-        fp.Clear();AbilityMode.Builds[0].Levels[1]=10;AbilityMode.Builds[1].Levels[1]=10;fp.PlayerContact(zp,false);zp.PlayerContact(fp,false);Check((float)Read(fp,"staggerUntil")<Time.time&&(float)Read(zp,"staggerUntil")<Time.time,"equal maximum contest does not arbitrarily auto-win");
-        AbilityMode.Builds[0].Levels[0]=10;Write(fp,"power",false);ball.position=new Vector2(-2f*scale,fb.position.y);ball.velocity=Vector2.zero;UnityEngine.Random.InitState(2031);typeof(BuildPlayer).GetMethod("Strike",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(fp,null);
-        Collider2D bar=(Collider2D)Read(fp,"goal");float ceiling=BallBoundaryGuard.FindGoalCeiling(bar);ball.position=new Vector2(bar.bounds.min.x-.5f*scale,ceiling+.2f*scale);ball.velocity=Vector2.right*5f;bool blocked=BallFlightSafety.WillHit(ball,Vector2.right*60f,fan,.4f);Check(blocked,"extreme shooting still respects solid crossbar");fp.Clear();
+        Debug.Log("ABILITY PROFILE burst="+string.Join(",",Array.ConvertAll(burst,delegate(float f){return f.ToString();}))+" lift="+string.Join(",",Array.ConvertAll(lift,delegate(float f){return f.ToString();}))+" error="+string.Join(",",Array.ConvertAll(error,delegate(float f){return f.ToString();}))+" angle="+string.Join(",",Array.ConvertAll(angle,delegate(float f){return f.ToString();})));
+        Check(burst[0]>0&&burst[0]<burst[1]&&burst[1]<burst[2]&&burst[0]<burst[2]*.3f,"burst shooting 0/4/8 markedly scales ball speed");
+        Check(lift[0]<lift[1]&&lift[1]<lift[2]&&angle[0]<angle[1]&&angle[1]<angle[2]&&error[0]>error[1]&&error[1]>error[2]+.01f,"leaf shooting 0/4/8 scales height, angle and accuracy");
     }
-    IEnumerator LiveContacts()
-    {
-        yield return Scene(new int[]{0,5,5},new int[]{4,4,4},1<<1,0);
-        Transform head=fan.transform.Find("Head");float gap=head.GetComponent<Collider2D>().bounds.extents.x+ball.GetComponent<Collider2D>().bounds.extents.x+.02f;
-        ball.position=(Vector2)head.position+Vector2.right*gap;ball.velocity=Vector2.left;ball.gravityScale=1;PlayerSkills.SetAction((Animator)pt.GetField("anim").GetValue(fan),"Head",fan);bool launched=false;
-        for(int i=0;i<30;i++){yield return new WaitForFixedUpdate();launched|=ball.velocity.x>10f;}
-        Check(launched,"zero shooting purchased cannon header launches on REAL head collision");Check(Error(fan)<.4f,"purchased header retains connected rig");
-        yield return Scene(new int[]{10,1,1},new int[]{4,4,4},0,0);
-        Transform lower=fan.transform.Find("R_LowLeg");Collider2D shin=lower.GetComponent<Collider2D>();Vector2 pos=shin.ClosestPoint((Vector2)lower.position+Vector2.right*2f);
-        ball.position=pos+Vector2.right*(ball.GetComponent<Collider2D>().bounds.extents.x+.01f);ball.velocity=Vector2.left*.8f;ball.gravityScale=1;Physics2D.SyncTransforms();PlayerSkills.SetAction((Animator)pt.GetField("anim").GetValue(fan),"Kick",fan);bool struck=false;
-        for(int i=0;i<60;i++){yield return new WaitForFixedUpdate();struck|=(float)Read(fp,"lastKickContact")>0;}
-        Check(struck,"maximum shooting launches only from REAL eligible leg contact");Check(Error(fan)<.4f,"live maximum shooting keeps physical rig");
-        yield return Scene(new int[]{4,3,3},new int[]{4,3,3},1<<8,1<<8);
-        Check(fan.GetComponent<MagneticFoot>()!=null&&zhao.GetComponent<MagneticFoot>()!=null,"both actors can buy original physical IK magnetic foot");
-        foreach(Component player in new Component[]{fan,zhao}){
-            BuildPlayer owner=player.GetComponent<BuildPlayer>();float dir=player.name=="Fan"?1f:-1f;Rigidbody2D b=(Rigidbody2D)pt.GetField("rb").GetValue(player);
-            ball.position=new Vector2(b.position.x+dir*.5f*scale,(float)Read(owner,"groundY")+ball.GetComponent<Collider2D>().bounds.extents.y+.025f);ball.velocity=Vector2.zero;ball.gravityScale=1;Physics2D.SyncTransforms();Component native=player.GetComponent(pt.Assembly.GetType("StickManController"));MagneticFoot.BeforeMuscles(native);Check(player.GetComponent<MagneticFoot>().Active,"purchased magnetic foot reaches real near-ground ball actor="+player.name);
-        }
+    IEnumerator LiveShot(bool isFan,int skill,int level){
+        yield return Scene(new int[]{level,3,3},new int[]{level,3,3},1<<skill,1<<skill);Component actor=isFan?fan:zhao;BuildPlayer owner=isFan?fp:zp;float dir=isFan?1f:-1f;launches.Remove(actor.name);float gap=ball.GetComponent<Collider2D>().bounds.extents.x;
+        if(skill==1){Transform head=actor.transform.Find("Head");gap+=head.GetComponent<Collider2D>().bounds.extents.x+.02f;ball.position=(Vector2)head.position+Vector2.right*dir*gap;ball.velocity=Vector2.right*-dir;ball.gravityScale=1;PlayerSkills.SetAction((Animator)pt.GetField("anim").GetValue(actor),"Head",actor);}
+        else {Collider2D shin=actor.transform.Find("R_LowLeg").GetComponent<Collider2D>();Vector2 edge=shin.ClosestPoint((Vector2)shin.transform.position+Vector2.right*dir*2f);ball.position=edge+Vector2.right*dir*(gap+.012f);ball.velocity=Vector2.right*-dir*.8f;ball.gravityScale=1;Physics2D.SyncTransforms();if(skill==4)PowerShot.Request(actor);PlayerSkills.SetAction((Animator)pt.GetField("anim").GetValue(actor),"Kick",actor);}
+        bool glow=false;for(int i=0;i<35;i++){yield return new WaitForFixedUpdate();glow|=object.ReferenceEquals(typeof(BuildPlayer).GetField("glowOwner",Hidden).GetValue(null),owner);}
+        bool active=((float[])Read(owner,"effects"))[skill]>=0;bool power=true;if(skill==1||skill==4){Vector2 v;power=launches.TryGetValue(actor.name,out v)&&Mathf.Abs(Mathf.Abs(v.x)-(skill==1?17f*PowerShot.HeaderSpeedMultiplier:22f)*AbilityMode.ShotSkillStrength(level))<.01f;}
+        Check(active&&glow&&power&&Error(actor)<.5f,"real collision, scaled shot and preserved animation "+actor.name+" skill="+skill+" shooting="+level);
     }
-    void CapturePitch()
-    {
-        if(System.IO.File.Exists(MenuBackdrop.PhotoPath))return;
-        Camera camera=Camera.main;if(camera==null){Check(false,"gameplay camera available for pitch photograph");return;}
-        var hidden=new List<GameObject>();foreach(GameObject item in new GameObject[]{fan.gameObject,zhao.gameObject,ball.gameObject}){if(item.activeSelf){hidden.Add(item);item.SetActive(false);}}
-        foreach(Canvas canvas in FindObjectsOfType<Canvas>()){if(canvas.gameObject.activeSelf){hidden.Add(canvas.gameObject);canvas.gameObject.SetActive(false);}}
-        RenderTexture prev=RenderTexture.active,old=camera.targetTexture;RenderTexture rt=new RenderTexture(1280,720,24);camera.targetTexture=rt;camera.Render();RenderTexture.active=rt;Texture2D tex=new Texture2D(1280,720,TextureFormat.RGB24,false);tex.ReadPixels(new Rect(0,0,1280,720),0,0);tex.Apply();System.IO.File.WriteAllBytes(MenuBackdrop.PhotoPath,tex.EncodeToPNG());camera.targetTexture=old;RenderTexture.active=prev;foreach(GameObject item in hidden)item.SetActive(true);Destroy(tex);rt.Release();Destroy(rt);Check(true,"pitch photographed with players, ball and match HUD hidden");
-    }
-    IEnumerator MenuCoverage()
-    {
-        GameObject group=new GameObject("Dormant menu checks");group.SetActive(false);
-        foreach(string name in new string[]{"TeachPanel","SettingPanel","RankPanel","PausePanel","OverPanel","BuyPanel","SavePanel"}){
-            GameObject prefab=Resources.Load<GameObject>("UI/"+name);Check(prefab!=null,"native menu prefab present "+name);if(prefab==null)continue;
-            GameObject copy=Instantiate(prefab,group.transform,false);MenuBackdrop.Apply(copy);RawImage picture=copy.GetComponentInChildren<RawImage>(true);Check(picture!=null&&picture.name=="Empty Pitch Backdrop"&&picture.texture!=null,"empty pitch photo installed in "+name);
-        }
-        GameObject cover=Resources.Load<GameObject>("UI/MainPanel");Check(cover!=null&&cover.GetComponent<MenuBackdrop>()==null,"cover prefab preserved without replacing artwork");
-        Destroy(group);yield return null;
-    }
-    IEnumerator AICapabilities()
-    {
-        yield return Scene(new int[]{0,6,6},new int[]{4,4,4},0,0);
-        typeof(GameAIMod).GetField("mode",Hidden).SetValue(null,2);UseAI=true;
-        object state=typeof(GameAIMod).GetMethod("GetState",Hidden).Invoke(null,new object[]{fan});Check((float)state.GetType().GetField("jumpSpeed").GetValue(state)>0,"AI reads assigned jump capability");
-        UseAI=false;yield return Scene(new int[]{6,6,0},new int[]{4,4,4},0,0);typeof(GameAIMod).GetField("mode",Hidden).SetValue(null,2);UseAI=true;
-        state=typeof(GameAIMod).GetMethod("GetState",Hidden).Invoke(null,new object[]{fan});Check((float)state.GetType().GetField("jumpSpeed").GetValue(state)==0,"zero-jump AI does not invent ordinary jump height");
-        UseAI=false;yield return Scene(new int[]{4,3,3},new int[]{4,4,4},1<<5,0);typeof(GameAIMod).GetField("mode",Hidden).SetValue(null,2);UseAI=true;
-        state=typeof(GameAIMod).GetMethod("GetState",Hidden).Invoke(null,new object[]{fan});state.GetType().GetField("serveApproach").SetValue(state,false);state.GetType().GetField("waitingForServe").SetValue(state,false);state.GetType().GetField("frame").SetValue(state,-1);
-        Transform foot=(Transform)pt.GetField("footTrans").GetValue(fan);ball.position=new Vector2(fb.position.x+.7f*scale,foot.position.y+.45f*scale);ball.velocity=Vector2.zero;Physics2D.SyncTransforms();bool kick=GameAIMod.GetButtonDown(KeyCode.K,fan);Check(kick&&!(bool)state.GetType().GetField("power").GetValue(state),"AI uses ordinary kick to activate purchased leaf skill");
-        UseAI=false;yield return Scene(new int[]{1,1,10},new int[]{4,4,4},0,0);typeof(GameAIMod).GetField("mode",Hidden).SetValue(null,2);UseAI=true;state=typeof(GameAIMod).GetMethod("GetState",Hidden).Invoke(null,new object[]{fan});Check((float)state.GetType().GetField("jumpSpeed").GetValue(state)>=(float)Read(fp,"normalJumpSpeed"),"maximum-jump AI predicts actual attainable height");UseAI=false;
+    IEnumerator Contacts(){
+        yield return Scene(new int[]{4,0,4},new int[]{4,0,4},0,0);fp.PlayerContact(zp,false);zp.PlayerContact(fp,false);
+        Check(!fp.Staggered&&!zp.Staggered,"equal low contest does not auto-collapse on contact");AbilityMode.Builds[0].Levels[1]=8;fp.Clear();fp.PlayerContact(zp,false);Check(zp.Staggered&&!fp.Staggered,"cap eight contest advantage applies only in opponent contact");
+        yield return Scene(new int[]{4,0,0},new int[]{4,0,0},0,0);typeof(GameAIMod).GetField("mode",Hidden).SetValue(null,2);UseAI=true;object state=typeof(GameAIMod).GetMethod("GetState",Hidden).Invoke(null,new object[]{fan});Check((float)state.GetType().GetField("jumpSpeed").GetValue(state)>0,"AI capability reads retained zero-point jump");UseAI=false;
+        Time.timeScale=0;yield return null;fp.Pose();Check(fp.Stopped(),"pause safely suppresses build actions");Time.timeScale=1;AbilityMode.Enabled=false;
+        Check(PlayerSkills.GetJumpForce(100,fan)==100&&AbilityMode.Movement(fan,1)==1&&typeof(PlayerSkills).Assembly.GetType("GameStyleIndicator")==null,"classic parameters and removed bottom text preserved");
+        PlayerSkills.Enabled=true;typeof(GameAIMod).GetMethod("BeginGame",Hidden).Invoke(null,new object[]{0});yield return new WaitForSeconds(.4f);Check(GameObject.Find("Zhao").GetComponent<PlayerSkills>()!=null&&GameObject.Find("Zhao").GetComponent<BuildPlayer>()==null,"original special mode loads without allocation overrides");
     }
     void Snapshot()
     {
@@ -98,6 +102,11 @@ public sealed class AbilityModeTests : MonoBehaviour
         RenderTexture prev=RenderTexture.active;RenderTexture.active=rt;Texture2D tex=new Texture2D(1280,720,TextureFormat.RGB24,false);tex.ReadPixels(new Rect(0,0,1280,720),0,0);tex.Apply();System.IO.File.WriteAllBytes(System.IO.Path.Combine(Application.dataPath,"..","ability-setup.png"),tex.EncodeToPNG());RenderTexture.active=prev;
         canvas.renderMode=mode;canvas.worldCamera=old;camera.targetTexture=null;Destroy(tex);rt.Release();Destroy(rt);Destroy(obj);
     }
-    IEnumerator Start(){Application.runInBackground=true;Application.targetFrameRate=120;QualitySettings.vSyncCount=0;AudioListener.volume=0;yield return new WaitForSeconds(.2f);Budget();yield return UI();yield return Jump();yield return Contest();yield return Rescue();yield return Shooting();yield return BalanceChecks();yield return LiveContacts();yield return MenuCoverage();yield return AICapabilities();AbilityMode.Enabled=false;Check(PlayerSkills.GetJumpForce(100,fan)==100,"classic jump unaffected after leaving allocation mode");Check(AbilityMode.Movement(fan,1)==1,"classic movement unaffected");Debug.Log("ABILITY COMPLETE checks="+checks+" failures="+failures);Application.Quit(failures==0?0:1);}
+
+    IEnumerator Start(){Application.runInBackground=true;Application.targetFrameRate=120;QualitySettings.vSyncCount=0;AudioListener.volume=0;yield return new WaitForSeconds(.2f);Rules();yield return UI();
+        foreach(bool actor in new bool[]{true,false}){yield return Mobility(actor,0,4);yield return Mobility(actor,4,0);yield return Mobility(actor,0,0);yield return Jumping(actor);}
+        yield return ShotProfiles();foreach(bool actor in new bool[]{true,false}){foreach(int level in new int[]{0,4,8})yield return LiveShot(actor,1,level);yield return LiveShot(actor,4,0);yield return LiveShot(actor,5,0);}
+        yield return Contacts();Debug.Log("ABILITY COMPLETE checks="+checks+" failures="+failures);Application.Quit(failures==0?0:1);
+    }
     void Update(){if(Time.realtimeSinceStartup>110){Debug.LogError("ABILITY TIMEOUT");Application.Quit(2);}}
 }

@@ -1,0 +1,61 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  2.056 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 2.774900 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.357400 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1013.
+Total: 0.894200 ms (FindLiveObjects: 0.057600 ms CreateObjectMapping: 0.018700 ms MarkObjects: 0.512100 ms  DeleteObjects: 0.305200 ms)
+
+ABILITY POSE Zhao idle=11.1568 gait=19.8804 carry=38.09082 bodyTarget=13.15 body=26.16978 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS stable stand/walk/dribble Zhao contest=4 jump=4 walk=1.756969 carry=5.757603 ball=6.186947 angle=38.09082 joints=0.1789597 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.416600 ms
+
+Unloading 39 unused Assets to reduce memory usage. Loaded Objects now: 1059.
+Total: 1.311200 ms (FindLiveObjects: 0.034800 ms CreateObjectMapping: 0.009100 ms MarkObjects: 0.252400 ms  DeleteObjects: 1.014700 ms)
+
+ABILITY POSE Zhao idle=11.1568 gait=17.65854 carry=40.44153 bodyTarget=13.15 body=27.08386 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY FAIL stable stand/walk/dribble Zhao contest=0 jump=0 walk=1.868688 carry=5.843972 ball=5.252264 angle=40.44153 joints=0.1951862 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=2 failures=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 5b4c -> priority: 1 
+  Thread -> id: a6bc -> priority: 1 
+  Thread -> id: 4624 -> priority: 1 
+  Thread -> id: 1974 -> priority: 1 
+  Thread -> id: 2344 -> priority: 1 
+  Thread -> id: 1e44 -> priority: 1 
+  Thread -> id: 6b90 -> priority: 1 
+  Thread -> id: 1bf8 -> priority: 1 
+  Thread -> id: 9fec -> priority: 1 
+  Thread -> id: 5040 -> priority: 1 
+  Thread -> id: 96a8 -> priority: 1 
+  Thread -> id: 452c -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+
