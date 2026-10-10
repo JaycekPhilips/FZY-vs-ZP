@@ -1,0 +1,583 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.109 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.519900 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.206400 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1013.
+Total: 0.726500 ms (FindLiveObjects: 0.056400 ms CreateObjectMapping: 0.019600 ms MarkObjects: 0.288600 ms  DeleteObjects: 0.361200 ms)
+
+MAGNETIC MUSCLE 6 L_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 7 L_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 8 R_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 9 R_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS classic has no magnetic skill 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS classic forward speed remains unchanged 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS classic native shooting rate 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.461000 ms
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1055.
+Total: 1.600500 ms (FindLiveObjects: 0.054600 ms CreateObjectMapping: 0.016600 ms MarkObjects: 0.372900 ms  DeleteObjects: 1.156000 ms)
+
+MAGNETIC MUSCLE 6 L_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 7 L_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 8 R_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 9 R_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS only Zhao receives skill 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS distant ball never triggers skill 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS inactive forward speed stays at baseline 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS backward speed stays unchanged 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS no attraction or remote ball motion 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS behind ball not retrieved 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS explicit Kick releases technique 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS removed old +25% quick shot acceleration 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS explicit Head releases technique 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS explicit Jump releases technique 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS pause releases foot 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS goal/out stopping releases foot 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS round reset releases foot 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS native leg gains restored after reset 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS no ball tether or added skeleton joints 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS fast incoming shot cannot be magically caught 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.746700 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 1.232000 ms (FindLiveObjects: 0.037200 ms CreateObjectMapping: 0.009500 ms MarkObjects: 0.206800 ms  DeleteObjects: 0.978100 ms)
+
+MAGNETIC MUSCLE 6 L_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 7 L_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 8 R_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 9 R_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble i=0 ahead=0.6252578 ball=(1.3, -1.5) velocity=(0.0, 0.0) active=True legs=14.5783,3.090121 targets=15.13808,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble i=10 ahead=0.5552007 ball=(1.2, -1.5) velocity=(-1.1, 0.0) active=True legs=28.92748,6.080884 targets=22,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble i=20 ahead=0.5342558 ball=(0.9, -1.5) velocity=(-1.9, 0.0) active=True legs=27.68022,19.25339 targets=22,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble i=30 ahead=0.6357865 ball=(0.5, -1.5) velocity=(-2.5, 0.0) active=True legs=20.46391,29.27 targets=20.57645,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble i=40 ahead=0.8201193 ball=(0.0, -1.5) velocity=(-2.5, 0.0) active=True legs=9.783956,38.64132 targets=-2.509064,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble i=50 ahead=1.103902 ball=(-0.5, -1.5) velocity=(-2.4, 0.0) active=False legs=2.667598,47.62049 targets=12.84744,5.900171 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble i=60 ahead=1.219649 ball=(-1.0, -1.5) velocity=(-2.4, 0.0) active=False legs=25.91557,-15.26436 targets=16.4824,7.963255 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble i=70 ahead=0.9932893 ball=(-1.5, -1.5) velocity=(-2.4, 0.0) active=False legs=-16.96721,15.89979 targets=11.96406,5.398791 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS multiple real eligible magnetic forward samples dribble 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS active magnetic forward cap equals Fan without sprint dribble 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS active ordinary movement force equals Fan; contest pressure retained dribble 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC SPEED scenario=dribble maxActiveSpeed=1.97331 fanLimit=4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC RUN dribble minAhead=0.5241991 maxGap=1.276958 active=43 contacts=21 tilt=27.88327 error=0.02318957 travel=-3.18337 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS technique activates on nearby ball dribble 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS physical instep contact dribble 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS never stamps ball behind own body dribble ahead=0.5241991 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS connected skeleton dribble error=0.02318957 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS torso follows native posture dribble deviation=27.88327 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS magnetic foot animation appears dribble 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS dribbles through real movement dribble 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS support leg prevents deep kneeling dribble crouch=0.2582256 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS knees do not fold onto thighs dribble bend=81.62644 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.270900 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1062.
+Total: 1.376200 ms (FindLiveObjects: 0.107500 ms CreateObjectMapping: 0.015800 ms MarkObjects: 0.257700 ms  DeleteObjects: 0.994800 ms)
+
+MAGNETIC MUSCLE 6 L_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 7 L_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 8 R_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 9 R_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-close i=0 ahead=0.517277 ball=(1.4, -1.5) velocity=(0.0, 0.0) active=True legs=23.08985,1.0188 targets=15.74486,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-close i=10 ahead=0.5678959 ball=(1.3, -1.5) velocity=(-1.5, 0.0) active=True legs=24.92731,2.334783 targets=21.67403,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-close i=20 ahead=0.5861301 ball=(0.9, -1.5) velocity=(-2.0, 0.0) active=True legs=22.90328,23.99183 targets=21.15095,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-close i=30 ahead=0.6384789 ball=(0.4, -1.5) velocity=(-2.5, 0.0) active=True legs=19.95765,28.1642 targets=19.65569,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-close i=40 ahead=0.7598601 ball=(-0.1, -1.5) velocity=(-2.5, 0.0) active=True legs=21.97061,38.34364 targets=6.434954,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-close i=50 ahead=1.020796 ball=(-0.6, -1.5) velocity=(-2.5, 0.0) active=False legs=4.698241,47.98182 targets=13.11054,6.049494 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-close i=60 ahead=1.097434 ball=(-1.1, -1.5) velocity=(-2.5, 0.0) active=False legs=24.53804,-15.27613 targets=16.33999,7.882429 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-close i=70 ahead=0.8168052 ball=(-1.5, -1.5) velocity=(0.1, 0.0) active=False legs=-21.54545,6.921454 targets=11.85139,5.334841 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS multiple real eligible magnetic forward samples dribble-close 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS active magnetic forward cap equals Fan without sprint dribble-close 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS active ordinary movement force equals Fan; contest pressure retained dribble-close 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC SPEED scenario=dribble-close maxActiveSpeed=2.175803 fanLimit=4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC RUN dribble-close minAhead=-0.02775109 maxGap=1.174781 active=44 contacts=28 tilt=21.68711 error=0.1088837 travel=-3.439466 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS technique activates on nearby ball dribble-close 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS physical instep contact dribble-close 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC FAIL never stamps ball behind own body dribble-close ahead=-0.02775109 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS connected skeleton dribble-close error=0.1088837 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS torso follows native posture dribble-close deviation=21.68711 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS magnetic foot animation appears dribble-close 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS dribbles through real movement dribble-close 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS support leg prevents deep kneeling dribble-close crouch=0.2726514 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS knees do not fold onto thighs dribble-close bend=76.45753 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.278300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1062.
+Total: 1.366500 ms (FindLiveObjects: 0.097000 ms CreateObjectMapping: 0.016000 ms MarkObjects: 0.246000 ms  DeleteObjects: 1.007100 ms)
+
+MAGNETIC MUSCLE 6 L_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 7 L_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 8 R_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 9 R_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-roll i=0 ahead=0.6528828 ball=(1.3, -1.5) velocity=(-1.4, 0.0) active=True legs=14.67095,1.864224 targets=15.74486,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-roll i=10 ahead=0.7585963 ball=(1.0, -1.5) velocity=(-1.8, 0.0) active=True legs=7.5723,3.930528 targets=5.257682,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-roll i=20 ahead=0.7129446 ball=(0.7, -1.5) velocity=(-1.8, 0.0) active=True legs=10.12345,24.90778 targets=10.20292,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-roll i=30 ahead=0.603286 ball=(0.3, -1.5) velocity=(-2.0, 0.0) active=True legs=23.20508,37.15303 targets=22,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-roll i=40 ahead=0.5986831 ball=(-0.1, -1.5) velocity=(-2.2, 0.0) active=True legs=27.91817,35.38399 targets=21.16119,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-roll i=50 ahead=0.6865469 ball=(-0.6, -1.5) velocity=(-2.2, 0.0) active=True legs=23.66774,41.13604 targets=16.93297,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-roll i=60 ahead=0.8033034 ball=(-1.0, -1.5) velocity=(-2.2, 0.0) active=True legs=5.849352,29.61286 targets=5.635808,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE dribble-roll i=70 ahead=0.8395798 ball=(-1.4, -1.5) velocity=(-2.2, 0.0) active=True legs=-0.2028695,18.75813 targets=-0.4090881,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS multiple real eligible magnetic forward samples dribble-roll 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS active magnetic forward cap equals Fan without sprint dribble-roll 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS active ordinary movement force equals Fan; contest pressure retained dribble-roll 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC SPEED scenario=dribble-roll maxActiveSpeed=2.573232 fanLimit=4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC RUN dribble-roll minAhead=0.5809641 maxGap=0.8415847 active=80 contacts=34 tilt=19.16867 error=0.03877961 travel=-2.995417 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS technique activates on nearby ball dribble-roll 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS physical instep contact dribble-roll 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS never stamps ball behind own body dribble-roll ahead=0.5809641 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS connected skeleton dribble-roll error=0.03877961 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS torso follows native posture dribble-roll deviation=19.16867 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS magnetic foot animation appears dribble-roll 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS dribbles through real movement dribble-roll 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS support leg prevents deep kneeling dribble-roll crouch=0.2901551 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS knees do not fold onto thighs dribble-roll bend=78.66588 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.261400 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1062.
+Total: 1.314400 ms (FindLiveObjects: 0.032300 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.184200 ms  DeleteObjects: 1.089400 ms)
+
+MAGNETIC MUSCLE 6 L_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 7 L_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 8 R_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 9 R_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE receive i=0 ahead=0.5969436 ball=(1.4, -1.5) velocity=(1.8, 0.0) active=True legs=15.12236,2.967383 targets=15.74486,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE receive i=10 ahead=0.6041712 ball=(1.4, -1.5) velocity=(-0.7, 0.0) active=True legs=29.23321,-2.505289 targets=22,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE receive i=20 ahead=0.7723736 ball=(1.2, -1.5) velocity=(-0.8, 0.0) active=True legs=13.28982,0.1523537 targets=13.64776,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE receive i=30 ahead=0.9465597 ball=(1.1, -1.5) velocity=(-0.8, 0.0) active=True legs=-7.910136,0.1366368 targets=-8.200775,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE receive i=40 ahead=1.091069 ball=(0.9, -1.5) velocity=(-0.9, 0.0) active=False legs=-13.78881,0.2741886 targets=-3.9,2.59 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE receive i=50 ahead=1.259355 ball=(0.7, -1.5) velocity=(-0.9, 0.0) active=False legs=1.905432,0.3057598 targets=-3.9,2.59 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE receive i=60 ahead=1.482565 ball=(0.6, -1.5) velocity=(-0.9, 0.0) active=False legs=-0.8617231,1.319834 targets=-3.9,2.59 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE receive i=70 ahead=1.720396 ball=(0.4, -1.5) velocity=(-0.9, 0.0) active=False legs=-4.003245,1.244049 targets=-3.9,2.59 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC RUN receive minAhead=0.5505892 maxGap=1.872656 active=37 contacts=15 tilt=9.029907 error=0.02588285 travel=0.1402541 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS technique activates on nearby ball receive 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS physical instep contact receive 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS never stamps ball behind own body receive ahead=0.5505892 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS connected skeleton receive error=0.02588285 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS torso follows native posture receive deviation=9.029907 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS magnetic foot animation appears receive 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.419000 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1062.
+Total: 1.244600 ms (FindLiveObjects: 0.030300 ms CreateObjectMapping: 0.007800 ms MarkObjects: 0.170100 ms  DeleteObjects: 1.036200 ms)
+
+MAGNETIC MUSCLE 6 L_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 7 L_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 8 R_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 9 R_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE contest i=0 ahead=0.6629337 ball=(1.3, -1.5) velocity=(0.0, 0.0) active=True legs=10.45449,3.066259 targets=15.74486,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE contest i=10 ahead=0.8484092 ball=(1.3, -1.5) velocity=(-0.6, 0.0) active=True legs=1.052376,-5.700912 targets=0.1836706,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE contest i=20 ahead=0.7172347 ball=(1.1, -1.5) velocity=(-0.5, 0.0) active=True legs=10.19403,2.248339 targets=10.55977,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE contest i=30 ahead=0.4692571 ball=(0.9, -1.5) velocity=(-1.5, 0.0) active=True legs=33.0739,19.7635 targets=22,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE contest i=40 ahead=0.4108293 ball=(0.6, -1.5) velocity=(-1.0, 0.0) active=True legs=44.99177,21.58365 targets=24.32588,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE contest i=50 ahead=0.3533674 ball=(0.5, -1.5) velocity=(-0.6, 0.0) active=True legs=40.30713,7.65629 targets=26.27686,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE contest i=60 ahead=0.6236952 ball=(0.5, -1.5) velocity=(-0.3, 0.0) active=True legs=21.43662,0.1593204 targets=22,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE contest i=70 ahead=0.8930496 ball=(0.4, -1.5) velocity=(-0.3, 0.0) active=True legs=-0.5993863,-5.052473 targets=-0.6902466,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS multiple real eligible magnetic forward samples contest 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS active magnetic forward cap equals Fan without sprint contest 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS active ordinary movement force equals Fan; contest pressure retained contest 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC SPEED scenario=contest maxActiveSpeed=2.373787 fanLimit=4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC RUN contest minAhead=0.3138369 maxGap=0.896117 active=80 contacts=27 tilt=19.83066 error=0.0543817 travel=-0.8069209 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS technique activates on nearby ball contest 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS physical instep contact contest 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS never stamps ball behind own body contest ahead=0.3138369 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS connected skeleton contest error=0.0543817 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS torso follows native posture contest deviation=19.83066 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS magnetic foot animation appears contest 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.362400 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1062.
+Total: 1.432300 ms (FindLiveObjects: 0.052300 ms CreateObjectMapping: 0.016000 ms MarkObjects: 0.292300 ms  DeleteObjects: 1.071100 ms)
+
+MAGNETIC MUSCLE 6 L_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 7 L_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 8 R_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC MUSCLE 9 R_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE air i=0 ahead=0.674553 ball=(1.3, -1.0) velocity=(0.0, -0.2) active=True legs=4.496373,1.096139 targets=10.20945,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE air i=10 ahead=0.63582 ball=(1.4, -1.5) velocity=(0.2, -3.2) active=False legs=-2.014034,0.133783 targets=-3.9,2.59 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE air i=20 ahead=0.7025146 ball=(1.4, -1.5) velocity=(0.0, 0.0) active=True legs=14.73902,-0.2060765 targets=16.14417,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE air i=30 ahead=0.6395621 ball=(1.4, -1.5) velocity=(0.0, 0.0) active=True legs=21.46943,-1.582799 targets=20.52427,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE air i=40 ahead=0.7669562 ball=(1.3, -1.5) velocity=(-0.8, 0.0) active=True legs=12.53935,5.830339 targets=13.43754,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE air i=50 ahead=0.9121238 ball=(1.2, -1.5) velocity=(0.0, 0.0) active=True legs=-4.575445,0.9988526 targets=-4.915161,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE air i=60 ahead=0.8474119 ball=(1.2, -1.5) velocity=(0.0, 0.0) active=True legs=7.288626,0.4874252 targets=5.241556,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC TRACE air i=70 ahead=0.8506382 ball=(1.2, -1.5) velocity=(0.1, 0.0) active=True legs=-0.1932759,0.4653997 targets=-0.193512,0 scale=(0.8, 0.8, 1.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC RUN air minAhead=0.5985663 maxGap=0.9141705 active=67 contacts=31 tilt=21.16888 error=0.01895227 travel=0.0910641 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS technique activates on nearby ball air 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS physical instep contact air 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS never stamps ball behind own body air ahead=0.5985663 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS connected skeleton air error=0.01895227 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS torso follows native posture air deviation=21.16888 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC PASS magnetic foot animation appears air 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+MAGNETIC COMPLETE checks=76 failures=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 50b4 -> priority: 1 
+  Thread -> id: 3968 -> priority: 1 
+  Thread -> id: 15c8 -> priority: 1 
+  Thread -> id: 3af8 -> priority: 1 
+  Thread -> id: 31cc -> priority: 1 
+  Thread -> id: 761c -> priority: 1 
+  Thread -> id: 308 -> priority: 1 
+  Thread -> id: 40e4 -> priority: 1 
+  Thread -> id: a0b0 -> priority: 1 
+  Thread -> id: 1b24 -> priority: 1 
+  Thread -> id: 83ec -> priority: 1 
+  Thread -> id: 2e8 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

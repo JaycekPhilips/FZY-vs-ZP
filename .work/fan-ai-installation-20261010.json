@@ -1,0 +1,66 @@
+{
+  "installedAt": "2026-10-10T08:55:54.4071220+08:00",
+  "passedChecks": 860,
+  "targets": [
+    {
+      "edition": "original",
+      "target": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級",
+      "backup": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級\\AI Mod Source\\backup-before-fan-install-20261010-085534",
+      "files": [
+        {
+          "name": "GameAIMod.dll",
+          "sha256": "119436B3BAB631272BAF637B9EBDB2BBFECB2D8A546119264833CFF85975C26D"
+        },
+        {
+          "name": "Assembly-CSharp.dll",
+          "sha256": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003"
+        }
+      ]
+    },
+    {
+      "edition": "original",
+      "target": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "backup": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\backup-before-fan-install-20261010-085534",
+      "files": [
+        {
+          "name": "GameAIMod.dll",
+          "sha256": "119436B3BAB631272BAF637B9EBDB2BBFECB2D8A546119264833CFF85975C26D"
+        },
+        {
+          "name": "Assembly-CSharp.dll",
+          "sha256": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003"
+        }
+      ]
+    },
+    {
+      "edition": "experiment",
+      "target": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級\\实验版（模型75%）",
+      "backup": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級\\实验版（模型75%）\\AI Mod Source\\backup-before-fan-install-20261010-085534",
+      "files": [
+        {
+          "name": "GameAIMod.dll",
+          "sha256": "F3E3012E052D3A3448D69310210FFAA2A5B442E13C81017216E6DEDBC76C9E43"
+        },
+        {
+          "name": "Assembly-CSharp.dll",
+          "sha256": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658"
+        }
+      ]
+    },
+    {
+      "edition": "experiment",
+      "target": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "backup": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）\\AI Mod Source\\backup-before-fan-install-20261010-085534",
+      "files": [
+        {
+          "name": "GameAIMod.dll",
+          "sha256": "F3E3012E052D3A3448D69310210FFAA2A5B442E13C81017216E6DEDBC76C9E43"
+        },
+        {
+          "name": "Assembly-CSharp.dll",
+          "sha256": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658"
+        }
+      ]
+    }
+  ]
+}

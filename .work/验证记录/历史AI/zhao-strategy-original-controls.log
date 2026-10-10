@@ -1,0 +1,346 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/zhao-strategy-test-player-original/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/zhao-strategy-test-player-original/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/zhao-strategy-test-player-original/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.116 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.623300 ms
+CONTROLS PASS start menu offers binding settings 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS menu button opens settings overlay 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS all fourteen default slots include Zhao right Shift header 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS settings buttons remain inside viewport (1280.0, 720.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS settings screenshot captured 1280 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS settings buttons remain inside viewport (800.0, 600.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS settings screenshot captured 800 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS UI rejects another player's occupied key 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS UI captures and displays new key 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS UI binding persists after reload 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS UI restores current defaults 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS done closes overlay 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.186000 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1012.
+Total: 0.720800 ms (FindLiveObjects: 0.062400 ms CreateObjectMapping: 0.019000 ms MarkObjects: 0.263700 ms  DeleteObjects: 0.375000 ms)
+
+CONTROLS PASS default binding p=0 action=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=0 action=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=0 action=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=0 action=3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=0 action=4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=0 action=5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=0 action=6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=1 action=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=1 action=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=1 action=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=1 action=3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=1 action=4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=1 action=5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS default binding p=1 action=6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS custom left drives native movement 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS opposite movement keys cancel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS custom right drives native movement 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS custom shooting key reaches native Kick slot 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS old shooting key stops after rebinding 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS custom down reaches Fan quick drop 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS custom jump reaches native jump slot 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS both players' changes persist 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS cross-player key conflicts rejected 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.524200 ms
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.684200 ms (FindLiveObjects: 0.034500 ms CreateObjectMapping: 0.008900 ms MarkObjects: 0.391200 ms  DeleteObjects: 1.249400 ms)
+
+CONTROLS PASS native Zhao head slot assigned skills=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS CLIPS Zhao Kick,Jump,Walk,Idle,BackWalk,Head, 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=0 head=-8.46 body=-24.31 headRot=6.085323 ballV=(0.0, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=3 head=50.27774 body=11.48778 headRot=4.87232 ballV=(0.0, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=6 head=81.27016 body=30.51176 headRot=42.15985 ballV=(-5.4, -0.5) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=9 head=73.07939 body=27.28354 headRot=51.86755 ballV=(-4.9, -0.4) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=12 head=57.99844 body=21.3397 headRot=62.76645 ballV=(-4.9, -0.4) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=15 head=39.52085 body=14.05715 headRot=61.36283 ballV=(-4.9, -0.4) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=18 head=21.21346 body=6.841677 headRot=44.5427 ballV=(-4.9, -0.4) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=21 head=6.572723 body=1.071342 headRot=11.0065 ballV=(-4.9, -0.4) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS human key executes Zhao header animation skills=False remapped=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header keeps Zhao lower-body sprite scale and facing 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header has real varying neck targets range=90.35968 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header visibly swings physical head degrees=58.23573 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS stationary front ball headed toward opponent vx=-5.426406 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header preserves actual head-ball collision skills=False remapped=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header retains connected model error=0.03500398 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header returns to normal state 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header releases mirrored goals after recovery idle=4.96 actual=4.96 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS next heading command swings again degrees=64.01794 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.296500 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 1.553400 ms (FindLiveObjects: 0.032900 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.205000 ms  DeleteObjects: 1.307000 ms)
+
+CONTROLS PASS native Zhao head slot assigned skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS CLIPS Zhao Kick,Jump,Walk,Idle,BackWalk,Head, 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=0 head=-8.46 body=-24.31 headRot=6.085323 ballV=(0.0, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=3 head=50.16504 body=11.41909 headRot=4.911118 ballV=(0.0, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=6 head=81.294 body=30.52116 headRot=32.57951 ballV=(-4.2, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=9 head=73.24431 body=27.34854 headRot=55.92152 ballV=(-3.8, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=12 head=58.46477 body=21.5235 headRot=65.8513 ballV=(-3.8, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=15 head=40.3218 body=14.37283 headRot=61.88817 ballV=(-3.8, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=18 head=22.18292 body=7.223772 headRot=40.39475 ballV=(-3.8, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=21 head=7.350304 body=1.37781 headRot=10.31059 ballV=(-3.8, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS human key executes Zhao header animation skills=True remapped=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header keeps Zhao lower-body sprite scale and facing 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header has real varying neck targets range=90.35999 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header visibly swings physical head degrees=60.56365 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS stationary front ball headed toward opponent vx=-4.227578 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header preserves actual head-ball collision skills=True remapped=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header retains connected model error=0.03500398 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header returns to normal state 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header releases mirrored goals after recovery idle=4.96 actual=4.96 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS next heading command swings again degrees=65.33172 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.769900 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1071.
+Total: 1.636200 ms (FindLiveObjects: 0.033200 ms CreateObjectMapping: 0.008300 ms MarkObjects: 0.362500 ms  DeleteObjects: 1.231800 ms)
+
+CONTROLS PASS native Zhao head slot assigned skills=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS CLIPS Zhao Kick,Jump,Walk,Idle,BackWalk,Head, 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=0 head=-8.46 body=-24.31 headRot=6.085323 ballV=(0.0, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=3 head=50.63317 body=11.70439 headRot=359.9066 ballV=(0.0, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=6 head=81.23028 body=30.49604 headRot=37.86275 ballV=(-4.4, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=9 head=73.03417 body=27.26572 headRot=57.78915 ballV=(-4.0, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=12 head=58.16735 body=21.40628 headRot=66.5919 ballV=(-4.0, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=15 head=39.99613 body=14.24447 headRot=66.99394 ballV=(-4.0, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=18 head=21.88647 body=7.106934 headRot=37.27108 ballV=(-4.0, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+HEADER LIVE frame=21 head=7.123367 body=1.288368 headRot=17.22365 ballV=(-4.0, 0.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS human key executes Zhao header animation skills=True remapped=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header keeps Zhao lower-body sprite scale and facing 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header has real varying neck targets range=90.35811 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header visibly swings physical head degrees=60.84699 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS stationary front ball headed toward opponent vx=-4.398561 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header preserves actual head-ball collision skills=True remapped=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header retains connected model error=0.05855694 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header returns to normal state 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS header releases mirrored goals after recovery idle=4.96 actual=4.96 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS PASS next heading command swings again degrees=65.67531 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CONTROLS COMPLETE checks=68 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: a330 -> priority: 1 
+  Thread -> id: a3b4 -> priority: 1 
+  Thread -> id: 2f34 -> priority: 1 
+  Thread -> id: 2bb4 -> priority: 1 
+  Thread -> id: 474c -> priority: 1 
+  Thread -> id: 4f68 -> priority: 1 
+  Thread -> id: 7780 -> priority: 1 
+  Thread -> id: 31cc -> priority: 1 
+  Thread -> id: 5020 -> priority: 1 
+  Thread -> id: 38e8 -> priority: 1 
+  Thread -> id: a6d0 -> priority: 1 
+  Thread -> id: 48c4 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

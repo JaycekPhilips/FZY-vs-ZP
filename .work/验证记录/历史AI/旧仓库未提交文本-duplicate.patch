@@ -1,0 +1,1172 @@
+diff --git a/AGENTS.md b/AGENTS.md
+index c68e9a7..64d3155 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -1,7 +1,7 @@
+ # 维护约定
+ 
+-用户要求以后每次修改都更新原版和模型 75% 实验版，并同步推送到 JaycekPhilips/crazy-soccer-game。保留两版各自的模型、球门及球路差异。
++用户要求以后每次修改都更新 32 位原版、64 位原版和模型 75% 实验版，并同步推送到 JaycekPhilips/crazy-soccer-game。保留两版各自的模型、球门及球路差异。
+ 
+ 修改后先编译正式构建，在独立游戏副本中验证受影响玩法并检查异常；测试失败先处理。正式游戏不得包含测试入口、测试组件或为测试设置的冻结逻辑。仅结束自己启动的测试游戏，不关闭用户的游戏。
+ 
+-通过后安装两版并核对源文件及 DLL；重新生成两份完整游戏 ZIP、manifest.json 和 SHA256SUMS.txt，逐文件核对压缩包及安装版，再提交、推送并核对远端内容。
++通过后安装三版并核对源文件及 DLL；重新生成三份完整游戏 ZIP、manifest.json 和 SHA256SUMS.txt，逐文件核对压缩包及安装版，再提交、推送并核对远端内容。
+diff --git a/README.md b/README.md
+index 59e7a2b..1d94f11 100644
+--- a/README.md
++++ b/README.md
+@@ -1,15 +1,16 @@
+ # Crazy Soccer Game · 范志毅vs赵鹏
+ 
+-Windows 足球对战游戏，包含原版和模型 75% 实验版。两版都支持双人对战、与 AI 对战，以及经典模式和特技模式。
++Windows 足球对战游戏，包含 32 位原版、64 位原版和模型 75% 实验版。三版都支持双人对战、与 AI 对战，以及经典模式和特技模式。
+ 
+ ## 下载与启动
+ 
+ | 版本 | 完整游戏包 | 说明 |
+ | --- | --- | --- |
+ | 原版 | [下载原版](https://github.com/JaycekPhilips/crazy-soccer-game/raw/refs/heads/main/downloads/crazy-soccer-game-original-win32.zip) | 原版球员、足球和球门尺寸 |
++| 64 位原版 | [下载 64 位原版](https://github.com/JaycekPhilips/crazy-soccer-game/raw/refs/heads/main/downloads/crazy-soccer-game-original-win64.zip) | 原版模型与球场，64 位运行程序 |
+ | 实验版 | [下载实验版](https://github.com/JaycekPhilips/crazy-soccer-game/raw/refs/heads/main/downloads/crazy-soccer-game-experimental-win32.zip) | 球员和足球等比缩小 25%，球门高度降低 20%，球场保持原尺寸 |
+ 
+-下载后将 ZIP 完整解压到一个文件夹，双击其中的 `FanZhiYi.exe` 启动。两个游戏包均为 Windows 32 位程序，也可在支持 32 位应用的 64 位 Windows 系统上运行。
++下载后将 ZIP 完整解压到一个文件夹，双击其中的 `FanZhiYi.exe` 启动。原版 32 位与实验版是 Windows 32 位程序；64 位原版启动文件为 `D.exe`。
+ 
+ 实验版保持原版的跳跃高度和普通射门球路，弧线落叶射门的弧线高度略低。缩放在经典模式、特技模式及所有对战方式中生效。
+ 
+@@ -28,28 +29,33 @@ Windows 足球对战游戏，包含原版和模型 75% 实验版。两版都支
+ 
+ ## 当前版本
+ 
+-更新时间：2026-10-08。
++更新时间：2026-10-09。
+ 
+ 两版都包含最新地面对抗调整：特技模式中，赵鹏的磁力脚加强夹球时的推进、控球和支撑；强力抢断支持双方脚部隔着贴地足球的真实接触，使范志毅短暂失衡并快速恢复。持续对抗设有触发冷却。
+ 
+ 双方 AI 在地面或空中顶牛时使用方向输入对抗，停止射门和头球；脱离顶牛后恢复正常进攻。高空球会提前预测下降位置，结合实际移动速度、跳跃力、重力和球员尺寸选择跑位、起跳及头球时机。经典和特技模式均采用这些 AI 决策。
+ 
+-本次正式构建在隔离游戏副本中通过两版合计 **848 项运行检查**，覆盖上角与地滚球进球、门后出界与反弹、半自动抢截、AI 顶牛与高空球、正常射门。打包时逐个核对游戏文件与已安装版本，并验证 ZIP 中每个文件的 SHA-256。
++本次正式构建在隔离游戏副本中通过三版合计 **545 项运行检查**，覆盖强力抢断的地面/空中直接碰撞、隔球顶牛、约两个身位击退、持续对抗冷却、障碍物阻挡、暂停重置、AI 顶牛与高空球，以及 64 位版正常射门。打包时逐个核对游戏文件与已安装版本，并验证 ZIP 中每个文件的 SHA-256。
+ 
+ 上角入网采用持续跟踪足球从场内进入球门的判定，按实际横梁下缘检查，避免首次触发或网内反弹导致漏判。范志毅的伸脚抢截在特技模式中改为半自动：腾空时身前近处、低于站立小腿高度的低平来球自动发动；球在身后时按 S（或自定义的“下”键）手动发动。经典模式不增加该技能。
+ 
+ ## 仓库内容
+ 
+-- `downloads/`：两版可直接运行的完整游戏包。
++- `downloads/`：三版可直接运行的完整游戏包。
+ - `source/original/`：原版的 AI、技能、输入和补丁源码。
+ - `source/experimental/`：实验版源码及缩放处理。
++- `source/original-win64/`：64 位原版源码与补丁程序集。
+ - `tools/Build.ps1`：编译指定版本的正式游戏补丁。
+ - `tests/`：本次地面对抗、控球及射门检查源码。
+-- `manifest.json`：两版文件清单及校验值。
+-- `SHA256SUMS.txt`：两个下载包的校验值。
++- `manifest.json`：三版文件清单及校验值。
++- `SHA256SUMS.txt`：三个下载包的校验值。
+ 
+ 修改模组前可参考各版本源码目录中的 `README.md`。编译方法见 [tools/README.md](tools/README.md)。
+ 
+ ### 掠地瞬击范围更新
+ 
+ 两版特技模式中，赵鹏掠地瞬击的触球部位已扩大至与范志毅弧线落叶射门一致：小腿以下，包括踝部和脚背；脚底、大腿、膝盖、头部和躯干仍不能触发。按小键盘 0 使用，保持身前、非顶牛的限制以及低平球路。经典模式大力射门保留原范围。
++
++### 强力抢断击退更新
++
++三版特技模式中，赵鹏强力抢断使范志毅短暂失衡，并向后推开约两个身位。身位按实际站立模型宽度计算；隔着贴地足球真实顶牛也能触发，无需新按键。击退由整套骨架的真实冲量完成，后段减速并恢复平衡，球门和障碍物会限制实际距离。暂停、进球、出界及重置清除击退，持续接触保留冷却；经典模式保持普通身体对抗。
+diff --git a/SHA256SUMS.txt b/SHA256SUMS.txt
+index a5ee67c..1b3e10f 100644
+--- a/SHA256SUMS.txt
++++ b/SHA256SUMS.txt
+@@ -1,2 +1,3 @@
+-0fe313207d45cfc27da24125178f0322d7bf1f44f0273020cfb67d1db2f6bf2b  downloads/crazy-soccer-game-original-win32.zip
+-e75f22c1ff879a03018c1b74866e5b101b30c05640ae77a357df92ef48949226  downloads/crazy-soccer-game-experimental-win32.zip
++a38525b8110e1265f3d9575c1b4a9e3685e3f5a838e014a8e2bada5452a3ca3b  downloads/crazy-soccer-game-original-win32.zip
++c2538cbcc2374d24dc725951c92bfbbd1418ad4a21c84441432df8713dbb70f2  downloads/crazy-soccer-game-experimental-win32.zip
++ca55feb79ad66ec6259328b0acbd8e45a0dee8c2e450a5ffb1c7b99638d8e986  downloads/crazy-soccer-game-original-win64.zip
+diff --git a/manifest.json b/manifest.json
+index b30ef9a..fabecaa 100644
+--- a/manifest.json
++++ b/manifest.json
+@@ -2,8 +2,8 @@
+   {
+     "edition": "original",
+     "archive": "downloads/crazy-soccer-game-original-win32.zip",
+-    "archiveBytes": 27558577,
+-    "archiveSha256": "0fe313207d45cfc27da24125178f0322d7bf1f44f0273020cfb67d1db2f6bf2b",
++    "archiveBytes": 27560008,
++    "archiveSha256": "a38525b8110e1265f3d9575c1b4a9e3685e3f5a838e014a8e2bada5452a3ca3b",
+     "files": [
+       {
+         "path": "按键设置.ini",
+@@ -62,8 +62,8 @@
+       },
+       {
+         "path": "AI Mod Source/PlayerSkills.cs",
+-        "bytes": 62337,
+-        "sha256": "c399c70f6546c954e10629dcd6b058c1f506baefb736ce997ec4cd61bf7fc31a"
++        "bytes": 65322,
++        "sha256": "6ac2439c6e14dabebdec690dc4846150d0adc3e029de8f6d7a91b62d647f4924"
+       },
+       {
+         "path": "AI Mod Source/PowerShot.cs",
+@@ -72,8 +72,8 @@
+       },
+       {
+         "path": "AI Mod Source/README.md",
+-        "bytes": 19400,
+-        "sha256": "4f8806789b2a5e93dcb49a49e2a4872d02e1206462e334ca3ab345a7fbe83701"
++        "bytes": 20198,
++        "sha256": "78159964c25c044ad612f0b10ef8f30ce84bd8382b730feb02cea9aacd1de254"
+       },
+       {
+         "path": "AI Mod Source/ZhaoHeader.cs",
+@@ -147,8 +147,8 @@
+       },
+       {
+         "path": "FanZhiYi_Data/Managed/GameAIMod.dll",
+-        "bytes": 79360,
+-        "sha256": "b3846f89c2a776c4b67389a90bf3c55c92d4eaea7349fd3a822a91ad91bca5f8"
++        "bytes": 80384,
++        "sha256": "c37c35c36c213f9cc1086247753db79cc817ad90c9437f7e8bd6a5e505f67b47"
+       },
+       {
+         "path": "FanZhiYi_Data/Managed/Mono.Security.dll",
+@@ -735,8 +735,8 @@
+   {
+     "edition": "experimental",
+     "archive": "downloads/crazy-soccer-game-experimental-win32.zip",
+-    "archiveBytes": 27566744,
+-    "archiveSha256": "e75f22c1ff879a03018c1b74866e5b101b30c05640ae77a357df92ef48949226",
++    "archiveBytes": 27568167,
++    "archiveSha256": "c2538cbcc2374d24dc725951c92bfbbd1418ad4a21c84441432df8713dbb70f2",
+     "files": [
+       {
+         "path": "按键设置.ini",
+@@ -805,8 +805,8 @@
+       },
+       {
+         "path": "AI Mod Source/PlayerSkills.cs",
+-        "bytes": 62707,
+-        "sha256": "22eb6d323f8d76399c2ea279a2a9b5f09bcc1b3437b7bbd01d6bd81c072cdf14"
++        "bytes": 65692,
++        "sha256": "f90112e1b4e724c47839f845371fa9f08267a1969be0c6c63d475c5679629f08"
+       },
+       {
+         "path": "AI Mod Source/PowerShot.cs",
+@@ -815,8 +815,8 @@
+       },
+       {
+         "path": "AI Mod Source/README.md",
+-        "bytes": 20514,
+-        "sha256": "8538a9cb00a195eb9edb11507984ab653e8df7f31d0f167ad44915bd56943084"
++        "bytes": 21312,
++        "sha256": "2aee0865a277f8c09f1ed6a9bab2ee8b602bc623e06f834e3005c3cff91f527a"
+       },
+       {
+         "path": "AI Mod Source/ZhaoHeader.cs",
+@@ -890,8 +890,8 @@
+       },
+       {
+         "path": "FanZhiYi_Data/Managed/GameAIMod.dll",
+-        "bytes": 82944,
+-        "sha256": "b6ec55c45924f31fae3c7f5fc5460d23c47193a639c5034f99b36300d612c9eb"
++        "bytes": 83968,
++        "sha256": "e47404bb7de667b0c50a7da951fb4424d13e9c3373860f1877f1bb20ff8da3cf"
+       },
+       {
+         "path": "FanZhiYi_Data/Managed/Mono.Security.dll",
+@@ -1474,5 +1474,738 @@
+         "sha256": "0c56e34c69124510fa8c19e7b4c2ca6c1c4ff460ae19f798dd0ca035809e396d"
+       }
+     ]
++  },
++  {
++    "edition": "original-win64",
++    "archive": "downloads/crazy-soccer-game-original-win64.zip",
++    "archiveBytes": 30756180,
++    "archiveSha256": "ca55feb79ad66ec6259328b0acbd8e45a0dee8c2e450a5ffb1c7b99638d8e986",
++    "files": [
++      {
++        "path": "按键设置.ini",
++        "bytes": 345,
++        "sha256": "84dd4e03a827666571d5392db67e0eb5452f58763d136f50e8bf39eb5fa4f196"
++      },
++      {
++        "path": "D.exe",
++        "bytes": 650752,
++        "sha256": "d984a790601ff7c32e8b313f9026db5a341b1d2611acf94647e83d4a4d0a6cf6"
++      },
++      {
++        "path": "UnityCrashHandler64.exe",
++        "bytes": 1096280,
++        "sha256": "0f889be5bda238bc2470d5f43b7d481754e84a4827f16fdc761b07dbed3b072f"
++      },
++      {
++        "path": "UnityPlayer.dll",
++        "bytes": 26222680,
++        "sha256": "4e8502101c8b569ed0e2015366756d85402491cda33671f7758cf0f519872ad0"
++      },
++      {
++        "path": "AI Mod Source/Assembly-CSharp.original.dll",
++        "bytes": 41984,
++        "sha256": "2b190516b8d7bc1eb4ddd517c4ec4c0dfa352684ccf37e80dd3dfd7b02482b28"
++      },
++      {
++        "path": "AI Mod Source/Assembly-CSharp.patched.dll",
++        "bytes": 42496,
++        "sha256": "e4e33753cd584c267aaca5123b749b71267096dacf38ec5e22d0ed5aa3ad4579"
++      },
++      {
++        "path": "AI Mod Source/ControlBindings.cs",
++        "bytes": 12287,
++        "sha256": "b55a89d68e5aca6c63a9dd20110a9872cbfac67bacc8dcc40e00b38a17fc5b64"
++      },
++      {
++        "path": "AI Mod Source/GameAIMod.cs",
++        "bytes": 52017,
++        "sha256": "ee11b3a1d94c9f8f4e94c861494289c1808cfa664eb672e59192c6947ab88b56"
++      },
++      {
++        "path": "AI Mod Source/MagneticFoot.cs",
++        "bytes": 12938,
++        "sha256": "b6226dfba08f21ed36cc2a2d4a0722e3b500cfc6135d0fd9f1d46f5ab742a922"
++      },
++      {
++        "path": "AI Mod Source/PatchGame.cs",
++        "bytes": 18522,
++        "sha256": "e624e76ec721d2660c29b41655de3f156340a7cc7a769689cf526d7970c1195b"
++      },
++      {
++        "path": "AI Mod Source/PlayerMovement.cs",
++        "bytes": 10708,
++        "sha256": "18cecd5eb38010224220c7d37276c7dcef8682ac003d151f5987a08333c63d8b"
++      },
++      {
++        "path": "AI Mod Source/PlayerSkills.cs",
++        "bytes": 65322,
++        "sha256": "6ac2439c6e14dabebdec690dc4846150d0adc3e029de8f6d7a91b62d647f4924"
++      },
++      {
++        "path": "AI Mod Source/PowerShot.cs",
++        "bytes": 7549,
++        "sha256": "93fba5fa8cce6ccdb6b967b374f3c8786a2f41876babccb7a52a460122d14bb2"
++      },
++      {
++        "path": "AI Mod Source/README.md",
++        "bytes": 20198,
++        "sha256": "78159964c25c044ad612f0b10ef8f30ce84bd8382b730feb02cea9aacd1de254"
++      },
++      {
++        "path": "AI Mod Source/ZhaoHeader.cs",
++        "bytes": 5587,
++        "sha256": "d19e2ca6b1072583333f06050f6ab593b354d50d7fda77ce04580426cee74a71"
++      },
++      {
++        "path": "FanZhiYi_Data/app.info",
++        "bytes": 13,
++        "sha256": "9803d2e6b4647496eae25492542d77d2c1e043e6867ae3fa10e839abd120ffbb"
++      },
++      {
++        "path": "FanZhiYi_Data/boot.config",
++        "bytes": 62,
++        "sha256": "78cc47cbbed8923df2d9eb2da0c8fd7b3b400b3353544adb47c327802fc0ba56"
++      },
++      {
++        "path": "FanZhiYi_Data/globalgamemanagers",
++        "bytes": 93668,
++        "sha256": "545eb791050a3e8ffbfa4a0767aa2cf2ebd719249afdcc7c9ebae4a75fc6ec87"
++      },
++      {
++        "path": "FanZhiYi_Data/globalgamemanagers.assets",
++        "bytes": 78616,
++        "sha256": "00aa80ab0360cc4a5e0029795dae43adabfd3bbe40c17683192c6994c7f369c0"
++      },
++      {
++        "path": "FanZhiYi_Data/level0",
++        "bytes": 4980,
++        "sha256": "9f478ba7ff00a45e92cfefbc45e8f7fe34bf7a66677f369ab7d59e6f77b1a765"
++      },
++      {
++        "path": "FanZhiYi_Data/level1",
++        "bytes": 29948,
++        "sha256": "1c91ae4628407602da28c647f501fe913debb7bcbe9f1ea847b5a1cc4bfb0131"
++      },
++      {
++        "path": "FanZhiYi_Data/resources.assets",
++        "bytes": 4080028,
++        "sha256": "02e729b11d4eb330f6b5ee2348ced454e3e644176b21611722892dffb0c58fda"
++      },
++      {
++        "path": "FanZhiYi_Data/resources.assets.resS",
++        "bytes": 53726652,
++        "sha256": "a30e47b7f52cd8ad5afecaecdf8253f0f9998c35cbf1628b1b31e090f74d3be1"
++      },
++      {
++        "path": "FanZhiYi_Data/resources.resource",
++        "bytes": 2199296,
++        "sha256": "cc2d6dbd367e92cd1ed0ccbb7944c1f7bab1fae64cd64a629a73893b1f6b36ca"
++      },
++      {
++        "path": "FanZhiYi_Data/sharedassets0.assets",
++        "bytes": 4133,
++        "sha256": "26279e8085b3eab72c07ed642409eb3cc66fdb1662f164e4b7af0ccfc73a781f"
++      },
++      {
++        "path": "FanZhiYi_Data/sharedassets1.assets",
++        "bytes": 14068,
++        "sha256": "d4a5a0c2ae0f394f0df2fdb52c6c63d0695187df038901bfe2665d3441288679"
++      },
++      {
++        "path": "FanZhiYi_Data/sharedassets1.assets.resS",
++        "bytes": 84,
++        "sha256": "4a83aa458b0a2379f2c7a336bd0d936f33d55fa35fd8bf823ba81cdde29725aa"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/Assembly-CSharp.dll",
++        "bytes": 42496,
++        "sha256": "e4e33753cd584c267aaca5123b749b71267096dacf38ec5e22d0ed5aa3ad4579"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/GameAIMod.dll",
++        "bytes": 80384,
++        "sha256": "8eab3a77a6a11213ecb8e43e318f7ca2fc612d6481a948aec3e9b3e0b0d66e81"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/Mono.Security.dll",
++        "bytes": 310272,
++        "sha256": "8c47b23389f9eede068683ed8b64b5a466f986499112983290778b30accfd1ba"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/mscorlib.dll",
++        "bytes": 3906048,
++        "sha256": "184f3a9c4524db4bff81ef50b93441c6a5255397e6b78ee219f8c0b193daa2ee"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/netstandard.dll",
++        "bytes": 84992,
++        "sha256": "994be039eb23da7b0c14fc2fa2c09b3ca2a73bb330e840275ab8275063716f0e"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.ComponentModel.Composition.dll",
++        "bytes": 247808,
++        "sha256": "596500c15e90d4b63573a19da292009c95b02e05005f48077d7fc0850dd220fd"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.Configuration.dll",
++        "bytes": 43008,
++        "sha256": "844a3275be4da8591180b4a9b09b6ec72fe2e284d79f81b9a8f83b35b80ece61"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.Core.dll",
++        "bytes": 1057792,
++        "sha256": "2d702d211d34e9b94ca18a5ef10a6c2b0fa40fb2cb09751348c7d5bd4dffed02"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.Data.dll",
++        "bytes": 1941504,
++        "sha256": "23dae8379e8c412f69caa0668be411c87672a775ce473e18faf01f56c114e079"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.Diagnostics.StackTrace.dll",
++        "bytes": 6656,
++        "sha256": "4701e843059674accc1c87038ec41f3cecbadce2a65755f527c8b65b0cebc8ce"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.dll",
++        "bytes": 2141696,
++        "sha256": "5a46039da87fe46804e5770d9f2f5926ac054935eef0b8eec75ef83bf702d237"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.Drawing.dll",
++        "bytes": 184320,
++        "sha256": "41d7f9907c43d1c9dda3cd4a9eda76c836dcc7daf7f657ba993f6b6d9c146ae1"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.EnterpriseServices.dll",
++        "bytes": 33280,
++        "sha256": "fa69e5c913d01218eeb8660087812c8d62d8c5e57060a8b8d9973ffb11884ce1"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.Globalization.Extensions.dll",
++        "bytes": 6144,
++        "sha256": "4e8c5ad3450450ba6bc6a474300f2445094870f2bcc9ca16472fb2f3adb88ebd"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.IO.Compression.dll",
++        "bytes": 98816,
++        "sha256": "6045d16e65834f67b2604359a137a4b74434293813ccab0d86b34c5f7b1785fa"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.IO.Compression.FileSystem.dll",
++        "bytes": 23040,
++        "sha256": "221abe4eea00347c51ac7409b47ba7b08ccfdaae8e36e706a8ee0d4de6ceb87a"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.Net.Http.dll",
++        "bytes": 114688,
++        "sha256": "50d4aa1f4403c12563d433ac51cc9908a5aa035a7fbb741098aa457c182dcf02"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.Numerics.dll",
++        "bytes": 114176,
++        "sha256": "01d3b2dd6375da4378b8c9951a6bbb4997dd6a0651753e5736aa1b0587015f35"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.Runtime.Serialization.dll",
++        "bytes": 840704,
++        "sha256": "988564a6a6cdd7efc8d541434ccff96bbc2f7f9349290b0efaf5735046cd582f"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.Runtime.Serialization.Xml.dll",
++        "bytes": 7168,
++        "sha256": "2394dff209954e143795bedba8ec9c737e17ecd96e3a3a02de6d7c2631f04152"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.ServiceModel.Internals.dll",
++        "bytes": 218112,
++        "sha256": "ab27dd2afdfab73dd36c5b90a542c78a69822d8add2bba3cc95db8990b23f4c4"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.Transactions.dll",
++        "bytes": 33280,
++        "sha256": "ff78a8b68809535c1d93cc6e511c79e0d2f85d97b358da2a8a76eca8c8f2e4bc"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.Xml.dll",
++        "bytes": 2414592,
++        "sha256": "8283e176446695c0486b8b1cda7581178e9ddd5ceb49873dd7da519730497609"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.Xml.Linq.dll",
++        "bytes": 119296,
++        "sha256": "7152197c2d69b60a24b9af3323b45b76bde9f9f63a447c69090656289ac32c1e"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/System.Xml.XPath.XDocument.dll",
++        "bytes": 5120,
++        "sha256": "c53307ed65e10be7f252ee8c93a6261af7a7c44b5006631f57950624c3f06f5e"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/Unity.2D.Animation.Runtime.dll",
++        "bytes": 36352,
++        "sha256": "53cc108d708b408002e352c694efa3dbbebf3297cff83887c7e9faea71c68bbb"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/Unity.2D.Animation.Triangle.Runtime.dll",
++        "bytes": 187392,
++        "sha256": "35e34a1f8f9fea75e828b9c7e957d03a7ce964a35e7b9f56e48df23c4d5cb617"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/Unity.2D.Common.Runtime.dll",
++        "bytes": 3584,
++        "sha256": "e07a4aa20ecf52614d62807f0b99afc7e44444a646653754abe3ee43c24df5c1"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/Unity.2D.PixelPerfect.dll",
++        "bytes": 11264,
++        "sha256": "f22fcda70376d45691017e29fdd61a8c6514a42eb68a4a509642dced39df1297"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/Unity.2D.SpriteShape.Runtime.dll",
++        "bytes": 88064,
++        "sha256": "0c53feb20d57d2b1d3b03c7522d96bc6e7cdb3a55f534d6aa3464b82eca74bcb"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/Unity.InternalAPIEngineBridge.001.dll",
++        "bytes": 4096,
++        "sha256": "487916dbf6c31f8f9d309798fa1df5d50827f5279dce813c4bb6e18e091e2229"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/Unity.Mathematics.dll",
++        "bytes": 710144,
++        "sha256": "9759bd5d3e7cef6c0555b282699e7a7c4b979adec79cedeef88ff3ba227947d7"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/Unity.TextMeshPro.dll",
++        "bytes": 369152,
++        "sha256": "e97fe0a006fcb12ea03f7053c98e4c6bea25e33f383b2ee1969695bc98070022"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/Unity.Timeline.dll",
++        "bytes": 108544,
++        "sha256": "5827ab26ced69f0c8d014b15d16d2b71c1871695eed8519b072e64443e389f15"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.AccessibilityModule.dll",
++        "bytes": 12288,
++        "sha256": "55eec7fc01d302c96b87483b8ad6ed23012525c1ec5cbcf4029a847db0c53e5f"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.AIModule.dll",
++        "bytes": 44544,
++        "sha256": "08ccfcca7dc6d7eb3360c7dba29bd50af21ddab9d835d604a0efd81000970d9d"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.AndroidJNIModule.dll",
++        "bytes": 64512,
++        "sha256": "97a0130dff22be165f2b0ebbfeebcf691924e02a7f8c826836bc89adbf218126"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.AnimationModule.dll",
++        "bytes": 145920,
++        "sha256": "6748c61e200cf395d8506448fca688447bf42995688434ad76c9b5688d4e8679"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.ARModule.dll",
++        "bytes": 13312,
++        "sha256": "f54c4e10956b4eccf3f8a6fa6c34744cf6c764410573faa04f40bd9bd4870d40"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.AssetBundleModule.dll",
++        "bytes": 22528,
++        "sha256": "de6fab8a0f48eebcd3616db5517332d3450ef2e8e3175500450ad9c4194e8662"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.AudioModule.dll",
++        "bytes": 57856,
++        "sha256": "2b00059121deff1130afb3f2e81f0a752aebb754d6ba465b35731562b19b4e91"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.AutoStreamingModule.dll",
++        "bytes": 9216,
++        "sha256": "09dbe7831883c168db5b35b8424fec25ff8905f4192da63b99f98de8f68fe712"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.ClothModule.dll",
++        "bytes": 15872,
++        "sha256": "bbf7e692b1fba07af575905e568b8ea6c09ca319dfea04482a6f51f435531dfb"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.ClusterInputModule.dll",
++        "bytes": 10240,
++        "sha256": "032dfd65c074282dfef6254279a48976707bc2500898f26b479cda30e7d9567c"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.ClusterRendererModule.dll",
++        "bytes": 9216,
++        "sha256": "ea13a2dbf951b6105836c11f9f0fce6f344c5bc2ea111cd5aeaae58f45213061"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.CoreModule.dll",
++        "bytes": 1014272,
++        "sha256": "47ec1643a14852d61563cfb7212fea066eb64365a284698883f2bd1d84408834"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.CrashReportingModule.dll",
++        "bytes": 9728,
++        "sha256": "306c402f7410449cb4401f95258dd1b09586b5e12a3e69b1a6a9c6aa2123618f"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.DirectorModule.dll",
++        "bytes": 13312,
++        "sha256": "daf0ef50b2a5cd0399ab6eb83ab7f2648c25236b488e3a130ede1bc55b067b4b"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.dll",
++        "bytes": 86016,
++        "sha256": "da65d2be54e820c1068785406abd7c0728cd425dc3f4394f71e92f0439e4c188"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.DSPGraphModule.dll",
++        "bytes": 17920,
++        "sha256": "5ec716471d28915786216ae3bc3a0b2f673730c9ea203b24041481219e1137bd"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.GameCenterModule.dll",
++        "bytes": 27136,
++        "sha256": "6de7a2ff2dd39a2fc779dd37ff7fe053450e476e959391c662ba6162c37e2ceb"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.GridModule.dll",
++        "bytes": 13824,
++        "sha256": "dfff5f3a730a24afd4b05f5f3d12a5efcb88e8cdd6806a5dd8836457c354c617"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.HotReloadModule.dll",
++        "bytes": 8704,
++        "sha256": "9881e521063d2889088f49696757e845508ba9892a121b76d89cb272cf1b7910"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.ImageConversionModule.dll",
++        "bytes": 13312,
++        "sha256": "fa488e9d2c13afa4734da62cada94fb4e624d7a832c4ecee919d6b9a082625c8"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.IMGUIModule.dll",
++        "bytes": 157184,
++        "sha256": "f1b9315181a422aad783315d3c71a17682486c454c3c621958d016f2c893dcd0"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.InputLegacyModule.dll",
++        "bytes": 26624,
++        "sha256": "62a59c688fc50d6c2de3d5db45d247eb37559df12ae77f5ab9a6cf12d1e53e64"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.InputModule.dll",
++        "bytes": 12288,
++        "sha256": "c3f0c666d2735411d13af146263f57e99aa0b08e3d582bced54f4f775899036e"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.JSONSerializeModule.dll",
++        "bytes": 10752,
++        "sha256": "5470b1dd6a7f7022c2c335b1b1b422d7422ff9770eb2461a9b24dfe295781e4a"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.LocalizationModule.dll",
++        "bytes": 10240,
++        "sha256": "3cb2f63abbed903cf15d98cd779313713243872e3d9e93af1b3c45a7daaf01a4"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.ParticleSystemModule.dll",
++        "bytes": 135168,
++        "sha256": "60e0161b4a870ccad45beec64047abb3a6a5d186b798b77ccb3e80a73d22afcc"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.PerformanceReportingModule.dll",
++        "bytes": 9728,
++        "sha256": "9a1dad53fdbf26ecbfe8e0c0ddbd6cb59eed0489670399c8021bc7959321ae5b"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.Physics2DModule.dll",
++        "bytes": 105984,
++        "sha256": "90c6a2ddf41f91f2ce0be58ed154a61b8ab49622e3f15816ca1a9a88a6133bb0"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.PhysicsModule.dll",
++        "bytes": 87040,
++        "sha256": "2b88a9554b60318896252286aa88c9ed1bbe83a735801ccb87f5b5cdbbf6d789"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.ProfilerModule.dll",
++        "bytes": 8704,
++        "sha256": "6daaa36615592a3172f581b7a3b4b682a593e70f9ea6c7bbeadc439f67dc0904"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.ScreenCaptureModule.dll",
++        "bytes": 9728,
++        "sha256": "c36039704daaa4f27edf0ebf1c3e0ec2a9b99b4f80aee8f0a1752f62c2a38730"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.SharedInternalsModule.dll",
++        "bytes": 19456,
++        "sha256": "d1d9176bea54aa55ad0305a7209bb5e6b56d39ea3aac9edd281bedf0c4b6e57c"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.SpriteMaskModule.dll",
++        "bytes": 10240,
++        "sha256": "6aa488587ba74ff48421b1d43b7099c72e6c8582afa207f9143a77736b50878f"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.SpriteShapeModule.dll",
++        "bytes": 14336,
++        "sha256": "16645d32d405fe54af24468a7c1cc800b8840559fd099389d8c16682880ee45e"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.StreamingModule.dll",
++        "bytes": 9728,
++        "sha256": "3c19939b674e9f8151549a18a8d2617ec9e0aa052245a52cfb58ccbde39fe611"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.SubstanceModule.dll",
++        "bytes": 13824,
++        "sha256": "fd149c6004a096be3ae2331027abea0287716f6dffb046cf940016c163582236"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.SubsystemsModule.dll",
++        "bytes": 16896,
++        "sha256": "a85efdcbe3d3aa0da832e9ce85b30611c94da3e93be24d880f14badfa7bde3c5"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.TerrainModule.dll",
++        "bytes": 80896,
++        "sha256": "2b313029c28c1045ac063c4659f7fa628b6ed1aa8c1c56df66d9239618ea91c4"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.TerrainPhysicsModule.dll",
++        "bytes": 9728,
++        "sha256": "43d0e4afbff4ac6338841c4d4eb050d7dcde8a8bd9194d0284be895f84bc283d"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.TextCoreModule.dll",
++        "bytes": 186368,
++        "sha256": "ce48b6df425f6cef84ca669292f28c8e1db7fa4601c8a4aed7f53e580686bd2d"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.TextRenderingModule.dll",
++        "bytes": 27648,
++        "sha256": "c7d5bf8063fb66992679ec74e974af1a8a90dcfdcfe7f0c76bbaf96eedca7ac7"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.TilemapModule.dll",
++        "bytes": 25600,
++        "sha256": "fd5c522cf05af03d04d1b7b7f271e0d39e8eb6389adbfa6c19223e22bab95c2a"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.TLSModule.dll",
++        "bytes": 8704,
++        "sha256": "00366e383c8f1a5d5278138481c25d37200d4c4fc04d4f4cd00672b89bdfb235"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.UI.dll",
++        "bytes": 226304,
++        "sha256": "cd72d061ef9eef61e1c5c349c97899370fee63820f5722aad9903731c36bf4f5"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.UIElementsModule.dll",
++        "bytes": 730624,
++        "sha256": "c27b2fcd433692242182a19565f138e7c007aba3a57f1f0899b96f75b022d2d5"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.UIModule.dll",
++        "bytes": 23552,
++        "sha256": "7da1d1e1f829f87596a52d94feb43cd834091227cbcfd1faa382bb3f1c99b718"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.UmbraModule.dll",
++        "bytes": 8704,
++        "sha256": "caf106e52d239833f5f5c78b05f767fe8572aab9b01b6d2fbd0f78ca0a87e336"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.UNETModule.dll",
++        "bytes": 77824,
++        "sha256": "1ace6313a9a72fcc80a5cc7b2f93d9a4471106a0135c97314710c6dae04276d8"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.UnityAnalyticsModule.dll",
++        "bytes": 33280,
++        "sha256": "0b234f32b75c2bac5bf28b105ca78e28555ab2d319cbeb5035c8f3c4a503737b"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.UnityConnectModule.dll",
++        "bytes": 10752,
++        "sha256": "819be4e1436848a19ea56e139787ef7ac5c473ae0185d7412a31ad8424d6ce73"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.UnityTestProtocolModule.dll",
++        "bytes": 8704,
++        "sha256": "bf474892a8ae055952a5d167e13bc939b2789cbe3226cd1367078b9494b659e7"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll",
++        "bytes": 11776,
++        "sha256": "d133fc10045096ea799cdb5329c91f265434c95ab5c59db3d53239fcf0f4876c"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll",
++        "bytes": 11264,
++        "sha256": "329fcaf929bc5f364998323b215eb0e26132037a80ddab279a262f690e1444e8"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestModule.dll",
++        "bytes": 43520,
++        "sha256": "fb0913b9b2e234c78ec6600ddd0906bae093b8e5afd68ca18e3dc8e5ddab1274"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll",
++        "bytes": 10752,
++        "sha256": "5089fc84d841f4b1efc7626d6ef20f446d74c3aeed78c98b4020a511af90a2d7"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll",
++        "bytes": 20480,
++        "sha256": "3ddf1f266503bdb97ceb38962a125f8b50bc44b6eec86b775e3be23c0ac1365b"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.VehiclesModule.dll",
++        "bytes": 12800,
++        "sha256": "7fb563ba3bc060a26a5a775681422b97ba6859c2f2f7542d0f2a3c46fba9be70"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.VFXModule.dll",
++        "bytes": 38912,
++        "sha256": "9d257c712a50268614ced121fce9d89467bb237ce0de9d1c9258861f9f3ee2e5"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.VideoModule.dll",
++        "bytes": 29184,
++        "sha256": "ff52aa5c363d9d3bf0c532b50ccc69705a98d4b9baeae4c8c7fb81bdd354c55d"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.VRModule.dll",
++        "bytes": 34816,
++        "sha256": "d59739927f1730f97b0ecf26c9e02f97f6f27e9edea4b69a421d6250d4bfee97"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.WindModule.dll",
++        "bytes": 9728,
++        "sha256": "0a9e6cd4e6274c0a78619f0abfd7364f80e8d33eabffd63de289e99ed9564b36"
++      },
++      {
++        "path": "FanZhiYi_Data/Managed/UnityEngine.XRModule.dll",
++        "bytes": 54272,
++        "sha256": "2c3ed1b49cccab5976ab16495f55a76976d18e7ed5107ec6c7723012b48b98e8"
++      },
++      {
++        "path": "FanZhiYi_Data/Resources/unity default resources",
++        "bytes": 3838028,
++        "sha256": "e5617cf255eb6ead8ad96302006f2382d8d7b229e8c3dca778cd1864e714def4"
++      },
++      {
++        "path": "FanZhiYi_Data/Resources/unity_builtin_extra",
++        "bytes": 340816,
++        "sha256": "0f19f81569081fb5b1be9c6f78ef8691f74db354d9c84437fdc6d57a5cd1dbe0"
++      },
++      {
++        "path": "MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll",
++        "bytes": 4973144,
++        "sha256": "6a6ee69a5882c4d03c84d42fa78a5586314e3ad422cc298b882e9e79bd167c54"
++      },
++      {
++        "path": "MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll",
++        "bytes": 780288,
++        "sha256": "a57f7dfa950925dbb1e75e59791f12b02f9b53b6566effd2fe8360b3d0c78dec"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/browscap.ini",
++        "bytes": 311984,
++        "sha256": "4ddd50f31fb968f30bedefc253a46dc3f2890192d05cdaa9e0a64a056eee807e"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/config",
++        "bytes": 3276,
++        "sha256": "60099cf91bb1a5717fc1f2d23cf36a61d3bfb70d9489fbb6f4bae98c560bf3d5"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx",
++        "bytes": 60575,
++        "sha256": "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/2.0/machine.config",
++        "bytes": 29116,
++        "sha256": "edc5bcf685d930a607bc097927260a3f9ac7f52dd809db68158298bfd934b7ce"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/2.0/settings.map",
++        "bytes": 2622,
++        "sha256": "49c6160f9d54af4270a3b4e997fc4a8301f79b9e2070118fa46ddbcbbc44f9a2"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/2.0/web.config",
++        "bytes": 11686,
++        "sha256": "3c1a76a5849074b437d297656a208a3bef6d84b982153542b9c797046c601dfc"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser",
++        "bytes": 1605,
++        "sha256": "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx",
++        "bytes": 60575,
++        "sha256": "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/4.0/machine.config",
++        "bytes": 33648,
++        "sha256": "6919d5af506aae0d93e91bd83418a81895a5554b9f54cf94aad20d025a4db664"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/4.0/settings.map",
++        "bytes": 2622,
++        "sha256": "ce1db1ad8a9512073164e3eccdc193f7eda036e1a9733caec4635de21b2865c8"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/4.0/web.config",
++        "bytes": 18848,
++        "sha256": "f1a6416eeedd9d040387fd85dcf7d6e074b6644c6829d08be220ff9fc32efb31"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser",
++        "bytes": 1605,
++        "sha256": "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx",
++        "bytes": 60575,
++        "sha256": "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/4.5/machine.config",
++        "bytes": 34106,
++        "sha256": "ef9b9387168fd1dd6c996f96c134d9c44f8eb06f9587004bf997252a520182d6"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/4.5/settings.map",
++        "bytes": 2622,
++        "sha256": "ce1db1ad8a9512073164e3eccdc193f7eda036e1a9733caec4635de21b2865c8"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/4.5/web.config",
++        "bytes": 18857,
++        "sha256": "15a2c7a9242bf54d3ccb3e07fa6d8f84ba8b303d8877243787a1103009941bdb"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser",
++        "bytes": 1605,
++        "sha256": "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741"
++      },
++      {
++        "path": "MonoBleedingEdge/etc/mono/mconfig/config.xml",
++        "bytes": 25817,
++        "sha256": "0c56e34c69124510fa8c19e7b4c2ca6c1c4ff460ae19f798dd0ca035809e396d"
++      }
++    ]
+   }
+ ]
+\ No newline at end of file
+diff --git a/source/experimental/PlayerSkills.cs b/source/experimental/PlayerSkills.cs
+index 835738d..77df235 100644
+--- a/source/experimental/PlayerSkills.cs
++++ b/source/experimental/PlayerSkills.cs
+@@ -71,6 +71,10 @@ public sealed class PlayerSkills : MonoBehaviour
+     private bool weakenedBalance;
+     private float braceUntil = -1f;
+     private float staggerUntil = -1f;
++    // Two standing body widths, measured before the player tips or jumps.
++    public const float TackleKnockbackBodyWidths = 2f;
++    private float standingBodyWidth;
++    private float knockbackUntil = -1f, knockbackOrigin, knockbackDistance, knockbackDirection;
+     private float balanceGain = 18f;
+     private float lastTackle = -10f;
+     private float lastTackleCooldown = .95f;
+@@ -170,6 +174,14 @@ public sealed class PlayerSkills : MonoBehaviour
+             if (limb.name == "L_LowLeg" || limb.name == "R_LowLeg") shinTop = Mathf.Max(shinTop, limb.bounds.max.y);
+         }
+         standingShinHeight = float.IsInfinity(shinTop) ? .75f * Mathf.Abs(transform.lossyScale.y) / .8f : shinTop - standingBottom;
++        float standingLeft = body.position.x, standingRight = body.position.x;
++        foreach (Collider2D limb in playerColliders)
++            if (limb != null && !limb.isTrigger)
++            {
++                standingLeft = Mathf.Min(standingLeft, limb.bounds.min.x);
++                standingRight = Mathf.Max(standingRight, limb.bounds.max.x);
++            }
++        standingBodyWidth = Mathf.Max(.1f, standingRight - standingLeft);
+         normalAnimatorSpeed = animator != null ? animator.speed : 1f;
+         object input = type.GetField("input").GetValue(player);
+         horizontalAxis = input != null ? input.GetType().GetField("horizontal").GetValue(input) as string : "Horizontal";
+@@ -331,6 +343,7 @@ public sealed class PlayerSkills : MonoBehaviour
+         UpdateTackleRecovery();
+         if (fan && ShouldAutomaticQuickDrop()) BeginQuickDrop();
+         UpdateQuickDrop();
++        UpdateTackleKnockback();
+         if (!fan) UpdateGroundBallContest();
+         if (!BallInFront()) SuppressBehindSkills();
+         float now = Time.time;
+@@ -876,6 +889,10 @@ public sealed class PlayerSkills : MonoBehaviour
+         opponent.staggerUntil = Time.time + (aerial ? TackleAirDuration : throughBall ? .26f : GroundTackleDuration);
+         opponent.balanceGain = aerial ? 15f : 18f;
+         opponent.ApplyBalanceGain();
++        opponent.knockbackOrigin = opponent.RigCenter().x;
++        opponent.knockbackDistance = opponent.standingBodyWidth * TackleKnockbackBodyWidths;
++        opponent.knockbackDirection = direction;
++        opponent.knockbackUntil = Time.time + .60f;
+         float speed = aerial ? TackleAirSpeed : TackleGroundSpeed * GroundTackleSpeedMultiplier * (throughBall ? .85f : 1f);
+         // Add equal/opposite impulses to the connected bodies. A briefly heavier
+         // Zhao recoils less; Fan's softer muscle response lets the impact tip him.
+@@ -890,6 +907,36 @@ public sealed class PlayerSkills : MonoBehaviour
+         Show(3);
+     }
+ 
++    private void UpdateTackleKnockback()
++    {
++        if (!fan || (knockbackUntil < 0f && Time.time >= staggerUntil + .5f)) return;
++        if (Stopped()) { knockbackUntil = -1f; return; }
++        // Let the initial impact tip Fan, then damp rotation while he slides.
++        // This uses torque through the connected rig, never a pose override.
++        float angle = (float)muscles.GetType().GetField("body").GetValue(muscles);
++        if (Time.time >= staggerUntil - .08f || Mathf.Abs(Mathf.DeltaAngle(body.rotation, angle)) > 32f)
++        {
++            float spinTarget = Mathf.Clamp(Mathf.DeltaAngle(body.rotation, angle) * 7f, -140f, 140f);
++            float spinChange = Mathf.Clamp(spinTarget - body.angularVelocity, -1200f * Time.fixedDeltaTime, 1200f * Time.fixedDeltaTime);
++            ApplyAngularImpulse(spinChange * Mathf.Deg2Rad * RigInertia());
++        }
++        if (knockbackUntil < 0f) return;
++        float travelled = knockbackDirection * (RigCenter().x - knockbackOrigin);
++        float remaining = knockbackDistance - travelled;
++        float velocity = 0f;
++        foreach (Rigidbody2D limb in physicalLimbs)
++            if (limb != null) velocity += limb.velocity.x * limb.mass;
++        velocity = knockbackDirection * velocity / TotalMass();
++        // Accelerate the entire connected skeleton horizontally, then brake at
++        // the end of the shove. Real contacts still limit travel near the goal.
++        bool complete = remaining <= .025f * standingBodyWidth || Time.time >= knockbackUntil;
++        float target = complete ? Mathf.Min(velocity, 0f) :
++            Mathf.Min(knockbackDistance / .30f, Mathf.Sqrt(2f * 28f * remaining));
++        float change = Mathf.Clamp(target - velocity, -80f * Time.fixedDeltaTime, 80f * Time.fixedDeltaTime);
++        ApplyLinearImpulse(Vector2.right * knockbackDirection * change * TotalMass());
++        if (Time.time >= knockbackUntil && velocity <= 80f * Time.fixedDeltaTime + .05f) knockbackUntil = -1f;
++    }
++
+     private float TotalMass()
+     {
+         float total = 0f;
+@@ -1086,7 +1133,7 @@ public sealed class PlayerSkills : MonoBehaviour
+                 if (physicalLimbs[i] != null) physicalLimbs[i].mass = normalMasses[i];
+         bracedMasses = false;
+         RestoreBalanceGain();
+-        braceUntil = staggerUntil = -1f;
++        braceUntil = staggerUntil = knockbackUntil = -1f;
+         lastTackle = -10f;
+         lastTackleCooldown = .95f;
+         groundContestUntil = -1f;
+diff --git a/source/experimental/README.md b/source/experimental/README.md
+index be7437d..fee16f4 100644
+--- a/source/experimental/README.md
++++ b/source/experimental/README.md
+@@ -50,7 +50,7 @@
+ | 范志毅 | 炮弹式头球 | 按 J 执行头球，球进入头部接触范围后施加一次强力向前冲量。出球速度调整为本轮修改前的 95%，水平与竖直速度统一乘 0.95，保持出球方向。足球使用连续碰撞检测；球与球员、球员身体之间的碰撞始终保留，避免高速穿模。 |
+ | 范志毅 | 弧线落叶射门 | 地面或空中单击 K 均开启 0.75 秒真实接触窗口，可配合任意方向。只有原有小腿碰撞体及独立脚碰撞体的真实接触可发动，包含脚背、脚背与小腿之间的部位；大腿、膝盖、脚底、头部、躯干、手臂不算，也不扩大碰撞体。足球仍须在身前；双方躯干的水平间隔必须至少为两侧门线距离的四分之一，地面或空中顶牛争球时均禁止触发，玩家与 AI 共用这一规则。技能根据对方实际门框位置规划高飘后明显下坠的增强弧线：上升参数 15.75，弧线高度上限 4.2，前进球速参数 12～18，远近射门自动调整弧线。球到达门框前缘或安全门前落点时，弧线辅助立即结束，随后由原生重力和碰撞控制；不会在门前停球等待高度校正。每次单击最多发动一次，显示紫色足球高光。没有位置搬移、禁用碰撞或直接修改比分。赵鹏特技模式的掠地瞬击采用相同的小腿以下接触范围，脚底限制保持原样。 |
+ | 赵鹏 | 空中堡垒 | 按方向键 ↑ 起跳。在此前已降低 5% 的基础上，再将当前目标跳起高度降低 20%（保留当前高度的 80%）。按高度与起跳速度的平方关系，将当前起跳力乘以 √0.8，最终约为原版起跳力的 1.17690 倍，理论高度为最初空中堡垒的 76%。实际高度仍由重力和接触决定。 |
+-| 赵鹏 | 强力抢断 | 与身前范志毅的上半身发生实际侧向身体碰撞时自动触发，足球在赵鹏身前或身后都可触发。新增隔球地面对抗：双方均站在地面、双腿真实夹住同一颗贴地足球，且赵鹏向前推进时，即使上半身尚未接触，也能使范志毅短暂失衡；无需射门或新按键。地面直接碰撞的线性冲击再提高 40%、转动冲击提高 35%，隔球冲击采用该力度的 85%；空中原有力度保持不变。双方完整骨架承受大小相等、方向相反的冲量，只短暂减弱范志毅头部和躯干的平衡控制，手臂与双腿保留原控制。地面／隔球／空中失衡参数为 0.28／0.26／0.32 秒，随后平滑恢复，单次隔球实测约半秒恢复。赵鹏地面质量暂时提高至 1.45 倍、持续 0.20 秒；空中仍为 1.35 倍、持续 0.16 秒。地面触发冷却至少 1.05 秒，空中至少 0.95 秒，切换状态也尊重上次冷却；贴地短暂离地不会误用空中强冲击。远处对手、仅单人碰球或仅射门指令不会引发隔球失衡。显示跟随赵鹏躯干的绿色冲击箭头与技能名。 |
++| 赵鹏 | 强力抢断 | 与身前范志毅的上半身发生实际侧向身体碰撞时自动触发，足球在赵鹏身前或身后都可触发。新增隔球地面对抗：双方均站在地面、双腿真实夹住同一颗贴地足球，且赵鹏向前推进时，即使上半身尚未接触，也能使范志毅短暂失衡；无需射门或新按键。地面直接碰撞的线性冲击再提高 40%、转动冲击提高 35%，隔球冲击采用该力度的 85%；空中原有力度保持不变。双方完整骨架承受大小相等、方向相反的冲量，只短暂减弱范志毅头部和躯干的平衡控制，手臂与双腿保留原控制。新增约两个身位的水平击退：以范志毅站立时的实际身体宽度计算目标距离，模型 75% 版相应缩短；整套骨架通过水平冲量推开并减速，击退后段通过真实力矩辅助恢复平衡。直接碰撞、隔球顶牛与空中碰撞共用这一效果；球门或障碍物会限制实际距离。地面／隔球／空中失衡参数为 0.28／0.26／0.32 秒，随后平滑恢复，单次隔球实测约半秒恢复。赵鹏地面质量暂时提高至 1.45 倍、持续 0.20 秒；空中仍为 1.35 倍、持续 0.16 秒。地面触发冷却至少 1.05 秒，空中至少 0.95 秒，切换状态也尊重上次冷却；贴地短暂离地不会误用空中强冲击。远处对手、仅单人碰球或仅射门指令不会引发隔球失衡。显示跟随赵鹏躯干的绿色冲击箭头与技能名。 |
+ | 赵鹏 | 掠地瞬击 | 与小键盘 0 的大力射门合并：单次按下后 0.75 秒内，小腿、踝部或脚背实际碰到身前球才发动，部位范围与弧线落叶射门一致，地面和凌空球均可触发；脚底、大腿、膝盖、头部和身体不算，顶牛时不触发。保持高速低平球路，凌空球迅速压低。本轮球速先乘大力射门的 1.2，再乘本技能的 1.1（合计为此前掠地瞬击速度的 1.32 倍），显示金色足球高光及技能动画；对手触球即结束低平辅助。 |
+ | 赵鹏 | 紧急回防 | 向后移动（方向键 →）时自动发动，无需新按键，也不受球的前后位置限制。发动后的总回退速度为本轮修改前范志毅的速度，即原版参数的 1.5 倍；本轮基础回退调整也在经典模式生效，因此技能不再额外叠加速度。显示跟随球员的青色回防箭头与技能名，松开后退或改为前进时结束动画。 |
+ | 范志毅 | 进攻提速 | 无球向前移动（D）时自动发动，向前速度提升 25%。球须在身前，且与躯干、脚下控制点的距离都超过 1.6 个单位；接近球开始盘带或执行射门后不发动。停止前冲或改为后退时结束提速。显示跟随球员的橙色前冲箭头与技能名。 |
+@@ -107,3 +107,7 @@ AI 每帧根据球的速度和重力预判截球位置，从己方球门一侧
+ ## 掠地瞬击接触范围更新
+ 
+ 赵鹏特技模式的掠地瞬击扩大至与范志毅弧线落叶射门相同的小腿以下接触范围，包含小腿、踝部和脚背；脚底仍不算。只使用真实碰撞接触，模型及碰撞体不扩大。小键盘 0、身前及非顶牛条件、0.75 秒指令窗口、球速与低平球路保持原有设定，经典模式的大力射门保留原接触范围。原版和模型 75% 实验版同步。
++
++## 2026-10-09 强力抢断击退更新
++
++赵鹏强力抢断保留短暂失衡，新增约两个身位的击退，隔着足球顶牛也能触发。按各版实际站立模型宽度计算距离，仅对真实身体碰撞或脚—球—脚接触链施力；暂停、进球、出界和重置清理击退，真实障碍物限制位移。不搬移球员、不绕过碰撞、不更改骨架。32 位原版、模型 75% 实验版和 64 位原版均有正式构建。
+diff --git a/source/original/PlayerSkills.cs b/source/original/PlayerSkills.cs
+index 2f23b85..12fef2e 100644
+--- a/source/original/PlayerSkills.cs
++++ b/source/original/PlayerSkills.cs
+@@ -71,6 +71,10 @@ public sealed class PlayerSkills : MonoBehaviour
+     private bool weakenedBalance;
+     private float braceUntil = -1f;
+     private float staggerUntil = -1f;
++    // Two standing body widths, measured before the player tips or jumps.
++    public const float TackleKnockbackBodyWidths = 2f;
++    private float standingBodyWidth;
++    private float knockbackUntil = -1f, knockbackOrigin, knockbackDistance, knockbackDirection;
+     private float balanceGain = 18f;
+     private float lastTackle = -10f;
+     private float lastTackleCooldown = .95f;
+@@ -169,6 +173,14 @@ public sealed class PlayerSkills : MonoBehaviour
+             if (limb.name == "L_LowLeg" || limb.name == "R_LowLeg") shinTop = Mathf.Max(shinTop, limb.bounds.max.y);
+         }
+         standingShinHeight = float.IsInfinity(shinTop) ? .75f * Mathf.Abs(transform.lossyScale.y) / .8f : shinTop - standingBottom;
++        float standingLeft = body.position.x, standingRight = body.position.x;
++        foreach (Collider2D limb in playerColliders)
++            if (limb != null && !limb.isTrigger)
++            {
++                standingLeft = Mathf.Min(standingLeft, limb.bounds.min.x);
++                standingRight = Mathf.Max(standingRight, limb.bounds.max.x);
++            }
++        standingBodyWidth = Mathf.Max(.1f, standingRight - standingLeft);
+         normalAnimatorSpeed = animator != null ? animator.speed : 1f;
+         object input = type.GetField("input").GetValue(player);
+         horizontalAxis = input != null ? input.GetType().GetField("horizontal").GetValue(input) as string : "Horizontal";
+@@ -330,6 +342,7 @@ public sealed class PlayerSkills : MonoBehaviour
+         UpdateTackleRecovery();
+         if (fan && ShouldAutomaticQuickDrop()) BeginQuickDrop();
+         UpdateQuickDrop();
++        UpdateTackleKnockback();
+         if (!fan) UpdateGroundBallContest();
+         if (!BallInFront()) SuppressBehindSkills();
+         float now = Time.time;
+@@ -875,6 +888,10 @@ public sealed class PlayerSkills : MonoBehaviour
+         opponent.staggerUntil = Time.time + (aerial ? TackleAirDuration : throughBall ? .26f : GroundTackleDuration);
+         opponent.balanceGain = aerial ? 15f : 18f;
+         opponent.ApplyBalanceGain();
++        opponent.knockbackOrigin = opponent.RigCenter().x;
++        opponent.knockbackDistance = opponent.standingBodyWidth * TackleKnockbackBodyWidths;
++        opponent.knockbackDirection = direction;
++        opponent.knockbackUntil = Time.time + .60f;
+         float speed = aerial ? TackleAirSpeed : TackleGroundSpeed * GroundTackleSpeedMultiplier * (throughBall ? .85f : 1f);
+         // Add equal/opposite impulses to the connected bodies. A briefly heavier
+         // Zhao recoils less; Fan's softer muscle response lets the impact tip him.
+@@ -889,6 +906,36 @@ public sealed class PlayerSkills : MonoBehaviour
+         Show(3);
+     }
+ 
++    private void UpdateTackleKnockback()
++    {
++        if (!fan || (knockbackUntil < 0f && Time.time >= staggerUntil + .5f)) return;
++        if (Stopped()) { knockbackUntil = -1f; return; }
++        // Let the initial impact tip Fan, then damp rotation while he slides.
++        // This uses torque through the connected rig, never a pose override.
++        float angle = (float)muscles.GetType().GetField("body").GetValue(muscles);
++        if (Time.time >= staggerUntil - .08f || Mathf.Abs(Mathf.DeltaAngle(body.rotation, angle)) > 32f)
++        {
++            float spinTarget = Mathf.Clamp(Mathf.DeltaAngle(body.rotation, angle) * 7f, -140f, 140f);
++            float spinChange = Mathf.Clamp(spinTarget - body.angularVelocity, -1200f * Time.fixedDeltaTime, 1200f * Time.fixedDeltaTime);
++            ApplyAngularImpulse(spinChange * Mathf.Deg2Rad * RigInertia());
++        }
++        if (knockbackUntil < 0f) return;
++        float travelled = knockbackDirection * (RigCenter().x - knockbackOrigin);
++        float remaining = knockbackDistance - travelled;
++        float velocity = 0f;
++        foreach (Rigidbody2D limb in physicalLimbs)
++            if (limb != null) velocity += limb.velocity.x * limb.mass;
++        velocity = knockbackDirection * velocity / TotalMass();
++        // Accelerate the entire connected skeleton horizontally, then brake at
++        // the end of the shove. Real contacts still limit travel near the goal.
++        bool complete = remaining <= .025f * standingBodyWidth || Time.time >= knockbackUntil;
++        float target = complete ? Mathf.Min(velocity, 0f) :
++            Mathf.Min(knockbackDistance / .30f, Mathf.Sqrt(2f * 28f * remaining));
++        float change = Mathf.Clamp(target - velocity, -80f * Time.fixedDeltaTime, 80f * Time.fixedDeltaTime);
++        ApplyLinearImpulse(Vector2.right * knockbackDirection * change * TotalMass());
++        if (Time.time >= knockbackUntil && velocity <= 80f * Time.fixedDeltaTime + .05f) knockbackUntil = -1f;
++    }
++
+     private float TotalMass()
+     {
+         float total = 0f;
+@@ -1085,7 +1132,7 @@ public sealed class PlayerSkills : MonoBehaviour
+                 if (physicalLimbs[i] != null) physicalLimbs[i].mass = normalMasses[i];
+         bracedMasses = false;
+         RestoreBalanceGain();
+-        braceUntil = staggerUntil = -1f;
++        braceUntil = staggerUntil = knockbackUntil = -1f;
+         lastTackle = -10f;
+         lastTackleCooldown = .95f;
+         groundContestUntil = -1f;
+diff --git a/source/original/README.md b/source/original/README.md
+index 9ecc7fb..ca335d4 100644
+--- a/source/original/README.md
++++ b/source/original/README.md
+@@ -42,7 +42,7 @@
+ | 范志毅 | 炮弹式头球 | 按 J 执行头球，球进入头部接触范围后施加一次强力向前冲量。出球速度调整为本轮修改前的 95%，水平与竖直速度统一乘 0.95，保持出球方向。足球使用连续碰撞检测；球与球员、球员身体之间的碰撞始终保留，避免高速穿模。 |
+ | 范志毅 | 弧线落叶射门 | 地面或空中单击 K 均开启 0.75 秒真实接触窗口，可配合任意方向。只有原有小腿碰撞体及独立脚碰撞体的真实接触可发动，包含脚背、脚背与小腿之间的部位；大腿、膝盖、脚底、头部、躯干、手臂不算，也不扩大碰撞体。足球仍须在身前；双方躯干的水平间隔必须至少为两侧门线距离的四分之一，地面或空中顶牛争球时均禁止触发，玩家与 AI 共用这一规则。技能根据对方实际门框位置规划高飘后明显下坠的增强弧线：上升参数 15.75，弧线高度上限 4.2，前进球速参数 12～18，远近射门自动调整弧线。球到达门框前缘或安全门前落点时，弧线辅助立即结束，随后由原生重力和碰撞控制；不会在门前停球等待高度校正。每次单击最多发动一次，显示紫色足球高光。没有位置搬移、禁用碰撞或直接修改比分。赵鹏特技模式的掠地瞬击采用相同的小腿以下接触范围，脚底限制保持原样。 |
+ | 赵鹏 | 空中堡垒 | 按方向键 ↑ 起跳。在此前已降低 5% 的基础上，再将当前目标跳起高度降低 20%（保留当前高度的 80%）。按高度与起跳速度的平方关系，将当前起跳力乘以 √0.8，最终约为原版起跳力的 1.17690 倍，理论高度为最初空中堡垒的 76%。实际高度仍由重力和接触决定。 |
+-| 赵鹏 | 强力抢断 | 与身前范志毅的上半身发生实际侧向身体碰撞时自动触发，足球在赵鹏身前或身后都可触发。新增隔球地面对抗：双方均站在地面、双腿真实夹住同一颗贴地足球，且赵鹏向前推进时，即使上半身尚未接触，也能使范志毅短暂失衡；无需射门或新按键。地面直接碰撞的线性冲击再提高 40%、转动冲击提高 35%，隔球冲击采用该力度的 85%；空中原有力度保持不变。双方完整骨架承受大小相等、方向相反的冲量，只短暂减弱范志毅头部和躯干的平衡控制，手臂与双腿保留原控制。地面／隔球／空中失衡参数为 0.28／0.26／0.32 秒，随后平滑恢复，单次隔球实测约半秒恢复。赵鹏地面质量暂时提高至 1.45 倍、持续 0.20 秒；空中仍为 1.35 倍、持续 0.16 秒。地面触发冷却至少 1.05 秒，空中至少 0.95 秒，切换状态也尊重上次冷却；贴地短暂离地不会误用空中强冲击。远处对手、仅单人碰球或仅射门指令不会引发隔球失衡。显示跟随赵鹏躯干的绿色冲击箭头与技能名。 |
++| 赵鹏 | 强力抢断 | 与身前范志毅的上半身发生实际侧向身体碰撞时自动触发，足球在赵鹏身前或身后都可触发。新增隔球地面对抗：双方均站在地面、双腿真实夹住同一颗贴地足球，且赵鹏向前推进时，即使上半身尚未接触，也能使范志毅短暂失衡；无需射门或新按键。地面直接碰撞的线性冲击再提高 40%、转动冲击提高 35%，隔球冲击采用该力度的 85%；空中原有力度保持不变。双方完整骨架承受大小相等、方向相反的冲量，只短暂减弱范志毅头部和躯干的平衡控制，手臂与双腿保留原控制。新增约两个身位的水平击退：以范志毅站立时的实际身体宽度计算目标距离，模型 75% 版相应缩短；整套骨架通过水平冲量推开并减速，击退后段通过真实力矩辅助恢复平衡。直接碰撞、隔球顶牛与空中碰撞共用这一效果；球门或障碍物会限制实际距离。地面／隔球／空中失衡参数为 0.28／0.26／0.32 秒，随后平滑恢复，单次隔球实测约半秒恢复。赵鹏地面质量暂时提高至 1.45 倍、持续 0.20 秒；空中仍为 1.35 倍、持续 0.16 秒。地面触发冷却至少 1.05 秒，空中至少 0.95 秒，切换状态也尊重上次冷却；贴地短暂离地不会误用空中强冲击。远处对手、仅单人碰球或仅射门指令不会引发隔球失衡。显示跟随赵鹏躯干的绿色冲击箭头与技能名。 |
+ | 赵鹏 | 掠地瞬击 | 与小键盘 0 的大力射门合并：单次按下后 0.75 秒内，小腿、踝部或脚背实际碰到身前球才发动，部位范围与弧线落叶射门一致，地面和凌空球均可触发；脚底、大腿、膝盖、头部和身体不算，顶牛时不触发。保持高速低平球路，凌空球迅速压低。本轮球速先乘大力射门的 1.2，再乘本技能的 1.1（合计为此前掠地瞬击速度的 1.32 倍），显示金色足球高光及技能动画；对手触球即结束低平辅助。 |
+ | 赵鹏 | 紧急回防 | 向后移动（方向键 →）时自动发动，无需新按键，也不受球的前后位置限制。发动后的总回退速度为本轮修改前范志毅的速度，即原版参数的 1.5 倍；本轮基础回退调整也在经典模式生效，因此技能不再额外叠加速度。显示跟随球员的青色回防箭头与技能名，松开后退或改为前进时结束动画。 |
+ | 范志毅 | 进攻提速 | 无球向前移动（D）时自动发动，向前速度提升 25%。球须在身前，且与躯干、脚下控制点的距离都超过 1.6 个单位；接近球开始盘带或执行射门后不发动。停止前冲或改为后退时结束提速。显示跟随球员的橙色前冲箭头与技能名。 |
+@@ -99,3 +99,7 @@ AI 每帧根据球的速度和重力预判截球位置，从己方球门一侧
+ ## 掠地瞬击接触范围更新
+ 
+ 赵鹏特技模式的掠地瞬击扩大至与范志毅弧线落叶射门相同的小腿以下接触范围，包含小腿、踝部和脚背；脚底仍不算。只使用真实碰撞接触，模型及碰撞体不扩大。小键盘 0、身前及非顶牛条件、0.75 秒指令窗口、球速与低平球路保持原有设定，经典模式的大力射门保留原接触范围。原版和模型 75% 实验版同步。
++
++## 2026-10-09 强力抢断击退更新
++
++赵鹏强力抢断保留短暂失衡，新增约两个身位的击退，隔着足球顶牛也能触发。按各版实际站立模型宽度计算距离，仅对真实身体碰撞或脚—球—脚接触链施力；暂停、进球、出界和重置清理击退，真实障碍物限制位移。不搬移球员、不绕过碰撞、不更改骨架。32 位原版、模型 75% 实验版和 64 位原版均有正式构建。
+diff --git a/tools/Build.ps1 b/tools/Build.ps1
+index 1b9de22..cfb456a 100644
+--- a/tools/Build.ps1
++++ b/tools/Build.ps1
+@@ -1,4 +1,4 @@
+-param([ValidateSet('original','experimental')][string]$Edition='original')
++param([ValidateSet('original','experimental','original-win64')][string]$Edition='original')
+ $ErrorActionPreference='Stop'
+ $repoRoot=Split-Path $PSScriptRoot -Parent
+ $source=Join-Path $repoRoot ('source\'+$Edition)
+@@ -6,9 +6,9 @@ $runtime=Join-Path $PSScriptRoot ('runtime\'+$Edition)
+ $output=Join-Path $PSScriptRoot ('output\'+$Edition)
+ $packageName='package-'+$Edition
+ $gameRoot=Join-Path $runtime $packageName
+-if (-not (Test-Path -LiteralPath (Join-Path $gameRoot 'FanZhiYi.exe'))) {
++$exe = if ($Edition -eq 'original-win64') { 'D.exe' } else { 'FanZhiYi.exe' }; if (-not (Test-Path -LiteralPath (Join-Path $gameRoot $exe))) {
+     New-Item -ItemType Directory -Path $runtime -Force | Out-Null
+-    Expand-Archive -LiteralPath (Join-Path $repoRoot ('downloads\crazy-soccer-game-'+$Edition+'-win32.zip')) -DestinationPath $runtime -Force
++    $archive = if ($Edition -eq 'original-win64') { 'downloads\crazy-soccer-game-original-win64.zip' } else { 'downloads\crazy-soccer-game-'+$Edition+'-win32.zip' }; Expand-Archive -LiteralPath (Join-Path $repoRoot $archive) -DestinationPath $runtime -Force
+ }
+ New-Item -ItemType Directory -Path $output -Force | Out-Null
+ $csc=Join-Path $env:WINDIR 'Microsoft.NET\Framework\v4.0.30319\csc.exe'

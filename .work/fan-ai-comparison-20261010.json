@@ -1,0 +1,54 @@
+[
+  {
+    "edition": "original",
+    "baselinePolicy": "6073BAE3EA3C8F63FC94D051B10EC1AB73A3CDA1F590B4CC9C84BF749669689F",
+    "finalPolicy": "9AFA4540EA633F89F8E4E27119C6CCFCEF91345E653D99D897A6D8AA6842C4E2",
+    "oldFan": 941,
+    "oldZhao": 1059,
+    "newFan": 1049,
+    "newZhao": 951,
+    "oldShare": 47.05,
+    "newShare": 52.45,
+    "deltaPp": 5.400000000000006,
+    "matchBootstrap95Pp": [
+      2.56,
+      8.62
+    ],
+    "oldMaxJointError": 1.2054569721221924,
+    "newMaxJointError": 0.862744927406311,
+    "fanReward": 98,
+    "oldMatches": 216,
+    "newMatches": 195,
+    "nativeFanJumps": 3563,
+    "nativeFanHeaders": 5203,
+    "nativeFanKicks": 8357,
+    "fixedStepSeconds": 0.020000053601391798,
+    "maxPhysicsStepsPerFrame": 11
+  },
+  {
+    "edition": "experiment",
+    "baselinePolicy": "3BAD64DA6A2C98B1AD0DB2B30AFB16A56400A8DF87776FA6E121414ED6EF51E4",
+    "finalPolicy": "53797A15D11B60125BAF80A853128B7141AF7869C15401E255FEF5818FFA0A45",
+    "oldFan": 1028,
+    "oldZhao": 972,
+    "newFan": 1066,
+    "newZhao": 934,
+    "oldShare": 51.4,
+    "newShare": 53.3,
+    "deltaPp": 1.8999999999999986,
+    "matchBootstrap95Pp": [
+      -1.03,
+      4.99
+    ],
+    "oldMaxJointError": 0.9872241020202637,
+    "newMaxJointError": 0.7121090888977051,
+    "fanReward": 132,
+    "oldMatches": 244,
+    "newMatches": 205,
+    "nativeFanJumps": 3100,
+    "nativeFanHeaders": 4135,
+    "nativeFanKicks": 7225,
+    "fixedStepSeconds": 0.02000002790370456,
+    "maxPhysicsStepsPerFrame": 10
+  }
+]

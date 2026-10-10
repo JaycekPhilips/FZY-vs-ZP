@@ -1,0 +1,325 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.950 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.542100 ms
+ABILITY PASS default 4/4/4 uses twelve existing points 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS no free extra points 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS skill costs exactly two from same budget 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS overbudget purchase rejected 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS refund restores budget 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS 10/1/1 valid and maximum enforced 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS negative levels rejected 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS 500 random AI builds respect budget, cap and purchased skills 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS four is baseline and each redistributed point is ten percent 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS main menu available 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS start button available 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS third game style visible 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS build mode chooses opponent before allocation 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS allocation overlay opens before match 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS both players see all ten cross-character skills 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS return cancels allocation without loading match 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.168800 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1014.
+Total: 0.488000 ms (FindLiveObjects: 0.041600 ms CreateObjectMapping: 0.009400 ms MarkObjects: 0.180700 ms  DeleteObjects: 0.256100 ms)
+
+ABILITY PASS pitch photographed with players, ball and match HUD hidden 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS zero jump has zero ordinary impulse 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS zero jump plus aerial fortress still jumps 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS zero jump plus emergency rescue permits rescue jump 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS maximum jump rapidly lifts connected physical rig 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS maximum jump joint safety error=0.001421225 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS S triggers rapid descent 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS descent retains connected skeleton 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.501800 ms
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 2.060200 ms (FindLiveObjects: 0.037000 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.216800 ms  DeleteObjects: 1.797400 ms)
+
+ABILITY PASS zero contest falls upon contact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS maximum contest remains braced against zero 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS folded opponent keeps joints connected 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS purchased tackle works even at zero contest 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.264200 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.131600 ms (FindLiveObjects: 0.032300 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.269000 ms  DeleteObjects: 0.821700 ms)
+
+ABILITY PASS Fan can buy rescue and start towards left own goal 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS low rescue waits for jump clearance instead of own-goal shove 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS adaptive rescue respects double-speed ceiling 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS mirrored Fan rescue requests low-ball jump 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS live Fan rescue retreats left 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS live rescue retains rig error=0.02934035 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS live mirrored rescue does not score own goal 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS rally reset clears rescue 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.244700 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.138900 ms (FindLiveObjects: 0.032200 ms CreateObjectMapping: 0.008000 ms MarkObjects: 0.207600 ms  DeleteObjects: 0.890700 ms)
+
+ABILITY PASS zero shooting ordinary ball is weak 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS zero shooting purchased leaf flight remains armed 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS zero shooting purchased burst retains skill strength 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS maximum shooting frequently curves towards opponent upper corner count=43 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS pause suppresses ability actions 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.253300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.353400 ms (FindLiveObjects: 0.051500 ms CreateObjectMapping: 0.015100 ms MarkObjects: 0.310100 ms  DeleteObjects: 0.976000 ms)
+
+ABILITY PASS ordinary shot speed, contest gain and jump HEIGHT use equal ten-percent schedule 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS equal maximum contest does not arbitrarily auto-win 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS extreme shooting still respects solid crossbar 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.255400 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 0.995500 ms (FindLiveObjects: 0.040900 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.208600 ms  DeleteObjects: 0.737200 ms)
+
+ABILITY PASS zero shooting purchased cannon header launches on REAL head collision 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS purchased header retains connected rig 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.264300 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.245200 ms (FindLiveObjects: 0.051200 ms CreateObjectMapping: 0.014600 ms MarkObjects: 0.224700 ms  DeleteObjects: 0.954300 ms)
+
+ABILITY PASS maximum shooting launches only from REAL eligible leg contact 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS live maximum shooting keeps physical rig 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.250900 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1060.
+Total: 1.095100 ms (FindLiveObjects: 0.031600 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.213900 ms  DeleteObjects: 0.841200 ms)
+
+ABILITY PASS both actors can buy original physical IK magnetic foot 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS purchased magnetic foot reaches real near-ground ball actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS purchased magnetic foot reaches real near-ground ball actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS native menu prefab present TeachPanel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS empty pitch photo installed in TeachPanel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS native menu prefab present SettingPanel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS empty pitch photo installed in SettingPanel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS native menu prefab present RankPanel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS empty pitch photo installed in RankPanel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS native menu prefab present PausePanel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS empty pitch photo installed in PausePanel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS native menu prefab present OverPanel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS empty pitch photo installed in OverPanel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS native menu prefab present BuyPanel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS empty pitch photo installed in BuyPanel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS native menu prefab present SavePanel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS empty pitch photo installed in SavePanel 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS cover prefab preserved without replacing artwork 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.351900 ms
+
+Unloading 550 unused Assets to reduce memory usage. Loaded Objects now: 1063.
+Total: 1.392800 ms (FindLiveObjects: 0.040900 ms CreateObjectMapping: 0.013800 ms MarkObjects: 0.210300 ms  DeleteObjects: 1.127400 ms)
+
+ABILITY PASS AI reads assigned jump capability 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.262500 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1063.
+Total: 1.303500 ms (FindLiveObjects: 0.047600 ms CreateObjectMapping: 0.010900 ms MarkObjects: 0.290600 ms  DeleteObjects: 0.953800 ms)
+
+ABILITY PASS zero-jump AI does not invent ordinary jump height 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.294500 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1063.
+Total: 1.147000 ms (FindLiveObjects: 0.032600 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.256600 ms  DeleteObjects: 0.849400 ms)
+
+ABILITY PASS AI uses ordinary kick to activate purchased leaf skill 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.266300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1063.
+Total: 1.178500 ms (FindLiveObjects: 0.050800 ms CreateObjectMapping: 0.034700 ms MarkObjects: 0.227700 ms  DeleteObjects: 0.864800 ms)
+
+ABILITY PASS maximum-jump AI predicts actual attainable height 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS classic jump unaffected after leaving allocation mode 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS classic movement unaffected 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=72 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 7f44 -> priority: 1 
+  Thread -> id: 9e00 -> priority: 1 
+  Thread -> id: 25c8 -> priority: 1 
+  Thread -> id: 86fc -> priority: 1 
+  Thread -> id: 85c8 -> priority: 1 
+  Thread -> id: 7a20 -> priority: 1 
+  Thread -> id: a4d0 -> priority: 1 
+  Thread -> id: 478c -> priority: 1 
+  Thread -> id: 36e8 -> priority: 1 
+  Thread -> id: 2d9c -> priority: 1 
+  Thread -> id: 86b8 -> priority: 1 
+  Thread -> id: 4310 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

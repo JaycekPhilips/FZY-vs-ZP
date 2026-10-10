@@ -1,0 +1,298 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/zhao-strategy-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/zhao-strategy-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/zhao-strategy-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.109 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.753200 ms
+DEFENSE WATCH real=2.877553 time=0.02 scale=1 fixed=0.02 checks=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.183500 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1009.
+Total: 0.875400 ms (FindLiveObjects: 0.057900 ms CreateObjectMapping: 0.019000 ms MarkObjects: 0.421300 ms  DeleteObjects: 0.376400 ms)
+
+DEFENSE PASS real Fan foot contact launches skill case=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PARAM case=0 nativeForce=130000 jumpEstimate=6.119894 start=(1.0, -0.4) shot=(-3.4, -1.6) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS skill forecast follows real unobstructed physics error=0.2994685 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS Zhao enters dedicated curve defense case=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS native Zhao skeleton stays connected case=0 error=0.1003195 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE RESULT case=0 lift=0 baseline=False touched=False saved=False score=0 firstJump=-1 firstHead=-1 end=(7.1, -0.8) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.914200 ms
+
+Unloading 39 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.428500 ms (FindLiveObjects: 0.037800 ms CreateObjectMapping: 0.009700 ms MarkObjects: 0.190000 ms  DeleteObjects: 1.190800 ms)
+
+DEFENSE PASS real Fan foot contact launches skill case=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PARAM case=1 nativeForce=130000 jumpEstimate=6.119894 start=(4.5, -0.4) shot=(-2.6, -1.6) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS Zhao enters dedicated curve defense case=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS native Zhao skeleton stays connected case=1 error=0.04562435 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE RESULT case=1 lift=0 baseline=False touched=False saved=False score=0 firstJump=-1 firstHead=-1 end=(5.3, 0.3) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.424500 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.306400 ms (FindLiveObjects: 0.036300 ms CreateObjectMapping: 0.009100 ms MarkObjects: 0.199800 ms  DeleteObjects: 1.060700 ms)
+
+DEFENSE PASS real Fan foot contact launches skill case=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PARAM case=2 nativeForce=130000 jumpEstimate=6.119894 start=(2.3, -0.4) shot=(-1.4, -1.6) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS Zhao enters dedicated curve defense case=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS native Zhao skeleton stays connected case=2 error=0.2167368 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE RESULT case=2 lift=0 baseline=False touched=False saved=False score=0 firstJump=-1 firstHead=-1 end=(7.2, -0.9) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.274800 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.298400 ms (FindLiveObjects: 0.053300 ms CreateObjectMapping: 0.016700 ms MarkObjects: 0.238600 ms  DeleteObjects: 0.989300 ms)
+
+DEFENSE PASS real Fan foot contact launches skill case=3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PARAM case=3 nativeForce=130000 jumpEstimate=6.119894 start=(4.5, -0.4) shot=(-0.6, -1.6) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS Zhao enters dedicated curve defense case=3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS native Zhao skeleton stays connected case=3 error=0.142287 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE RESULT case=3 lift=0 baseline=False touched=False saved=False score=0 firstJump=-1 firstHead=-1 end=(7.5, -0.7) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.350900 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.542700 ms (FindLiveObjects: 0.035800 ms CreateObjectMapping: 0.009400 ms MarkObjects: 0.201000 ms  DeleteObjects: 1.296100 ms)
+
+DEFENSE PASS real Fan foot contact launches skill case=4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PARAM case=4 nativeForce=130000 jumpEstimate=6.119894 start=(4.5, -0.4) shot=(0.4, -1.6) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS Zhao enters dedicated curve defense case=4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS native Zhao skeleton stays connected case=4 error=0.06129962 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE RESULT case=4 lift=0 baseline=False touched=False saved=False score=0 firstJump=-1 firstHead=-1 end=(6.0, -0.8) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.261200 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.198700 ms (FindLiveObjects: 0.054700 ms CreateObjectMapping: 0.016700 ms MarkObjects: 0.221500 ms  DeleteObjects: 0.905400 ms)
+
+DEFENSE WATCH real=12.87887 time=9.848786 scale=1 fixed=0.02 checks=16 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS real Fan foot contact launches skill case=5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PARAM case=5 nativeForce=130000 jumpEstimate=6.119894 start=(4.8, -0.4) shot=(1.4, -1.6) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS Zhao enters dedicated curve defense case=5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS native Zhao skeleton stays connected case=5 error=0.04526172 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE RESULT case=5 lift=0 baseline=False touched=False saved=False score=0 firstJump=0.0199995 firstHead=-1 end=(5.7, -0.6) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.258900 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.455200 ms (FindLiveObjects: 0.035800 ms CreateObjectMapping: 0.018200 ms MarkObjects: 0.203400 ms  DeleteObjects: 1.197500 ms)
+
+DEFENSE PASS real Fan foot contact launches skill case=6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PARAM case=6 nativeForce=130000 jumpEstimate=6.119894 start=(2.0, -0.4) shot=(-3.3, -0.3) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS Zhao enters dedicated curve defense case=6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS native Zhao skeleton stays connected case=6 error=0.1243777 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE RESULT case=6 lift=1.4 baseline=False touched=True saved=False score=1 firstJump=0.2799997 firstHead=-1 end=(6.1, -0.5) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.513400 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.761800 ms (FindLiveObjects: 0.045200 ms CreateObjectMapping: 0.013000 ms MarkObjects: 0.286200 ms  DeleteObjects: 1.416900 ms)
+
+DEFENSE PASS real Fan foot contact launches skill case=7 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PARAM case=7 nativeForce=130000 jumpEstimate=6.119894 start=(3.8, -0.4) shot=(-1.7, -0.3) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS Zhao enters dedicated curve defense case=7 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS native Zhao skeleton stays connected case=7 error=0.1167386 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE RESULT case=7 lift=1.4 baseline=False touched=True saved=True score=0 firstJump=-1 firstHead=-1 end=(3.2, -0.6) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.251100 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 1.435400 ms (FindLiveObjects: 0.054300 ms CreateObjectMapping: 0.016600 ms MarkObjects: 0.274200 ms  DeleteObjects: 1.089900 ms)
+
+DEFENSE PASS real Fan foot contact launches skill case=8 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PARAM case=8 nativeForce=130000 jumpEstimate=6.119894 start=(4.6, -0.4) shot=(-0.3, -0.3) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS Zhao enters dedicated curve defense case=8 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS native Zhao skeleton stays connected case=8 error=0.2606573 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE RESULT case=8 lift=1.4 baseline=False touched=True saved=True score=0 firstJump=-1 firstHead=-1 end=(2.8, -0.5) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.284000 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 1.243000 ms (FindLiveObjects: 0.051000 ms CreateObjectMapping: 0.015400 ms MarkObjects: 0.234300 ms  DeleteObjects: 0.942000 ms)
+
+DEFENSE PASS serve avoids retreat and distant jump skills=False mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS serve still attacks skills=False mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS serve keeps player joints intact skills=False mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.325700 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 1.192900 ms (FindLiveObjects: 0.054500 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.175400 ms  DeleteObjects: 0.954300 ms)
+
+DEFENSE WATCH real=22.8791 time=19.32008 scale=1 fixed=0.02 checks=31 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS serve avoids retreat and distant jump skills=False mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS serve still attacks skills=False mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS serve keeps player joints intact skills=False mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.259800 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.290500 ms (FindLiveObjects: 0.040600 ms CreateObjectMapping: 0.009000 ms MarkObjects: 0.206800 ms  DeleteObjects: 1.033700 ms)
+
+DEFENSE PASS serve avoids retreat and distant jump skills=True mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS serve still attacks skills=True mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS serve keeps player joints intact skills=True mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.429900 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 1.350800 ms (FindLiveObjects: 0.051300 ms CreateObjectMapping: 0.016000 ms MarkObjects: 0.229200 ms  DeleteObjects: 1.053600 ms)
+
+DEFENSE PASS serve avoids retreat and distant jump skills=True mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS serve still attacks skills=True mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE PASS serve keeps player joints intact skills=True mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+DEFENSE COMPLETE baseline=False checks=40 launches=9 touches=3 saves=2 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 636c -> priority: 1 
+  Thread -> id: 9fa0 -> priority: 1 
+  Thread -> id: fd8 -> priority: 1 
+  Thread -> id: 9920 -> priority: 1 
+  Thread -> id: 4e9c -> priority: 1 
+  Thread -> id: 94e0 -> priority: 1 
+  Thread -> id: 1da0 -> priority: 1 
+  Thread -> id: 4154 -> priority: 1 
+  Thread -> id: 42f4 -> priority: 1 
+  Thread -> id: 5b8 -> priority: 1 
+  Thread -> id: 40ec -> priority: 1 
+  Thread -> id: 60a0 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

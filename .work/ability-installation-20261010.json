@@ -1,0 +1,39 @@
+{
+  "installedAt": "2026-10-10T09:53:10.7643149+08:00",
+  "checks": 1538,
+  "selfPlay": "waived by user for this update",
+  "targets": [
+    {
+      "edition": "original",
+      "target": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級",
+      "backup": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級\\AI Mod Source\\backup-before-ability-20261010-092921",
+      "policyHash": "8E8549E9AC82995B5012674C2BD41EE72A6BD5323198542430D7C634D7378631",
+      "dllHash": "0BE3525D5E69F87408EC933414560B22BE72C064EE274F1A98163C6EC12E2ACA",
+      "photoHash": "EE9CB94A5968340A652121859DE78337AC97AC76B665A7E808E34C7AFC596483"
+    },
+    {
+      "edition": "original",
+      "target": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "backup": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\backup-before-ability-install-20261010-095309",
+      "policyHash": "8E8549E9AC82995B5012674C2BD41EE72A6BD5323198542430D7C634D7378631",
+      "dllHash": "0BE3525D5E69F87408EC933414560B22BE72C064EE274F1A98163C6EC12E2ACA",
+      "photoHash": "EE9CB94A5968340A652121859DE78337AC97AC76B665A7E808E34C7AFC596483"
+    },
+    {
+      "edition": "experiment",
+      "target": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級\\实验版（模型75%）",
+      "backup": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級\\实验版（模型75%）\\AI Mod Source\\backup-before-ability-20261010-092921",
+      "policyHash": "6C83909D2BC2A3E7BFB9216C7C0AA4C3038504CA04EE4D471D97DFEFDDF2E438",
+      "dllHash": "A61C0105D34DE06C51E84605A6F3C9B8C435FF7D570B9AE3F3AA9167145D6F54",
+      "photoHash": "A2046FF65214FE03FC727BA490FA0C432DCD99438535123C07797E05A48E8F1F"
+    },
+    {
+      "edition": "experiment",
+      "target": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "backup": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）\\AI Mod Source\\backup-before-ability-install-20261010-095309",
+      "policyHash": "6C83909D2BC2A3E7BFB9216C7C0AA4C3038504CA04EE4D471D97DFEFDDF2E438",
+      "dllHash": "A61C0105D34DE06C51E84605A6F3C9B8C435FF7D570B9AE3F3AA9167145D6F54",
+      "photoHash": "A2046FF65214FE03FC727BA490FA0C432DCD99438535123C07797E05A48E8F1F"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "installedAt": "2026-10-10T10:22:52.4192663+08:00",
+  "checks": 1234,
+  "targets": [
+    {
+      "edition": "original",
+      "target": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "policyHash": "B97E71CD354AFCFB26E82FEEEABD4B2FABBB711A30BDBCB4D0080175502E16D9",
+      "backup": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\backup-before-skill-visuals-20261010-100552",
+      "release": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-release",
+      "dllHash": "8E206D9CEF1127AA7DA4B08974905C2DEDB70F533826B0DFF301CFA2AA1D85B7"
+    },
+    {
+      "edition": "experiment",
+      "target": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "policyHash": "A5A50C84D2F34D0B27620962D16EA555015E640E43AC3FA417305DC463592B9D",
+      "backup": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）\\AI Mod Source\\backup-before-skill-visuals-20261010-100552",
+      "release": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-release",
+      "dllHash": "6DD10AD6CC58B1E3E3C8D6C8ED5E3250182EB1FFB4B669FB263F9859FF5D2C07"
+    }
+  ],
+  "selfPlay": "not applicable: visual connection only, AI decisions unchanged",
+  "retiredDirectory": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級"
+}

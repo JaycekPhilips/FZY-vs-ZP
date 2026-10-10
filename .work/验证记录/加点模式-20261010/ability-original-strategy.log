@@ -1,0 +1,676 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/ability-test-player-original/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.089 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.499600 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.189500 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1013.
+Total: 0.459700 ms (FindLiveObjects: 0.041100 ms CreateObjectMapping: 0.009600 ms MarkObjects: 0.204400 ms  DeleteObjects: 0.204200 ms)
+
+STRATEGY PARAM side=Zhao skills=True scale=1 jump=6.119894 gravity=1 head=0.754433 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low AI starts native emergency recovery without human input 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.2 rolling=2 step=0 ball=(1.2, -1.5) vel=(2.0, -0.2) body=(0.0, 0.1) running=(0.1, 0.0) rescue=True passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.2 rolling=2 step=20 ball=(1.8, -1.5) vel=(1.3, 0.0) body=(1.0, 1.6) running=(4.8, 2.3) rescue=True passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.2 rolling=2 step=40 ball=(2.3, -1.5) vel=(1.3, 0.0) body=(2.4, 1.7) running=(3.7, -1.8) rescue=True passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.2 rolling=2 step=60 ball=(2.8, -1.5) vel=(1.3, 0.0) body=(3.1, 0.2) running=(0.0, -5.6) rescue=True passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.2 rolling=2 step=80 ball=(2.4, -1.5) vel=(-3.2, 0.0) body=(3.2, 0.1) running=(0.4, -0.7) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.2 rolling=2 step=100 ball=(1.0, -1.5) vel=(-3.2, 0.0) body=(3.2, 0.1) running=(-0.1, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.2 rolling=2 step=120 ball=(-0.3, -1.5) vel=(-3.1, 0.0) body=(3.2, 0.1) running=(0.0, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.2 rolling=2 step=140 ball=(-1.5, -1.5) vel=(-3.1, 0.0) body=(3.2, 0.1) running=(0.0, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.2 rolling=2 step=160 ball=(-2.8, -1.5) vel=(-3.1, 0.0) body=(3.2, 0.1) running=(0.0, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.2 rolling=2 step=180 ball=(-4.0, -1.5) vel=(-3.1, 0.0) body=(3.2, 0.1) running=(0.0, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.2 rolling=2 step=200 ball=(-4.5, -1.5) vel=(-0.1, 0.0) body=(3.2, 0.1) running=(0.0, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=1.2 rolling=2 AI uses correct jump/backbend/run branch 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=1.2 rolling=2 recovery reaches goal side or clears head ball 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=1.2 rolling=2 recovery avoids scoring into own goal 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=1.2 rolling=2 real skeleton preserved error=0.0815102 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=1.2 rolling=2 balanced after recovery tilt=7.639191 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=1.2 rolling=2 committed recovery is not interrupted by shooting 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=1.2 rolling=2 each attempt has a bounded duration=1.26148 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.974400 ms
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 1062.
+Total: 1.264500 ms (FindLiveObjects: 0.052200 ms CreateObjectMapping: 0.016200 ms MarkObjects: 0.296100 ms  DeleteObjects: 0.899500 ms)
+
+STRATEGY PARAM side=Zhao skills=True scale=1 jump=6.119894 gravity=1 head=0.7555736 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low AI starts native emergency recovery without human input 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=0.8 rolling=3 step=0 ball=(0.9, -1.5) vel=(3.0, -0.2) body=(0.0, 0.2) running=(0.4, 7.1) rescue=True passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=0.8 rolling=3 step=20 ball=(1.7, -1.5) vel=(2.0, 0.0) body=(1.2, 1.6) running=(5.2, 2.2) rescue=True passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=0.8 rolling=3 step=40 ball=(2.5, -1.5) vel=(2.0, 0.0) body=(2.7, 1.7) running=(4.0, -2.0) rescue=True passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=0.8 rolling=3 step=60 ball=(3.2, -1.5) vel=(0.0, 0.0) body=(3.4, 0.1) running=(-0.2, -5.7) rescue=True passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=0.8 rolling=3 step=80 ball=(2.8, -1.5) vel=(-2.6, 0.0) body=(3.5, 0.1) running=(-0.1, -0.2) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=0.8 rolling=3 step=100 ball=(1.4, -1.5) vel=(-3.4, 0.0) body=(3.5, 0.1) running=(-0.1, 0.1) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=0.8 rolling=3 step=120 ball=(0.1, -1.5) vel=(-3.4, 0.0) body=(3.5, 0.1) running=(0.1, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=0.8 rolling=3 step=140 ball=(-1.3, -1.5) vel=(-3.4, 0.0) body=(3.6, 0.1) running=(0.0, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=0.8 rolling=3 step=160 ball=(-2.6, -1.5) vel=(-3.4, 0.0) body=(3.5, 0.1) running=(-0.1, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=0.8 rolling=3 step=180 ball=(-4.0, -1.5) vel=(-3.3, 0.0) body=(3.5, 0.1) running=(0.1, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=0.8 rolling=3 step=200 ball=(-4.5, -1.5) vel=(-0.1, 0.0) body=(3.5, 0.1) running=(0.0, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=0.8 rolling=3 AI uses correct jump/backbend/run branch 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=0.8 rolling=3 recovery reaches goal side or clears head ball 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=0.8 rolling=3 recovery avoids scoring into own goal 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=0.8 rolling=3 real skeleton preserved error=0.06636606 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=0.8 rolling=3 balanced after recovery tilt=8.803009 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=0.8 rolling=3 committed recovery is not interrupted by shooting 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=0.8 rolling=3 each attempt has a bounded duration=1.258035 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.252700 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1062.
+Total: 1.067600 ms (FindLiveObjects: 0.032600 ms CreateObjectMapping: 0.008000 ms MarkObjects: 0.177200 ms  DeleteObjects: 0.849500 ms)
+
+STRATEGY PARAM side=Zhao skills=True scale=1 jump=6.119894 gravity=1 head=0.7555736 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low AI starts native emergency recovery without human input 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.6 rolling=3 step=0 ball=(1.7, -1.5) vel=(3.0, -0.2) body=(0.0, 0.2) running=(0.4, 7.1) rescue=True passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.6 rolling=3 step=20 ball=(2.5, -1.5) vel=(2.0, 0.0) body=(1.3, 1.6) running=(6.5, 2.2) rescue=True passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.6 rolling=3 step=40 ball=(3.3, -1.5) vel=(2.0, 0.0) body=(3.2, 1.7) running=(5.2, -2.0) rescue=True passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.6 rolling=3 step=60 ball=(4.0, -1.5) vel=(0.0, 0.0) body=(4.2, 0.1) running=(-0.2, -5.7) rescue=True passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.6 rolling=3 step=80 ball=(3.5, -1.5) vel=(-3.4, 0.0) body=(4.3, 0.1) running=(-0.1, -0.2) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.6 rolling=3 step=100 ball=(1.9, -1.5) vel=(-3.9, 0.0) body=(4.3, 0.1) running=(0.0, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.6 rolling=3 step=120 ball=(0.3, -1.5) vel=(-3.8, 0.0) body=(4.3, 0.1) running=(0.2, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.6 rolling=3 step=140 ball=(-1.2, -1.5) vel=(-3.8, 0.0) body=(4.4, 0.1) running=(0.3, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.6 rolling=3 step=160 ball=(-2.7, -1.5) vel=(-3.8, 0.0) body=(4.5, 0.1) running=(0.0, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.6 rolling=3 step=180 ball=(-4.2, -1.5) vel=(-3.8, 0.0) body=(4.5, 0.1) running=(-0.1, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY low gap=1.6 rolling=3 step=200 ball=(-4.5, -1.5) vel=(-0.1, -0.4) body=(4.5, 0.1) running=(0.1, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=1.6 rolling=3 AI uses correct jump/backbend/run branch 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=1.6 rolling=3 recovery reaches goal side or clears head ball 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=1.6 rolling=3 recovery avoids scoring into own goal 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=1.6 rolling=3 real skeleton preserved error=0.1267057 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=1.6 rolling=3 balanced after recovery tilt=9.709717 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=1.6 rolling=3 committed recovery is not interrupted by shooting 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS low gap=1.6 rolling=3 each attempt has a bounded duration=1.259698 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.267300 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1062.
+Total: 1.133400 ms (FindLiveObjects: 0.055200 ms CreateObjectMapping: 0.015200 ms MarkObjects: 0.275500 ms  DeleteObjects: 0.786700 ms)
+
+STRATEGY PARAM side=Zhao skills=True scale=1 jump=6.119894 gravity=1 head=0.7555736 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS head AI starts native emergency recovery without human input 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY head gap=1.2 rolling=2 step=0 ball=(0.5, 0.8) vel=(0.0, 0.0) body=(0.0, 0.1) running=(0.0, 0.0) rescue=True passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY head gap=1.2 rolling=2 step=20 ball=(3.8, 2.5) vel=(9.0, 4.8) body=(0.0, 0.1) running=(-0.1, 0.0) rescue=False passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY head gap=1.2 rolling=2 step=40 ball=(7.4, 4.4) vel=(9.0, 4.8) body=(0.0, 0.1) running=(0.0, 0.0) rescue=False passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY head gap=1.2 rolling=2 step=60 ball=(7.5, 3.7) vel=(-4.9, -4.6) body=(0.0, 0.1) running=(0.0, 0.0) rescue=False passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY head gap=1.2 rolling=2 step=80 ball=(7.1, 3.5) vel=(3.6, 4.1) body=(0.0, 0.1) running=(0.0, 0.0) rescue=False passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY head gap=1.2 rolling=2 step=100 ball=(8.5, 4.9) vel=(2.7, -3.3) body=(0.0, 0.1) running=(0.0, 0.0) rescue=False passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY head gap=1.2 rolling=2 step=120 ball=(8.0, 3.6) vel=(-2.2, -3.1) body=(0.0, 0.1) running=(0.0, 0.0) rescue=False passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY head gap=1.2 rolling=2 step=140 ball=(3.6, 3.3) vel=(0.0, 0.0) body=(6.1, 0.3) running=(0.2, -0.9) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY head gap=1.2 rolling=2 step=160 ball=(3.6, 3.3) vel=(0.0, 0.0) body=(6.1, 0.1) running=(-0.4, 0.1) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY head gap=1.2 rolling=2 step=180 ball=(3.6, 3.3) vel=(0.0, 0.0) body=(6.0, 0.1) running=(0.1, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY head gap=1.2 rolling=2 step=200 ball=(3.6, 3.3) vel=(0.0, 0.0) body=(6.1, 0.1) running=(0.2, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS head gap=1.2 rolling=2 AI uses correct jump/backbend/run branch 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS head gap=1.2 rolling=2 recovery reaches goal side or clears head ball 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS head gap=1.2 rolling=2 recovery avoids scoring into own goal 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS head gap=1.2 rolling=2 real skeleton preserved error=0.03193227 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS head gap=1.2 rolling=2 balanced after recovery tilt=9.081665 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS head gap=1.2 rolling=2 committed recovery is not interrupted by shooting 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS head gap=1.2 rolling=2 each attempt has a bounded duration=0.03957081 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.297900 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1066.
+Total: 1.154700 ms (FindLiveObjects: 0.033400 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.178700 ms  DeleteObjects: 0.934300 ms)
+
+STRATEGY PARAM side=Zhao skills=True scale=1 jump=6.119894 gravity=1 head=0.7580314 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS high AI starts native emergency recovery without human input 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY high gap=1.2 rolling=2 step=0 ball=(1.2, 2.9) vel=(0.0, 0.0) body=(0.0, 0.1) running=(0.4, 0.0) rescue=True passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY high gap=1.2 rolling=2 step=20 ball=(1.2, 2.9) vel=(0.0, 0.0) body=(1.3, -0.6) running=(3.2, -1.8) rescue=True passed=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY high gap=1.2 rolling=2 step=40 ball=(1.2, 2.9) vel=(0.0, 0.0) body=(1.8, -0.4) running=(-1.1, 5.6) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY high gap=1.2 rolling=2 step=60 ball=(1.2, 2.9) vel=(0.0, 0.0) body=(1.6, 1.2) running=(-0.1, 1.9) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY high gap=1.2 rolling=2 step=80 ball=(1.2, 2.9) vel=(0.0, 0.0) body=(1.6, 1.1) running=(-0.1, -2.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY high gap=1.2 rolling=2 step=100 ball=(1.2, 2.9) vel=(0.0, 0.0) body=(1.7, 0.0) running=(0.0, 0.2) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY high gap=1.2 rolling=2 step=120 ball=(1.2, 2.9) vel=(0.0, 0.0) body=(1.6, 0.1) running=(0.1, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY high gap=1.2 rolling=2 step=140 ball=(1.2, 2.9) vel=(0.0, 0.0) body=(1.5, 0.1) running=(0.1, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY high gap=1.2 rolling=2 step=160 ball=(1.2, 2.9) vel=(0.0, 0.0) body=(1.6, 0.1) running=(0.2, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY high gap=1.2 rolling=2 step=180 ball=(1.2, 2.9) vel=(0.0, 0.0) body=(1.6, 0.1) running=(-0.1, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY RECOVERY high gap=1.2 rolling=2 step=200 ball=(1.2, 2.9) vel=(0.0, 0.0) body=(1.6, 0.1) running=(-0.1, 0.0) rescue=False passed=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS high gap=1.2 rolling=2 AI uses correct jump/backbend/run branch 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS high gap=1.2 rolling=2 recovery reaches goal side or clears head ball 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS high gap=1.2 rolling=2 recovery avoids scoring into own goal 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS high gap=1.2 rolling=2 real skeleton preserved error=0.07933994 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS high gap=1.2 rolling=2 balanced after recovery tilt=9.622314 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS high gap=1.2 rolling=2 committed recovery is not interrupted by shooting 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS high gap=1.2 rolling=2 each attempt has a bounded duration=0.7162685 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.283400 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1062.
+Total: 1.199300 ms (FindLiveObjects: 0.039800 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.228800 ms  DeleteObjects: 0.922200 ms)
+
+STRATEGY PARAM side=Zhao skills=True scale=1 jump=6.119894 gravity=1 head=0.7580314 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS unreachable rising high ball prepositions instead of jumping 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS aerial plan retains standing reference height 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS fast overhead pass avoids futile late jump 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.254500 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1062.
+Total: 1.145300 ms (FindLiveObjects: 0.031800 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.183700 ms  DeleteObjects: 0.921400 ms)
+
+STRATEGY PARAM side=Zhao skills=True scale=1 jump=6.119894 gravity=1 head=0.7580314 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS rising incoming shot executes interception action jumps=1 heads=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS rising incoming shot reaches native player collision 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS rising interception retains physical skeleton error=0.03579586 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.262400 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1067.
+Total: 1.125300 ms (FindLiveObjects: 0.033100 ms CreateObjectMapping: 0.008500 ms MarkObjects: 0.174600 ms  DeleteObjects: 0.908600 ms)
+
+STRATEGY PARAM side=Zhao skills=True scale=1 jump=6.119894 gravity=1 head=0.7580314 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS returning foot ball uses real collision fixture 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS returning contact does not receive an own-goal push vx=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS returning-contact absorption retains rig error=0.04520648 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.315300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1063.
+Total: 1.251000 ms (FindLiveObjects: 0.033400 ms CreateObjectMapping: 0.008800 ms MarkObjects: 0.184200 ms  DeleteObjects: 1.024100 ms)
+
+STRATEGY PARAM side=Zhao skills=True scale=1 jump=6.119894 gravity=1 head=0.754433 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=0 ball=(0.6, 0.3) vx=0 body=(0.0, 0.1) rescue=False recovery=0.9989738 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=1 ball=(0.6, 0.3) vx=0 body=(0.0, 0.1) rescue=False recovery=0.9789734 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=2 ball=(0.6, 0.3) vx=0 body=(0.0, 0.1) rescue=False recovery=0.9589748 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=3 ball=(0.6, 0.3) vx=0 body=(0.0, 0.1) rescue=False recovery=0.9389744 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=4 ball=(0.6, 0.3) vx=0 body=(0.0, 0.1) rescue=False recovery=0.9189739 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=5 ball=(0.6, 0.3) vx=0 body=(0.0, 0.1) rescue=False recovery=0.8989735 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=6 ball=(0.6, 0.3) vx=0 body=(0.0, 0.1) rescue=False recovery=0.8789749 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=7 ball=(0.6, 0.2) vx=0 body=(0.0, 0.1) rescue=False recovery=0.8589745 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=8 ball=(0.6, 0.2) vx=0 body=(0.0, 0.1) rescue=False recovery=0.838974 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=9 ball=(0.6, 0.2) vx=0 body=(0.0, 0.1) rescue=False recovery=0.8189735 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=10 ball=(0.6, 0.2) vx=0 body=(0.0, 0.1) rescue=False recovery=0.798975 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=11 ball=(0.6, 0.2) vx=0 body=(0.0, 0.1) rescue=False recovery=0.7789745 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=12 ball=(0.6, 0.2) vx=0 body=(0.0, 0.1) rescue=False recovery=0.7589741 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=13 ball=(0.6, 0.1) vx=0 body=(0.0, 0.1) rescue=False recovery=0.7389736 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=14 ball=(0.6, 0.1) vx=0 body=(0.0, 0.1) rescue=False recovery=0.7189751 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=15 ball=(0.6, 0.1) vx=0 body=(0.0, 0.1) rescue=False recovery=0.6989746 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=16 ball=(0.6, 0.1) vx=0 body=(0.0, 0.1) rescue=False recovery=0.6789742 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=17 ball=(0.6, 0.1) vx=0 body=(0.0, 0.1) rescue=False recovery=0.6589737 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=18 ball=(0.7, 0.1) vx=0 body=(0.0, 0.1) rescue=False recovery=0.6389751 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=19 ball=(0.7, 0.1) vx=0 body=(0.0, 0.1) rescue=False recovery=0.6189747 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=20 ball=(0.7, 0.0) vx=0 body=(0.0, 0.1) rescue=False recovery=0.5989742 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=21 ball=(0.7, 0.0) vx=0 body=(0.0, 0.1) rescue=False recovery=0.5789738 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=22 ball=(0.7, 0.0) vx=0 body=(0.0, 0.1) rescue=False recovery=0.5589752 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=23 ball=(0.7, 0.0) vx=0 body=(0.0, 0.1) rescue=False recovery=0.5389748 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=24 ball=(0.7, 0.0) vx=0 body=(0.0, 0.1) rescue=False recovery=0.5189743 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=25 ball=(0.7, 0.0) vx=0 body=(0.0, 0.1) rescue=False recovery=0.4989738 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=26 ball=(0.7, 0.0) vx=0 body=(0.0, 0.1) rescue=False recovery=0.4789734 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=27 ball=(0.7, -0.1) vx=0 body=(0.0, 0.1) rescue=False recovery=0.4589748 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=28 ball=(0.7, -0.1) vx=0 body=(0.0, 0.1) rescue=False recovery=0.4389744 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=29 ball=(0.7, -0.1) vx=0 body=(0.0, 0.1) rescue=False recovery=0.4189739 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=30 ball=(0.7, -0.1) vx=0 body=(0.0, 0.1) rescue=False recovery=0.3989735 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=31 ball=(0.7, -0.1) vx=0 body=(0.0, 0.1) rescue=False recovery=0.3789749 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=32 ball=(0.7, -0.2) vx=0 body=(0.0, 0.1) rescue=False recovery=0.3589745 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=33 ball=(0.7, -0.2) vx=0 body=(0.0, 0.1) rescue=False recovery=0.338974 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=34 ball=(0.7, -0.2) vx=0 body=(0.0, 0.1) rescue=False recovery=0.3189735 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=35 ball=(0.7, -0.3) vx=0 body=(0.0, 0.1) rescue=False recovery=0.298975 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=36 ball=(0.7, -0.3) vx=0 body=(0.0, 0.1) rescue=False recovery=0.2789745 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=37 ball=(0.7, -0.4) vx=0 body=(0.0, 0.1) rescue=False recovery=0.2589741 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=38 ball=(0.7, -0.4) vx=0 body=(0.0, 0.1) rescue=False recovery=0.2389736 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=39 ball=(0.7, -0.5) vx=0 body=(0.0, 0.1) rescue=False recovery=0.2189751 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=40 ball=(0.7, -0.5) vx=0 body=(0.0, 0.1) rescue=False recovery=0.1989746 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=41 ball=(0.7, -0.6) vx=0 body=(0.0, 0.1) rescue=False recovery=0.1789742 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=42 ball=(0.7, -0.7) vx=0 body=(0.0, 0.1) rescue=False recovery=0.1589737 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=43 ball=(0.7, -0.7) vx=0 body=(0.0, 0.1) rescue=False recovery=0.1389751 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=44 ball=(0.7, -0.8) vx=0 body=(0.0, 0.1) rescue=False recovery=0.1189747 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=45 ball=(0.7, -0.9) vx=0 body=(0.0, 0.1) rescue=False recovery=0.09897423 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=46 ball=(0.7, -1.0) vx=0 body=(0.0, 0.1) rescue=False recovery=0.07897377 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=47 ball=(0.7, -1.1) vx=0 body=(0.0, 0.1) rescue=False recovery=0.05897522 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=48 ball=(0.7, -1.2) vx=0 body=(0.0, 0.1) rescue=False recovery=0.03897476 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=49 ball=(0.7, -1.3) vx=0 body=(0.0, 0.1) rescue=False recovery=0.0189743 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=50 ball=(0.7, -1.3) vx=0 body=(0.0, 0.1) rescue=True recovery=1 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=51 ball=(0.7, -1.5) vx=0 body=(0.0, 0.1) rescue=True recovery=1 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=52 ball=(0.7, -1.5) vx=0 body=(0.0, 0.1) rescue=True recovery=1 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=53 ball=(0.7, -1.5) vx=0 body=(0.0, 0.1) rescue=True recovery=1 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=54 ball=(0.7, -1.4) vx=0 body=(0.0, 0.1) rescue=True recovery=1 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=55 ball=(0.7, -1.3) vx=0 body=(0.0, 0.1) rescue=True recovery=1 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=56 ball=(0.7, -1.2) vx=0 body=(0.0, 0.1) rescue=True recovery=1 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=57 ball=(0.7, -1.2) vx=0 body=(0.0, 0.1) rescue=True recovery=1 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=58 ball=(0.7, -1.1) vx=0 body=(0.0, 0.1) rescue=True recovery=1 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY CONTACT step=59 ball=(0.7, -1.1) vx=0 body=(0.0, 0.1) rescue=True recovery=1 kick=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS returning torso ball uses real collision fixture 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS returning contact does not receive an own-goal push vx=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS returning-contact absorption retains rig error=0.03887373 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.285800 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1063.
+Total: 1.259900 ms (FindLiveObjects: 0.057100 ms CreateObjectMapping: 0.016800 ms MarkObjects: 0.259800 ms  DeleteObjects: 0.925900 ms)
+
+STRATEGY PARAM side=Zhao skills=True scale=1 jump=6.119894 gravity=1 head=0.754433 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY LOB step=0 ball=(2.5, 3.0) velocity=(-3.2, -0.7) player=(2.0, 0.1) run=(-0.2, 0.0) head=(1.9, 0.8, 0.3) target=1.804759 eta=0.32 jump=True heading=False plan=True rescue=False standing=0.7432545 axis=-0.361927 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY LOB step=8 ball=(2.0, 2.8) velocity=(-3.2, -2.3) player=(2.0, 0.9) run=(0.0, 4.5) head=(1.8, 1.6, 0.3) target=1.946156 eta=0.12 jump=False heading=False plan=True rescue=False standing=0.7432545 axis=0.2334789 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY LOB step=16 ball=(1.5, 2.4) velocity=(-2.6, 0.2) player=(2.0, 1.5) run=(-0.3, 2.6) head=(1.4, 1.9, 0.3) target=2.079714 eta=0.04 jump=False heading=False plan=True rescue=False standing=0.7432545 axis=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY LOB step=24 ball=(1.3, 2.9) velocity=(-0.4, 4.2) player=(1.8, 1.7) run=(-1.4, 0.2) head=(1.5, 2.3, 0.3) target=0.9561546 eta=2.4 jump=False heading=False plan=True rescue=False standing=0.7432545 axis=-0.65 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY LOB step=32 ball=(1.3, 3.4) velocity=(-0.4, 2.7) player=(1.8, 1.6) run=(-0.4, -1.7) head=(1.7, 2.3, 0.3) target=0.9561546 eta=2.4 jump=False heading=False plan=True rescue=False standing=0.7432545 axis=-0.65 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY LOB step=40 ball=(1.2, 3.7) velocity=(-0.4, 1.1) player=(1.5, 1.3) run=(-2.2, -2.0) head=(1.6, 2.0, 0.3) target=0.9561546 eta=2.4 jump=False heading=False plan=True rescue=False standing=0.7432545 axis=-0.65 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY LOB step=48 ball=(1.1, 3.7) velocity=(-0.4, -0.5) player=(1.1, 0.8) run=(-2.2, -4.2) head=(1.1, 1.4, 0.3) target=0.9148269 eta=2.4 jump=False heading=False plan=True rescue=False standing=0.7432545 axis=0.7 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY LOB step=56 ball=(1.1, 3.5) velocity=(-0.4, -2.0) player=(0.9, 0.0) run=(-0.2, -2.6) head=(0.9, 0.7, 0.3) target=1.023327 eta=2.4 jump=False heading=False plan=False rescue=True standing=0.7432545 axis=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY LOB step=64 ball=(1.0, 3.0) velocity=(-0.4, -3.6) player=(1.1, -0.1) run=(2.7, 0.9) head=(1.2, 0.6, 0.3) target=1.023327 eta=2.4 jump=False heading=False plan=False rescue=True standing=0.7432545 axis=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY LOB step=72 ball=(1.0, 2.3) velocity=(-0.4, -5.2) player=(1.5, 0.1) run=(1.7, 0.5) head=(1.6, 0.8, 0.3) target=1.023327 eta=2.4 jump=False heading=False plan=False rescue=True standing=0.7432545 axis=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY LOB step=80 ball=(0.9, 1.4) velocity=(-0.4, -6.7) player=(1.6, 0.1) run=(0.1, -1.0) head=(1.6, 0.8, 0.3) target=1.023327 eta=2.4 jump=False heading=False plan=False rescue=False standing=0.7432545 axis=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY LOB step=88 ball=(0.9, 0.1) velocity=(-0.4, -8.3) player=(1.6, 0.0) run=(0.2, 0.0) head=(1.6, 0.7, 0.3) target=1.023327 eta=2.4 jump=False heading=False plan=False rescue=False standing=0.7432545 axis=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY LOB step=96 ball=(0.8, -1.3) velocity=(-0.4, -9.9) player=(1.7, 0.1) run=(0.5, 0.1) head=(1.5, 0.8, 0.3) target=1.023327 eta=2.4 jump=False heading=False plan=False rescue=False standing=0.7432545 axis=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS live lob plans reachable contact Zhao skills=True jump=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS live lob intercepted by native collision or existing head skill Zhao skills=True collision=True header=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY PASS lob interception preserves skeleton Zhao error=0.0542112 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+STRATEGY COMPLETE checks=55 lobTouches=1 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 1d0c -> priority: 1 
+  Thread -> id: 1750 -> priority: 1 
+  Thread -> id: 27f8 -> priority: 1 
+  Thread -> id: 9ef0 -> priority: 1 
+  Thread -> id: 876c -> priority: 1 
+  Thread -> id: a750 -> priority: 1 
+  Thread -> id: 48a4 -> priority: 1 
+  Thread -> id: 80ac -> priority: 1 
+  Thread -> id: 8ea4 -> priority: 1 
+  Thread -> id: 8e08 -> priority: 1 
+  Thread -> id: 308 -> priority: 1 
+  Thread -> id: 3cb8 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+
