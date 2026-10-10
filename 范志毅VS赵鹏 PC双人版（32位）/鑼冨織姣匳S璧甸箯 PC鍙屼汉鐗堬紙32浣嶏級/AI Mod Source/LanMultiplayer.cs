@@ -41,7 +41,17 @@ public sealed class LanMultiplayer : MonoBehaviour
     private uint bodyFingerprint;
     private int snapshotTick;
     private byte[] receiveBuffer = new byte[8192];
-    private static string BuildId { get { return typeof(LanMultiplayer).Assembly.ManifestModule.ModuleVersionId.ToString("N"); } }
+    private readonly PacketWriter sendPacket = new PacketWriter();
+    private readonly PacketReader readPacket = new PacketReader(), applyPacket = new PacketReader();
+    private readonly byte[] snapshotStorage = new byte[8192];
+    private int snapshotLength;
+    private Vector2 lobbySize;
+    private State lastLobbyState;
+    private string lastLobbyAddress, lastLobbyMessage, peerAddress, hudText, lastHudMessage;
+    private IPEndPoint lastLobbyPeer;
+    private State lastHudState;
+    private bool lastHudHost, lobbyDirty = true;
+    private static readonly string BuildId = typeof(LanMultiplayer).Assembly.ManifestModule.ModuleVersionId.ToString("N");
     private Component gameManager;
     private System.Reflection.FieldInfo p1Score, p2Score, isStopping, isGoaling, stopMove, gameTime;
 
@@ -242,12 +252,11 @@ public sealed class LanMultiplayer : MonoBehaviour
         int sequence = ++sendSequence;
         float axis = ((held & (1 << (int)GameControlAction.Right)) != 0 ? 1f : 0f) -
                      ((held & (1 << (int)GameControlAction.Left)) != 0 ? 1f : 0f);
-        using (MemoryStream stream = new MemoryStream(24))
-        using (BinaryWriter writer = new BinaryWriter(stream))
         {
+            PacketWriter writer = sendPacket; writer.Reset();
             writer.Write((byte)2); writer.Write(sessionId); writer.Write(sequence); writer.Write((byte)held);
             writer.Write((byte)pendingPressMask); writer.Write(pressSequence); writer.Write(receivedPressSequence); writer.Write(axis);
-            SendBytes(stream.ToArray());
+            SendBytes(writer.Buffer, writer.Length);
         }
     }
 
@@ -256,9 +265,8 @@ public sealed class LanMultiplayer : MonoBehaviour
         if (length < 23) return;
         try
         {
-            using (MemoryStream stream = new MemoryStream(data, 0, length))
-            using (BinaryReader reader = new BinaryReader(stream))
             {
+                PacketReader reader = readPacket; reader.Reset(data, length);
                 reader.ReadByte(); int id = reader.ReadInt32(); int sequence = reader.ReadInt32();
                 int held = reader.ReadByte(); int pressed = reader.ReadByte(); int pressSeq = reader.ReadInt32(); int ack = reader.ReadInt32(); float axis = reader.ReadSingle();
                 if (id != sessionId || sequence <= receiveSequence) return;
@@ -278,9 +286,8 @@ public sealed class LanMultiplayer : MonoBehaviour
     {
         if (peer == null || socket == null) return;
         if (bodies == null && !BuildBodyCatalog()) return;
-        using (MemoryStream stream = new MemoryStream(64 + bodies.Length * 24))
-        using (BinaryWriter writer = new BinaryWriter(stream))
         {
+            PacketWriter writer = sendPacket; writer.Reset();
             writer.Write((byte)3); writer.Write(sessionId); writer.Write(++snapshotTick); writer.Write(bodyFingerprint); writer.Write((ushort)bodies.Length);
             WriteManagerState(writer);
             for (int i = 0; i < bodies.Length; i++)
@@ -290,7 +297,7 @@ public sealed class LanMultiplayer : MonoBehaviour
                 Vector2 p = body.position, v = body.velocity;
                 writer.Write(p.x); writer.Write(p.y); writer.Write(v.x); writer.Write(v.y); writer.Write(body.rotation); writer.Write(body.angularVelocity);
             }
-            SendBytes(stream.ToArray());
+            SendBytes(writer.Buffer, writer.Length);
         }
     }
 
@@ -300,16 +307,17 @@ public sealed class LanMultiplayer : MonoBehaviour
         if (length < 25) return;
         try
         {
-            using (MemoryStream stream = new MemoryStream(data, 0, length))
-            using (BinaryReader reader = new BinaryReader(stream))
             {
+                PacketReader reader = readPacket; reader.Reset(data, length);
                 reader.ReadByte(); int id = reader.ReadInt32(); int tick = reader.ReadInt32(); uint fingerprint = reader.ReadUInt32(); int count = reader.ReadUInt16();
                 if (id != sessionId || tick <= snapshotTick) return;
                 if (bodies == null && !BuildBodyCatalog()) return;
                 if (fingerprint != bodyFingerprint || count != bodies.Length)
                 { Fail("双方游戏文件不一致，无法同步场景。请安装同一版本后重试。"); return; }
+                if (length < 30 + count * 24) return;
                 snapshotTick = tick;
-                latestSnapshot = new byte[length]; Buffer.BlockCopy(data, 0, latestSnapshot, 0, length);
+                latestSnapshot = snapshotStorage; snapshotLength = length;
+                Buffer.BlockCopy(data, 0, latestSnapshot, 0, length);
                 lastReceiveTime = Time.realtimeSinceStartup;
             }
         }
@@ -321,9 +329,8 @@ public sealed class LanMultiplayer : MonoBehaviour
         if (latestSnapshot == null || bodies == null) return;
         try
         {
-            using (MemoryStream stream = new MemoryStream(latestSnapshot))
-            using (BinaryReader reader = new BinaryReader(stream))
             {
+                PacketReader reader = applyPacket; reader.Reset(latestSnapshot, snapshotLength);
                 reader.ReadByte(); reader.ReadInt32(); reader.ReadInt32(); reader.ReadUInt32(); int count = reader.ReadUInt16();
                 ReadManagerState(reader);
                 if (count != bodies.Length) return;
@@ -372,7 +379,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         return path;
     }
 
-    private void WriteManagerState(BinaryWriter writer)
+    private void WriteManagerState(PacketWriter writer)
     {
         writer.Write(p1Score != null ? (int)p1Score.GetValue(gameManager) : 0);
         writer.Write(p2Score != null ? (int)p2Score.GetValue(gameManager) : 0);
@@ -382,7 +389,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         writer.Write(gameTime != null ? (float)gameTime.GetValue(gameManager) : 0f);
     }
 
-    private void ReadManagerState(BinaryReader reader)
+    private void ReadManagerState(PacketReader reader)
     {
         if (gameManager == null) BuildBodyCatalog();
         int a = reader.ReadInt32(), b = reader.ReadInt32(); bool stopping = reader.ReadBoolean(), goaling = reader.ReadBoolean(), stopped = reader.ReadBoolean(); float time = reader.ReadSingle();
@@ -422,6 +429,7 @@ public sealed class LanMultiplayer : MonoBehaviour
     private void BuildLobby(Transform parent, Button template)
     {
         DestroyLobby();
+        lobbyDirty = true;
         lobbyRoot = new GameObject("LAN Lobby", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
         lobbyRoot.transform.SetParent(parent, false);
         lobbyRoot.transform.SetAsLastSibling();
@@ -470,17 +478,28 @@ public sealed class LanMultiplayer : MonoBehaviour
     {
         if (lobbyRoot == null || !lobbyVisible) return;
         RectTransform area = (RectTransform)lobbyRoot.transform;
-        float scale = Mathf.Min(area.rect.width / 760f, area.rect.height / 650f);
-        lobbyContent.localScale = Vector3.one * Mathf.Max(.1f, scale);
+        Vector2 size = area.rect.size;
+        if (lobbyDirty || size != lobbySize)
+        {
+            lobbySize = size;
+            float scale = Mathf.Min(size.x / 760f, size.y / 650f);
+            lobbyContent.localScale = Vector3.one * Mathf.Max(.1f, scale);
+        }
+        if (lobbyDirty || state != lastLobbyState || address != lastLobbyAddress || message != lastLobbyMessage || peer != lastLobbyPeer)
+        {
+        if (peer != lastLobbyPeer) peerAddress = peer != null ? peer.Address.ToString() : "";
+        lastLobbyState = state; lastLobbyAddress = address; lastLobbyMessage = message; lastLobbyPeer = peer;
         bool idle = state == State.Off || state == State.Failed;
         lobbyCreate.gameObject.SetActive(idle);
         lobbyInput.gameObject.SetActive(idle);
         lobbyJoin.gameObject.SetActive(idle);
         lobbyAddress.gameObject.SetActive(!idle);
         lobbyCopy.gameObject.SetActive(state == State.Hosting);
-        lobbyAddress.text = state == State.Hosting ? address : (peer != null ? peer.Address.ToString() : address);
+        lobbyAddress.text = state == State.Hosting ? address : (peer != null ? peerAddress : address);
         lobbyStatus.text = state == State.Failed ? message : state == State.Hosting ? "等待加入" :
             state == State.Joining ? "正在连接…" : state == State.Connected ? "正在开赛…" : "";
+        lobbyDirty = false;
+        }
         if (Input.GetKeyDown(KeyCode.Escape)) CloseLobby();
     }
 
@@ -553,8 +572,13 @@ public sealed class LanMultiplayer : MonoBehaviour
     private void OnGUI()
     {
         if (!matchStarted) return;
-        string label = state == State.InGame ? (isHost ? "局域网 · 房主（范志毅）" : "局域网 · 客机（赵鹏）") : "局域网已断开";
-        GUI.Label(new Rect(12, 12, 520, 28), label + "   " + message);
+        if (hudText == null || state != lastHudState || isHost != lastHudHost || message != lastHudMessage)
+        {
+            lastHudState = state; lastHudHost = isHost; lastHudMessage = message;
+            string label = state == State.InGame ? (isHost ? "局域网 · 房主（范志毅）" : "局域网 · 客机（赵鹏）") : "局域网已断开";
+            hudText = label + "   " + message;
+        }
+        GUI.Label(new Rect(12, 12, 520, 28), hudText);
     }
 
     private void Send(string text) { SendBytes(Encoding.UTF8.GetBytes(text)); }
@@ -563,10 +587,11 @@ public sealed class LanMultiplayer : MonoBehaviour
         if (socket == null || target == null) return;
         try { byte[] data = Encoding.UTF8.GetBytes(text); socket.SendTo(data, target); } catch { }
     }
-    private void SendBytes(byte[] data)
+    private void SendBytes(byte[] data) { SendBytes(data, data.Length); }
+    private void SendBytes(byte[] data, int length)
     {
         if (socket == null || peer == null) return;
-        try { socket.SendTo(data, peer); } catch { }
+        try { socket.SendTo(data, 0, length, SocketFlags.None, peer); } catch { }
     }
 
     private static string LocalAddress()
@@ -600,4 +625,39 @@ public sealed class LanMultiplayer : MonoBehaviour
     {
         StopSession(); if (instance == this) instance = null;
     }
+}
+
+// Explicit little-endian encoding matches BinaryWriter byte-for-byte. Both
+// containers are reused; reading is bounded by the received packet's length.
+[System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Explicit)]
+internal struct PacketFloat
+{
+    [System.Runtime.InteropServices.FieldOffset(0)] public int bits;
+    [System.Runtime.InteropServices.FieldOffset(0)] public float value;
+}
+internal sealed class PacketWriter
+{
+    internal byte[] Buffer = new byte[8192];
+    internal int Length;
+    internal void Reset() { Length = 0; }
+    void Ensure(int count) { while (Buffer.Length - Length < count) Array.Resize(ref Buffer, checked(Buffer.Length * 2)); }
+    internal void Write(byte value) { Ensure(1); Buffer[Length++] = value; }
+    internal void Write(bool value) { Write((byte)(value ? 1 : 0)); }
+    internal void Write(ushort value) { Ensure(2); Buffer[Length++] = (byte)value; Buffer[Length++] = (byte)(value >> 8); }
+    internal void Write(uint value) { Write(unchecked((int)value)); }
+    internal void Write(int value) { Ensure(4); Buffer[Length++] = (byte)value; Buffer[Length++] = (byte)(value >> 8); Buffer[Length++] = (byte)(value >> 16); Buffer[Length++] = (byte)(value >> 24); }
+    internal void Write(float value) { PacketFloat f = new PacketFloat(); f.value = value; Write(f.bits); }
+}
+internal sealed class PacketReader
+{
+    byte[] data;
+    int length, position;
+    internal void Reset(byte[] bytes, int count) { if(count < 0 || count > bytes.Length) throw new EndOfStreamException(); data=bytes; length=count; position=0; }
+    void Require(int count) { if(length-position < count) throw new EndOfStreamException(); }
+    internal byte ReadByte() { Require(1); return data[position++]; }
+    internal bool ReadBoolean() { return ReadByte() != 0; }
+    internal ushort ReadUInt16() { Require(2); int value=data[position] | data[position+1] << 8; position+=2; return (ushort)value; }
+    internal uint ReadUInt32() { return unchecked((uint)ReadInt32()); }
+    internal int ReadInt32() { Require(4); int value=data[position] | data[position+1] << 8 | data[position+2] << 16 | data[position+3] << 24; position+=4; return value; }
+    internal float ReadSingle() { PacketFloat f = new PacketFloat(); f.bits=ReadInt32(); return f.value; }
 }

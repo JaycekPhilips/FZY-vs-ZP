@@ -13,7 +13,9 @@ public sealed class BallBoundaryGuard : MonoBehaviour
     private Collider2D ballCollider;
     private MonoBehaviour manager;
     private FieldInfo stopping, goaling;
-    private MethodInfo restartOut;
+    private MethodInfo restartOut, scoreGoal;
+    private static readonly PhysicsHitBuffer floorHits = new PhysicsHitBuffer();
+    private static readonly PhysicsHitBuffer ceilingHits = new PhysicsHitBuffer();
     private float enableAfter;
     private readonly List<Collider2D> goals = new List<Collider2D>();
     private readonly List<bool> playerOneGoals = new List<bool>();
@@ -36,6 +38,7 @@ public sealed class BallBoundaryGuard : MonoBehaviour
         stopping = managerType.GetField("isStopping", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
         goaling = managerType.GetField("isGoaling", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
         restartOut = managerType.GetMethod("BallOut");
+        scoreGoal = managerType.GetMethod("Goal");
         FieldInfo owningSide = goalType.GetField("isPlayer1Goal", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
         if (owningSide == null) return;
         foreach (UnityEngine.Object item in UnityEngine.Object.FindObjectsOfType(goalType))
@@ -66,7 +69,7 @@ public sealed class BallBoundaryGuard : MonoBehaviour
         Bounds bounds = mouth.bounds;
         float side = mouth.transform.position.x > 0f ? 1f : -1f;
         float x = side > 0f ? bounds.min.x - .2f : bounds.max.x + .2f;
-        foreach (RaycastHit2D hit in Physics2D.RaycastAll(new Vector2(x, bounds.center.y), Vector2.down, 20f))
+        foreach (RaycastHit2D hit in floorHits.Raycast(new Vector2(x, bounds.center.y), Vector2.down, 20f))
         {
             if (hit.collider == null || hit.collider.isTrigger || hit.normal.y < .5f) continue;
             string root = hit.collider.transform.root.name;
@@ -104,7 +107,7 @@ public sealed class BallBoundaryGuard : MonoBehaviour
             if (bottom < goalFloors[i] - .06f || top > FindGoalCeiling(goals[i]) + .02f) continue;
             // Low rollers may pass below the native trigger rectangle. The
             // physical pitch floor and bar define the real goal opening.
-            manager.StartCoroutine((IEnumerator)manager.GetType().GetMethod("Goal").Invoke(manager, new object[] { playerOneGoals[i] }));
+            manager.StartCoroutine((IEnumerator)scoreGoal.Invoke(manager, new object[] { playerOneGoals[i] }));
             return true;
         }
         return false;
@@ -118,7 +121,7 @@ public sealed class BallBoundaryGuard : MonoBehaviour
         float floor = FindGoalFloor(mouth);
         // Measure the underside of the actual bar, in both editions; trigger
         // geometry alone cannot tell a bar rebound from a valid corner entry.
-        foreach (RaycastHit2D hit in Physics2D.RaycastAll(new Vector2(line + side * .02f, floor + .1f), Vector2.up, 20f))
+        foreach (RaycastHit2D hit in ceilingHits.Raycast(new Vector2(line + side * .02f, floor + .1f), Vector2.up, 20f))
         {
             if (hit.collider == null || hit.collider.isTrigger || hit.normal.y > -.5f ||
                 mouth.transform.parent == null || !hit.collider.transform.IsChildOf(mouth.transform.parent)) continue;
@@ -147,7 +150,7 @@ public sealed class BallBoundaryGuard : MonoBehaviour
             float newEdge = side > 0f ? ball.min.x : ball.max.x;
             bool fullCrossing = side * (oldEdge - line) < 0f && side * (newEdge - line) >= 0f;
             float crossing = fullCrossing ? Mathf.Clamp01((line - oldEdge) / (newEdge - oldEdge)) : 1f;
-            bool aboveBar = Mathf.Lerp(previousBall.max.y, ball.max.y, crossing) > FindGoalCeiling(mouth) + .02f;
+            bool aboveBar = fullCrossing && Mathf.Lerp(previousBall.max.y, ball.max.y, crossing) > FindGoalCeiling(mouth) + .02f;
             bool belowFloor = Mathf.Lerp(previousBall.min.y, ball.min.y, crossing) < goalFloors[i] - .06f;
             bool invalidCrossing = fullCrossing && (!enteringGoals[i] || aboveBar || belowFloor);
             bool behind = mouth.transform.position.x > 0f ?
@@ -220,6 +223,8 @@ public static class GameAIMod
         states.Clear();
         ballBody = null;
         ballOutThisRally = false;
+        PlayerSkills.PrepareVisualResources();
+        GameStyleIndicator.PrepareFont();
         menuPanel = panel;
         ControlBindings.EnsureLoaded();
         modeOverlay = null;
@@ -1031,3 +1036,34 @@ public static class GameAIMod
     }
 }
 
+
+// Owned by each query site. Grows only when full, and preserves the engine's
+// hit ordering and global trigger policy from RaycastAll.
+public sealed class PhysicsHitBuffer
+{
+    private RaycastHit2D[] buffer = new RaycastHit2D[32];
+    private readonly List<RaycastHit2D> hits = new List<RaycastHit2D>(32);
+    public List<RaycastHit2D> Raycast(Vector2 origin, Vector2 direction, float distance)
+    { return Raycast(origin, direction, distance, Physics2D.DefaultRaycastLayers); }
+    public List<RaycastHit2D> Raycast(Vector2 origin, Vector2 direction, float distance, int mask)
+    {
+        int count;
+        while ((count = Physics2D.RaycastNonAlloc(origin, direction, buffer, distance, mask)) == buffer.Length)
+            Array.Resize(ref buffer, checked(buffer.Length * 2));
+        return CopyHits(count);
+    }
+    public List<RaycastHit2D> Cast(Rigidbody2D body, Vector2 direction, ContactFilter2D filter, float distance)
+    {
+        int count;
+        while ((count = body.Cast(direction, filter, buffer, distance)) == buffer.Length)
+            Array.Resize(ref buffer, checked(buffer.Length * 2));
+        return CopyHits(count);
+    }
+    private List<RaycastHit2D> CopyHits(int count)
+    {
+        hits.Clear();
+        if (hits.Capacity < count) hits.Capacity = buffer.Length;
+        for (int i = 0; i < count; i++) hits.Add(buffer[i]);
+        return hits;
+    }
+}

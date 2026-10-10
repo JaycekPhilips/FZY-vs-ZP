@@ -1,0 +1,6 @@
+/.work/performance/
+/tools/performance/baseline-*/
+/tools/performance/candidate-*/
+/tools/performance/regression-*/
+/tools/performance/capture-*/
+**/AI Mod Source/backup-before-performance-*/

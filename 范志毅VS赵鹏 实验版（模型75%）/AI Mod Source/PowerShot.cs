@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
@@ -14,6 +15,14 @@ public sealed class PowerShot : MonoBehaviour
     private Rigidbody2D body, ball;
     private Collider2D ballShape;
     private FieldInfo stopping;
+    private readonly PhysicsHitBuffer rayHits = new PhysicsHitBuffer();
+    private static readonly List<PowerShot> players = new List<PowerShot>(2);
+    private Rigidbody2D[] limbs;
+    private Rigidbody2D opponentBody;
+    private void Awake() { players.Add(this); players.Sort(ComparePlayers); limbs = GetComponentsInChildren<Rigidbody2D>(true); }
+    private static int ComparePlayers(PowerShot a, PowerShot b) { return a.GetInstanceID().CompareTo(b.GetInstanceID()); }
+    private void OnDestroy() { players.Remove(this); }
+    private void OnTransformChildrenChanged() { limbs = GetComponentsInChildren<Rigidbody2D>(true); }
     private int groundMask;
     private bool fan;
     private int requestedFrame = -1, commandFrame = -1;
@@ -58,17 +67,23 @@ public sealed class PowerShot : MonoBehaviour
     private bool InFront() { return ball != null && body != null && (fan ? 1f : -1f) * (ball.position.x - body.position.x) >= -.1f; }
     private bool Contest()
     {
-        GameObject opponent = GameObject.Find(fan ? "Zhao" : "Fan");
-        if (opponent == null) return false;
-        Rigidbody2D other = opponent.transform.Find("Body").GetComponent<Rigidbody2D>();
+        if (opponentBody == null || !opponentBody.gameObject.activeInHierarchy)
+        {
+            GameObject opponent = GameObject.Find(fan ? "Zhao" : "Fan");
+            if (opponent == null) return false;
+            opponentBody = opponent.transform.Find("Body").GetComponent<Rigidbody2D>();
+        }
+        Rigidbody2D other = opponentBody;
         return Mathf.Abs(body.position.x - other.position.x) <= 2f && Mathf.Abs(ball.position.x - body.position.x) < 1.9f && Mathf.Abs(ball.position.x - other.position.x) < 1.9f && ball.position.y < Mathf.Max(body.position.y, other.position.y) + 2.5f;
     }
     private bool Strike(Collider2D limb, Vector2 contact, Vector2 normal)
     {
         if (Stopped() || Time.time > armedUntil || !InFront() || (!fan && Contest()) || !PlayerSkills.IsStrikeFoot(controller, limb, contact, normal, !fan && PlayerSkills.Enabled)) return false;
         ball.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-        foreach (PowerShot player in UnityEngine.Object.FindObjectsOfType<PowerShot>())
-            foreach (Rigidbody2D limbBody in player.GetComponentsInChildren<Rigidbody2D>()) limbBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        foreach (PowerShot player in players)
+            if (player != null && player.gameObject.activeInHierarchy)
+                foreach (Rigidbody2D limbBody in player.limbs)
+                    if (limbBody != null && limbBody.gameObject.activeInHierarchy) limbBody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         Vector2 target;
         if (fan) target = ball.velocity * SpeedMultiplier;
         else
@@ -85,7 +100,7 @@ public sealed class PowerShot : MonoBehaviour
     }
     private float FindFloor()
     {
-        foreach (RaycastHit2D hit in Physics2D.RaycastAll(ball.position + Vector2.up * .1f, Vector2.down, 30f, groundMask))
+        foreach (RaycastHit2D hit in rayHits.Raycast(ball.position + Vector2.up * .1f, Vector2.down, 30f, groundMask))
         {
             if (hit.collider == null || hit.collider == ballShape || hit.collider.isTrigger || hit.normal.y < .5f || hit.collider.GetComponentInParent<PowerShot>() != null) continue;
             return hit.point.y + ballShape.bounds.extents.y + .035f;
@@ -111,8 +126,8 @@ public sealed class PowerShot : MonoBehaviour
                 if (Vector2.Dot(normal, striker.ball.position - point.point) < 0) normal = -normal;
                 launched = striker.Strike(collision.collider, point.point, normal);
             }
-        foreach (PowerShot owner in UnityEngine.Object.FindObjectsOfType<PowerShot>())
-            if (owner != striker && striker != null) owner.flatUntil = -1f;
+        foreach (PowerShot owner in players)
+            if (owner != null && owner.gameObject.activeInHierarchy && owner != striker && striker != null) owner.flatUntil = -1f;
         return launched;
     }
     public static void HeaderContact(Collision2D collision, bool exiting)
@@ -121,7 +136,7 @@ public sealed class PowerShot : MonoBehaviour
         PowerShot owner = collision.collider.GetComponentInParent<PowerShot>();
         if (owner != null) owner.SlowHeader(collision.collider, exiting);
     }
-    public static void ResetAll() { foreach (PowerShot shot in UnityEngine.Object.FindObjectsOfType<PowerShot>()) { shot.headerUntil = shot.armedUntil = shot.flatUntil = -1f; shot.requestedFrame = shot.commandFrame = -1; } }
+    public static void ResetAll() { foreach (PowerShot shot in players) if (shot != null && shot.gameObject.activeInHierarchy) { shot.headerUntil = shot.armedUntil = shot.flatUntil = -1f; shot.requestedFrame = shot.commandFrame = -1; } }
 }
 
 // Apply the ordinary 10% reduction once at separation, so a ball already
@@ -134,17 +149,20 @@ public sealed class HeaderContactSensor : MonoBehaviour
 
 public static class BallFlightSafety
 {
+    private static readonly PhysicsHitBuffer castHits = new PhysicsHitBuffer();
     public static bool WillHit(Rigidbody2D ball, Vector2 velocity, Component shooter, float age)
     {
         if (velocity.sqrMagnitude < .001f) return false;
         ContactFilter2D filter = new ContactFilter2D(); filter.SetLayerMask(Physics2D.GetLayerCollisionMask(ball.gameObject.layer)); filter.useTriggers = false;
-        RaycastHit2D[] hits = new RaycastHit2D[24];
-        int count = ball.Cast(velocity.normalized, filter, hits, velocity.magnitude * Time.fixedDeltaTime + .015f);
+        List<RaycastHit2D> hits = castHits.Cast(ball, velocity.normalized, filter, velocity.magnitude * Time.fixedDeltaTime + .015f);
+        int count = hits.Count;
+        if (count == 0) return false;
+        PowerShot owner = shooter.GetComponent<PowerShot>();
         for (int i = 0; i < count; i++)
         {
             RaycastHit2D hit = hits[i];
             if (hit.collider == null || hit.collider.attachedRigidbody == ball) continue;
-            if (hit.collider.GetComponentInParent<PowerShot>() == shooter.GetComponent<PowerShot>() && age <= Time.fixedDeltaTime * 1.5f) continue;
+            if (hit.collider.GetComponentInParent<PowerShot>() == owner && age <= Time.fixedDeltaTime * 1.5f) continue;
             if (hit.distance <= .002f && velocity.y > 0 && hit.normal.y > .5f) continue;
             if (Vector2.Dot(velocity, hit.normal) < -.05f) return true;
         }

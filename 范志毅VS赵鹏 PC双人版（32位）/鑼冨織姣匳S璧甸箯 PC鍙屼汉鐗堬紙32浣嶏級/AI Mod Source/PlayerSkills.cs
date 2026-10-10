@@ -32,6 +32,7 @@ public sealed class PlayerSkills : MonoBehaviour
     private static readonly List<PlayerSkills> players = new List<PlayerSkills>();
     private static Font skillFont;
     private static Texture2D haloTexture;
+    private static int preparedFontSize;
     private static PlayerSkills glowOwner;
     private static float glowUntil = -1f;
     private static Color glowColor;
@@ -66,7 +67,11 @@ public sealed class PlayerSkills : MonoBehaviour
     private float[] normalMasses;
     private object[] physicalMuscles;
     private float[] normalMuscleForces;
-    private FieldInfo muscleForceField;
+    private FieldInfo muscleForceField, bodyTargetField;
+    private readonly PhysicsHitBuffer rayHits = new PhysicsHitBuffer();
+    private GUIStyle effectStyle;
+    private Camera effectCamera;
+    private static readonly Vector2[] labelOffsets = { Vector2.left, Vector2.right, Vector2.up, Vector2.down };
     private bool bracedMasses;
     private bool weakenedBalance;
     private float braceUntil = -1f;
@@ -167,7 +172,7 @@ public sealed class PlayerSkills : MonoBehaviour
     private void UpdateRescueBalance()
     {
         if (fan || Stopped() || GameAIMod.BallOutThisRally || Time.time > rescueRecoveryUntil || physicalLimbs == null) return;
-        float angle = (float)muscles.GetType().GetField("body").GetValue(muscles);
+        float angle = (float)bodyTargetField.GetValue(muscles);
         float desiredSpin = Mathf.Clamp(Mathf.DeltaAngle(body.rotation, angle) * 7f, -120f, 120f);
         float spinChange = Mathf.Clamp(desiredSpin - body.angularVelocity, -900f * Time.fixedDeltaTime, 900f * Time.fixedDeltaTime);
         ApplyAngularImpulse(spinChange * Mathf.Deg2Rad * RigInertia());
@@ -648,7 +653,7 @@ public sealed class PlayerSkills : MonoBehaviour
         float distance = Mathf.Max(.1f, direction * (curveDestination.x - curveOrigin.x));
         curveTravelTime = Mathf.Clamp(distance / curveForwardSpeed, .08f, 1.5f);
         float ceiling = curveOrigin.y + FanVolleyArcHeight;
-        foreach (RaycastHit2D hit in Physics2D.RaycastAll(curveOrigin + Vector2.up * .05f, Vector2.up, 30f, groundMask))
+        foreach (RaycastHit2D hit in rayHits.Raycast(curveOrigin + Vector2.up * .05f, Vector2.up, 30f, groundMask))
         {
             if (hit.collider == null || hit.collider == ballCollider || hit.collider.isTrigger || hit.normal.y > -.5f) continue;
             string root = hit.collider.transform.root.name;
@@ -787,7 +792,7 @@ public sealed class PlayerSkills : MonoBehaviour
     private float FindBurstFloorHeight()
     {
         float radius = ballCollider.bounds.extents.y;
-        RaycastHit2D[] hits = Physics2D.RaycastAll(ball.position + Vector2.up * .1f, Vector2.down, 30f, groundMask);
+        List<RaycastHit2D> hits = rayHits.Raycast(ball.position + Vector2.up * .1f, Vector2.down, 30f, groundMask);
         foreach (RaycastHit2D hit in hits)
         {
             Collider2D ground = hit.collider;
@@ -922,6 +927,7 @@ public sealed class PlayerSkills : MonoBehaviour
         physicalLimbs = controller.GetComponentsInChildren<Rigidbody2D>();
         normalMasses = new float[physicalLimbs.Length];
         for (int i = 0; i < physicalLimbs.Length; i++) normalMasses[i] = physicalLimbs[i].mass;
+        bodyTargetField = muscleType.GetField("body");
         Array source = muscleType.GetField("muscles").GetValue(muscles) as Array;
         if (source != null)
         {
@@ -1050,7 +1056,7 @@ public sealed class PlayerSkills : MonoBehaviour
         if (Stopped()) { knockbackUntil = -1f; return; }
         // Let the initial impact tip Fan, then damp rotation while he slides.
         // This uses torque through the connected rig, never a pose override.
-        float angle = (float)muscles.GetType().GetField("body").GetValue(muscles);
+        float angle = (float)bodyTargetField.GetValue(muscles);
         if (Time.time >= staggerUntil - .08f || Mathf.Abs(Mathf.DeltaAngle(body.rotation, angle)) > 32f)
         {
             float spinTarget = Mathf.Clamp(Mathf.DeltaAngle(body.rotation, angle) * 7f, -140f, 140f);
@@ -1181,7 +1187,7 @@ public sealed class PlayerSkills : MonoBehaviour
         float gap = direction * (ball.position.x - body.position.x);
         if (incoming < .5f || gap > Mathf.Min(3f * scale, incoming * .65f + ballCollider.bounds.extents.x) ||
             Mathf.Abs(ball.velocity.y) > Mathf.Max(1.5f, incoming * .45f)) return false;
-        foreach (RaycastHit2D hit in Physics2D.RaycastAll(body.position, Vector2.down, 30f, groundMask))
+        foreach (RaycastHit2D hit in rayHits.Raycast(body.position, Vector2.down, 30f, groundMask))
         {
             if (hit.collider == null || hit.collider.isTrigger || hit.normal.y < .5f || hit.collider == ballCollider) continue;
             string root = hit.collider.transform.root.name;
@@ -1197,7 +1203,7 @@ public sealed class PlayerSkills : MonoBehaviour
         float lowest = body.position.y;
         foreach (Collider2D limb in playerColliders)
             if (limb != null && !limb.isTrigger) lowest = Mathf.Min(lowest, limb.bounds.min.y);
-        foreach (RaycastHit2D hit in Physics2D.RaycastAll(body.position, Vector2.down, 30f, groundMask))
+        foreach (RaycastHit2D hit in rayHits.Raycast(body.position, Vector2.down, 30f, groundMask))
         {
             Collider2D ground = hit.collider;
             if (ground == null || ground.isTrigger || ground == ballCollider || hit.normal.y < .5f) continue;
@@ -1246,8 +1252,7 @@ public sealed class PlayerSkills : MonoBehaviour
         else if (weakenedBalance)
         {
             float recovery = Mathf.Clamp01((Time.time - staggerUntil) / .18f);
-            FieldInfo torsoTarget = muscles.GetType().GetField("body");
-            float targetAngle = (float)torsoTarget.GetValue(muscles);
+            float targetAngle = (float)bodyTargetField.GetValue(muscles);
             bool upright = Mathf.Abs(Mathf.DeltaAngle(body.rotation, targetAngle)) < 10f;
             if (recovery >= 1f && (upright || Time.time - staggerUntil > .4f)) RestoreBalanceGain();
             else
@@ -1305,7 +1310,8 @@ public sealed class PlayerSkills : MonoBehaviour
     private void OnGUI()
     {
         if (Event.current.type != EventType.Repaint || Stopped()) return;
-        Camera camera = Camera.main;
+        if (effectCamera == null || !effectCamera.isActiveAndEnabled || !effectCamera.CompareTag("MainCamera")) effectCamera = Camera.main;
+        Camera camera = effectCamera;
         if (camera == null || head == null) return;
         Color savedColor = GUI.color;
         Matrix4x4 savedMatrix = GUI.matrix;
@@ -1397,14 +1403,15 @@ public sealed class PlayerSkills : MonoBehaviour
             Rect label = new Rect(Mathf.Clamp(labelAnchor.x - width / 2f, 4f, Screen.width - width - 4f),
                 Mathf.Clamp(Screen.height - labelAnchor.y - 25f * scale - labelRow * 29f * scale, 4f, Screen.height - 32f * scale),
                 width, 29f * scale);
-            GUIStyle style = new GUIStyle(GUI.skin.label);
+            if (effectStyle == null) effectStyle = new GUIStyle(GUI.skin.label);
+            GUIStyle style = effectStyle;
             style.font = skillFont;
             style.fontSize = Mathf.RoundToInt(20f * scale);
             style.fontStyle = FontStyle.Bold;
             style.alignment = TextAnchor.MiddleCenter;
             style.normal.textColor = Color.white;
             GUI.color = new Color(1f, 1f, 1f, color.a * .58f);
-            foreach (Vector2 offset in new Vector2[] { Vector2.left, Vector2.right, Vector2.up, Vector2.down })
+            foreach (Vector2 offset in labelOffsets)
                 GUI.Label(new Rect(label.x + offset.x * scale, label.y + offset.y * scale, label.width, label.height), names[index], style);
             GUI.color = color;
             GUI.Label(label, names[index], style);
@@ -1423,8 +1430,15 @@ public sealed class PlayerSkills : MonoBehaviour
         GUI.matrix = saved;
     }
 
-    private void DrawBallHighlight(Camera camera, float scale)
+    public static void PrepareVisualResources()
     {
+        if (skillFont == null) { skillFont = Font.CreateDynamicFontFromOSFont(new string[] { "Microsoft YaHei", "SimHei", "Arial" }, 22); preparedFontSize = 0; }
+        int fontSize = Mathf.RoundToInt(20f * Mathf.Clamp(Screen.height / 720f, .7f, 1.5f));
+        if (preparedFontSize != fontSize)
+        {
+            skillFont.RequestCharactersInTexture(string.Concat(names), fontSize, FontStyle.Bold);
+            preparedFontSize = fontSize;
+        }
         if (haloTexture == null)
         {
             haloTexture = new Texture2D(64, 64, TextureFormat.RGBA32, false);
@@ -1438,6 +1452,11 @@ public sealed class PlayerSkills : MonoBehaviour
             haloTexture.SetPixels(pixels);
             haloTexture.Apply();
         }
+    }
+
+    private void DrawBallHighlight(Camera camera, float scale)
+    {
+        PrepareVisualResources();
         // Use the interpolated render transform, so the glow stays on the sprite
         // instead of leading it by a physics tick at high shot speeds.
         Vector3 point = camera.WorldToScreenPoint(ball.transform.position);
@@ -1480,11 +1499,14 @@ public sealed class PowerTackleContact : MonoBehaviour
 
 public sealed class GameStyleIndicator : MonoBehaviour
 {
-    private Font font;
+    private static Font font;
+    private GUIStyle labelStyle;
+    public static void PrepareFont() { if (font == null) font = Font.CreateDynamicFontFromOSFont(new string[] { "Microsoft YaHei", "SimHei", "Arial" }, 18); font.RequestCharactersInTexture("特技模式经典模式", 16, FontStyle.Normal); }
     private void OnGUI()
     {
         if (font == null) font = Font.CreateDynamicFontFromOSFont(new string[] { "Microsoft YaHei", "SimHei", "Arial" }, 18);
-        GUIStyle style = new GUIStyle(GUI.skin.label);
+        if (labelStyle == null) labelStyle = new GUIStyle(GUI.skin.label);
+        GUIStyle style = labelStyle;
         style.font = font;
         style.fontSize = 16;
         style.normal.textColor = PlayerSkills.Enabled ? new Color(1f, .86f, .38f) : Color.white;

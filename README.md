@@ -9,3 +9,12 @@ Second best soccer game in the world!
 - [模型 75% 实验版完整游戏包（Windows 32 位）](downloads/fzy-vs-zp-experimental-win32.zip)
 - [使用方法、构建及验证说明](LAN_MULTIPLAYER.md)
 - [游戏包 SHA-256 校验值](downloads/SHA256SUMS.txt)
+
+## 性能维护更新
+
+两版同步减少比赛中的重复物理查询、动画数组、组件/反射查找、GUI 样式创建和联机序列化分配；保留物理精度、技能参数、画面及两版差异。
+
+- [实际性能对照与检查范围](PERFORMANCE.md)
+- [可复现的测量和回归工具](tools/performance/README.md)
+
+本次按要求采用短测和关键回归。短测结果不能证明持续卡顿已解决，完整数据和已存在的压力测试波动见报告。

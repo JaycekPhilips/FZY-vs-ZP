@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
@@ -77,7 +78,7 @@ public static class ExperimentScale
         ExperimentActor actor = ball != null ? ball.GetComponent<ExperimentActor>() : null;
         if (actor == null) return;
         bool grounded = false;
-        ContactPoint2D[] contacts = new ContactPoint2D[16];
+        ContactPoint2D[] contacts = actor.contacts;
         int count = ball.GetContacts(contacts);
         for (int i = 0; i < count; i++)
         {
@@ -88,8 +89,9 @@ public static class ExperimentScale
             if (normal.y > .5f) grounded = true;
         }
         Vector2 impulse = Vector2.zero;
-        foreach (ContactPoint2D point in collision.contacts)
+        for (int i = 0; i < collision.contactCount; i++)
         {
+            ContactPoint2D point = collision.GetContact(i);
             Vector2 normal = point.normal;
             if (Vector2.Dot(normal, ball.position - point.point) < 0f) normal = -normal;
             impulse += normal * point.normalImpulse;
@@ -115,7 +117,10 @@ public sealed class ExperimentActor : MonoBehaviour
     private float correctedAt = -1f;
     private Component manager;
     private FieldInfo stopping;
-    private Font labelFont;
+    private static Font labelFont;
+    private GUIStyle labelStyle;
+    internal readonly ContactPoint2D[] contacts = new ContactPoint2D[16];
+    private readonly List<AnimatorClipInfo> clips = new List<AnimatorClipInfo>(4);
     public void Initialize(Component source, bool player)
     {
         OriginalScale = source.transform.localScale;
@@ -124,6 +129,8 @@ public sealed class ExperimentActor : MonoBehaviour
         OriginalMass = body.mass; OriginalGravity = body.gravityScale;
         playerActor = player;
         if (!player) return;
+        if (labelFont == null) labelFont = Font.CreateDynamicFontFromOSFont(new[] { "Microsoft YaHei", "SimHei", "Arial" }, 16);
+        labelFont.RequestCharactersInTexture("实验版 · 球员/足球 75% · 球门高度 80%", 16, FontStyle.Normal);
         animator = source.GetComponent<Animator>();
         Type managerType = source.GetType().Assembly.GetType("GameManager");
         manager = UnityEngine.Object.FindObjectOfType(managerType) as Component;
@@ -138,7 +145,8 @@ public sealed class ExperimentActor : MonoBehaviour
     {
         if (!playerActor || correctedAt == Time.fixedTime || Time.time >= requestedUntil || Time.timeScale <= 0f || (manager != null && (bool)stopping.GetValue(manager))) return false;
         bool animated = false;
-        foreach (AnimatorClipInfo clip in animator.GetCurrentAnimatorClipInfo(0)) if (clip.clip.name == strikeAction && clip.weight > .1f) animated = true;
+        animator.GetCurrentAnimatorClipInfo(0, clips);
+        foreach (AnimatorClipInfo clip in clips) if (clip.clip.name == strikeAction && clip.weight > .1f) animated = true;
         if (!animated) return false;
         return strikeAction == "Head" ? part == "Head" : part == "L_LowLeg" || part == "R_LowLeg" || part.IndexOf("Foot", StringComparison.OrdinalIgnoreCase) >= 0;
     }
@@ -147,7 +155,8 @@ public sealed class ExperimentActor : MonoBehaviour
     {
         if (name != "Fan") return;
         if (labelFont == null) labelFont = Font.CreateDynamicFontFromOSFont(new[] { "Microsoft YaHei", "SimHei", "Arial" }, 16);
-        GUIStyle style = new GUIStyle(GUI.skin.label); style.font = labelFont; style.fontSize = 16;
+        if (labelStyle == null) labelStyle = new GUIStyle(GUI.skin.label);
+        GUIStyle style = labelStyle; style.font = labelFont; style.fontSize = 16;
         GUI.Label(new Rect(12, Screen.height - 56, 420, 24), "实验版 · 球员/足球 75% · 球门高度 80%", style);
     }
 }
