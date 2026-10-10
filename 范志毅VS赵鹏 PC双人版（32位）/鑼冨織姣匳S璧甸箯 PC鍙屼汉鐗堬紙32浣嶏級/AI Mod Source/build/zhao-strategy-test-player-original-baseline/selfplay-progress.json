@@ -1,0 +1,19 @@
+{
+    "edition": "C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/zhao-strategy-test-player-original-baseline/FanZhiYi_Data",
+    "policyHash": "8AE04C6F8235A62464E2A8437458279E30155E4E78D28F163FAE8ADD56413111",
+    "validationVersion": "contact-v4",
+    "target": 200,
+    "goals": 200,
+    "fanGoals": 125,
+    "zhaoGoals": 75,
+    "matches": 15,
+    "draws": 0,
+    "failures": 0,
+    "jumps": 411,
+    "headers": 889,
+    "tackles": 442,
+    "rescues": 291,
+    "simulatedSeconds": 1342.3026123046875,
+    "realSeconds": 60.938636779785159,
+    "maxJointError": 0.7426565885543823
+}

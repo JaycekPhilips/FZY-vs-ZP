@@ -106,7 +106,7 @@ public sealed class AIContestAirTests : MonoBehaviour
                 contestFrames++;
                 if ((bool)Read("kick") || (bool)Read("power")) kicks++;
                 if ((bool)Read("head")) heads++;
-                if (Mathf.Abs(other.position.x - body.position.x) > .05f && (float)Read("axis") * Mathf.Sign(other.position.x - body.position.x) <= .1f) wrongDirections++;
+                if (Mathf.Abs(other.position.x - body.position.x) > .05f && (float)Read("axis") * Mathf.Sign(other.position.x - body.position.x) <= .1f) { wrongDirections++; Debug.Log("AIMATCH DIRECTION i="+i+" axis="+Read("axis")+" rescue="+Read("rescuing")+" gap="+(other.position.x-body.position.x)+" ball="+ball.position); }
             }
             maxError = Mathf.Max(maxError, JointError(player), JointError(opponent));
         }

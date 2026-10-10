@@ -1,0 +1,23 @@
+{
+  "edition": "original",
+  "policyHash": "0B2972C89C20CAC124D3C8A2D075E49E1F563D738C0EA1E49C2203556C521098",
+  "validationVersion": "contact-v6-timeline",
+  "target": 200,
+  "goals": 200,
+  "fanGoals": 93,
+  "zhaoGoals": 107,
+  "matches": 23,
+  "draws": 0,
+  "failures": 0,
+  "jumps": 431,
+  "headers": 671,
+  "tackles": 528,
+  "rescues": 196,
+  "physicsSteps": 98342,
+  "renderedFrames": 259700,
+  "maxPhysicsStepsPerFrame": 6,
+  "simulatedSeconds": 1966.8448486328125,
+  "realSeconds": 75.0381886,
+  "maxJointError": 1,
+  "workers": 2
+}

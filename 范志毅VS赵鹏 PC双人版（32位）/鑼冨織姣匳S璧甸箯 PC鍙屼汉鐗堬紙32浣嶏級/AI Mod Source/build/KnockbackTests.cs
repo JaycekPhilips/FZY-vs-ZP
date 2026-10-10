@@ -111,6 +111,7 @@ public sealed class KnockbackTests : MonoBehaviour
         {
             yield return new WaitForFixedUpdate();
             if(firstHit>=0){maxTravel=Mathf.Max(maxTravel,hitOrigin-Center(fan));if(Time.time-firstHit>.08f)Held.Clear();}
+            if(aerial && i%10==0)Debug.Log("CONTEST AIR step="+i+" travel="+(maxTravel/hitWidth)+" velocity="+Body(fan).velocity+" shove="+Field(fan.GetComponent<PlayerSkills>(),"knockbackUntil"));
             tilt=Mathf.Max(tilt,Tilt(fan));error=Mathf.Max(error,Error(fan),Error(zhao));
             weak|=(bool)Field(fan.GetComponent<PlayerSkills>(),"weakenedBalance");
             if(firstHit>=0&&Time.time-firstHit>.3f&&!(bool)Field(fan.GetComponent<PlayerSkills>(),"weakenedBalance")&&recovered<0)recovered=Time.time-firstHit;

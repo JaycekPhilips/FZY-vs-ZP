@@ -26,7 +26,7 @@ public sealed class ZhaoVolleyTests : MonoBehaviour
     PlayerSkills fs;
     Type playerType;
     int checks, failures, launches, touches, saves;
-    float originalGravity;
+    float originalGravity, nextWatch;
     public static void Boot()
     {
         if (booted) return;
@@ -175,5 +175,5 @@ public sealed class ZhaoVolleyTests : MonoBehaviour
         Debug.Log("DEFENSE COMPLETE baseline=" + Baseline + " checks=" + checks + " launches=" + launches + " touches=" + touches + " saves=" + saves + " failures=" + failures);
         Application.Quit(failures == 0 ? 0 : 1);
     }
-    void Update() { if (Time.realtimeSinceStartup > 90) { Debug.LogError("DEFENSE TIMEOUT"); Application.Quit(2); } }
+    void Update() { if(Time.realtimeSinceStartup>nextWatch){nextWatch=Time.realtimeSinceStartup+10;Debug.Log("DEFENSE WATCH real="+Time.realtimeSinceStartup+" time="+Time.time+" scale="+Time.timeScale+" fixed="+Time.fixedDeltaTime+" checks="+checks);} if (Time.realtimeSinceStartup > 90) { Debug.LogError("DEFENSE TIMEOUT"); Application.Quit(2); } }
 }

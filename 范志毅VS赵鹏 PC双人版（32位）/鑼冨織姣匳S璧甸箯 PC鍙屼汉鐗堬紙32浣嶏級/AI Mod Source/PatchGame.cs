@@ -119,6 +119,7 @@ internal static class PatchGame
         MethodReference attach = game.ImportReference(FindMethod(skills, "Attach"));
         MethodReference action = game.ImportReference(FindMethod(skills, "SetAction"));
         MethodReference jump = game.ImportReference(FindMethod(skills, "GetJumpForce"));
+        MethodReference grounded = game.ImportReference(FindMethod(skills, "GetGrounded"));
         MethodReference touch = game.ImportReference(FindMethod(skills, "OnBallCollision"));
         MethodReference beforeMuscles = game.ImportReference(FindMethod(skills, "BeforeMuscles"));
         TypeDefinition movement = FindType(ai, "PlayerMovement");
@@ -154,6 +155,11 @@ internal static class PatchGame
                     actions++;
                 }
                 FieldReference field = instruction.Operand as FieldReference;
+                if (methodName == "Update" && instruction.OpCode == OpCodes.Stfld && field != null && field.Name == "isOnGround")
+                {
+                    il.InsertBefore(instruction, il.Create(OpCodes.Ldarg_0));
+                    il.InsertBefore(instruction, il.Create(OpCodes.Call, grounded));
+                }
                 if (instruction.OpCode == OpCodes.Ldfld && field != null && (field.Name == "playerSpeed" || field.Name == "maxVelocity"))
                 {
                     Instruction loadPlayer = il.Create(OpCodes.Ldarg_0);

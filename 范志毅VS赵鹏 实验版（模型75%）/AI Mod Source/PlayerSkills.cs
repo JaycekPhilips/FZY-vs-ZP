@@ -114,11 +114,12 @@ public sealed class PlayerSkills : MonoBehaviour
     // A rearward movement command starts one bounded rescue attempt. Steering
     // opposite to it or shooting immediately returns control to the player.
     private float retreatUntil = -1f, standingHeight, standingHeadHeight;
-    private bool retreatHeld, retreatJumped, retreatHeaded, rescueWaiting;
+    private bool retreatHeld, retreatJumped, retreatHeaded, rescueWaiting, retreatJumpQueued;
+    private float rescueJumpRequestedAt = -10f, rescueJumpStarted = -10f, rescueStarted; private int rescueJumpAttempts;
     private float rescueRecoveryUntil = -1f, rescueInput, rescueSpeed, nativeRunSpeed, rescueFloorTime = -1f, rescueFloorHeight;
     private readonly RaycastHit2D[] rescueGroundHits = new RaycastHit2D[24];
     private Collider2D ownGoal;
-    public static float RescueAxis(Component player, float input)
+    public static float RescueAxis(Component player, float input, bool allowStart = true)
     {
         if (!Enabled || player == null || player.name != "Zhao") return input;
         Attach(player);
@@ -128,33 +129,53 @@ public sealed class PlayerSkills : MonoBehaviour
         bool pressed = input > .1f;
         if (s.Stopped() || GameAIMod.BallOutThisRally || s.ball == null)
         { s.retreatUntil = -1f; s.retreatHeld = pressed; return input; }
-        if (pressed && !s.retreatHeld && s.ball.position.x > s.body.position.x + .05f)
-        { s.retreatUntil = Time.time + 2.6f; s.retreatJumped = s.retreatHeaded = false; s.Show(6); }
-        s.retreatHeld = pressed;
+        if (allowStart && pressed && !s.retreatHeld && s.ball.position.x > s.body.position.x + .05f)
+        { s.retreatUntil = Time.time + 2.6f; s.retreatJumped = s.retreatHeaded = s.retreatJumpQueued = false; s.rescueJumpAttempts = 0; s.rescueStarted = Time.time; s.Show(6); }
+        s.retreatHeld = allowStart && pressed;
         if (input < -.1f) s.retreatUntil = s.rescueRecoveryUntil = -1f;
         if (Time.time > s.retreatUntil) return input;
         s.rescueRecoveryUntil = Time.time + 1f;
         float margin = s.standingBodyWidth * .6f + s.ballCollider.bounds.extents.x;
         float goalLine = s.ownGoal != null ? s.ownGoal.bounds.min.x : 100f;
-        float target = Mathf.Min(s.ball.position.x + margin, goalLine - s.standingBodyWidth * .5f - .1f);
+        float rearExtent = s.standingBodyWidth * .5f;
+        foreach (Collider2D limb in s.playerColliders)
+            if (limb != null && !limb.isTrigger) rearExtent = Mathf.Max(rearExtent, limb.bounds.max.x - s.body.position.x);
+        float target = Mathf.Min(s.ball.position.x + margin, goalLine - rearExtent - .12f);
         if (s.body.position.x >= target)
                 {
             if (s.ball.position.x > s.body.position.x && target < s.ball.position.x + margin - .05f)
             { s.rescueWaiting = true; s.rescueSpeed = 0f; return 0f; }
             s.retreatUntil = -1f; return input;
         }
-        float normalSpeed = s.nativeRunSpeed;
-        float remaining = Mathf.Max(0f, target - s.body.position.x);
-        float needed = Mathf.Max(0f, s.ball.velocity.x) + remaining / (s.retreatJumped ? .5f : .8f);
-        s.rescueSpeed = Mathf.Min(Mathf.Clamp(needed, normalSpeed * .75f, normalSpeed * 2f), Mathf.Max(0f, s.ball.velocity.x) + Mathf.Sqrt(24f * remaining));
-        // Low balls are crossed only after the native jump has lifted every
-        // limb above them. This avoids running into a ball toward our own goal.
         float bottom = s.body.position.y;
         foreach (Collider2D limb in s.playerColliders)
             if (limb != null && !limb.isTrigger) bottom = Mathf.Min(bottom, limb.bounds.min.y);
+        float normalSpeed = s.nativeRunSpeed;
+        float remaining = Mathf.Max(0f, target - s.body.position.x);
+        float crossingTime = s.retreatJumped ? .5f : .8f;
+        if (s.retreatJumped && bottom > s.ballCollider.bounds.max.y + .12f)
+        {
+            float gravity = Mathf.Max(.1f, -Physics2D.gravity.y * s.body.gravityScale);
+            float clearance = bottom - s.ballCollider.bounds.max.y - .12f;
+            float airTime = (s.body.velocity.y + Mathf.Sqrt(s.body.velocity.y * s.body.velocity.y + 2f * gravity * clearance)) / gravity;
+            crossingTime = Mathf.Clamp(airTime - .06f, .12f, .5f);
+        }
+        float needed = Mathf.Max(0f, s.ball.velocity.x) + remaining / crossingTime;
+        s.rescueSpeed = Mathf.Min(Mathf.Clamp(needed, normalSpeed * .75f, normalSpeed * 2f), Mathf.Max(0f, s.ball.velocity.x) + Mathf.Sqrt(24f * remaining));
+        // Low balls are crossed only after the native jump has lifted every
+        // limb above them. This avoids running into a ball toward our own goal.
+
         float gap = s.ball.position.x - s.body.position.x;
         float height = s.ball.position.y - s.RescueFloor();
-        if (height < s.standingHeight * .6f && gap < 2.3f && bottom < s.ballCollider.bounds.max.y + .12f) { s.rescueWaiting = true; return 0f; }
+        if (s.ball.velocity.x < -.5f && gap < margin + Mathf.Abs(s.ball.velocity.x) * .25f && height < s.standingHeight * .8f)
+        { s.retreatUntil = -1f; s.rescueWaiting = true; return 0f; }
+        float closing = Mathf.Max(0f, s.body.velocity.x - s.ball.velocity.x);
+        float brakeDistance = closing * .16f + closing * closing / 70f;
+        float landingBottom = bottom + s.body.velocity.y * .16f + .5f * Physics2D.gravity.y * s.body.gravityScale * .16f * .16f;
+        if (height < s.standingHeight * .6f && gap < 2.3f &&
+            (bottom < s.ballCollider.bounds.max.y + .12f ||
+            (landingBottom < s.ballCollider.bounds.max.y + .16f && gap < margin + .15f + brakeDistance)))
+        { s.rescueWaiting = true; return 0f; }
         // A falling high ball may enter the torso band before we can pass it.
         // Hold position rather than add a goalward body collision.
         if (height >= s.standingHeight * .6f && height < s.standingHeight * .8f && gap < margin + .25f) { s.rescueWaiting = true; return 0f; }
@@ -201,12 +222,55 @@ public sealed class PlayerSkills : MonoBehaviour
         float gap = s.ball.position.x - s.body.position.x, height = s.ball.position.y - s.RescueFloor();
         if (jump)
         {
-            if (s.retreatJumped || Mathf.Abs(s.ball.velocity.y) > 1.5f || height >= s.standingHeight * .6f || gap < -.1f || gap > 2.3f || !s.TouchesGround()) return false;
-            s.retreatJumped = true; s.retreatUntil = Mathf.Max(s.retreatUntil, Time.time + 1.5f); return true;
+            if (s.retreatJumpQueued && Time.time - s.rescueJumpRequestedAt > .25f) s.retreatJumpQueued = false;
+            if (s.retreatJumpQueued || s.rescueJumpAttempts >= 2 || Mathf.Abs(s.ball.velocity.y) > 1.5f ||
+                height >= s.standingHeight * .6f || gap < -.1f || gap > 2.3f || !s.RescueHasSupport()) return false;
+            if (s.retreatJumped && Time.time - s.rescueJumpStarted < .75f) return false;
+            s.retreatJumpQueued = true; s.rescueJumpRequestedAt = Time.time; return true;
         }
         if (s.retreatHeaded || s.ball.velocity.y > 1.5f || height < s.standingHeadHeight - s.standingHeight * .15f || height > s.standingHeight || gap < -.1f ||
             Vector2.Distance(s.ball.position, s.head.position) > s.standingBodyWidth * .6f + s.ballCollider.bounds.extents.x + .45f) return false;
         s.retreatHeaded = true; s.retreatUntil = Mathf.Max(s.retreatUntil, Time.time + .65f); return true;
+    }
+    // The native foot-circle can be above the pitch while a real grounded
+    // football supports the feet. Permit the same native jump from that
+    // contact chain only during a low-ball rescue, never from free air.
+    private bool RescueHasSupport()
+    {
+        if (TouchesGround()) return true;
+        if (ballCollider == null || Mathf.Abs(body.velocity.y) > 1.2f) return false;
+        bool groundedBall = false;
+        int count = ballCollider.GetContacts(groundContacts);
+        for (int i = 0; i < count; i++)
+        {
+            ContactPoint2D point = groundContacts[i];
+            Collider2D other = point.collider == ballCollider ? point.otherCollider : point.collider;
+            if (other == null || other.isTrigger || other.transform.root.name == "Fan" || other.transform.root.name == "Zhao") continue;
+            Vector2 normal = point.normal; if (Vector2.Dot(normal, ball.position - point.point) < 0f) normal = -normal;
+            if (normal.y > .5f) { groundedBall = true; break; }
+        }
+        if (!groundedBall) return false;
+        foreach (Collider2D limb in playerColliders)
+            if (limb != null && !limb.isTrigger && (limb.name.IndexOf("Leg", StringComparison.OrdinalIgnoreCase) >= 0 || limb.name.IndexOf("Foot", StringComparison.OrdinalIgnoreCase) >= 0) && limb.IsTouching(ballCollider)) return true;
+        return false;
+    }
+    public static bool GetGrounded(bool native, Component player)
+    {
+        if (native) return true;
+        PlayerSkills s = player != null ? player.GetComponent<PlayerSkills>() : null;
+        return s != null && !s.fan && !s.Stopped() && !GameAIMod.BallOutThisRally && Time.time <= s.retreatUntil &&
+            !s.retreatJumpQueued && s.rescueJumpAttempts < 2 &&
+            s.ball.position.y - s.RescueFloor() < s.standingHeight * .6f && s.RescueHasSupport();
+    }
+    public static bool RescueActive(Component player)
+    {
+        PlayerSkills s = player != null ? player.GetComponent<PlayerSkills>() : null;
+        return s != null && !s.fan && !s.Stopped() && !GameAIMod.BallOutThisRally && Time.time <= s.retreatUntil;
+    }
+    public static bool RescueRecovering(Component player)
+    {
+        PlayerSkills s = player != null ? player.GetComponent<PlayerSkills>() : null;
+        return s != null && !s.fan && !s.Stopped() && !GameAIMod.BallOutThisRally && Time.time <= s.rescueRecoveryUntil;
     }
     public static bool BackwardHeaderPose(Component player) { PlayerSkills s = player != null ? player.GetComponent<PlayerSkills>() : null; return s != null && !s.fan && !s.Stopped() && !GameAIMod.BallOutThisRally && s.retreatHeaded && Time.time <= s.retreatUntil; }
     public bool AwaitingFanHeader { get { return fan && Enabled && BallInFront() && headUntil >= Time.time; } }
@@ -405,6 +469,11 @@ public sealed class PlayerSkills : MonoBehaviour
     private void BeginAction(string action)
     {
         if (Stopped()) return;
+        if (action == "Jump" && retreatJumpQueued && Time.time <= retreatUntil)
+        {
+            retreatJumpQueued = false; retreatJumped = true; rescueJumpAttempts++; rescueJumpStarted = Time.time;
+            retreatUntil = Mathf.Min(rescueStarted + 3.6f, Mathf.Max(retreatUntil, Time.time + 1.5f));
+        }
         if (action == "Kick" || (action == "Head" && !retreatHeaded)) retreatUntil = -1f;
         // Aerial Fortress boosts any normal Zhao jump, even with a rear ball.
         if (!BallInFront())
@@ -836,6 +905,7 @@ public sealed class PlayerSkills : MonoBehaviour
         Collider2D touched = collision.collider;
         if (touched == null) return;
         PlayerSkills playerAtContact = touched.GetComponentInParent<PlayerSkills>();
+        if (playerAtContact != null) playerAtContact.CushionRescueContact(touched);
         if (playerAtContact != null && !power)
             for (int i = 0; i < collision.contactCount; i++)
             {
@@ -859,6 +929,33 @@ public sealed class PlayerSkills : MonoBehaviour
         }
     }
 
+    // Absorb a real player collision during rescue instead of allowing
+    // the running rig to accelerate a returning ball into its own goal.
+    // The defensive contact absorbs the horizontal impulse; no collider,
+    // position, scoring rule or incoming shot is changed without contact.
+    private void CushionRescueContact(Collider2D touched)
+    {
+        if (!Enabled || fan || Stopped() || GameAIMod.BallOutThisRally || ball == null ||
+            (Time.time > retreatUntil && Time.time > rescueRecoveryUntil)) return;
+
+        if (touched == headCollider && retreatHeaded && Time.time <= retreatUntil)
+        { if (RescueHeader(controller)) return; }
+        // Preserve the existing deliberate backward header above the crossbar.
+        if (retreatHeaded && ownGoal != null && ball.velocity.x > 0f && ball.velocity.y > 0f)
+        {
+            float t = (ownGoal.bounds.min.x - ballCollider.bounds.max.x) / ball.velocity.x;
+            float ceiling = BallBoundaryGuard.FindGoalCeiling(ownGoal) + ballCollider.bounds.extents.y + .25f;
+            if (t > 0f && ball.position.y + ball.velocity.y * t + .5f * Physics2D.gravity.y * ball.gravityScale * t * t > ceiling) return;
+        }
+        // Clockwise spin becomes goalward rolling velocity at the next pitch
+        // bounce. Absorb it at this real defensive contact as well.
+        if (ball.angularVelocity < 0f)
+            ball.AddTorque(-ball.angularVelocity * Mathf.Deg2Rad * ball.inertia, ForceMode2D.Impulse);
+        if (ball.velocity.x <= 0f) return;
+        float momentum = ball.velocity.x * ball.mass;
+        ball.AddForce(Vector2.left * momentum, ForceMode2D.Impulse);
+
+    }
     private bool HeadReachable()
     {
         if (!BallInFront() || head == null || ball.position.y < -.6f) return false;
@@ -1290,7 +1387,7 @@ public sealed class PlayerSkills : MonoBehaviour
     {
         RestoreDribbleSpeed();
         quickDrop = false;
-        retreatUntil = rescueRecoveryUntil = -1f; retreatHeld = retreatJumped = retreatHeaded = rescueWaiting = false;
+        retreatUntil = rescueRecoveryUntil = -1f; retreatHeld = retreatJumped = retreatHeaded = rescueWaiting = retreatJumpQueued = false; rescueJumpAttempts = 0;
         dropStarted = -10f;
         RestoreBallDetection();
         RestoreTacklePhysics();
