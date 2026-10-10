@@ -1,0 +1,30 @@
+{
+  "edition": "experiment",
+  "baseline": true,
+  "policyHash": "3BAD64DA6A2C98B1AD0DB2B30AFB16A56400A8DF87776FA6E121414ED6EF51E4",
+  "goals": 2000,
+  "fanGoals": 1028,
+  "zhaoGoals": 972,
+  "fanGoalShare": 51.4,
+  "fanReward": 56,
+  "failures": 0,
+  "fanJumps": 2969,
+  "fanHeaders": 12449,
+  "fanKicks": 25919,
+  "goalContexts": {
+    "Fan:contest": 347,
+    "Zhao:rear_ball": 149,
+    "Fan:ground_or_serve": 85,
+    "Zhao:contest": 371,
+    "Fan:aerial": 596,
+    "Zhao:ground_or_serve": 3,
+    "Zhao:aerial": 449
+  },
+  "rearBallLosses": 803,
+  "highBallLosses": 549,
+  "contestLosses": 371,
+  "nearBallWithoutStrikeLosses": 719,
+  "maxJointError": 0.9872241020202637,
+  "simulatedSeconds": 21391.03759765625,
+  "physicsSteps": 1069548
+}

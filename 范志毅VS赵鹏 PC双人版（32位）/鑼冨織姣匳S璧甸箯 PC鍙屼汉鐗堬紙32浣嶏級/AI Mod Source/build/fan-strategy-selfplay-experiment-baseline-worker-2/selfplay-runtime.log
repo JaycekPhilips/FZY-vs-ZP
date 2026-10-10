@@ -1,0 +1,1938 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/fan-strategy-selfplay-experiment-baseline-worker-2/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/fan-strategy-selfplay-experiment-baseline-worker-2/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/鑼冨織姣匳S璧甸箯 PC鍙屼汉鐗堬紙32浣嶏級/AI Mod Source/build/fan-strategy-selfplay-experiment-baseline-worker-2/FanZhiYi_Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; threaded=0
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.132 seconds
+Microsoft Media Foundation video decoding to texture disabled: graphics device is Null, only Direct3D 11 and Direct3D 12 (only on desktop) are supported for hardware-accelerated video decoding.
+UnloadTime: 0.669000 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.156900 ms
+
+Unloading 145 unused Assets to reduce memory usage. Loaded Objects now: 1003.
+Total: 0.510100 ms (FindLiveObjects: 0.041200 ms CreateObjectMapping: 0.010100 ms MarkObjects: 0.234700 ms  DeleteObjects: 0.223400 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 101 scorer=Fan ZhaoReward=-1 total=53:48 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 102 scorer=Fan ZhaoReward=-1 total=54:48 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 103 scorer=Zhao ZhaoReward=1 total=54:49 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 104 scorer=Zhao ZhaoReward=1 total=54:50 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 105 scorer=Zhao ZhaoReward=1 total=54:51 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 106 scorer=Fan ZhaoReward=-1 total=55:51 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 107 scorer=Zhao ZhaoReward=1 total=55:52 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 108 scorer=Fan ZhaoReward=-1 total=56:52 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 13 goals=8 total=108 score=4:4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.113100 ms
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.299200 ms (FindLiveObjects: 0.043700 ms CreateObjectMapping: 0.009300 ms MarkObjects: 0.245000 ms  DeleteObjects: 1.000600 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 109 scorer=Fan ZhaoReward=-1 total=57:52 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 110 scorer=Fan ZhaoReward=-1 total=58:52 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 111 scorer=Fan ZhaoReward=-1 total=59:52 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 112 scorer=Fan ZhaoReward=-1 total=60:52 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 113 scorer=Zhao ZhaoReward=1 total=60:53 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 14 goals=5 total=113 score=4:1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.699600 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.228700 ms (FindLiveObjects: 0.045100 ms CreateObjectMapping: 0.010700 ms MarkObjects: 0.311800 ms  DeleteObjects: 0.860500 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 114 scorer=Fan ZhaoReward=-1 total=61:53 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 115 scorer=Zhao ZhaoReward=1 total=61:54 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 116 scorer=Zhao ZhaoReward=1 total=61:55 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 117 scorer=Fan ZhaoReward=-1 total=62:55 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 118 scorer=Fan ZhaoReward=-1 total=63:55 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 119 scorer=Fan ZhaoReward=-1 total=64:55 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 120 scorer=Zhao ZhaoReward=1 total=64:56 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 121 scorer=Zhao ZhaoReward=1 total=64:57 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 15 goals=8 total=121 score=4:4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.660800 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.415100 ms (FindLiveObjects: 0.041400 ms CreateObjectMapping: 0.010800 ms MarkObjects: 0.309900 ms  DeleteObjects: 1.052700 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 122 scorer=Zhao ZhaoReward=1 total=64:58 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 123 scorer=Zhao ZhaoReward=1 total=64:59 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 124 scorer=Fan ZhaoReward=-1 total=65:59 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 125 scorer=Zhao ZhaoReward=1 total=65:60 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 126 scorer=Fan ZhaoReward=-1 total=66:60 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 127 scorer=Fan ZhaoReward=-1 total=67:60 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 128 scorer=Zhao ZhaoReward=1 total=67:61 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 129 scorer=Zhao ZhaoReward=1 total=67:62 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 130 scorer=Zhao ZhaoReward=1 total=67:63 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 131 scorer=Fan ZhaoReward=-1 total=68:63 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 16 goals=10 total=131 score=4:6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.876800 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.178600 ms (FindLiveObjects: 0.041200 ms CreateObjectMapping: 0.008900 ms MarkObjects: 0.244100 ms  DeleteObjects: 0.884000 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 132 scorer=Fan ZhaoReward=-1 total=69:63 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 133 scorer=Zhao ZhaoReward=1 total=69:64 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 134 scorer=Fan ZhaoReward=-1 total=70:64 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 135 scorer=Fan ZhaoReward=-1 total=71:64 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 136 scorer=Zhao ZhaoReward=1 total=71:65 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 137 scorer=Zhao ZhaoReward=1 total=71:66 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 17 goals=6 total=137 score=3:3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.659300 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.152500 ms (FindLiveObjects: 0.040100 ms CreateObjectMapping: 0.013000 ms MarkObjects: 0.259300 ms  DeleteObjects: 0.839600 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 138 scorer=Zhao ZhaoReward=1 total=71:67 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 139 scorer=Fan ZhaoReward=-1 total=72:67 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 140 scorer=Fan ZhaoReward=-1 total=73:67 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 141 scorer=Zhao ZhaoReward=1 total=73:68 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 142 scorer=Fan ZhaoReward=-1 total=74:68 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 143 scorer=Zhao ZhaoReward=1 total=74:69 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 144 scorer=Fan ZhaoReward=-1 total=75:69 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 145 scorer=Zhao ZhaoReward=1 total=75:70 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 146 scorer=Fan ZhaoReward=-1 total=76:70 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 147 scorer=Zhao ZhaoReward=1 total=76:71 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 148 scorer=Fan ZhaoReward=-1 total=77:71 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 18 goals=11 total=148 score=6:5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.634300 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.242500 ms (FindLiveObjects: 0.043400 ms CreateObjectMapping: 0.011000 ms MarkObjects: 0.263200 ms  DeleteObjects: 0.924400 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 149 scorer=Zhao ZhaoReward=1 total=77:72 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 150 scorer=Fan ZhaoReward=-1 total=78:72 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 151 scorer=Zhao ZhaoReward=1 total=78:73 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 152 scorer=Zhao ZhaoReward=1 total=78:74 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 153 scorer=Zhao ZhaoReward=1 total=78:75 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 154 scorer=Fan ZhaoReward=-1 total=79:75 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 155 scorer=Zhao ZhaoReward=1 total=79:76 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 156 scorer=Fan ZhaoReward=-1 total=80:76 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 19 goals=8 total=156 score=3:5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.661400 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.244500 ms (FindLiveObjects: 0.042900 ms CreateObjectMapping: 0.009500 ms MarkObjects: 0.320900 ms  DeleteObjects: 0.870700 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 157 scorer=Zhao ZhaoReward=1 total=80:77 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY PROGRESS goals=157/500 matches=20 score=80:77 real=75.50159 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 158 scorer=Zhao ZhaoReward=1 total=80:78 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 159 scorer=Zhao ZhaoReward=1 total=80:79 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 160 scorer=Zhao ZhaoReward=1 total=80:80 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 161 scorer=Zhao ZhaoReward=1 total=80:81 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 162 scorer=Zhao ZhaoReward=1 total=80:82 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 163 scorer=Zhao ZhaoReward=1 total=80:83 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 164 scorer=Fan ZhaoReward=-1 total=81:83 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 20 goals=8 total=164 score=1:7 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.750600 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.242900 ms (FindLiveObjects: 0.043000 ms CreateObjectMapping: 0.009700 ms MarkObjects: 0.297900 ms  DeleteObjects: 0.891700 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 165 scorer=Zhao ZhaoReward=1 total=81:84 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 166 scorer=Fan ZhaoReward=-1 total=82:84 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 167 scorer=Fan ZhaoReward=-1 total=83:84 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 168 scorer=Zhao ZhaoReward=1 total=83:85 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 169 scorer=Zhao ZhaoReward=1 total=83:86 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 170 scorer=Zhao ZhaoReward=1 total=83:87 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 21 goals=6 total=170 score=2:4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.890200 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.459500 ms (FindLiveObjects: 0.048800 ms CreateObjectMapping: 0.010500 ms MarkObjects: 0.290000 ms  DeleteObjects: 1.109800 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 171 scorer=Zhao ZhaoReward=1 total=83:88 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 172 scorer=Zhao ZhaoReward=1 total=83:89 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 173 scorer=Zhao ZhaoReward=1 total=83:90 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 174 scorer=Zhao ZhaoReward=1 total=83:91 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 175 scorer=Zhao ZhaoReward=1 total=83:92 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 176 scorer=Zhao ZhaoReward=1 total=83:93 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 22 goals=6 total=176 score=0:6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.652700 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.389600 ms (FindLiveObjects: 0.043800 ms CreateObjectMapping: 0.009700 ms MarkObjects: 0.283500 ms  DeleteObjects: 1.052000 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 177 scorer=Zhao ZhaoReward=1 total=83:94 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 178 scorer=Fan ZhaoReward=-1 total=84:94 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 179 scorer=Fan ZhaoReward=-1 total=85:94 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 180 scorer=Fan ZhaoReward=-1 total=86:94 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 181 scorer=Zhao ZhaoReward=1 total=86:95 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 182 scorer=Zhao ZhaoReward=1 total=86:96 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 183 scorer=Fan ZhaoReward=-1 total=87:96 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 184 scorer=Zhao ZhaoReward=1 total=87:97 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 23 goals=8 total=184 score=4:4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.752000 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.460700 ms (FindLiveObjects: 0.046400 ms CreateObjectMapping: 0.010600 ms MarkObjects: 0.290500 ms  DeleteObjects: 1.112600 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 185 scorer=Fan ZhaoReward=-1 total=88:97 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 186 scorer=Fan ZhaoReward=-1 total=89:97 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 24 goals=2 total=186 score=2:0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.327200 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.321900 ms (FindLiveObjects: 0.054300 ms CreateObjectMapping: 0.010800 ms MarkObjects: 0.295200 ms  DeleteObjects: 0.960800 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 187 scorer=Fan ZhaoReward=-1 total=90:97 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 188 scorer=Fan ZhaoReward=-1 total=91:97 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 189 scorer=Fan ZhaoReward=-1 total=92:97 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 190 scorer=Fan ZhaoReward=-1 total=93:97 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 191 scorer=Zhao ZhaoReward=1 total=93:98 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 192 scorer=Fan ZhaoReward=-1 total=94:98 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 193 scorer=Fan ZhaoReward=-1 total=95:98 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 194 scorer=Fan ZhaoReward=-1 total=96:98 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 195 scorer=Zhao ZhaoReward=1 total=96:99 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 196 scorer=Fan ZhaoReward=-1 total=97:99 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 25 goals=10 total=196 score=8:2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.561100 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.311600 ms (FindLiveObjects: 0.041500 ms CreateObjectMapping: 0.009700 ms MarkObjects: 0.354300 ms  DeleteObjects: 0.905800 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 197 scorer=Fan ZhaoReward=-1 total=98:99 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 198 scorer=Fan ZhaoReward=-1 total=99:99 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 199 scorer=Zhao ZhaoReward=1 total=99:100 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 200 scorer=Fan ZhaoReward=-1 total=100:100 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 201 scorer=Fan ZhaoReward=-1 total=101:100 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 202 scorer=Fan ZhaoReward=-1 total=102:100 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 203 scorer=Zhao ZhaoReward=1 total=102:101 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 204 scorer=Fan ZhaoReward=-1 total=103:101 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 205 scorer=Fan ZhaoReward=-1 total=104:101 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 206 scorer=Fan ZhaoReward=-1 total=105:101 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 26 goals=10 total=206 score=8:2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.472400 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.375900 ms (FindLiveObjects: 0.045100 ms CreateObjectMapping: 0.011300 ms MarkObjects: 0.360100 ms  DeleteObjects: 0.959200 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 207 scorer=Fan ZhaoReward=-1 total=106:101 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 208 scorer=Fan ZhaoReward=-1 total=107:101 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 209 scorer=Zhao ZhaoReward=1 total=107:102 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY PROGRESS goals=209/500 matches=27 score=107:102 real=105.5023 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 210 scorer=Fan ZhaoReward=-1 total=108:102 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 211 scorer=Zhao ZhaoReward=1 total=108:103 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 27 goals=5 total=211 score=3:2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.623700 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.534300 ms (FindLiveObjects: 0.058500 ms CreateObjectMapping: 0.012300 ms MarkObjects: 0.444700 ms  DeleteObjects: 1.018000 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 212 scorer=Fan ZhaoReward=-1 total=109:103 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 213 scorer=Zhao ZhaoReward=1 total=109:104 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 214 scorer=Fan ZhaoReward=-1 total=110:104 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 215 scorer=Fan ZhaoReward=-1 total=111:104 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 216 scorer=Fan ZhaoReward=-1 total=112:104 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 217 scorer=Fan ZhaoReward=-1 total=113:104 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 218 scorer=Fan ZhaoReward=-1 total=114:104 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 219 scorer=Fan ZhaoReward=-1 total=115:104 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 220 scorer=Fan ZhaoReward=-1 total=116:104 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 221 scorer=Zhao ZhaoReward=1 total=116:105 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 222 scorer=Zhao ZhaoReward=1 total=116:106 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 28 goals=11 total=222 score=8:3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.433000 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.359500 ms (FindLiveObjects: 0.039000 ms CreateObjectMapping: 0.009400 ms MarkObjects: 0.254500 ms  DeleteObjects: 1.056200 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 223 scorer=Fan ZhaoReward=-1 total=117:106 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 224 scorer=Zhao ZhaoReward=1 total=117:107 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 225 scorer=Fan ZhaoReward=-1 total=118:107 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 226 scorer=Zhao ZhaoReward=1 total=118:108 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 227 scorer=Fan ZhaoReward=-1 total=119:108 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 228 scorer=Zhao ZhaoReward=1 total=119:109 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 229 scorer=Fan ZhaoReward=-1 total=120:109 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 230 scorer=Zhao ZhaoReward=1 total=120:110 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 231 scorer=Fan ZhaoReward=-1 total=121:110 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 232 scorer=Fan ZhaoReward=-1 total=122:110 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 29 goals=10 total=232 score=6:4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.695800 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.472300 ms (FindLiveObjects: 0.043900 ms CreateObjectMapping: 0.011200 ms MarkObjects: 0.353500 ms  DeleteObjects: 1.063300 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 233 scorer=Fan ZhaoReward=-1 total=123:110 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 234 scorer=Zhao ZhaoReward=1 total=123:111 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 235 scorer=Fan ZhaoReward=-1 total=124:111 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 236 scorer=Zhao ZhaoReward=1 total=124:112 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 237 scorer=Zhao ZhaoReward=1 total=124:113 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 238 scorer=Zhao ZhaoReward=1 total=124:114 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 30 goals=6 total=238 score=2:4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.742600 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.457600 ms (FindLiveObjects: 0.041900 ms CreateObjectMapping: 0.009100 ms MarkObjects: 0.375700 ms  DeleteObjects: 1.030700 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 239 scorer=Zhao ZhaoReward=1 total=124:115 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 240 scorer=Fan ZhaoReward=-1 total=125:115 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 241 scorer=Zhao ZhaoReward=1 total=125:116 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 242 scorer=Fan ZhaoReward=-1 total=126:116 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 31 goals=4 total=242 score=2:2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.641100 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.506300 ms (FindLiveObjects: 0.055900 ms CreateObjectMapping: 0.012600 ms MarkObjects: 0.360100 ms  DeleteObjects: 1.077300 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 243 scorer=Zhao ZhaoReward=1 total=126:117 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 244 scorer=Zhao ZhaoReward=1 total=126:118 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 245 scorer=Zhao ZhaoReward=1 total=126:119 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 246 scorer=Zhao ZhaoReward=1 total=126:120 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 247 scorer=Fan ZhaoReward=-1 total=127:120 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 248 scorer=Fan ZhaoReward=-1 total=128:120 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 32 goals=6 total=248 score=2:4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.551400 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.355900 ms (FindLiveObjects: 0.040700 ms CreateObjectMapping: 0.009300 ms MarkObjects: 0.347000 ms  DeleteObjects: 0.958600 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 249 scorer=Fan ZhaoReward=-1 total=129:120 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 250 scorer=Zhao ZhaoReward=1 total=129:121 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 251 scorer=Zhao ZhaoReward=1 total=129:122 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 252 scorer=Fan ZhaoReward=-1 total=130:122 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 253 scorer=Fan ZhaoReward=-1 total=131:122 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 254 scorer=Zhao ZhaoReward=1 total=131:123 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 255 scorer=Zhao ZhaoReward=1 total=131:124 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 256 scorer=Fan ZhaoReward=-1 total=132:124 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 257 scorer=Fan ZhaoReward=-1 total=133:124 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 258 scorer=Zhao ZhaoReward=1 total=133:125 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 259 scorer=Zhao ZhaoReward=1 total=133:126 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 260 scorer=Fan ZhaoReward=-1 total=134:126 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 33 goals=12 total=260 score=6:6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.420000 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.450000 ms (FindLiveObjects: 0.043800 ms CreateObjectMapping: 0.010800 ms MarkObjects: 0.375000 ms  DeleteObjects: 1.020100 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 261 scorer=Fan ZhaoReward=-1 total=135:126 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 262 scorer=Fan ZhaoReward=-1 total=136:126 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 263 scorer=Fan ZhaoReward=-1 total=137:126 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 264 scorer=Zhao ZhaoReward=1 total=137:127 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 265 scorer=Fan ZhaoReward=-1 total=138:127 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 266 scorer=Fan ZhaoReward=-1 total=139:127 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 267 scorer=Fan ZhaoReward=-1 total=140:127 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 268 scorer=Zhao ZhaoReward=1 total=140:128 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 269 scorer=Zhao ZhaoReward=1 total=140:129 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 270 scorer=Fan ZhaoReward=-1 total=141:129 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 271 scorer=Fan ZhaoReward=-1 total=142:129 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 34 goals=11 total=271 score=8:3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.547700 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.505600 ms (FindLiveObjects: 0.052100 ms CreateObjectMapping: 0.011000 ms MarkObjects: 0.384100 ms  DeleteObjects: 1.057900 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY PROGRESS goals=271/500 matches=35 score=142:129 real=135.7817 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 272 scorer=Fan ZhaoReward=-1 total=143:129 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 273 scorer=Zhao ZhaoReward=1 total=143:130 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 274 scorer=Fan ZhaoReward=-1 total=144:130 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 275 scorer=Zhao ZhaoReward=1 total=144:131 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 276 scorer=Zhao ZhaoReward=1 total=144:132 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 277 scorer=Fan ZhaoReward=-1 total=145:132 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 278 scorer=Zhao ZhaoReward=1 total=145:133 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 279 scorer=Zhao ZhaoReward=1 total=145:134 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 280 scorer=Zhao ZhaoReward=1 total=145:135 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 281 scorer=Fan ZhaoReward=-1 total=146:135 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 35 goals=10 total=281 score=4:6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.508400 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.235700 ms (FindLiveObjects: 0.041900 ms CreateObjectMapping: 0.009300 ms MarkObjects: 0.287600 ms  DeleteObjects: 0.896200 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 282 scorer=Fan ZhaoReward=-1 total=147:135 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 283 scorer=Zhao ZhaoReward=1 total=147:136 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 284 scorer=Zhao ZhaoReward=1 total=147:137 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 285 scorer=Fan ZhaoReward=-1 total=148:137 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 286 scorer=Zhao ZhaoReward=1 total=148:138 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 287 scorer=Zhao ZhaoReward=1 total=148:139 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 288 scorer=Fan ZhaoReward=-1 total=149:139 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 289 scorer=Fan ZhaoReward=-1 total=150:139 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 290 scorer=Fan ZhaoReward=-1 total=151:139 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 291 scorer=Zhao ZhaoReward=1 total=151:140 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 36 goals=10 total=291 score=5:5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.821000 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.558500 ms (FindLiveObjects: 0.046000 ms CreateObjectMapping: 0.011600 ms MarkObjects: 0.309800 ms  DeleteObjects: 1.190700 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 292 scorer=Fan ZhaoReward=-1 total=152:140 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 293 scorer=Zhao ZhaoReward=1 total=152:141 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 294 scorer=Zhao ZhaoReward=1 total=152:142 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 295 scorer=Zhao ZhaoReward=1 total=152:143 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 296 scorer=Zhao ZhaoReward=1 total=152:144 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 297 scorer=Zhao ZhaoReward=1 total=152:145 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 298 scorer=Fan ZhaoReward=-1 total=153:145 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 299 scorer=Zhao ZhaoReward=1 total=153:146 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 300 scorer=Zhao ZhaoReward=1 total=153:147 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 37 goals=9 total=300 score=2:7 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.567400 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.353000 ms (FindLiveObjects: 0.049200 ms CreateObjectMapping: 0.011500 ms MarkObjects: 0.328300 ms  DeleteObjects: 0.963400 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 301 scorer=Zhao ZhaoReward=1 total=153:148 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 302 scorer=Zhao ZhaoReward=1 total=153:149 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 303 scorer=Zhao ZhaoReward=1 total=153:150 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 304 scorer=Fan ZhaoReward=-1 total=154:150 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 305 scorer=Fan ZhaoReward=-1 total=155:150 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 306 scorer=Fan ZhaoReward=-1 total=156:150 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 307 scorer=Fan ZhaoReward=-1 total=157:150 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 308 scorer=Zhao ZhaoReward=1 total=157:151 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 309 scorer=Fan ZhaoReward=-1 total=158:151 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 310 scorer=Zhao ZhaoReward=1 total=158:152 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 38 goals=10 total=310 score=5:5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.507800 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.509400 ms (FindLiveObjects: 0.052600 ms CreateObjectMapping: 0.011100 ms MarkObjects: 0.444000 ms  DeleteObjects: 1.000900 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 311 scorer=Fan ZhaoReward=-1 total=159:152 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 312 scorer=Zhao ZhaoReward=1 total=159:153 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 313 scorer=Zhao ZhaoReward=1 total=159:154 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 314 scorer=Fan ZhaoReward=-1 total=160:154 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 315 scorer=Fan ZhaoReward=-1 total=161:154 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 316 scorer=Fan ZhaoReward=-1 total=162:154 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 317 scorer=Zhao ZhaoReward=1 total=162:155 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 39 goals=7 total=317 score=4:3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.537000 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.653600 ms (FindLiveObjects: 0.051900 ms CreateObjectMapping: 0.011200 ms MarkObjects: 0.412500 ms  DeleteObjects: 1.176800 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 318 scorer=Fan ZhaoReward=-1 total=163:155 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 319 scorer=Fan ZhaoReward=-1 total=164:155 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 320 scorer=Fan ZhaoReward=-1 total=165:155 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 321 scorer=Zhao ZhaoReward=1 total=165:156 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 322 scorer=Fan ZhaoReward=-1 total=166:156 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 323 scorer=Fan ZhaoReward=-1 total=167:156 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 324 scorer=Fan ZhaoReward=-1 total=168:156 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 325 scorer=Zhao ZhaoReward=1 total=168:157 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 326 scorer=Fan ZhaoReward=-1 total=169:157 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 327 scorer=Zhao ZhaoReward=1 total=169:158 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 40 goals=10 total=327 score=7:3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.481000 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.533800 ms (FindLiveObjects: 0.044700 ms CreateObjectMapping: 0.011300 ms MarkObjects: 0.320400 ms  DeleteObjects: 1.156900 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 328 scorer=Fan ZhaoReward=-1 total=170:158 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 329 scorer=Zhao ZhaoReward=1 total=170:159 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 330 scorer=Fan ZhaoReward=-1 total=171:159 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 331 scorer=Zhao ZhaoReward=1 total=171:160 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 332 scorer=Fan ZhaoReward=-1 total=172:160 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 333 scorer=Fan ZhaoReward=-1 total=173:160 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 334 scorer=Fan ZhaoReward=-1 total=174:160 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 335 scorer=Fan ZhaoReward=-1 total=175:160 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 41 goals=8 total=335 score=6:2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.498400 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.545700 ms (FindLiveObjects: 0.051100 ms CreateObjectMapping: 0.010900 ms MarkObjects: 0.366500 ms  DeleteObjects: 1.116300 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 336 scorer=Fan ZhaoReward=-1 total=176:160 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 337 scorer=Fan ZhaoReward=-1 total=177:160 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 338 scorer=Zhao ZhaoReward=1 total=177:161 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 339 scorer=Fan ZhaoReward=-1 total=178:161 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY PROGRESS goals=339/500 matches=42 score=178:161 real=165.786 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 340 scorer=Fan ZhaoReward=-1 total=179:161 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 341 scorer=Fan ZhaoReward=-1 total=180:161 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 342 scorer=Zhao ZhaoReward=1 total=180:162 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 343 scorer=Zhao ZhaoReward=1 total=180:163 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 344 scorer=Zhao ZhaoReward=1 total=180:164 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 345 scorer=Fan ZhaoReward=-1 total=181:164 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 346 scorer=Zhao ZhaoReward=1 total=181:165 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 42 goals=11 total=346 score=6:5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.577300 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.303100 ms (FindLiveObjects: 0.041600 ms CreateObjectMapping: 0.009900 ms MarkObjects: 0.301400 ms  DeleteObjects: 0.949700 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 347 scorer=Fan ZhaoReward=-1 total=182:165 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 348 scorer=Zhao ZhaoReward=1 total=182:166 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 349 scorer=Zhao ZhaoReward=1 total=182:167 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 350 scorer=Zhao ZhaoReward=1 total=182:168 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 351 scorer=Zhao ZhaoReward=1 total=182:169 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 352 scorer=Zhao ZhaoReward=1 total=182:170 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 353 scorer=Zhao ZhaoReward=1 total=182:171 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 354 scorer=Zhao ZhaoReward=1 total=182:172 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 355 scorer=Fan ZhaoReward=-1 total=183:172 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 43 goals=9 total=355 score=2:7 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.452100 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.425000 ms (FindLiveObjects: 0.049800 ms CreateObjectMapping: 0.014600 ms MarkObjects: 0.378600 ms  DeleteObjects: 0.981500 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 356 scorer=Fan ZhaoReward=-1 total=184:172 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 357 scorer=Zhao ZhaoReward=1 total=184:173 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 358 scorer=Fan ZhaoReward=-1 total=185:173 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 359 scorer=Zhao ZhaoReward=1 total=185:174 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 360 scorer=Fan ZhaoReward=-1 total=186:174 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 361 scorer=Zhao ZhaoReward=1 total=186:175 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 362 scorer=Zhao ZhaoReward=1 total=186:176 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 44 goals=7 total=362 score=3:4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.627000 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.237100 ms (FindLiveObjects: 0.041800 ms CreateObjectMapping: 0.009100 ms MarkObjects: 0.307900 ms  DeleteObjects: 0.877800 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 363 scorer=Zhao ZhaoReward=1 total=186:177 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 364 scorer=Zhao ZhaoReward=1 total=186:178 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 365 scorer=Zhao ZhaoReward=1 total=186:179 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 366 scorer=Zhao ZhaoReward=1 total=186:180 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 367 scorer=Fan ZhaoReward=-1 total=187:180 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 368 scorer=Fan ZhaoReward=-1 total=188:180 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 369 scorer=Zhao ZhaoReward=1 total=188:181 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 45 goals=7 total=369 score=2:5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.662800 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.359700 ms (FindLiveObjects: 0.048200 ms CreateObjectMapping: 0.011200 ms MarkObjects: 0.330800 ms  DeleteObjects: 0.968700 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 370 scorer=Fan ZhaoReward=-1 total=189:181 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 371 scorer=Zhao ZhaoReward=1 total=189:182 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 372 scorer=Zhao ZhaoReward=1 total=189:183 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 373 scorer=Fan ZhaoReward=-1 total=190:183 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 374 scorer=Fan ZhaoReward=-1 total=191:183 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 375 scorer=Zhao ZhaoReward=1 total=191:184 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 376 scorer=Zhao ZhaoReward=1 total=191:185 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 377 scorer=Fan ZhaoReward=-1 total=192:185 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 378 scorer=Zhao ZhaoReward=1 total=192:186 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 379 scorer=Fan ZhaoReward=-1 total=193:186 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 380 scorer=Fan ZhaoReward=-1 total=194:186 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 381 scorer=Zhao ZhaoReward=1 total=194:187 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 382 scorer=Fan ZhaoReward=-1 total=195:187 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 383 scorer=Zhao ZhaoReward=1 total=195:188 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 384 scorer=Fan ZhaoReward=-1 total=196:188 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 385 scorer=Fan ZhaoReward=-1 total=197:188 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 46 goals=16 total=385 score=9:7 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.504900 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.241600 ms (FindLiveObjects: 0.041500 ms CreateObjectMapping: 0.009300 ms MarkObjects: 0.290800 ms  DeleteObjects: 0.899600 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 386 scorer=Fan ZhaoReward=-1 total=198:188 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 387 scorer=Zhao ZhaoReward=1 total=198:189 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 388 scorer=Zhao ZhaoReward=1 total=198:190 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 389 scorer=Fan ZhaoReward=-1 total=199:190 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 390 scorer=Zhao ZhaoReward=1 total=199:191 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 391 scorer=Fan ZhaoReward=-1 total=200:191 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 47 goals=6 total=391 score=3:3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.506600 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.332700 ms (FindLiveObjects: 0.046600 ms CreateObjectMapping: 0.010700 ms MarkObjects: 0.303100 ms  DeleteObjects: 0.971800 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 392 scorer=Fan ZhaoReward=-1 total=201:191 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 393 scorer=Zhao ZhaoReward=1 total=201:192 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 394 scorer=Fan ZhaoReward=-1 total=202:192 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 395 scorer=Zhao ZhaoReward=1 total=202:193 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 396 scorer=Fan ZhaoReward=-1 total=203:193 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 397 scorer=Zhao ZhaoReward=1 total=203:194 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 398 scorer=Zhao ZhaoReward=1 total=203:195 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 399 scorer=Zhao ZhaoReward=1 total=203:196 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 400 scorer=Zhao ZhaoReward=1 total=203:197 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 401 scorer=Fan ZhaoReward=-1 total=204:197 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 402 scorer=Fan ZhaoReward=-1 total=205:197 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 403 scorer=Zhao ZhaoReward=1 total=205:198 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 404 scorer=Fan ZhaoReward=-1 total=206:198 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 405 scorer=Fan ZhaoReward=-1 total=207:198 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 48 goals=14 total=405 score=7:7 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.703200 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.394900 ms (FindLiveObjects: 0.046000 ms CreateObjectMapping: 0.011300 ms MarkObjects: 0.327100 ms  DeleteObjects: 1.010100 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 406 scorer=Fan ZhaoReward=-1 total=208:198 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 407 scorer=Fan ZhaoReward=-1 total=209:198 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 408 scorer=Fan ZhaoReward=-1 total=210:198 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 409 scorer=Zhao ZhaoReward=1 total=210:199 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 410 scorer=Fan ZhaoReward=-1 total=211:199 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 411 scorer=Fan ZhaoReward=-1 total=212:199 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 412 scorer=Fan ZhaoReward=-1 total=213:199 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 413 scorer=Fan ZhaoReward=-1 total=214:199 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY PROGRESS goals=413/500 matches=49 score=214:199 real=195.7902 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 414 scorer=Zhao ZhaoReward=1 total=214:200 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 415 scorer=Fan ZhaoReward=-1 total=215:200 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 49 goals=10 total=415 score=8:2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.402200 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.392600 ms (FindLiveObjects: 0.045900 ms CreateObjectMapping: 0.010800 ms MarkObjects: 0.375200 ms  DeleteObjects: 0.960400 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 416 scorer=Fan ZhaoReward=-1 total=216:200 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 417 scorer=Zhao ZhaoReward=1 total=216:201 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 418 scorer=Zhao ZhaoReward=1 total=216:202 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 419 scorer=Fan ZhaoReward=-1 total=217:202 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 420 scorer=Zhao ZhaoReward=1 total=217:203 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 421 scorer=Zhao ZhaoReward=1 total=217:204 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 422 scorer=Fan ZhaoReward=-1 total=218:204 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 423 scorer=Fan ZhaoReward=-1 total=219:204 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 424 scorer=Zhao ZhaoReward=1 total=219:205 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 425 scorer=Fan ZhaoReward=-1 total=220:205 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 50 goals=10 total=425 score=5:5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.689600 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.230100 ms (FindLiveObjects: 0.050100 ms CreateObjectMapping: 0.010100 ms MarkObjects: 0.303700 ms  DeleteObjects: 0.865700 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 426 scorer=Fan ZhaoReward=-1 total=221:205 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 427 scorer=Fan ZhaoReward=-1 total=222:205 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 428 scorer=Fan ZhaoReward=-1 total=223:205 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 429 scorer=Fan ZhaoReward=-1 total=224:205 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 430 scorer=Fan ZhaoReward=-1 total=225:205 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 431 scorer=Zhao ZhaoReward=1 total=225:206 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 432 scorer=Zhao ZhaoReward=1 total=225:207 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 433 scorer=Fan ZhaoReward=-1 total=226:207 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 434 scorer=Fan ZhaoReward=-1 total=227:207 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 51 goals=9 total=434 score=7:2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.771600 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.282700 ms (FindLiveObjects: 0.044900 ms CreateObjectMapping: 0.010800 ms MarkObjects: 0.325200 ms  DeleteObjects: 0.901000 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 435 scorer=Fan ZhaoReward=-1 total=228:207 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 436 scorer=Fan ZhaoReward=-1 total=229:207 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 437 scorer=Zhao ZhaoReward=1 total=229:208 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 438 scorer=Zhao ZhaoReward=1 total=229:209 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 439 scorer=Zhao ZhaoReward=1 total=229:210 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 440 scorer=Fan ZhaoReward=-1 total=230:210 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 441 scorer=Fan ZhaoReward=-1 total=231:210 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 442 scorer=Zhao ZhaoReward=1 total=231:211 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 443 scorer=Zhao ZhaoReward=1 total=231:212 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 444 scorer=Zhao ZhaoReward=1 total=231:213 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 445 scorer=Fan ZhaoReward=-1 total=232:213 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 52 goals=11 total=445 score=5:6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.215900 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.382200 ms (FindLiveObjects: 0.046500 ms CreateObjectMapping: 0.011400 ms MarkObjects: 0.414500 ms  DeleteObjects: 0.909200 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 446 scorer=Fan ZhaoReward=-1 total=233:213 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 447 scorer=Zhao ZhaoReward=1 total=233:214 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 448 scorer=Zhao ZhaoReward=1 total=233:215 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 449 scorer=Fan ZhaoReward=-1 total=234:215 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 450 scorer=Fan ZhaoReward=-1 total=235:215 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 451 scorer=Fan ZhaoReward=-1 total=236:215 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 452 scorer=Fan ZhaoReward=-1 total=237:215 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 453 scorer=Zhao ZhaoReward=1 total=237:216 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 454 scorer=Zhao ZhaoReward=1 total=237:217 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 455 scorer=Zhao ZhaoReward=1 total=237:218 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 53 goals=10 total=455 score=5:5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.502600 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.422500 ms (FindLiveObjects: 0.046100 ms CreateObjectMapping: 0.009900 ms MarkObjects: 0.352300 ms  DeleteObjects: 1.013600 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 456 scorer=Zhao ZhaoReward=1 total=237:219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 457 scorer=Fan ZhaoReward=-1 total=238:219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 458 scorer=Fan ZhaoReward=-1 total=239:219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 459 scorer=Zhao ZhaoReward=1 total=239:220 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 460 scorer=Zhao ZhaoReward=1 total=239:221 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 461 scorer=Fan ZhaoReward=-1 total=240:221 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 462 scorer=Fan ZhaoReward=-1 total=241:221 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 54 goals=7 total=462 score=4:3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.614900 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.424300 ms (FindLiveObjects: 0.047000 ms CreateObjectMapping: 0.009800 ms MarkObjects: 0.270500 ms  DeleteObjects: 1.096600 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 463 scorer=Fan ZhaoReward=-1 total=242:221 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 464 scorer=Fan ZhaoReward=-1 total=243:221 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 465 scorer=Zhao ZhaoReward=1 total=243:222 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 466 scorer=Fan ZhaoReward=-1 total=244:222 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 467 scorer=Fan ZhaoReward=-1 total=245:222 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 468 scorer=Zhao ZhaoReward=1 total=245:223 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 469 scorer=Zhao ZhaoReward=1 total=245:224 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 470 scorer=Zhao ZhaoReward=1 total=245:225 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 471 scorer=Zhao ZhaoReward=1 total=245:226 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 472 scorer=Zhao ZhaoReward=1 total=245:227 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 473 scorer=Zhao ZhaoReward=1 total=245:228 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 474 scorer=Zhao ZhaoReward=1 total=245:229 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 475 scorer=Fan ZhaoReward=-1 total=246:229 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 55 goals=13 total=475 score=5:8 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.480600 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.171600 ms (FindLiveObjects: 0.034700 ms CreateObjectMapping: 0.009000 ms MarkObjects: 0.256000 ms  DeleteObjects: 0.871400 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 476 scorer=Zhao ZhaoReward=1 total=246:230 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 477 scorer=Fan ZhaoReward=-1 total=247:230 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 478 scorer=Zhao ZhaoReward=1 total=247:231 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 479 scorer=Zhao ZhaoReward=1 total=247:232 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 480 scorer=Zhao ZhaoReward=1 total=247:233 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 481 scorer=Zhao ZhaoReward=1 total=247:234 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 482 scorer=Zhao ZhaoReward=1 total=247:235 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 483 scorer=Zhao ZhaoReward=1 total=247:236 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 484 scorer=Fan ZhaoReward=-1 total=248:236 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 485 scorer=Fan ZhaoReward=-1 total=249:236 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 486 scorer=Fan ZhaoReward=-1 total=250:236 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 487 scorer=Fan ZhaoReward=-1 total=251:236 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 56 goals=12 total=487 score=5:7 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.423700 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.159700 ms (FindLiveObjects: 0.032600 ms CreateObjectMapping: 0.008500 ms MarkObjects: 0.251500 ms  DeleteObjects: 0.866900 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY PROGRESS goals=487/500 matches=57 score=251:236 real=225.7907 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 488 scorer=Fan ZhaoReward=-1 total=252:236 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 489 scorer=Fan ZhaoReward=-1 total=253:236 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 490 scorer=Fan ZhaoReward=-1 total=254:236 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 491 scorer=Zhao ZhaoReward=1 total=254:237 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 492 scorer=Zhao ZhaoReward=1 total=254:238 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 493 scorer=Fan ZhaoReward=-1 total=255:238 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 494 scorer=Zhao ZhaoReward=1 total=255:239 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 495 scorer=Zhao ZhaoReward=1 total=255:240 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 57 goals=8 total=495 score=4:4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.397300 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1061.
+Total: 1.057000 ms (FindLiveObjects: 0.034800 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.239300 ms  DeleteObjects: 0.774200 ms)
+
+SELFPLAY GOALMAP x=-6.13 isPlayer1Goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALMAP x=6.18 isPlayer1Goal=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 496 scorer=Zhao ZhaoReward=1 total=255:241 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 497 scorer=Fan ZhaoReward=-1 total=256:241 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 498 scorer=Fan ZhaoReward=-1 total=257:241 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 499 scorer=Fan ZhaoReward=-1 total=258:241 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOAL 500 scorer=Fan ZhaoReward=-1 total=259:241 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY MATCH 58 goals=5 total=500 score=4:1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY COMPLETE goals=500 fan=259 zhao=241 matches=58 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 2ed4 -> priority: 1 
+  Thread -> id: 49f0 -> priority: 1 
+  Thread -> id: 3c98 -> priority: 1 
+  Thread -> id: 2d50 -> priority: 1 
+  Thread -> id: 8f34 -> priority: 1 
+  Thread -> id: 1e68 -> priority: 1 
+  Thread -> id: 917c -> priority: 1 
+  Thread -> id: 9424 -> priority: 1 
+  Thread -> id: 88d4 -> priority: 1 
+  Thread -> id: 9c8c -> priority: 1 
+  Thread -> id: 7520 -> priority: 1 
+  Thread -> id: 2fa4 -> priority: 1 

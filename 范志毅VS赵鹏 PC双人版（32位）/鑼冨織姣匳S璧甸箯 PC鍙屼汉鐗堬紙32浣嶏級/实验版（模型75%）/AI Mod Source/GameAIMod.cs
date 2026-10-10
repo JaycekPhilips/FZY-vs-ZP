@@ -698,6 +698,7 @@ public static class GameAIMod
         if (state.serveApproach && (Mathf.Abs(ballVelocity.x) > 1.8f || duel ||
             distance < 1.1f || now - state.lastServeReset > 3.5f)) state.serveApproach = false;
         bool serving = state.serveApproach;
+        if (!serving && UpdateFanTactics(controller, state, ball)) return;
         if (!serving && UpdateZhaoRecovery(controller, state, ball)) return;
         if (state.contesting)
         {
@@ -797,6 +798,166 @@ public static class GameAIMod
             state.down = true;
             state.lastDrop = now;
         }
+    }
+
+    // Fan-specific decisions leave the current Zhao policy and all skills intact.
+    private static float FanMoveTo(AIState state, float target, bool airborne)
+    {
+        float gap = target - state.body.position.x, velocity = state.body.velocity.x;
+        float load = ContestJointLoad(state.joints);
+        if (load > .10f * state.rigScale || Mathf.Abs(state.body.angularVelocity) > 155f)
+            return Mathf.Clamp(-velocity * .25f, -.45f, .45f);
+        if (Mathf.Abs(gap) < .12f * state.rigScale)
+            return Mathf.Abs(velocity) < .25f ? 0f : Mathf.Clamp(-velocity * .45f, -.7f, .7f);
+        float stop = velocity * velocity / 34f + .07f * state.rigScale;
+        if (gap * velocity > 0f && Mathf.Abs(gap) < stop)
+            return Mathf.Clamp(-velocity * .35f, -.8f, .8f);
+        return Mathf.Clamp(gap * 2.4f, airborne ? -.7f : -1f, airborne ? .7f : 1f);
+    }
+    private static bool FanHeaderIncoming(AIState state, Rigidbody2D ball, bool grounded)
+    {
+        float scale=state.rigScale, radius=state.ballCollider.bounds.extents.x;
+        if(ball.position.x<state.body.position.x-.02f*scale)return false;
+        float relative=ball.velocity.x-state.body.velocity.x;
+        float t=Mathf.Abs(relative)>.5f?(state.headTransform.position.x-ball.position.x)/relative:.10f;
+        if(t<0f||t>.18f)t=.04f;
+        Vector2 p,v;ForecastBall(ball,t,out p,out v);
+        float headX=state.headTransform.position.x+state.body.velocity.x*t;
+        float headY=state.headTransform.position.y+(grounded?0f:state.body.velocity.y*t+.5f*Physics2D.gravity.y*state.body.gravityScale*t*t);
+        return Mathf.Abs(p.x-headX)<radius+state.headCollider.bounds.extents.x+.20f*scale &&
+            Mathf.Abs(p.y-headY)<radius+state.headCollider.bounds.extents.y+.16f*scale;
+    }
+    private static bool UpdateFanTactics(Component controller, AIState state, Rigidbody2D ball)
+    {
+        if (controller.name != "Fan") return false;
+        bool grounded = state.groundField != null && (bool)state.groundField.GetValue(controller);
+        float scale = state.rigScale;
+        if (state.contesting)
+        {
+            float opponentDirection = state.opponentBody.position.x - state.body.position.x;
+            float load = Mathf.Max(ContestJointLoad(state.joints), ContestJointLoad(state.opponentJoints));
+            float pressure = .85f;
+            if (load > .075f * scale) pressure = Mathf.Clamp(.45f * .075f * scale / load, .2f, .45f);
+            if (Mathf.Abs(state.body.angularVelocity) > 120f) pressure = Mathf.Min(pressure, .45f);
+            state.axis = (Mathf.Abs(opponentDirection) > .05f ? Mathf.Sign(opponentDirection) : 1f) * pressure;
+            state.pendingKickTap = -10f;
+            // Jump for a reachable contested high ball, keeping the planted
+            // gait and strike suppression for actual ground squeezes.
+            Vector2 p,v;ForecastBall(ball,.20f,out p,out v);
+            float gravity=Mathf.Max(.1f,-Physics2D.gravity.y*state.body.gravityScale);
+            float lift=state.jumpSpeed*.20f-.5f*gravity*.04f;
+            if(grounded && load<.09f*scale && Time.time-state.lastJump>.65f &&
+                p.y>state.standingHeadY+.1f*scale && p.y<state.standingHeadY+lift+.45f*scale &&
+                Mathf.Abs(p.x-state.body.position.x-state.body.velocity.x*.20f)<1.1f*scale)
+            {state.jump=true;state.lastJump=Time.time;}
+            return true;
+        }
+        if (UpdateFanAerial(controller,state,ball)) return true;
+        float headY=state.headTransform.position.y,footY=state.foot.position.y;
+        Vector2 next,nextVelocity;ForecastBall(ball,.12f,out next,out nextVelocity);
+        bool incoming=ball.velocity.x < -2f;
+        float target=Mathf.Clamp(next.x-(incoming?.55f:.85f)*scale,state.leftGoalLine+.35f*scale,state.rightGoalLine-.55f*scale);
+        state.interceptX=target;state.interceptTime=.12f;
+        state.axis=FanMoveTo(state,target,!grounded);
+        float ahead=ball.position.x-state.body.position.x;
+        float loadNow=ContestJointLoad(state.joints);
+        if(loadNow>.10f*scale || Mathf.Abs(state.body.angularVelocity)>155f)return true;
+        float radius=state.ballCollider.bounds.extents.x;
+        float futureHead=headY+(grounded?0f:state.body.velocity.y*.12f);
+        if(FanHeaderIncoming(state,ball,grounded) && Time.time-state.lastHead>.38f)
+        {state.head=true;state.lastHead=Time.time;return true;}
+        float footGap=ball.position.y-footY;
+        bool contactWindow=ahead>.02f*scale && ahead<1.65f*scale && footGap>-.3f*scale && footGap<2.15f*scale;
+        bool incomingWindow=incoming && ahead>0f && ahead<3f*scale &&
+            next.x-state.body.position.x<1.35f*scale && next.x-state.body.position.x>-.3f*scale &&
+            next.y-footY>-.3f*scale && next.y-footY<1.75f*scale;
+        if((contactWindow||incomingWindow) && Time.time-state.lastKick>.38f)
+        {
+            float separation=state.opponentBody!=null?Mathf.Abs(state.opponentBody.position.x-state.body.position.x):100f;
+            bool curveAvailable=PlayerSkills.Enabled && separation>(state.rightGoalLine-state.leftGoalLine)*.25f+.1f*scale;
+            state.kick=true;state.power=!curveAvailable;state.lastKick=Time.time;
+        }
+        if(PlayerSkills.Enabled && !grounded && !state.head && ahead<-.15f*scale &&
+            ball.position.y<headY-.5f*scale && Time.time-state.lastDrop>.5f && PlayerSkills.CanQuickDrop(controller))
+        {state.down=true;state.lastDrop=Time.time;}
+        return true;
+    }
+    private static bool UpdateFanAerial(Component controller, AIState state, Rigidbody2D ball)
+    {
+        if (controller.name != "Fan") return false;
+        float scale = state.rigScale;
+        float headY = state.headTransform.position.y;
+        float headX = state.headTransform.position.x;
+        bool grounded = state.groundField != null && (bool)state.groundField.GetValue(controller);
+        float standingHead = state.standingHeadY;
+        if (ball.position.y < standingHead + .25f * scale &&
+            !(ball.velocity.y > 2f && ball.position.y > standingHead - .1f * scale) &&
+            !( !grounded && ball.position.y > headY - .4f * scale)) return false;
+        state.highBallPlan = true;
+        BuildZhaoForecast(state, ball);
+        float gravity = Mathf.Max(.1f, -Physics2D.gravity.y * state.body.gravityScale);
+        float jumpSpeed = state.jumpSpeed;
+        float headRadius = state.headCollider.bounds.extents.y, radius = state.ballCollider.bounds.extents.x;
+        float reach = headRadius + radius + .12f * scale;
+        float maxLift = jumpSpeed * jumpSpeed / (2f * gravity);
+        float target = Mathf.Clamp(ball.position.x - .18f * scale, state.leftGoalLine + .4f * scale, state.rightGoalLine - .45f * scale);
+        float arrival = 2.4f, launchDelay = 10f;
+        bool found = false, jumping = false;
+        bool incomingShot = ball.velocity.x < -2f && state.body.position.x <= ball.position.x + radius;
+        for (int i = 0; i < state.forecastCount; i++)
+        {
+            float ahead = .04f * (i + 1);
+            Vector2 p = state.forecastPosition[i], v = state.forecastVelocity[i];
+            if (p.x < state.leftGoalLine + radius || p.x > state.rightGoalLine - radius) break;
+            float candidate = Mathf.Clamp(p.x - (headX - state.body.position.x) - .12f * scale,
+                state.leftGoalLine + .4f * scale, state.rightGoalLine - .45f * scale);
+            // Keep moving to the first useful descent/landing position even
+            // when the ball is presently above the attainable jump envelope.
+            if (v.y <= .5f) target = candidate;
+            if (v.y > .5f && !incomingShot) continue;
+            float difference = candidate - state.body.position.x;
+            float speed = InterceptRunSpeed(controller, state, difference);
+            float turn = Mathf.Max(0f, -state.body.velocity.x * Mathf.Sign(difference)) / 18f;
+            float horizontal = speed * Mathf.Max(0f, ahead - turn) * .8f + .32f * scale;
+            if (Mathf.Abs(difference) > horizontal) continue;
+            float predictedHead = grounded ? standingHead : headY + state.body.velocity.y * ahead - .5f * gravity * ahead * ahead;
+            bool needJump = grounded && p.y > predictedHead + reach * .7f;
+            float delay = 10f;
+            if (needJump)
+            {
+                float lift = Mathf.Max(0f, p.y - standingHead - reach * .45f);
+                if (lift > maxLift) continue;
+                float age = (jumpSpeed - Mathf.Sqrt(Mathf.Max(0f, jumpSpeed * jumpSpeed - 2f * gravity * lift))) / gravity;
+                if (age > ahead + .04f) continue;
+                delay = Mathf.Max(0f, ahead - age);
+            }
+            else if (Mathf.Abs(p.y - predictedHead) > reach) continue;
+            target = candidate; arrival = ahead; launchDelay = delay;
+            found = true; jumping = needJump; break;
+        }
+        // For a rising, still-unreachable ball, preposition toward its future
+        // descent instead of freezing at its current overhead point.
+        if (!found && state.forecastCount > 0 && ball.velocity.y > .5f)
+        {
+            Vector2 landing = state.forecastPosition[state.forecastCount - 1];
+            target = Mathf.Clamp(landing.x - .18f * scale, state.leftGoalLine + .4f * scale, state.rightGoalLine - .45f * scale);
+        }
+        state.interceptX = target; state.interceptTime = arrival; state.interceptJump = found && jumping;
+        state.axis = FanMoveTo(state, target, !grounded);
+        if (found && jumping && launchDelay <= .065f && grounded && Time.time - state.lastJump > .55f)
+        {
+            float remaining = Mathf.Abs(target - state.body.position.x);
+            float horizontal = InterceptRunSpeed(controller, state, target - state.body.position.x) * arrival * .85f + .25f * scale;
+            if (remaining <= horizontal) { state.jump = true; state.lastJump = Time.time; }
+        }
+        // The real head command is timed against a short future contact; it
+        // can be used on ascent as well as descent, within the native reach.
+        Vector2 next, nextVelocity; ForecastBall(ball, .10f, out next, out nextVelocity);
+        float nextHead = headY + (grounded ? 0f : state.body.velocity.y * .10f - .5f * gravity * .01f);
+        if (FanHeaderIncoming(state,ball,grounded) &&
+            Time.time - state.lastHead > .38f && Mathf.Abs(state.body.angularVelocity) < 140f && ContestJointLoad(state.joints)<.12f*scale)
+        { state.head = true; state.lastHead = Time.time; }
+        return true;
     }
 
     private static bool UpdateZhaoRecovery(Component controller, AIState state, Rigidbody2D ball)
