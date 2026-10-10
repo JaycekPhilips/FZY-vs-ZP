@@ -1,0 +1,29 @@
+LAN_TEST PASS LAN and return buttons do not overlap
+LAN_TEST PASS return below LAN with a gap
+LAN_TEST PASS menu actions on screen
+LAN_TEST PASS full-page lobby exists
+LAN_TEST PASS background transparent
+LAN_TEST PASS lobby fills viewport
+LAN_TEST PASS underlying menu controls hidden
+LAN_TEST PASS native button artwork reused
+LAN_TEST PASS idle page has no status instructions
+LAN_TEST PASS idle page has only three buttons
+LAN_TEST PASS one IP input
+LAN_TEST PASS all controls visible at 1280x720
+LAN_TEST PASS controls separated at 1280x720
+LAN_TEST PASS all controls visible at 1280x800
+LAN_TEST PASS controls separated at 1280x800
+LAN_TEST PASS all controls visible at 800x600
+LAN_TEST PASS controls separated at 800x600
+LAN_TEST PASS invalid IP shows short error
+LAN_TEST PASS host shows short wait state
+LAN_TEST PASS host address and copy visible
+LAN_TEST PASS return closes lobby
+LAN_TEST PASS return restores menu controls
+LAN_TEST PASS lobby can reopen
+LAN_TEST PASS allocation LAN host opens current allocation panel
+LAN_TEST PASS lobby controls hidden while allocating
+LAN_TEST PASS allocation cancellation restores lobby
+LAN_TEST PASS confirmed allocations create waiting room
+LAN_TEST PASS host allocation retained before guest joins
+LAN_TEST COMPLETE checks=28 failures=0

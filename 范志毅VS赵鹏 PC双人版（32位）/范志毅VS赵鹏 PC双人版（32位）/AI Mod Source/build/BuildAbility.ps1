@@ -27,7 +27,7 @@ if (-not (Test-Path -LiteralPath (Join-Path $testPlayer 'FanZhiYi.exe'))) {
 if ($Baseline) { $source = (Get-ChildItem -LiteralPath $source -Directory -Filter 'backup-before-fan-ai-20*' | Sort-Object Name | Select-Object -Last 1).FullName }
 $managed = Join-Path $gameRoot 'FanZhiYi_Data\Managed'
 $refs = @('netstandard.dll','UnityEngine.dll','UnityEngine.CoreModule.dll','UnityEngine.Physics2DModule.dll','UnityEngine.AnimationModule.dll','UnityEngine.UIModule.dll','UnityEngine.UI.dll','UnityEngine.InputLegacyModule.dll','UnityEngine.IMGUIModule.dll','UnityEngine.AudioModule.dll','UnityEngine.TextRenderingModule.dll','UnityEngine.ScreenCaptureModule.dll','UnityEngine.ImageConversionModule.dll','UnityEngine.JSONSerializeModule.dll') | ForEach-Object { '/r:' + (Join-Path $managed $_) }
-$sources = @('GameAIMod.cs','PlayerSkills.cs','PlayerMovement.cs','ZhaoHeader.cs','ControlBindings.cs','PowerShot.cs','MagneticFoot.cs','AbilityMode.cs','MenuBackdrop.cs') | ForEach-Object { Join-Path $source $_ }
+$sources = @('GameAIMod.cs','PlayerSkills.cs','PlayerMovement.cs','ZhaoHeader.cs','ControlBindings.cs','PowerShot.cs','MagneticFoot.cs','AbilityMode.cs','MenuBackdrop.cs','LanMultiplayer.cs') | ForEach-Object { Join-Path $source $_ }
 if ($Edition -eq 'Experiment') { $sources += Join-Path $source 'ExperimentScale.cs' }
 $policyText = ($sources + (Join-Path $source 'PatchGame.cs') | ForEach-Object { (Split-Path $_ -Leaf) + ':' + (Get-FileHash -LiteralPath $_ -Algorithm SHA256).Hash }) -join '|';
 $policySha=[Security.Cryptography.SHA256]::Create();$policyHash=[BitConverter]::ToString($policySha.ComputeHash([Text.Encoding]::UTF8.GetBytes($policyText))).Replace('-','');$policySha.Dispose();

@@ -1,0 +1,25 @@
+2026-10-10 quick regression notes
+
+The first Original Gameplay attempt completed 149 checks with one failure:
+BURSTRANGE FAIL 30% stronger impact keeps skeleton joined error=0.6184792
+The existing limit was 0.4. No assertion or tolerance was changed.
+An unchanged repeat was started to check whether this stress case is repeatable.
+The unchanged repeat again completed 149 checks with the same one failure,
+error=0.4315459. A build from the immutable pre-optimization source also
+completed 149 checks with that same one failure, error=0.6195216. This is an
+existing stress-case issue, not a new assertion failure introduced by the
+optimization. All original thresholds and physics settings remain unchanged.
+The third unchanged Original Gameplay attempt passed all 149 checks. Earlier
+failures are retained here instead of claiming all repeated runs passed.
+
+The first added GUI-style microbenchmark waited for a Repaint event in a hidden
+player and did not complete. The test harness was corrected to measure native
+GUIStyle copying versus reuse without drawing. Production code was unaffected.
+
+The new paired-player harness initially omitted the menu's gameplay-style
+selection, and subsequently stopped host input before the guest sampled it.
+Those test setup issues were corrected; no production networking changes were
+made to satisfy the tests. Final host/guest results are in validation.txt.
+
+The originally requested full measurement was cancelled at the user's request
+to perform simple checks. Partial long recordings are excluded from the report.
