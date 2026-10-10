@@ -77,11 +77,15 @@ public static class ControlBindings
     private static bool ReadDown(KeyCode key) { return Input.GetKeyDown(key); }
     public static float GetHorizontal(Component player)
     {
+        float remoteAxis;
+        if (LanMultiplayer.TryGetAxis(player, out remoteAxis)) return remoteAxis;
         bool fan = player != null && player.name == "Fan";
         return (ReadKey(Get(fan, GameControlAction.Right)) ? 1f : 0f) - (ReadKey(Get(fan, GameControlAction.Left)) ? 1f : 0f);
     }
     public static bool GetActionDown(GameControlAction action, Component player)
     {
+        bool remoteDown;
+        if (LanMultiplayer.TryGetActionDown(action, player, out remoteDown)) return remoteDown;
         return ReadDown(Get(player != null && player.name == "Fan", action));
     }
     public static bool GetNativeButtonDown(KeyCode original, Component player)

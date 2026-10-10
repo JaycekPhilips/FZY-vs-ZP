@@ -1,0 +1,38 @@
+PAIRTEST PASS room/join starts cycle 0
+PAIRTEST PASS full handshake reaches game cycle 0
+PAIRTEST PASS bidirectional input packets decoded
+PAIRTEST PASS action sequence received
+PAIRTEST PASS press acknowledgement clears pending input
+PAIRTEST PASS remote player direction preserved
+PAIRTEST PASS snapshots advance at original physics cadence
+PAIRTEST PASS host scoreboard state reaches guest
+PAIRTEST PASS classic/skills mode preserved
+PAIRTEST PASS allocation mode preserved
+PAIRTEST PASS guest disconnect releases session data
+PAIRTEST PASS room/join starts cycle 1
+PAIRTEST PASS full handshake reaches game cycle 1
+PAIRTEST PASS bidirectional input packets decoded
+PAIRTEST PASS action sequence received
+PAIRTEST PASS press acknowledgement clears pending input
+PAIRTEST PASS remote player direction preserved
+PAIRTEST PASS snapshots advance at original physics cadence
+PAIRTEST PASS host scoreboard state reaches guest
+PAIRTEST PASS classic/skills mode preserved
+PAIRTEST PASS allocation mode preserved
+PAIRTEST PASS guest disconnect releases session data
+PAIRTEST PASS room/join starts cycle 2
+PAIRTEST PASS full handshake reaches game cycle 2
+PAIRTEST PASS bidirectional input packets decoded
+PAIRTEST PASS action sequence received
+PAIRTEST PASS press acknowledgement clears pending input
+PAIRTEST PASS remote player direction preserved
+PAIRTEST PASS snapshots advance at original physics cadence
+PAIRTEST PASS host scoreboard state reaches guest
+PAIRTEST PASS classic/skills mode preserved
+PAIRTEST PASS allocation mode preserved
+PAIRTEST PASS Fan allocation synchronized before kickoff
+PAIRTEST PASS Zhao allocation synchronized before kickoff
+PAIRTEST PASS both physical ability modules initialized
+PAIRTEST PASS kickoff does not reopen allocation screen
+PAIRTEST PASS invalid remote allocation rejected atomically
+PAIRTEST COMPLETE role=guest checks=37 failures=0

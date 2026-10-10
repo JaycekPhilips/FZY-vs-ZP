@@ -1,0 +1,1518 @@
+[
+    {
+        "edition":  "original",
+        "archive":  "downloads/fzy-vs-zp-original-win32.zip",
+        "archiveBytes":  28014545,
+        "archiveSha256":  "c66b8bac6d96e61d4e21fd83c0707b3cd94cddc8c71408a5269e2ae18d4886e7",
+        "files":  [
+                      {
+                          "path":  "FanZhiYi.exe",
+                          "bytes":  640000,
+                          "sha256":  "669640ed8f99c7022fbd12eb81c4ef2e9b687503f1a398fbc6d62708fc89901b"
+                      },
+                      {
+                          "path":  "UnityCrashHandler32.exe",
+                          "bytes":  922112,
+                          "sha256":  "03ccd4f65709e5a40a624e87b2c3597b21a340d44e0d539497ffe8e8c7b6fff7"
+                      },
+                      {
+                          "path":  "UnityPlayer.dll",
+                          "bytes":  20317184,
+                          "sha256":  "46962cd82de55b0d040abbf4dcc513fda84045a1de730df164d6f17a6dbe5edb"
+                      },
+                      {
+                          "path":  "按键设置.ini",
+                          "bytes":  345,
+                          "sha256":  "84dd4e03a827666571d5392db67e0eb5452f58763d136f50e8bf39eb5fa4f196"
+                      },
+                      {
+                          "path":  "球场背景.png",
+                          "bytes":  866079,
+                          "sha256":  "ee9cb94a5968340a652121859de78337ac97ac76b665a7e808e34c7afc596483"
+                      },
+                      {
+                          "path":  "AI Mod Source/AbilityMode.cs",
+                          "bytes":  34322,
+                          "sha256":  "bd45286bf23678cca6af38f5bc04b8574fe08076feb5945199056ca09b4d5c53"
+                      },
+                      {
+                          "path":  "AI Mod Source/Assembly-CSharp.original.dll",
+                          "bytes":  41984,
+                          "sha256":  "62412c6317b3693508c91f1e2aec5aac0b6e804488994ba73e0c928a222a8e55"
+                      },
+                      {
+                          "path":  "AI Mod Source/Assembly-CSharp.patched.dll",
+                          "bytes":  42496,
+                          "sha256":  "87b15bb2650ce611a5ac22b5acfa45847fad2441f457dd07da233629a547b003"
+                      },
+                      {
+                          "path":  "AI Mod Source/ControlBindings.cs",
+                          "bytes":  12790,
+                          "sha256":  "6b3bc58db6f9422d7b204c844edc5839eda6dad6a6da1221ec2de4109b6c7ea2"
+                      },
+                      {
+                          "path":  "AI Mod Source/GameAIMod.cs",
+                          "bytes":  83892,
+                          "sha256":  "a311877ad97ae97dfa801c1cb0c1fb908d3737c52e570629e240aad43eb80cda"
+                      },
+                      {
+                          "path":  "AI Mod Source/LanMultiplayer.cs",
+                          "bytes":  34687,
+                          "sha256":  "3b385783306d4c01c4b105ed28d0535e4a0798635e3ef2759ab8f79fe8a4a3b1"
+                      },
+                      {
+                          "path":  "AI Mod Source/MagneticFoot.cs",
+                          "bytes":  13408,
+                          "sha256":  "9fcda81e48b009f353a0225355fe2a729d9564c274ddbed20217fe0ed8e151e1"
+                      },
+                      {
+                          "path":  "AI Mod Source/MenuBackdrop.cs",
+                          "bytes":  3219,
+                          "sha256":  "e583a3c41d73610337274fe0b5e81f64a8041e1eaa6099d948b707bb881000f5"
+                      },
+                      {
+                          "path":  "AI Mod Source/PatchGame.cs",
+                          "bytes":  19266,
+                          "sha256":  "b359bd1cf320835a22df44d6178f217c31583d5e7e82dcd225742d8f8634d215"
+                      },
+                      {
+                          "path":  "AI Mod Source/PlayerMovement.cs",
+                          "bytes":  11249,
+                          "sha256":  "d3dede49c7aada42039e04a6cb0f387b4961bd03c7c1e16694b1da4e4be697a1"
+                      },
+                      {
+                          "path":  "AI Mod Source/PlayerSkills.cs",
+                          "bytes":  85222,
+                          "sha256":  "acc698242172f0a6bbee323c4e696ba6b04822dd25357d8dd4ba6f23dbf5c95a"
+                      },
+                      {
+                          "path":  "AI Mod Source/PowerShot.cs",
+                          "bytes":  10772,
+                          "sha256":  "2d66ff092ecff96f81b73cb46436a49e1735f6a05d665334f12a6f941ecbb2e3"
+                      },
+                      {
+                          "path":  "AI Mod Source/README.md",
+                          "bytes":  26712,
+                          "sha256":  "d95665c46e1c1414e70f383e6dbeae99f0c5104dfe5b1d7ccf60c5d6199af35e"
+                      },
+                      {
+                          "path":  "AI Mod Source/ZhaoHeader.cs",
+                          "bytes":  6342,
+                          "sha256":  "d185f098313a1540af48fb1d4add1d5fae06b4b5b3ff45b47294c101db827f0f"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/app.info",
+                          "bytes":  14,
+                          "sha256":  "c7efb2831839c63923efe861a4beea447c203e524a9f9f45495d99dab59617ef"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/boot.config",
+                          "bytes":  65,
+                          "sha256":  "cdafe3b3e9a9155b91e49967b1c0795ca7438b3515e182a7c13765a8e838e2bf"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/globalgamemanagers",
+                          "bytes":  93668,
+                          "sha256":  "71471aeaff4241d5cf86b581ce15f6ff0f9157aac70a9f782574383b71f367da"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/globalgamemanagers.assets",
+                          "bytes":  78616,
+                          "sha256":  "d63425a540fb4ccf58e8ea161cb478d9cfc45548dcf58f05e34769ab225c179c"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/level0",
+                          "bytes":  4980,
+                          "sha256":  "d284e4fea1024ada0feac28adeb87b59774ad92dcb726e256b269b272f382a7f"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/level1",
+                          "bytes":  29948,
+                          "sha256":  "8e62fe92035d67a133574818bc192c5b24dd5c1c1c64bd801188c3b9b822d569"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/resources.assets",
+                          "bytes":  4080028,
+                          "sha256":  "6cbfa82aad05945720e9d899ade6804f34806632bde9478c2b63e23065fb7587"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/resources.assets.resS",
+                          "bytes":  53726652,
+                          "sha256":  "a30e47b7f52cd8ad5afecaecdf8253f0f9998c35cbf1628b1b31e090f74d3be1"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/resources.resource",
+                          "bytes":  2199296,
+                          "sha256":  "cc2d6dbd367e92cd1ed0ccbb7944c1f7bab1fae64cd64a629a73893b1f6b36ca"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/sharedassets0.assets",
+                          "bytes":  4133,
+                          "sha256":  "956534a773d1270f3c5761197fe4f24fab13b4b224fbccc67ab8de9c77f6ce58"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/sharedassets1.assets",
+                          "bytes":  14068,
+                          "sha256":  "c15ad7943fbf3c96f80942a5510b0ccb497106d84595c434f192dcfba45fb4f6"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/sharedassets1.assets.resS",
+                          "bytes":  84,
+                          "sha256":  "4a83aa458b0a2379f2c7a336bd0d936f33d55fa35fd8bf823ba81cdde29725aa"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Assembly-CSharp.dll",
+                          "bytes":  42496,
+                          "sha256":  "87b15bb2650ce611a5ac22b5acfa45847fad2441f457dd07da233629a547b003"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/GameAIMod.dll",
+                          "bytes":  144384,
+                          "sha256":  "6da92ce5d7fd83263bbdcf5e66529c0840fe67b46d8e946941306c7c8c17b019"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Mono.Security.dll",
+                          "bytes":  310272,
+                          "sha256":  "8c47b23389f9eede068683ed8b64b5a466f986499112983290778b30accfd1ba"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/mscorlib.dll",
+                          "bytes":  3906048,
+                          "sha256":  "184f3a9c4524db4bff81ef50b93441c6a5255397e6b78ee219f8c0b193daa2ee"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/netstandard.dll",
+                          "bytes":  84992,
+                          "sha256":  "994be039eb23da7b0c14fc2fa2c09b3ca2a73bb330e840275ab8275063716f0e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.ComponentModel.Composition.dll",
+                          "bytes":  247808,
+                          "sha256":  "596500c15e90d4b63573a19da292009c95b02e05005f48077d7fc0850dd220fd"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Configuration.dll",
+                          "bytes":  43008,
+                          "sha256":  "844a3275be4da8591180b4a9b09b6ec72fe2e284d79f81b9a8f83b35b80ece61"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Core.dll",
+                          "bytes":  1057792,
+                          "sha256":  "2d702d211d34e9b94ca18a5ef10a6c2b0fa40fb2cb09751348c7d5bd4dffed02"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Data.dll",
+                          "bytes":  1941504,
+                          "sha256":  "23dae8379e8c412f69caa0668be411c87672a775ce473e18faf01f56c114e079"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Diagnostics.StackTrace.dll",
+                          "bytes":  6656,
+                          "sha256":  "4701e843059674accc1c87038ec41f3cecbadce2a65755f527c8b65b0cebc8ce"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.dll",
+                          "bytes":  2141696,
+                          "sha256":  "5a46039da87fe46804e5770d9f2f5926ac054935eef0b8eec75ef83bf702d237"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Drawing.dll",
+                          "bytes":  184320,
+                          "sha256":  "41d7f9907c43d1c9dda3cd4a9eda76c836dcc7daf7f657ba993f6b6d9c146ae1"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.EnterpriseServices.dll",
+                          "bytes":  33280,
+                          "sha256":  "fa69e5c913d01218eeb8660087812c8d62d8c5e57060a8b8d9973ffb11884ce1"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Globalization.Extensions.dll",
+                          "bytes":  6144,
+                          "sha256":  "4e8c5ad3450450ba6bc6a474300f2445094870f2bcc9ca16472fb2f3adb88ebd"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.IO.Compression.dll",
+                          "bytes":  98816,
+                          "sha256":  "6045d16e65834f67b2604359a137a4b74434293813ccab0d86b34c5f7b1785fa"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.IO.Compression.FileSystem.dll",
+                          "bytes":  23040,
+                          "sha256":  "221abe4eea00347c51ac7409b47ba7b08ccfdaae8e36e706a8ee0d4de6ceb87a"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Net.Http.dll",
+                          "bytes":  114688,
+                          "sha256":  "50d4aa1f4403c12563d433ac51cc9908a5aa035a7fbb741098aa457c182dcf02"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Numerics.dll",
+                          "bytes":  114176,
+                          "sha256":  "01d3b2dd6375da4378b8c9951a6bbb4997dd6a0651753e5736aa1b0587015f35"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Runtime.Serialization.dll",
+                          "bytes":  840704,
+                          "sha256":  "988564a6a6cdd7efc8d541434ccff96bbc2f7f9349290b0efaf5735046cd582f"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Runtime.Serialization.Xml.dll",
+                          "bytes":  7168,
+                          "sha256":  "2394dff209954e143795bedba8ec9c737e17ecd96e3a3a02de6d7c2631f04152"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.ServiceModel.Internals.dll",
+                          "bytes":  218112,
+                          "sha256":  "ab27dd2afdfab73dd36c5b90a542c78a69822d8add2bba3cc95db8990b23f4c4"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Transactions.dll",
+                          "bytes":  33280,
+                          "sha256":  "ff78a8b68809535c1d93cc6e511c79e0d2f85d97b358da2a8a76eca8c8f2e4bc"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Xml.dll",
+                          "bytes":  2414592,
+                          "sha256":  "8283e176446695c0486b8b1cda7581178e9ddd5ceb49873dd7da519730497609"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Xml.Linq.dll",
+                          "bytes":  119296,
+                          "sha256":  "7152197c2d69b60a24b9af3323b45b76bde9f9f63a447c69090656289ac32c1e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Xml.XPath.XDocument.dll",
+                          "bytes":  5120,
+                          "sha256":  "c53307ed65e10be7f252ee8c93a6261af7a7c44b5006631f57950624c3f06f5e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.2D.Animation.Runtime.dll",
+                          "bytes":  36352,
+                          "sha256":  "5ad77498f058351680d421443e876b55be637ab3daea559ac16b25d105900e67"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.2D.Animation.Triangle.Runtime.dll",
+                          "bytes":  187392,
+                          "sha256":  "5f41d39df0e4a42bc26a1afc0784fd0c8efe665eebcc531daf331dff200dd695"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.2D.Common.Runtime.dll",
+                          "bytes":  3584,
+                          "sha256":  "e0a74929f92018b0769c1b985a54dededd385d35aae86b1206a520843f040701"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.2D.PixelPerfect.dll",
+                          "bytes":  11264,
+                          "sha256":  "ecbc360bc8ee7441358820116527d5429c5aca43990eaa6f84b75a0386f515df"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.2D.SpriteShape.Runtime.dll",
+                          "bytes":  88064,
+                          "sha256":  "e6cc570fbe7e08ad94761de811f0e982ba0b58b07396ff512c1bd96f728275b0"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.InternalAPIEngineBridge.001.dll",
+                          "bytes":  4096,
+                          "sha256":  "f7b7176b6ac0cc0142a98e24e4027b933de38aa793870cbbbb68575c39d63c79"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.Mathematics.dll",
+                          "bytes":  710144,
+                          "sha256":  "25ab1d888b4ed856cad02b7025e695ba15558eee870a35e01213cd99ae2fc45e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.TextMeshPro.dll",
+                          "bytes":  369152,
+                          "sha256":  "f29c8ed687f96a8b1dd2928387802f2291c9315e1f377bede7fbc9f81930206c"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.Timeline.dll",
+                          "bytes":  108544,
+                          "sha256":  "a417719f446d8b61bdbf15e14d62362a1ad108cedd2287cd039482128ea2db9c"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.AccessibilityModule.dll",
+                          "bytes":  12288,
+                          "sha256":  "50ffdec4f96ccca1e650b3bf99ae40a1ef6092c6eb683cd9aefd78bfb00f28e2"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.AIModule.dll",
+                          "bytes":  44544,
+                          "sha256":  "437139ef09bced8ab8b2787c8fd8ab1a3b68224fb7bffe7090f5e1925f9cd13b"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.AndroidJNIModule.dll",
+                          "bytes":  64512,
+                          "sha256":  "bf6c43d453c9902bcffe4e7ff4e18f1f164aedf8a5ef15445edbf62c7aef47e7"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.AnimationModule.dll",
+                          "bytes":  145920,
+                          "sha256":  "15c3632431ec409acfaa33402fd8d5574548c2d13d3774fba269b5a0a4aa9fa2"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ARModule.dll",
+                          "bytes":  13312,
+                          "sha256":  "7c116e578114f7bd9ef7817c990552f83c38a85c67792d2680a6a529f414052e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.AssetBundleModule.dll",
+                          "bytes":  22528,
+                          "sha256":  "564c51b0e88e349658b3d5621755c0a3c7e8e49524f7ba26f97689ea93518b48"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.AudioModule.dll",
+                          "bytes":  57856,
+                          "sha256":  "6f1a90eae95c9b1ee38a69490f40dbdc696b87e781283999ad07cb6a50c33d6e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.AutoStreamingModule.dll",
+                          "bytes":  9216,
+                          "sha256":  "5662832d454b82e3b00bd183ebd92d327957742d7b736756781a23f43910f761"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ClothModule.dll",
+                          "bytes":  15872,
+                          "sha256":  "f9acbcd6f8e1b590d294eaf94c0cde663034fd576f64cac51dade2961cf61383"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ClusterInputModule.dll",
+                          "bytes":  10240,
+                          "sha256":  "a335617ce835215cc8fd9ed16e63d47d28167fa46309e6305cc405ca067b69ea"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ClusterRendererModule.dll",
+                          "bytes":  9216,
+                          "sha256":  "08f726b3c19bf4172442b9c4f518186cb4be12cd497f1225060fc673c6bd1329"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.CoreModule.dll",
+                          "bytes":  1014272,
+                          "sha256":  "54dd841048fc1c00990b7f028da358ae3fc71eb3e3c61dd70d546886d4566860"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.CrashReportingModule.dll",
+                          "bytes":  9728,
+                          "sha256":  "1611fc4eed2abc15e65b6dde06e70db9b112d3a9a07517a438c6a6aee22fe951"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.DirectorModule.dll",
+                          "bytes":  13312,
+                          "sha256":  "f4fbd3a2f38b3c0bdc5ede9c1776f484f22522655c227d9dd5034441b953feeb"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.dll",
+                          "bytes":  86016,
+                          "sha256":  "e32f0492b13ea7236f249257d31e531280fa60aeabbfcd0b7b54e94cd2d594cf"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.DSPGraphModule.dll",
+                          "bytes":  17920,
+                          "sha256":  "4e0544f42ad8ef3896ce20406b660f53ae7553dd052dbf320505d70847ab27f6"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.GameCenterModule.dll",
+                          "bytes":  27136,
+                          "sha256":  "939419adb72bcd1cd53cb4dc3b65a06f87a4ed9c9ee769d5f6bbf6b99613bea7"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.GridModule.dll",
+                          "bytes":  13824,
+                          "sha256":  "08c9ab2a264dfea6e7815c189f58fac5b1d6cffc59938772aabed0896f901f36"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.HotReloadModule.dll",
+                          "bytes":  8704,
+                          "sha256":  "fd0e859aad663ca0b9dfbeed3c6c5050f2223b470a6d297a5180962f53d8455a"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ImageConversionModule.dll",
+                          "bytes":  13312,
+                          "sha256":  "1e86ff9cb2bed4e8b706981f610a7b2cb8ff57a1109a67a9616463275159f0a3"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.IMGUIModule.dll",
+                          "bytes":  157184,
+                          "sha256":  "c5bdf399b3e3c7e78a9199830ba212da44519f139e072e445a1343b58d9da78b"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.InputLegacyModule.dll",
+                          "bytes":  26624,
+                          "sha256":  "9e664ce2a8bba45f1f83a2a9288bbab0159b8d75cef7b4c5e0c3bfea4752bd98"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.InputModule.dll",
+                          "bytes":  12288,
+                          "sha256":  "4ed33a8117829bc505106b016a806005afc0188e224e865912a3f6a69b3a57f1"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.JSONSerializeModule.dll",
+                          "bytes":  10752,
+                          "sha256":  "91006bf660ef45a3058b702d6110923522aaf7017d0132024c83336570c21c03"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.LocalizationModule.dll",
+                          "bytes":  10240,
+                          "sha256":  "9d2cb492140e28e156346e70d1e9b49670fc03c99ddd8a60763c16a8a9e8130e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ParticleSystemModule.dll",
+                          "bytes":  135168,
+                          "sha256":  "21cf57e9daebb173d03d19be48dd24199906a2f14dd9adbd5d80bc93d81d5b45"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.PerformanceReportingModule.dll",
+                          "bytes":  9728,
+                          "sha256":  "be019749d4aeae6cfbe30bb5220adece0c362678534026853fd877231388a8c3"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.Physics2DModule.dll",
+                          "bytes":  105984,
+                          "sha256":  "06b4b2694c51026ce710ffd9ad3172332bc85129983aaf8634686bc913595d17"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.PhysicsModule.dll",
+                          "bytes":  87040,
+                          "sha256":  "2b0b7cc0be837e06513b543aa8aa6491272e23d1d3b37fa034497e49e15170d2"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ProfilerModule.dll",
+                          "bytes":  8704,
+                          "sha256":  "1369d61627cbae70decd7de2db84a46422161054e2e70dfb084ecdff34983ae9"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ScreenCaptureModule.dll",
+                          "bytes":  9728,
+                          "sha256":  "ba0db39a4916f6320d776c345c6f7491478164455f7e02448d7a69dc4da493c0"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.SharedInternalsModule.dll",
+                          "bytes":  19456,
+                          "sha256":  "af3557e21a7c2df2ffd2d694dec94f7fac6bd2450ddfac295afcc4359001b61e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.SpriteMaskModule.dll",
+                          "bytes":  10240,
+                          "sha256":  "bffbb1d144e7e2720c75aefe8618ae8d8cff886253f9ad01399ece9fc2c91708"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.SpriteShapeModule.dll",
+                          "bytes":  14336,
+                          "sha256":  "87df1b12e0e41c465c6ac72c0b94b10d872b0fec4e1ca5a9d126028a8f6c3497"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.StreamingModule.dll",
+                          "bytes":  9728,
+                          "sha256":  "df9cd6de0408e9c777ffd5baad9b9c8d8c10b139906ddc199baf96aaae36c05c"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.SubstanceModule.dll",
+                          "bytes":  13824,
+                          "sha256":  "2a1496f9fe38bf2fc25237d130e94183d3a53322da71c39fe9d9789257ea5f2d"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.SubsystemsModule.dll",
+                          "bytes":  16896,
+                          "sha256":  "afde0519774bbe134c7f30d3a9f0e3d84d070a9a3e5a2664402a532814227def"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.TerrainModule.dll",
+                          "bytes":  80896,
+                          "sha256":  "962fff8a9e3c395b86218b8d5e48cd8956bfd568668e7aaa92c64ec80a0cf306"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.TerrainPhysicsModule.dll",
+                          "bytes":  9728,
+                          "sha256":  "3ef76e539d4de79b4ca8537fbd7018f2433aa331fbaba7112036a426cfbdc321"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.TextCoreModule.dll",
+                          "bytes":  186368,
+                          "sha256":  "b17d32651ea5c5a4ec07b9a8730d990469eb74aa6cd2a875bc4408076100815a"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.TextRenderingModule.dll",
+                          "bytes":  27648,
+                          "sha256":  "039f9561be04dfadf680e7b1c9c545401aae5c7dbb8f0fd91ba4995fabf28733"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.TilemapModule.dll",
+                          "bytes":  25600,
+                          "sha256":  "3387311eab833bcc64c5df86a41666433f8e6faf7abdd153fd18a3c2fde1ae44"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.TLSModule.dll",
+                          "bytes":  8704,
+                          "sha256":  "7d7489b99b056291e6a9fa785f63ab9469477ea9c8b3ef6753b13f7b91960273"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UI.dll",
+                          "bytes":  226304,
+                          "sha256":  "afe38aa40cb4accc495e7ac39e070aa519234390a4394b27acbf933e1bc1f999"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UIElementsModule.dll",
+                          "bytes":  730624,
+                          "sha256":  "4f908362595de79bc6202ada9c28829d99334a4e1ae1d2ae95ab1be0f4b23d2d"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UIModule.dll",
+                          "bytes":  23552,
+                          "sha256":  "fbd3300e7d0e63d956455e1fa1bf3f91bb4e5d1628233c465b65dcab3a024a11"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UmbraModule.dll",
+                          "bytes":  8704,
+                          "sha256":  "65d9f0a343624d1e9412009ce5d69ba7db1af2924574f55e250e78a3a68e1654"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UNETModule.dll",
+                          "bytes":  77824,
+                          "sha256":  "1b8d0c4e2b4858dafca8bbe48c57f62bb216cc5ab71888a7e759710aca037f5c"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityAnalyticsModule.dll",
+                          "bytes":  33280,
+                          "sha256":  "c8faaa4cb25d501e3698c82e22a5d5dcf0208055372ba69b7c6e4aca281acfe4"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityConnectModule.dll",
+                          "bytes":  10752,
+                          "sha256":  "76db11e39756ca7ce9cbac1143533d08a97c5dd7841f41d3aedeee44979f9e5d"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityTestProtocolModule.dll",
+                          "bytes":  8704,
+                          "sha256":  "e3d6dc5a9ed32c76ce32a0aaa56be8efa6d4756677f986601647607cab9957db"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll",
+                          "bytes":  11776,
+                          "sha256":  "fbd05597c1f65fe83fff275a3dde028e909e842b5c8d3fcd5c93b33638325d19"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll",
+                          "bytes":  11264,
+                          "sha256":  "ea9692029a263ecf4dfa3b34c1e8075e454307875565bd054f1f59e3a742cb7c"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestModule.dll",
+                          "bytes":  43520,
+                          "sha256":  "a3cf4deef10fdafc4f6872958f4e1630546e72e8965d2c78926aa56e43d2bd74"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll",
+                          "bytes":  10752,
+                          "sha256":  "0592bda03dba987a8ce01dbc5d7842cb55842842162be42d7a9c3bdf007e59a7"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll",
+                          "bytes":  20480,
+                          "sha256":  "13024fea03a7630fd12089ea7be02526c829c613695eaaf171ebf075ddacb7c2"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.VehiclesModule.dll",
+                          "bytes":  12800,
+                          "sha256":  "20e86566c0c2cc5a604d032cc7c1eb2b34a16f623f3a9d6df63a667490ae3bd5"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.VFXModule.dll",
+                          "bytes":  38912,
+                          "sha256":  "c29943fb007319f3ad2c80fd203fd0a354b6fd3fb2009e612f9ae187cfa767e1"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.VideoModule.dll",
+                          "bytes":  29184,
+                          "sha256":  "2864806ae3f13f951b6f200f24224d8e8973ab28962d6a33c194ad687c795228"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.VRModule.dll",
+                          "bytes":  34816,
+                          "sha256":  "9e6d33ebe2122d6d9723cb7c6cfacf11d9b36943dd7a8dfc17f526b0ac11f0ed"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.WindModule.dll",
+                          "bytes":  9728,
+                          "sha256":  "86bdd2008b51038416398f9b2d194b9a86d5149ef8d61b9aa0262eb2d6b92218"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.XRModule.dll",
+                          "bytes":  54272,
+                          "sha256":  "ed603bfed4fcbb636f22317458e2de42692654fbaa63afee9685de499d27e50c"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Resources/unity default resources",
+                          "bytes":  3838028,
+                          "sha256":  "e5617cf255eb6ead8ad96302006f2382d8d7b229e8c3dca778cd1864e714def4"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Resources/unity_builtin_extra",
+                          "bytes":  340816,
+                          "sha256":  "84775b2b9d90f47c7594fa8242a28348bd74073915e039ed887fabab75fd8215"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll",
+                          "bytes":  3919360,
+                          "sha256":  "f73aef735f7af59edbdc172ae86bf93a84d48827c85f23b3de4aab3067fad173"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll",
+                          "bytes":  612352,
+                          "sha256":  "16f791ba34e2771217e4e4a399b2ee9de601fa8cedd4e1fe65573c743b0946ab"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/browscap.ini",
+                          "bytes":  328963,
+                          "sha256":  "f16656075bb34412335ca0b157f30384e15d79167c4dd2ec0fe0b64a51fffb71"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/config",
+                          "bytes":  3319,
+                          "sha256":  "5a05cf71c8552c5cc429bc906abc71abe77a2215bf327d8e344d5db5711eaa41"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx",
+                          "bytes":  62476,
+                          "sha256":  "aa24e546fd54337d197b43e9559dc7517187967f794c77b6341ecdcb870460a8"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/2.0/machine.config",
+                          "bytes":  29399,
+                          "sha256":  "d0e5edaf9233df58e9ac5d6d6f60113912db2765db79b1f2c6a973118932ed04"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/2.0/settings.map",
+                          "bytes":  2670,
+                          "sha256":  "842bc14c6e20294aa98cc6180c2a307e724a7fda66f41240a2d83a094665c8cf"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/2.0/web.config",
+                          "bytes":  11840,
+                          "sha256":  "d72ff8c60ca58fd3bc106365d753c5bfad9f85d33757aeb2ffdf745d61cec1b1"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser",
+                          "bytes":  1627,
+                          "sha256":  "bf4ae2fe630714eee3d7b0a28285a3aa49a6589a3660e58cf7868aca3321a7b1"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx",
+                          "bytes":  62476,
+                          "sha256":  "aa24e546fd54337d197b43e9559dc7517187967f794c77b6341ecdcb870460a8"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.0/machine.config",
+                          "bytes":  33958,
+                          "sha256":  "bedb3515c6a3a796db1c04c996f337b76bfd3d1f736411375c6c8999e6c903f9"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.0/settings.map",
+                          "bytes":  2670,
+                          "sha256":  "52957cf8fbeb4d1e5f545673d67a2c9cb3469d26042a447790d66bcfc07a87ce"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.0/web.config",
+                          "bytes":  19101,
+                          "sha256":  "286404ca4044fca41fa8ad7b9c5a143c223af1123469476b2d0dd128c0495ca7"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser",
+                          "bytes":  1627,
+                          "sha256":  "bf4ae2fe630714eee3d7b0a28285a3aa49a6589a3660e58cf7868aca3321a7b1"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx",
+                          "bytes":  62476,
+                          "sha256":  "aa24e546fd54337d197b43e9559dc7517187967f794c77b6341ecdcb870460a8"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.5/machine.config",
+                          "bytes":  34419,
+                          "sha256":  "5530adac4009537e9104607c33899c3e7bdbe01e6973a97998b2d0aa62d668cb"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.5/settings.map",
+                          "bytes":  2670,
+                          "sha256":  "52957cf8fbeb4d1e5f545673d67a2c9cb3469d26042a447790d66bcfc07a87ce"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.5/web.config",
+                          "bytes":  19110,
+                          "sha256":  "985cd515adfddabd2c88a6e607769f0c177b35ab150d10de1d4f89fc0a3015ac"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser",
+                          "bytes":  1627,
+                          "sha256":  "bf4ae2fe630714eee3d7b0a28285a3aa49a6589a3660e58cf7868aca3321a7b1"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/mconfig/config.xml",
+                          "bytes":  26433,
+                          "sha256":  "a1809f956176325c3ab236854789da917e8fd445d863b400272850e1f2336d64"
+                      }
+                  ]
+    },
+    {
+        "edition":  "experimental",
+        "archive":  "downloads/fzy-vs-zp-experimental-win32.zip",
+        "archiveBytes":  28010612,
+        "archiveSha256":  "fb134fd4c2ff13a94bce5c7957e2022993451b45b67adba947387b5fa2e215ae",
+        "files":  [
+                      {
+                          "path":  "FanZhiYi.exe",
+                          "bytes":  640000,
+                          "sha256":  "669640ed8f99c7022fbd12eb81c4ef2e9b687503f1a398fbc6d62708fc89901b"
+                      },
+                      {
+                          "path":  "UnityCrashHandler32.exe",
+                          "bytes":  922112,
+                          "sha256":  "03ccd4f65709e5a40a624e87b2c3597b21a340d44e0d539497ffe8e8c7b6fff7"
+                      },
+                      {
+                          "path":  "UnityPlayer.dll",
+                          "bytes":  20317184,
+                          "sha256":  "46962cd82de55b0d040abbf4dcc513fda84045a1de730df164d6f17a6dbe5edb"
+                      },
+                      {
+                          "path":  "实验版说明.txt",
+                          "bytes":  4018,
+                          "sha256":  "a9839aa44dd2a6941b51e76912ae2b141abbfe770cdf6e0a4767472bd0dcd0e1"
+                      },
+                      {
+                          "path":  "按键设置.ini",
+                          "bytes":  345,
+                          "sha256":  "84dd4e03a827666571d5392db67e0eb5452f58763d136f50e8bf39eb5fa4f196"
+                      },
+                      {
+                          "path":  "球场背景.png",
+                          "bytes":  852794,
+                          "sha256":  "a2046ff65214fe03fc727ba490fa0c432dcd99438535123c07797e05a48e8f1f"
+                      },
+                      {
+                          "path":  "AI Mod Source/AbilityMode.cs",
+                          "bytes":  34322,
+                          "sha256":  "bd45286bf23678cca6af38f5bc04b8574fe08076feb5945199056ca09b4d5c53"
+                      },
+                      {
+                          "path":  "AI Mod Source/Assembly-CSharp.original.dll",
+                          "bytes":  41984,
+                          "sha256":  "62412c6317b3693508c91f1e2aec5aac0b6e804488994ba73e0c928a222a8e55"
+                      },
+                      {
+                          "path":  "AI Mod Source/Assembly-CSharp.patched.dll",
+                          "bytes":  42496,
+                          "sha256":  "6125ca2dd3090af3e17ca2ba8d93e16e6c39cb78f87ef1af304e9c23698dc658"
+                      },
+                      {
+                          "path":  "AI Mod Source/ControlBindings.cs",
+                          "bytes":  12790,
+                          "sha256":  "6b3bc58db6f9422d7b204c844edc5839eda6dad6a6da1221ec2de4109b6c7ea2"
+                      },
+                      {
+                          "path":  "AI Mod Source/ExperimentScale.cs",
+                          "bytes":  8731,
+                          "sha256":  "4b5c4fa4481809359cdac77f0fe5c741c7e07dd5e629ef87fd62fba42a3f767b"
+                      },
+                      {
+                          "path":  "AI Mod Source/GameAIMod.cs",
+                          "bytes":  84066,
+                          "sha256":  "402eaeadfcd6ae6f589bc98ab8413ded09dcdfdd28465159aa7ed4d5ada56f77"
+                      },
+                      {
+                          "path":  "AI Mod Source/LanMultiplayer.cs",
+                          "bytes":  34687,
+                          "sha256":  "3b385783306d4c01c4b105ed28d0535e4a0798635e3ef2759ab8f79fe8a4a3b1"
+                      },
+                      {
+                          "path":  "AI Mod Source/MagneticFoot.cs",
+                          "bytes":  14821,
+                          "sha256":  "811df09960aad60a38562fd74d913909d9c0fcd935905214e6894f5cfbcb4586"
+                      },
+                      {
+                          "path":  "AI Mod Source/MenuBackdrop.cs",
+                          "bytes":  3219,
+                          "sha256":  "e583a3c41d73610337274fe0b5e81f64a8041e1eaa6099d948b707bb881000f5"
+                      },
+                      {
+                          "path":  "AI Mod Source/PatchGame.cs",
+                          "bytes":  19702,
+                          "sha256":  "0f298094a578a86256b5ac5252dcb8071dda50334ebe220f39adfa152d65ea43"
+                      },
+                      {
+                          "path":  "AI Mod Source/PlayerMovement.cs",
+                          "bytes":  11249,
+                          "sha256":  "d3dede49c7aada42039e04a6cb0f387b4961bd03c7c1e16694b1da4e4be697a1"
+                      },
+                      {
+                          "path":  "AI Mod Source/PlayerSkills.cs",
+                          "bytes":  85972,
+                          "sha256":  "de6de6959b57bbc99f7b91e70a84996a8b32ed72f1a8163395496bcad212928d"
+                      },
+                      {
+                          "path":  "AI Mod Source/PowerShot.cs",
+                          "bytes":  10772,
+                          "sha256":  "2d66ff092ecff96f81b73cb46436a49e1735f6a05d665334f12a6f941ecbb2e3"
+                      },
+                      {
+                          "path":  "AI Mod Source/README.md",
+                          "bytes":  28009,
+                          "sha256":  "bda64ec2d886b2605a9025bbdaf57c3d59bf9adc1d141e323e17c74e60119054"
+                      },
+                      {
+                          "path":  "AI Mod Source/ZhaoHeader.cs",
+                          "bytes":  6342,
+                          "sha256":  "d185f098313a1540af48fb1d4add1d5fae06b4b5b3ff45b47294c101db827f0f"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/app.info",
+                          "bytes":  14,
+                          "sha256":  "c7efb2831839c63923efe861a4beea447c203e524a9f9f45495d99dab59617ef"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/boot.config",
+                          "bytes":  65,
+                          "sha256":  "cdafe3b3e9a9155b91e49967b1c0795ca7438b3515e182a7c13765a8e838e2bf"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/globalgamemanagers",
+                          "bytes":  93668,
+                          "sha256":  "71471aeaff4241d5cf86b581ce15f6ff0f9157aac70a9f782574383b71f367da"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/globalgamemanagers.assets",
+                          "bytes":  78616,
+                          "sha256":  "d63425a540fb4ccf58e8ea161cb478d9cfc45548dcf58f05e34769ab225c179c"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/level0",
+                          "bytes":  4980,
+                          "sha256":  "d284e4fea1024ada0feac28adeb87b59774ad92dcb726e256b269b272f382a7f"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/level1",
+                          "bytes":  29948,
+                          "sha256":  "8e62fe92035d67a133574818bc192c5b24dd5c1c1c64bd801188c3b9b822d569"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/resources.assets",
+                          "bytes":  4080028,
+                          "sha256":  "6cbfa82aad05945720e9d899ade6804f34806632bde9478c2b63e23065fb7587"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/resources.assets.resS",
+                          "bytes":  53726652,
+                          "sha256":  "a30e47b7f52cd8ad5afecaecdf8253f0f9998c35cbf1628b1b31e090f74d3be1"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/resources.resource",
+                          "bytes":  2199296,
+                          "sha256":  "cc2d6dbd367e92cd1ed0ccbb7944c1f7bab1fae64cd64a629a73893b1f6b36ca"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/sharedassets0.assets",
+                          "bytes":  4133,
+                          "sha256":  "956534a773d1270f3c5761197fe4f24fab13b4b224fbccc67ab8de9c77f6ce58"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/sharedassets1.assets",
+                          "bytes":  14068,
+                          "sha256":  "c15ad7943fbf3c96f80942a5510b0ccb497106d84595c434f192dcfba45fb4f6"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/sharedassets1.assets.resS",
+                          "bytes":  84,
+                          "sha256":  "4a83aa458b0a2379f2c7a336bd0d936f33d55fa35fd8bf823ba81cdde29725aa"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Assembly-CSharp.dll",
+                          "bytes":  42496,
+                          "sha256":  "6125ca2dd3090af3e17ca2ba8d93e16e6c39cb78f87ef1af304e9c23698dc658"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/GameAIMod.dll",
+                          "bytes":  148480,
+                          "sha256":  "76170e3a29218ee3d10736a303044f4c8da2cbb56cf92cf1cf5632a20963ebf3"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Mono.Security.dll",
+                          "bytes":  310272,
+                          "sha256":  "8c47b23389f9eede068683ed8b64b5a466f986499112983290778b30accfd1ba"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/mscorlib.dll",
+                          "bytes":  3906048,
+                          "sha256":  "184f3a9c4524db4bff81ef50b93441c6a5255397e6b78ee219f8c0b193daa2ee"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/netstandard.dll",
+                          "bytes":  84992,
+                          "sha256":  "994be039eb23da7b0c14fc2fa2c09b3ca2a73bb330e840275ab8275063716f0e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.ComponentModel.Composition.dll",
+                          "bytes":  247808,
+                          "sha256":  "596500c15e90d4b63573a19da292009c95b02e05005f48077d7fc0850dd220fd"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Configuration.dll",
+                          "bytes":  43008,
+                          "sha256":  "844a3275be4da8591180b4a9b09b6ec72fe2e284d79f81b9a8f83b35b80ece61"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Core.dll",
+                          "bytes":  1057792,
+                          "sha256":  "2d702d211d34e9b94ca18a5ef10a6c2b0fa40fb2cb09751348c7d5bd4dffed02"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Data.dll",
+                          "bytes":  1941504,
+                          "sha256":  "23dae8379e8c412f69caa0668be411c87672a775ce473e18faf01f56c114e079"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Diagnostics.StackTrace.dll",
+                          "bytes":  6656,
+                          "sha256":  "4701e843059674accc1c87038ec41f3cecbadce2a65755f527c8b65b0cebc8ce"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.dll",
+                          "bytes":  2141696,
+                          "sha256":  "5a46039da87fe46804e5770d9f2f5926ac054935eef0b8eec75ef83bf702d237"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Drawing.dll",
+                          "bytes":  184320,
+                          "sha256":  "41d7f9907c43d1c9dda3cd4a9eda76c836dcc7daf7f657ba993f6b6d9c146ae1"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.EnterpriseServices.dll",
+                          "bytes":  33280,
+                          "sha256":  "fa69e5c913d01218eeb8660087812c8d62d8c5e57060a8b8d9973ffb11884ce1"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Globalization.Extensions.dll",
+                          "bytes":  6144,
+                          "sha256":  "4e8c5ad3450450ba6bc6a474300f2445094870f2bcc9ca16472fb2f3adb88ebd"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.IO.Compression.dll",
+                          "bytes":  98816,
+                          "sha256":  "6045d16e65834f67b2604359a137a4b74434293813ccab0d86b34c5f7b1785fa"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.IO.Compression.FileSystem.dll",
+                          "bytes":  23040,
+                          "sha256":  "221abe4eea00347c51ac7409b47ba7b08ccfdaae8e36e706a8ee0d4de6ceb87a"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Net.Http.dll",
+                          "bytes":  114688,
+                          "sha256":  "50d4aa1f4403c12563d433ac51cc9908a5aa035a7fbb741098aa457c182dcf02"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Numerics.dll",
+                          "bytes":  114176,
+                          "sha256":  "01d3b2dd6375da4378b8c9951a6bbb4997dd6a0651753e5736aa1b0587015f35"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Runtime.Serialization.dll",
+                          "bytes":  840704,
+                          "sha256":  "988564a6a6cdd7efc8d541434ccff96bbc2f7f9349290b0efaf5735046cd582f"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Runtime.Serialization.Xml.dll",
+                          "bytes":  7168,
+                          "sha256":  "2394dff209954e143795bedba8ec9c737e17ecd96e3a3a02de6d7c2631f04152"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.ServiceModel.Internals.dll",
+                          "bytes":  218112,
+                          "sha256":  "ab27dd2afdfab73dd36c5b90a542c78a69822d8add2bba3cc95db8990b23f4c4"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Transactions.dll",
+                          "bytes":  33280,
+                          "sha256":  "ff78a8b68809535c1d93cc6e511c79e0d2f85d97b358da2a8a76eca8c8f2e4bc"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Xml.dll",
+                          "bytes":  2414592,
+                          "sha256":  "8283e176446695c0486b8b1cda7581178e9ddd5ceb49873dd7da519730497609"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Xml.Linq.dll",
+                          "bytes":  119296,
+                          "sha256":  "7152197c2d69b60a24b9af3323b45b76bde9f9f63a447c69090656289ac32c1e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/System.Xml.XPath.XDocument.dll",
+                          "bytes":  5120,
+                          "sha256":  "c53307ed65e10be7f252ee8c93a6261af7a7c44b5006631f57950624c3f06f5e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.2D.Animation.Runtime.dll",
+                          "bytes":  36352,
+                          "sha256":  "5ad77498f058351680d421443e876b55be637ab3daea559ac16b25d105900e67"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.2D.Animation.Triangle.Runtime.dll",
+                          "bytes":  187392,
+                          "sha256":  "5f41d39df0e4a42bc26a1afc0784fd0c8efe665eebcc531daf331dff200dd695"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.2D.Common.Runtime.dll",
+                          "bytes":  3584,
+                          "sha256":  "e0a74929f92018b0769c1b985a54dededd385d35aae86b1206a520843f040701"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.2D.PixelPerfect.dll",
+                          "bytes":  11264,
+                          "sha256":  "ecbc360bc8ee7441358820116527d5429c5aca43990eaa6f84b75a0386f515df"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.2D.SpriteShape.Runtime.dll",
+                          "bytes":  88064,
+                          "sha256":  "e6cc570fbe7e08ad94761de811f0e982ba0b58b07396ff512c1bd96f728275b0"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.InternalAPIEngineBridge.001.dll",
+                          "bytes":  4096,
+                          "sha256":  "f7b7176b6ac0cc0142a98e24e4027b933de38aa793870cbbbb68575c39d63c79"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.Mathematics.dll",
+                          "bytes":  710144,
+                          "sha256":  "25ab1d888b4ed856cad02b7025e695ba15558eee870a35e01213cd99ae2fc45e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.TextMeshPro.dll",
+                          "bytes":  369152,
+                          "sha256":  "f29c8ed687f96a8b1dd2928387802f2291c9315e1f377bede7fbc9f81930206c"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/Unity.Timeline.dll",
+                          "bytes":  108544,
+                          "sha256":  "a417719f446d8b61bdbf15e14d62362a1ad108cedd2287cd039482128ea2db9c"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.AccessibilityModule.dll",
+                          "bytes":  12288,
+                          "sha256":  "50ffdec4f96ccca1e650b3bf99ae40a1ef6092c6eb683cd9aefd78bfb00f28e2"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.AIModule.dll",
+                          "bytes":  44544,
+                          "sha256":  "437139ef09bced8ab8b2787c8fd8ab1a3b68224fb7bffe7090f5e1925f9cd13b"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.AndroidJNIModule.dll",
+                          "bytes":  64512,
+                          "sha256":  "bf6c43d453c9902bcffe4e7ff4e18f1f164aedf8a5ef15445edbf62c7aef47e7"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.AnimationModule.dll",
+                          "bytes":  145920,
+                          "sha256":  "15c3632431ec409acfaa33402fd8d5574548c2d13d3774fba269b5a0a4aa9fa2"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ARModule.dll",
+                          "bytes":  13312,
+                          "sha256":  "7c116e578114f7bd9ef7817c990552f83c38a85c67792d2680a6a529f414052e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.AssetBundleModule.dll",
+                          "bytes":  22528,
+                          "sha256":  "564c51b0e88e349658b3d5621755c0a3c7e8e49524f7ba26f97689ea93518b48"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.AudioModule.dll",
+                          "bytes":  57856,
+                          "sha256":  "6f1a90eae95c9b1ee38a69490f40dbdc696b87e781283999ad07cb6a50c33d6e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.AutoStreamingModule.dll",
+                          "bytes":  9216,
+                          "sha256":  "5662832d454b82e3b00bd183ebd92d327957742d7b736756781a23f43910f761"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ClothModule.dll",
+                          "bytes":  15872,
+                          "sha256":  "f9acbcd6f8e1b590d294eaf94c0cde663034fd576f64cac51dade2961cf61383"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ClusterInputModule.dll",
+                          "bytes":  10240,
+                          "sha256":  "a335617ce835215cc8fd9ed16e63d47d28167fa46309e6305cc405ca067b69ea"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ClusterRendererModule.dll",
+                          "bytes":  9216,
+                          "sha256":  "08f726b3c19bf4172442b9c4f518186cb4be12cd497f1225060fc673c6bd1329"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.CoreModule.dll",
+                          "bytes":  1014272,
+                          "sha256":  "54dd841048fc1c00990b7f028da358ae3fc71eb3e3c61dd70d546886d4566860"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.CrashReportingModule.dll",
+                          "bytes":  9728,
+                          "sha256":  "1611fc4eed2abc15e65b6dde06e70db9b112d3a9a07517a438c6a6aee22fe951"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.DirectorModule.dll",
+                          "bytes":  13312,
+                          "sha256":  "f4fbd3a2f38b3c0bdc5ede9c1776f484f22522655c227d9dd5034441b953feeb"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.dll",
+                          "bytes":  86016,
+                          "sha256":  "e32f0492b13ea7236f249257d31e531280fa60aeabbfcd0b7b54e94cd2d594cf"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.DSPGraphModule.dll",
+                          "bytes":  17920,
+                          "sha256":  "4e0544f42ad8ef3896ce20406b660f53ae7553dd052dbf320505d70847ab27f6"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.GameCenterModule.dll",
+                          "bytes":  27136,
+                          "sha256":  "939419adb72bcd1cd53cb4dc3b65a06f87a4ed9c9ee769d5f6bbf6b99613bea7"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.GridModule.dll",
+                          "bytes":  13824,
+                          "sha256":  "08c9ab2a264dfea6e7815c189f58fac5b1d6cffc59938772aabed0896f901f36"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.HotReloadModule.dll",
+                          "bytes":  8704,
+                          "sha256":  "fd0e859aad663ca0b9dfbeed3c6c5050f2223b470a6d297a5180962f53d8455a"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ImageConversionModule.dll",
+                          "bytes":  13312,
+                          "sha256":  "1e86ff9cb2bed4e8b706981f610a7b2cb8ff57a1109a67a9616463275159f0a3"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.IMGUIModule.dll",
+                          "bytes":  157184,
+                          "sha256":  "c5bdf399b3e3c7e78a9199830ba212da44519f139e072e445a1343b58d9da78b"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.InputLegacyModule.dll",
+                          "bytes":  26624,
+                          "sha256":  "9e664ce2a8bba45f1f83a2a9288bbab0159b8d75cef7b4c5e0c3bfea4752bd98"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.InputModule.dll",
+                          "bytes":  12288,
+                          "sha256":  "4ed33a8117829bc505106b016a806005afc0188e224e865912a3f6a69b3a57f1"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.JSONSerializeModule.dll",
+                          "bytes":  10752,
+                          "sha256":  "91006bf660ef45a3058b702d6110923522aaf7017d0132024c83336570c21c03"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.LocalizationModule.dll",
+                          "bytes":  10240,
+                          "sha256":  "9d2cb492140e28e156346e70d1e9b49670fc03c99ddd8a60763c16a8a9e8130e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ParticleSystemModule.dll",
+                          "bytes":  135168,
+                          "sha256":  "21cf57e9daebb173d03d19be48dd24199906a2f14dd9adbd5d80bc93d81d5b45"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.PerformanceReportingModule.dll",
+                          "bytes":  9728,
+                          "sha256":  "be019749d4aeae6cfbe30bb5220adece0c362678534026853fd877231388a8c3"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.Physics2DModule.dll",
+                          "bytes":  105984,
+                          "sha256":  "06b4b2694c51026ce710ffd9ad3172332bc85129983aaf8634686bc913595d17"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.PhysicsModule.dll",
+                          "bytes":  87040,
+                          "sha256":  "2b0b7cc0be837e06513b543aa8aa6491272e23d1d3b37fa034497e49e15170d2"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ProfilerModule.dll",
+                          "bytes":  8704,
+                          "sha256":  "1369d61627cbae70decd7de2db84a46422161054e2e70dfb084ecdff34983ae9"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.ScreenCaptureModule.dll",
+                          "bytes":  9728,
+                          "sha256":  "ba0db39a4916f6320d776c345c6f7491478164455f7e02448d7a69dc4da493c0"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.SharedInternalsModule.dll",
+                          "bytes":  19456,
+                          "sha256":  "af3557e21a7c2df2ffd2d694dec94f7fac6bd2450ddfac295afcc4359001b61e"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.SpriteMaskModule.dll",
+                          "bytes":  10240,
+                          "sha256":  "bffbb1d144e7e2720c75aefe8618ae8d8cff886253f9ad01399ece9fc2c91708"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.SpriteShapeModule.dll",
+                          "bytes":  14336,
+                          "sha256":  "87df1b12e0e41c465c6ac72c0b94b10d872b0fec4e1ca5a9d126028a8f6c3497"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.StreamingModule.dll",
+                          "bytes":  9728,
+                          "sha256":  "df9cd6de0408e9c777ffd5baad9b9c8d8c10b139906ddc199baf96aaae36c05c"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.SubstanceModule.dll",
+                          "bytes":  13824,
+                          "sha256":  "2a1496f9fe38bf2fc25237d130e94183d3a53322da71c39fe9d9789257ea5f2d"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.SubsystemsModule.dll",
+                          "bytes":  16896,
+                          "sha256":  "afde0519774bbe134c7f30d3a9f0e3d84d070a9a3e5a2664402a532814227def"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.TerrainModule.dll",
+                          "bytes":  80896,
+                          "sha256":  "962fff8a9e3c395b86218b8d5e48cd8956bfd568668e7aaa92c64ec80a0cf306"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.TerrainPhysicsModule.dll",
+                          "bytes":  9728,
+                          "sha256":  "3ef76e539d4de79b4ca8537fbd7018f2433aa331fbaba7112036a426cfbdc321"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.TextCoreModule.dll",
+                          "bytes":  186368,
+                          "sha256":  "b17d32651ea5c5a4ec07b9a8730d990469eb74aa6cd2a875bc4408076100815a"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.TextRenderingModule.dll",
+                          "bytes":  27648,
+                          "sha256":  "039f9561be04dfadf680e7b1c9c545401aae5c7dbb8f0fd91ba4995fabf28733"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.TilemapModule.dll",
+                          "bytes":  25600,
+                          "sha256":  "3387311eab833bcc64c5df86a41666433f8e6faf7abdd153fd18a3c2fde1ae44"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.TLSModule.dll",
+                          "bytes":  8704,
+                          "sha256":  "7d7489b99b056291e6a9fa785f63ab9469477ea9c8b3ef6753b13f7b91960273"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UI.dll",
+                          "bytes":  226304,
+                          "sha256":  "afe38aa40cb4accc495e7ac39e070aa519234390a4394b27acbf933e1bc1f999"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UIElementsModule.dll",
+                          "bytes":  730624,
+                          "sha256":  "4f908362595de79bc6202ada9c28829d99334a4e1ae1d2ae95ab1be0f4b23d2d"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UIModule.dll",
+                          "bytes":  23552,
+                          "sha256":  "fbd3300e7d0e63d956455e1fa1bf3f91bb4e5d1628233c465b65dcab3a024a11"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UmbraModule.dll",
+                          "bytes":  8704,
+                          "sha256":  "65d9f0a343624d1e9412009ce5d69ba7db1af2924574f55e250e78a3a68e1654"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UNETModule.dll",
+                          "bytes":  77824,
+                          "sha256":  "1b8d0c4e2b4858dafca8bbe48c57f62bb216cc5ab71888a7e759710aca037f5c"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityAnalyticsModule.dll",
+                          "bytes":  33280,
+                          "sha256":  "c8faaa4cb25d501e3698c82e22a5d5dcf0208055372ba69b7c6e4aca281acfe4"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityConnectModule.dll",
+                          "bytes":  10752,
+                          "sha256":  "76db11e39756ca7ce9cbac1143533d08a97c5dd7841f41d3aedeee44979f9e5d"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityTestProtocolModule.dll",
+                          "bytes":  8704,
+                          "sha256":  "e3d6dc5a9ed32c76ce32a0aaa56be8efa6d4756677f986601647607cab9957db"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll",
+                          "bytes":  11776,
+                          "sha256":  "fbd05597c1f65fe83fff275a3dde028e909e842b5c8d3fcd5c93b33638325d19"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll",
+                          "bytes":  11264,
+                          "sha256":  "ea9692029a263ecf4dfa3b34c1e8075e454307875565bd054f1f59e3a742cb7c"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestModule.dll",
+                          "bytes":  43520,
+                          "sha256":  "a3cf4deef10fdafc4f6872958f4e1630546e72e8965d2c78926aa56e43d2bd74"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll",
+                          "bytes":  10752,
+                          "sha256":  "0592bda03dba987a8ce01dbc5d7842cb55842842162be42d7a9c3bdf007e59a7"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll",
+                          "bytes":  20480,
+                          "sha256":  "13024fea03a7630fd12089ea7be02526c829c613695eaaf171ebf075ddacb7c2"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.VehiclesModule.dll",
+                          "bytes":  12800,
+                          "sha256":  "20e86566c0c2cc5a604d032cc7c1eb2b34a16f623f3a9d6df63a667490ae3bd5"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.VFXModule.dll",
+                          "bytes":  38912,
+                          "sha256":  "c29943fb007319f3ad2c80fd203fd0a354b6fd3fb2009e612f9ae187cfa767e1"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.VideoModule.dll",
+                          "bytes":  29184,
+                          "sha256":  "2864806ae3f13f951b6f200f24224d8e8973ab28962d6a33c194ad687c795228"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.VRModule.dll",
+                          "bytes":  34816,
+                          "sha256":  "9e6d33ebe2122d6d9723cb7c6cfacf11d9b36943dd7a8dfc17f526b0ac11f0ed"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.WindModule.dll",
+                          "bytes":  9728,
+                          "sha256":  "86bdd2008b51038416398f9b2d194b9a86d5149ef8d61b9aa0262eb2d6b92218"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Managed/UnityEngine.XRModule.dll",
+                          "bytes":  54272,
+                          "sha256":  "ed603bfed4fcbb636f22317458e2de42692654fbaa63afee9685de499d27e50c"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Resources/unity default resources",
+                          "bytes":  3838028,
+                          "sha256":  "e5617cf255eb6ead8ad96302006f2382d8d7b229e8c3dca778cd1864e714def4"
+                      },
+                      {
+                          "path":  "FanZhiYi_Data/Resources/unity_builtin_extra",
+                          "bytes":  340816,
+                          "sha256":  "84775b2b9d90f47c7594fa8242a28348bd74073915e039ed887fabab75fd8215"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll",
+                          "bytes":  3919360,
+                          "sha256":  "f73aef735f7af59edbdc172ae86bf93a84d48827c85f23b3de4aab3067fad173"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll",
+                          "bytes":  612352,
+                          "sha256":  "16f791ba34e2771217e4e4a399b2ee9de601fa8cedd4e1fe65573c743b0946ab"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/browscap.ini",
+                          "bytes":  328963,
+                          "sha256":  "f16656075bb34412335ca0b157f30384e15d79167c4dd2ec0fe0b64a51fffb71"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/config",
+                          "bytes":  3319,
+                          "sha256":  "5a05cf71c8552c5cc429bc906abc71abe77a2215bf327d8e344d5db5711eaa41"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx",
+                          "bytes":  62476,
+                          "sha256":  "aa24e546fd54337d197b43e9559dc7517187967f794c77b6341ecdcb870460a8"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/2.0/machine.config",
+                          "bytes":  29399,
+                          "sha256":  "d0e5edaf9233df58e9ac5d6d6f60113912db2765db79b1f2c6a973118932ed04"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/2.0/settings.map",
+                          "bytes":  2670,
+                          "sha256":  "842bc14c6e20294aa98cc6180c2a307e724a7fda66f41240a2d83a094665c8cf"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/2.0/web.config",
+                          "bytes":  11840,
+                          "sha256":  "d72ff8c60ca58fd3bc106365d753c5bfad9f85d33757aeb2ffdf745d61cec1b1"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser",
+                          "bytes":  1627,
+                          "sha256":  "bf4ae2fe630714eee3d7b0a28285a3aa49a6589a3660e58cf7868aca3321a7b1"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx",
+                          "bytes":  62476,
+                          "sha256":  "aa24e546fd54337d197b43e9559dc7517187967f794c77b6341ecdcb870460a8"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.0/machine.config",
+                          "bytes":  33958,
+                          "sha256":  "bedb3515c6a3a796db1c04c996f337b76bfd3d1f736411375c6c8999e6c903f9"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.0/settings.map",
+                          "bytes":  2670,
+                          "sha256":  "52957cf8fbeb4d1e5f545673d67a2c9cb3469d26042a447790d66bcfc07a87ce"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.0/web.config",
+                          "bytes":  19101,
+                          "sha256":  "286404ca4044fca41fa8ad7b9c5a143c223af1123469476b2d0dd128c0495ca7"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser",
+                          "bytes":  1627,
+                          "sha256":  "bf4ae2fe630714eee3d7b0a28285a3aa49a6589a3660e58cf7868aca3321a7b1"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx",
+                          "bytes":  62476,
+                          "sha256":  "aa24e546fd54337d197b43e9559dc7517187967f794c77b6341ecdcb870460a8"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.5/machine.config",
+                          "bytes":  34419,
+                          "sha256":  "5530adac4009537e9104607c33899c3e7bdbe01e6973a97998b2d0aa62d668cb"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.5/settings.map",
+                          "bytes":  2670,
+                          "sha256":  "52957cf8fbeb4d1e5f545673d67a2c9cb3469d26042a447790d66bcfc07a87ce"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.5/web.config",
+                          "bytes":  19110,
+                          "sha256":  "985cd515adfddabd2c88a6e607769f0c177b35ab150d10de1d4f89fc0a3015ac"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser",
+                          "bytes":  1627,
+                          "sha256":  "bf4ae2fe630714eee3d7b0a28285a3aa49a6589a3660e58cf7868aca3321a7b1"
+                      },
+                      {
+                          "path":  "MonoBleedingEdge/etc/mono/mconfig/config.xml",
+                          "bytes":  26433,
+                          "sha256":  "a1809f956176325c3ab236854789da917e8fd445d863b400272850e1f2336d64"
+                      }
+                  ]
+    }
+]
