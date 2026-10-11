@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -32,6 +32,7 @@ public sealed class PlayerSkills : MonoBehaviour
     private static readonly List<PlayerSkills> players = new List<PlayerSkills>();
     private static Font skillFont;
     private static Texture2D haloTexture;
+    private static int preparedFontSize;
     private static PlayerSkills glowOwner;
     private static float glowUntil = -1f;
     private static Color glowColor;
@@ -66,7 +67,11 @@ public sealed class PlayerSkills : MonoBehaviour
     private float[] normalMasses;
     private object[] physicalMuscles;
     private float[] normalMuscleForces;
-    private FieldInfo muscleForceField;
+    private FieldInfo muscleForceField, bodyTargetField;
+    private readonly PhysicsHitBuffer rayHits = new PhysicsHitBuffer();
+    private static GUIStyle effectStyle;
+    private static Camera effectCamera;
+    private static readonly Vector2[] labelOffsets = { Vector2.left, Vector2.right, Vector2.up, Vector2.down };
     private bool bracedMasses;
     private bool weakenedBalance;
     private float braceUntil = -1f;
@@ -188,7 +193,7 @@ public sealed class PlayerSkills : MonoBehaviour
     private void UpdateRescueBalance()
     {
         if (fan || Stopped() || GameAIMod.BallOutThisRally || Time.time > rescueRecoveryUntil || physicalLimbs == null) return;
-        float angle = (float)muscles.GetType().GetField("body").GetValue(muscles);
+        float angle = (float)bodyTargetField.GetValue(muscles);
         float desiredSpin = Mathf.Clamp(Mathf.DeltaAngle(body.rotation, angle) * 7f, -120f, 120f);
         float spinChange = Mathf.Clamp(desiredSpin - body.angularVelocity, -900f * Time.fixedDeltaTime, 900f * Time.fixedDeltaTime);
         ApplyAngularImpulse(spinChange * Mathf.Deg2Rad * RigInertia());
@@ -334,7 +339,6 @@ public sealed class PlayerSkills : MonoBehaviour
         ExperimentScale.OnAction(player, action);
     }
 
-    public static Vector2 CannonVelocity(float facing,Vector2 incoming){float speed=Mathf.Clamp(Mathf.Max(13f,incoming.magnitude*1.55f),13f,19f);return new Vector2(facing*speed,Mathf.Clamp(incoming.y+2.8f,2.8f,6f))*FanHeaderSpeedMultiplier;}
     public static float GetJumpForce(float original, Component player)
     {
         return AbilityMode.JumpForce(Enabled && player != null && player.name == "Zhao" ? original * ZhaoJumpMultiplier : original, player);
@@ -570,7 +574,7 @@ public sealed class PlayerSkills : MonoBehaviour
             if (headUntil >= now && HeadReachable())
             {
                 float speed = Mathf.Clamp(Mathf.Max(13f, ball.velocity.magnitude * 1.55f), 13f, 19f);
-                Vector2 target = CannonVelocity(direction,ball.velocity);
+                Vector2 target = new Vector2(direction * speed, Mathf.Clamp(ball.velocity.y + 2.8f, 2.8f, 6f)) * FanHeaderSpeedMultiplier;
                 EnableContinuousBall();
                 ball.AddForce((target - ball.velocity) * ball.mass, ForceMode2D.Impulse);
                 CancelCurves();
@@ -714,13 +718,35 @@ public sealed class PlayerSkills : MonoBehaviour
         return false;
     }
 
-    private LeafShotProfile curveProfile;
     private void PrepareGoalCurve(Collider2D goal)
     {
-        curveProfile=new LeafShotProfile(ball,ballCollider,goal,direction,groundMask,1f);
-        curveGoal=curveProfile.curveGoal;curveOrigin=curveProfile.curveOrigin;curveDestination=curveProfile.curveDestination;curveTravelTime=curveProfile.curveTravelTime;curveArcHeight=curveProfile.curveArcHeight;curveForwardSpeed=curveProfile.curveForwardSpeed;
+        curveGoal = goal;
+        curveOrigin = ball.position;
+        Bounds mouth = goal.bounds;
+        float radius = ballCollider.bounds.extents.y / (ExperimentScale.Enabled ? ExperimentScale.Size : 1f);
+        float minY = mouth.min.y + radius + .12f;
+        float maxY = mouth.max.y - radius - .12f;
+        // Finish the arc before crossing the goal/out trigger line, accounting
+        // for the whole ball. The final approach remains inside the mouth.
+        curveDestination = new Vector2(direction > 0f ? mouth.min.x - ballCollider.bounds.extents.x / (ExperimentScale.Enabled ? ExperimentScale.Size : 1f) - .22f :
+            mouth.max.x + ballCollider.bounds.extents.x / (ExperimentScale.Enabled ? ExperimentScale.Size : 1f) + .22f, Mathf.Lerp(minY, maxY, .52f));
+        curveForwardSpeed = Mathf.Clamp(Mathf.Max(12f, Mathf.Abs(ball.velocity.x) * 1.3f + 10f), 12f, 18f);
+        float distance = Mathf.Max(.1f, direction * (curveDestination.x - curveOrigin.x));
+        curveTravelTime = Mathf.Clamp(distance / curveForwardSpeed, .08f, 1.5f);
+        float ceiling = curveOrigin.y + FanVolleyArcHeight;
+        foreach (RaycastHit2D hit in rayHits.Raycast(curveOrigin + Vector2.up * .05f, Vector2.up, 30f, groundMask))
+        {
+            if (hit.collider == null || hit.collider == ballCollider || hit.collider.isTrigger || hit.normal.y > -.5f) continue;
+            string root = hit.collider.transform.root.name;
+            if (root == "Fan" || root == "Zhao") continue;
+            ceiling = hit.point.y - radius - .25f;
+            break;
+        }
+        float available = Mathf.Max(0f, ceiling - Mathf.Max(curveOrigin.y, curveDestination.y));
+        curveArcHeight = Mathf.Min(available, FanVolleyArcHeight, FanVolleyLiftSpeed * curveTravelTime * .25f);
+        // Short-range shots need a short arc so they can descend before the bar.
+        curveArcHeight *= Mathf.Min(1f, curveTravelTime / .45f) * (ExperimentScale.Enabled ? .9f : 1f);
     }
-
 
     private Vector2 GoalCurveVelocity(float age)
     {
@@ -733,9 +759,32 @@ public sealed class PlayerSkills : MonoBehaviour
         return GoalCurveProfileVelocityAt(age * FanVolleySpeedMultiplier, position) * FanVolleySpeedMultiplier;
     }
 
-    private Vector2 GoalCurveProfileVelocityAt(float age,Vector2 position)
-    {return curveProfile.ProfileVelocityForSpecial(age,position);}
-
+    private Vector2 GoalCurveProfileVelocityAt(float age, Vector2 position)
+    {
+        Bounds mouth = curveGoal.bounds;
+        float radius = ballCollider.bounds.extents.y / (ExperimentScale.Enabled ? ExperimentScale.Size : 1f);
+        float minY = mouth.min.y + radius + .12f;
+        float maxY = mouth.max.y - radius - .12f;
+        float aimY = Mathf.Clamp(curveDestination.y, minY, maxY);
+        float distance = direction * (curveDestination.x - position.x);
+        if (distance < 2f || age >= curveTravelTime)
+        {
+            float arrival = Mathf.Max(.08f, Mathf.Max(0f, distance) / (curveForwardSpeed * FanVolleySpeedMultiplier));
+            float gravity = Physics2D.gravity.y * ball.gravityScale;
+            float vertical = (aimY - position.y) / arrival - .5f * gravity * arrival;
+            return new Vector2(direction * curveForwardSpeed, Mathf.Clamp(vertical / FanVolleySpeedMultiplier, -24f, 24f));
+        }
+        float u = Mathf.Clamp01(age / curveTravelTime);
+        float wave = Mathf.Sin(u * Mathf.PI * 4f);
+        float envelope = 4f * u * (1f - u);
+        Vector2 desired = Vector2.Lerp(curveOrigin, curveDestination, u);
+        desired.y += curveArcHeight * envelope + .18f * wave * envelope;
+        Vector2 velocity = (curveDestination - curveOrigin) / curveTravelTime;
+        velocity.y += (curveArcHeight * 4f * (1f - 2f * u) + .18f *
+            (Mathf.PI * 4f * Mathf.Cos(u * Mathf.PI * 4f) * envelope + wave * 4f * (1f - 2f * u))) / curveTravelTime;
+        velocity += (desired - position) * 8f;
+        return new Vector2(direction * Mathf.Clamp(velocity.x * direction, 8f, 20f), Mathf.Clamp(velocity.y, -24f, 24f));
+    }
 
     private bool CurveAssistComplete(float age)
     {
@@ -823,8 +872,8 @@ public sealed class PlayerSkills : MonoBehaviour
 
     private float FindBurstFloorHeight()
     {
-        float radius = ballCollider.bounds.extents.y / (ExperimentScale.Enabled ? ExperimentScale.Size : 1f);
-        RaycastHit2D[] hits = Physics2D.RaycastAll(ball.position + Vector2.up * .1f, Vector2.down, 30f, groundMask);
+        float radius = ballCollider.bounds.extents.y;
+        List<RaycastHit2D> hits = rayHits.Raycast(ball.position + Vector2.up * .1f, Vector2.down, 30f, groundMask);
         foreach (RaycastHit2D hit in hits)
         {
             Collider2D ground = hit.collider;
@@ -988,6 +1037,7 @@ public sealed class PlayerSkills : MonoBehaviour
         physicalLimbs = controller.GetComponentsInChildren<Rigidbody2D>();
         normalMasses = new float[physicalLimbs.Length];
         for (int i = 0; i < physicalLimbs.Length; i++) normalMasses[i] = physicalLimbs[i].mass;
+        bodyTargetField = muscleType.GetField("body");
         Array source = muscleType.GetField("muscles").GetValue(muscles) as Array;
         if (source != null)
         {
@@ -1038,7 +1088,6 @@ public sealed class PlayerSkills : MonoBehaviour
 
     public static bool IsGroundBallContest(Component player)
     {
-        if(AbilityMode.Enabled){BuildPlayer owner=player!=null?player.GetComponent<BuildPlayer>():null;return owner!=null&&owner.GroundBallContest;}
         PlayerSkills skills = player != null ? player.GetComponent<PlayerSkills>() : null;
         return skills != null && !skills.fan && !skills.Stopped() && skills.BallInFront() && Time.time <= skills.groundContestUntil;
     }
@@ -1117,7 +1166,7 @@ public sealed class PlayerSkills : MonoBehaviour
         if (Stopped()) { knockbackUntil = -1f; return; }
         // Let the initial impact tip Fan, then damp rotation while he slides.
         // This uses torque through the connected rig, never a pose override.
-        float angle = (float)muscles.GetType().GetField("body").GetValue(muscles);
+        float angle = (float)bodyTargetField.GetValue(muscles);
         if (Time.time >= staggerUntil - .08f || Mathf.Abs(Mathf.DeltaAngle(body.rotation, angle)) > 32f)
         {
             float spinTarget = Mathf.Clamp(Mathf.DeltaAngle(body.rotation, angle) * 7f, -140f, 140f);
@@ -1249,7 +1298,7 @@ public sealed class PlayerSkills : MonoBehaviour
         float gap = direction * (ball.position.x - body.position.x);
         if (incoming < .5f || gap > Mathf.Min(3f * scale, incoming * .65f + ballCollider.bounds.extents.x) ||
             Mathf.Abs(ball.velocity.y) > Mathf.Max(1.5f, incoming * .45f)) return false;
-        foreach (RaycastHit2D hit in Physics2D.RaycastAll(body.position, Vector2.down, 30f, groundMask))
+        foreach (RaycastHit2D hit in rayHits.Raycast(body.position, Vector2.down, 30f, groundMask))
         {
             if (hit.collider == null || hit.collider.isTrigger || hit.normal.y < .5f || hit.collider == ballCollider) continue;
             string root = hit.collider.transform.root.name;
@@ -1265,7 +1314,7 @@ public sealed class PlayerSkills : MonoBehaviour
         float lowest = body.position.y;
         foreach (Collider2D limb in playerColliders)
             if (limb != null && !limb.isTrigger) lowest = Mathf.Min(lowest, limb.bounds.min.y);
-        foreach (RaycastHit2D hit in Physics2D.RaycastAll(body.position, Vector2.down, 30f, groundMask))
+        foreach (RaycastHit2D hit in rayHits.Raycast(body.position, Vector2.down, 30f, groundMask))
         {
             Collider2D ground = hit.collider;
             if (ground == null || ground.isTrigger || ground == ballCollider || hit.normal.y < .5f) continue;
@@ -1314,8 +1363,7 @@ public sealed class PlayerSkills : MonoBehaviour
         else if (weakenedBalance)
         {
             float recovery = Mathf.Clamp01((Time.time - staggerUntil) / .18f);
-            FieldInfo torsoTarget = muscles.GetType().GetField("body");
-            float targetAngle = (float)torsoTarget.GetValue(muscles);
+            float targetAngle = (float)bodyTargetField.GetValue(muscles);
             bool upright = Mathf.Abs(Mathf.DeltaAngle(body.rotation, targetAngle)) < 10f;
             if (recovery >= 1f && (upright || Time.time - staggerUntil > .4f)) RestoreBalanceGain();
             else
@@ -1385,7 +1433,8 @@ public sealed class PlayerSkills : MonoBehaviour
         bool fan = controller.name == "Fan";
         float direction = fan ? 1f : -1f;
         if (skillFont == null) skillFont = Font.CreateDynamicFontFromOSFont(new string[] { "Microsoft YaHei", "SimHei", "Arial" }, 22);
-        Camera camera = Camera.main;
+        if (effectCamera == null || !effectCamera.isActiveAndEnabled || !effectCamera.CompareTag("MainCamera")) effectCamera = Camera.main;
+        Camera camera = effectCamera;
         if (camera == null || head == null) return;
         Color savedColor = GUI.color;
         Matrix4x4 savedMatrix = GUI.matrix;
@@ -1477,14 +1526,15 @@ public sealed class PlayerSkills : MonoBehaviour
             Rect label = new Rect(Mathf.Clamp(labelAnchor.x - width / 2f, 4f, Screen.width - width - 4f),
                 Mathf.Clamp(Screen.height - labelAnchor.y - 25f * scale - labelRow * 29f * scale, 4f, Screen.height - 32f * scale),
                 width, 29f * scale);
-            GUIStyle style = new GUIStyle(GUI.skin.label);
+            if (effectStyle == null) effectStyle = new GUIStyle(GUI.skin.label);
+            GUIStyle style = effectStyle;
             style.font = skillFont;
             style.fontSize = Mathf.RoundToInt(20f * scale);
             style.fontStyle = FontStyle.Bold;
             style.alignment = TextAnchor.MiddleCenter;
             style.normal.textColor = Color.white;
             GUI.color = new Color(1f, 1f, 1f, color.a * .58f);
-            foreach (Vector2 offset in new Vector2[] { Vector2.left, Vector2.right, Vector2.up, Vector2.down })
+            foreach (Vector2 offset in labelOffsets)
                 GUI.Label(new Rect(label.x + offset.x * scale, label.y + offset.y * scale, label.width, label.height), names[index], style);
             GUI.color = color;
             GUI.Label(label, names[index], style);
@@ -1503,8 +1553,15 @@ public sealed class PlayerSkills : MonoBehaviour
         GUI.matrix = saved;
     }
 
-    private static void DrawBallHighlight(Camera camera, float scale, Rigidbody2D ball, float glowUntil, Color glowColor, List<Vector2> ballTrail)
+    public static void PrepareVisualResources()
     {
+        if (skillFont == null) { skillFont = Font.CreateDynamicFontFromOSFont(new string[] { "Microsoft YaHei", "SimHei", "Arial" }, 22); preparedFontSize = 0; }
+        int fontSize = Mathf.RoundToInt(20f * Mathf.Clamp(Screen.height / 720f, .7f, 1.5f));
+        if (preparedFontSize != fontSize)
+        {
+            skillFont.RequestCharactersInTexture(string.Concat(names), fontSize, FontStyle.Bold);
+            preparedFontSize = fontSize;
+        }
         if (haloTexture == null)
         {
             haloTexture = new Texture2D(64, 64, TextureFormat.RGBA32, false);
@@ -1518,6 +1575,11 @@ public sealed class PlayerSkills : MonoBehaviour
             haloTexture.SetPixels(pixels);
             haloTexture.Apply();
         }
+    }
+
+    private static void DrawBallHighlight(Camera camera, float scale, Rigidbody2D ball, float glowUntil, Color glowColor, List<Vector2> ballTrail)
+    {
+        PrepareVisualResources();
         // Use the interpolated render transform, so the glow stays on the sprite
         // instead of leading it by a physics tick at high shot speeds.
         Vector3 point = camera.WorldToScreenPoint(ball.transform.position);
@@ -1556,94 +1618,4 @@ public sealed class PowerTackleContact : MonoBehaviour
     public PlayerSkills owner;
     private void OnCollisionEnter2D(Collision2D collision) { if (owner != null) owner.OnBodyContact(collision); }
     private void OnCollisionStay2D(Collision2D collision) { if (owner != null) owner.OnBodyContact(collision); }
-}
-
-
-// Shared with allocation mode: a four-point purchased leaf shot uses precisely
-// the original special-mode preparation and velocity law.
-public sealed class LeafShotProfile
-{
-    public Collider2D curveGoal; public Vector2 curveOrigin,curveDestination;
-    public float curveTravelTime,curveArcHeight,curveForwardSpeed;
-    Rigidbody2D ball; Collider2D ballCollider; float direction,power; int groundMask;
-    const float FanVolleyArcHeight=PlayerSkills.FanVolleyArcHeight,FanVolleyLiftSpeed=PlayerSkills.FanVolleyLiftSpeed,FanVolleySpeedMultiplier=PlayerSkills.FanVolleySpeedMultiplier,FanVolleyFlightDuration=PlayerSkills.FanVolleyFlightDuration;
-    public LeafShotProfile(Rigidbody2D football,Collider2D shape,Collider2D goal,float facing,int mask,float strength)
-    {ball=football;ballCollider=shape;direction=facing;groundMask=mask;power=strength;Prepare(goal);}
-    void Prepare(Collider2D goal)
-    {
-        curveGoal = goal;
-        curveOrigin = ball.position;
-        Bounds mouth = goal.bounds;
-        float radius = ballCollider.bounds.extents.y / (ExperimentScale.Enabled ? ExperimentScale.Size : 1f);
-        float minY = mouth.min.y + radius + .12f;
-        float maxY = mouth.max.y - radius - .12f;
-        // Finish the arc before crossing the goal/out trigger line, accounting
-        // for the whole ball. The final approach remains inside the mouth.
-        curveDestination = new Vector2(direction > 0f ? mouth.min.x - ballCollider.bounds.extents.x / (ExperimentScale.Enabled ? ExperimentScale.Size : 1f) - .22f :
-            mouth.max.x + ballCollider.bounds.extents.x / (ExperimentScale.Enabled ? ExperimentScale.Size : 1f) + .22f, Mathf.Lerp(minY, maxY, .52f));
-        curveForwardSpeed = Mathf.Clamp(Mathf.Max(12f, Mathf.Abs(ball.velocity.x) * 1.3f + 10f), 12f, 18f);
-        float distance = Mathf.Max(.1f, direction * (curveDestination.x - curveOrigin.x));
-        curveTravelTime = Mathf.Clamp(distance / curveForwardSpeed, .08f, 1.5f);
-        float ceiling = curveOrigin.y + FanVolleyArcHeight;
-        foreach (RaycastHit2D hit in Physics2D.RaycastAll(curveOrigin + Vector2.up * .05f, Vector2.up, 30f, groundMask))
-        {
-            if (hit.collider == null || hit.collider == ballCollider || hit.collider.isTrigger || hit.normal.y > -.5f) continue;
-            string root = hit.collider.transform.root.name;
-            if (root == "Fan" || root == "Zhao") continue;
-            ceiling = hit.point.y - radius - .25f;
-            break;
-        }
-        float available = Mathf.Max(0f, ceiling - Mathf.Max(curveOrigin.y, curveDestination.y));
-        curveArcHeight = Mathf.Min(available, FanVolleyArcHeight, FanVolleyLiftSpeed * curveTravelTime * .25f);
-        // Short-range shots need a short arc so they can descend before the bar.
-        curveArcHeight *= Mathf.Min(1f, curveTravelTime / .45f) * (ExperimentScale.Enabled ? .9f : 1f);
-    
-        curveArcHeight*=power;curveForwardSpeed*=power;curveTravelTime=Mathf.Clamp(curveTravelTime/power,.08f,6f);
-        if(power<1f){curveDestination.y=Mathf.Lerp(curveOrigin.y,curveDestination.y,power)+UnityEngine.Random.Range(-1f,1f)*1.8f*(1f-power);}
-    }
-    public Vector2 Velocity(float age,Vector2 position){return ProfileVelocityForSpecial(age*FanVolleySpeedMultiplier,position)*FanVolleySpeedMultiplier;}
-    public Vector2 ProfileVelocityForSpecial(float age,Vector2 position)
-    {
-        Bounds mouth = curveGoal.bounds;
-        float radius = ballCollider.bounds.extents.y / (ExperimentScale.Enabled ? ExperimentScale.Size : 1f);
-        float minY = mouth.min.y + radius + .12f;
-        float maxY = mouth.max.y - radius - .12f;
-        float aimY = power<1f?curveDestination.y:Mathf.Clamp(curveDestination.y, minY, maxY);
-        float distance = direction * (curveDestination.x - position.x);
-        if (distance < 2f || age >= curveTravelTime)
-        {
-            float arrival = Mathf.Max(.08f, Mathf.Max(0f, distance) / (curveForwardSpeed * FanVolleySpeedMultiplier));
-            float gravity = Physics2D.gravity.y * ball.gravityScale;
-            float vertical = (aimY - position.y) / arrival - .5f * gravity * arrival;
-            return new Vector2(direction * curveForwardSpeed, Mathf.Clamp(vertical / FanVolleySpeedMultiplier, -24f, 24f));
-        }
-        float u = Mathf.Clamp01(age / curveTravelTime);
-        float wave = Mathf.Sin(u * Mathf.PI * 4f);
-        float envelope = 4f * u * (1f - u);
-        Vector2 desired = Vector2.Lerp(curveOrigin, curveDestination, u);
-        desired.y += curveArcHeight * envelope + .18f * wave * envelope;
-        Vector2 velocity = (curveDestination - curveOrigin) / curveTravelTime;
-        velocity.y += (curveArcHeight * 4f * (1f - 2f * u) + .18f *
-            (Mathf.PI * 4f * Mathf.Cos(u * Mathf.PI * 4f) * envelope + wave * 4f * (1f - 2f * u))) / curveTravelTime;
-        velocity += (desired - position) * 8f;
-        return new Vector2(direction * Mathf.Clamp(velocity.x * direction, 8f*power, 20f*power), Mathf.Clamp(velocity.y, -24f, 24f));
-    
-    }
-    public bool Complete(float age,Vector2 position)
-    {
-        age *= FanVolleySpeedMultiplier;
-        if (curveGoal == null || ballCollider == null || age >= FanVolleyFlightDuration/Mathf.Min(1f,power) ||
-            age >= curveTravelTime + .35f) return true;
-        Bounds mouth = curveGoal.bounds;
-        float leadingEdge = position.x + direction * ballCollider.bounds.extents.x;
-        float goalFront = direction > 0f ? mouth.min.x : mouth.max.x;
-        // Once the ball reaches the mouth, gravity and the native goal/net
-        // collisions take over. Never hold it against the frame with impulses.
-        if (direction * (leadingEdge - goalFront) >= -.04f) return true;
-        float radius = ballCollider.bounds.extents.y / (ExperimentScale.Enabled ? ExperimentScale.Size : 1f);
-        bool insideHeight = position.y >= mouth.min.y + radius + .08f &&
-            position.y <= mouth.max.y - radius - .08f;
-        return insideHeight && direction * (position.x - curveDestination.x) >= 0f;
-    
-    }
 }

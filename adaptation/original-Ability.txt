@@ -1,0 +1,42 @@
+ABILITY PASS 16 budget keeps 4/4/4 with four unspent points
+ABILITY PASS cap eight, cost two, refund and invalid allocations
+ABILITY PASS AI random allocations obey new budget and cap
+ABILITY PASS equal five-percentage-point ability schedule with retained 60 percent floor
+ABILITY PASS allocation UI hides percentages/zero-point effects and default can start
+ABILITY POSE Fan idle=7.609271 gait=14.13896 carry=32.64658 bodyTarget=-4.64654 body=-3.195884
+ABILITY PASS stable stand/walk/dribble Fan contest=0 jump=4 walk=1.591632 carry=5.822241 ball=6.744583 angle=32.64658 joints=0.09431613
+ABILITY POSE Fan idle=7.648493 gait=14.10146 carry=22.35292 bodyTarget=-5.356215 body=-3.246687
+ABILITY PASS stable stand/walk/dribble Fan contest=4 jump=0 walk=1.619245 carry=6.164308 ball=6.74688 angle=22.35292 joints=0.09508532
+ABILITY POSE Fan idle=7.648493 gait=14.25106 carry=23.7945 bodyTarget=-6.802976 body=-3.915814
+ABILITY PASS stable stand/walk/dribble Fan contest=0 jump=0 walk=1.605285 carry=6.117113 ball=6.614695 angle=23.7945 joints=0.09483498
+ABILITY PASS zero jump retains real reduced jump Fan rise=4.207849
+ABILITY PASS new cap rapid jump/descent Fan
+ABILITY POSE Zhao idle=10.26385 gait=15.22903 carry=33.22449 bodyTarget=13.15 body=25.76913
+ABILITY PASS stable stand/walk/dribble Zhao contest=0 jump=4 walk=1.963754 carry=6.007881 ball=6.149333 angle=33.22449 joints=0.1636939
+ABILITY POSE Zhao idle=10.26385 gait=15.41443 carry=35.05698 bodyTarget=13.15 body=23.62638
+ABILITY PASS stable stand/walk/dribble Zhao contest=4 jump=0 walk=1.986842 carry=5.936884 ball=6.154177 angle=35.05698 joints=0.1511576
+ABILITY POSE Zhao idle=10.26385 gait=15.35443 carry=31.92316 bodyTarget=13.15 body=25.2003
+ABILITY PASS stable stand/walk/dribble Zhao contest=0 jump=0 walk=1.96707 carry=6.23031 ball=6.249522 angle=31.92316 joints=0.0957725
+ABILITY PASS zero jump retains real reduced jump Zhao rise=4.232787
+ABILITY PASS new cap rapid jump/descent Zhao
+ABILITY PASS ordinary shots retain linear power rather than the old zero-point weak special case
+ABILITY PROFILE burst=5.5,9.625,22 lift=1.05,1.8375,4.2 error=1.044141,0.5220706,0 angle=0.0630426,0.1166193,0.2671875
+ABILITY PASS burst shooting 0/4/8 markedly scales ball speed
+ABILITY PASS leaf shooting 0/4/8 scales height, angle and accuracy
+ABILITY PASS real collision, scaled shot and preserved animation Fan skill=1 shooting=0
+ABILITY PASS real collision, scaled shot and preserved animation Fan skill=1 shooting=4
+ABILITY PASS real collision, scaled shot and preserved animation Fan skill=1 shooting=8
+ABILITY PASS real collision, scaled shot and preserved animation Fan skill=4 shooting=0
+ABILITY PASS real collision, scaled shot and preserved animation Fan skill=5 shooting=0
+ABILITY PASS real collision, scaled shot and preserved animation Zhao skill=1 shooting=0
+ABILITY PASS real collision, scaled shot and preserved animation Zhao skill=1 shooting=4
+ABILITY PASS real collision, scaled shot and preserved animation Zhao skill=1 shooting=8
+ABILITY PASS real collision, scaled shot and preserved animation Zhao skill=4 shooting=0
+ABILITY PASS real collision, scaled shot and preserved animation Zhao skill=5 shooting=0
+ABILITY PASS equal low contest does not auto-collapse on contact
+ABILITY PASS cap eight contest advantage applies only in opponent contact
+ABILITY PASS AI capability reads retained zero-point jump
+ABILITY PASS pause safely suppresses build actions
+ABILITY PASS classic parameters and removed bottom text preserved
+ABILITY PASS original special mode loads without allocation overrides
+ABILITY COMPLETE checks=34 failures=0
