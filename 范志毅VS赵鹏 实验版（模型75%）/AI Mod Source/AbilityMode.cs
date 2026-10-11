@@ -20,7 +20,7 @@ public static class AbilityMode
         public bool Change(int index,int amount){if(index<0||index>2)return false;int next=Levels[index]+amount;if(next<0||next>MaxLevel||Used+amount>Budget)return false;Levels[index]=next;return true;}
         public bool Toggle(int index){if(index<0||index>=Skills.Length)return false;if(!Has(index)&&Used+SkillCost>Budget)return false;Purchased^=1<<index;return true;}
         public void Reset(){Levels[0]=Levels[1]=Levels[2]=4;Purchased=0;}
-        public bool Valid {get{return Used<=Budget&&(Purchased&~1023)==0&&Array.TrueForAll(Levels,delegate(int n){return n>=0&&n<=MaxLevel;});}}
+        public bool Valid {get{return (Purchased&~1023)==0&&Used<=Budget&&Array.TrueForAll(Levels,delegate(int n){return n>=0&&n<=MaxLevel;});}}
     }
     public static readonly Build[] Builds={new Build(),new Build()};
     static int Count(int mask){int n=0;while(mask!=0){n+=mask&1;mask>>=1;}return n;}
@@ -69,13 +69,22 @@ public static class AbilityMode
 
 public sealed class AbilitySetupPanel : MonoBehaviour
 {
-    Button template;Font font;int mode;Action started,cancelled;Text hint;readonly Text[] totals=new Text[2];readonly Text[,] stats=new Text[2,3];readonly Button[,] minus=new Button[2,3],plus=new Button[2,3],skills=new Button[2,10];Button start;
+    Button template;Font font;int mode;int ownedSide=-1;Action started,cancelled;Text hint;readonly Text[] totals=new Text[2];readonly Text[,] stats=new Text[2,3];readonly Button[,] minus=new Button[2,3],plus=new Button[2,3],skills=new Button[2,10];Button start;
     static readonly string[] Labels={"射门","对抗","跳跃"};
     public static void Open(Transform parent,Button prototype,int selectedMode,Action go,Action back)
     {
         var obj=new GameObject("Ability Setup",typeof(RectTransform),typeof(CanvasRenderer),typeof(Image),typeof(AbilitySetupPanel));obj.transform.SetParent(parent,false);obj.transform.SetAsLastSibling();RectTransform r=(RectTransform)obj.transform;r.anchorMin=Vector2.zero;r.anchorMax=Vector2.one;r.offsetMin=r.offsetMax=Vector2.zero;obj.GetComponent<Image>().color=new Color(.025f,.05f,.09f,.99f);
         MenuBackdrop.Apply(obj);
         var panel=obj.GetComponent<AbilitySetupPanel>();panel.template=prototype;panel.font=prototype.GetComponentInChildren<Text>(true).font;panel.mode=selectedMode;panel.started=go;panel.cancelled=back;panel.Build();
+    }
+    public static AbilitySetupPanel OpenLan(Transform parent, Button prototype, int side, Action ready, Action back)
+    {
+        var obj=new GameObject("Ability Setup",typeof(RectTransform),typeof(CanvasRenderer),typeof(Image),typeof(AbilitySetupPanel));
+        obj.transform.SetParent(parent,false);obj.transform.SetAsLastSibling();
+        RectTransform r=(RectTransform)obj.transform;r.anchorMin=Vector2.zero;r.anchorMax=Vector2.one;r.offsetMin=r.offsetMax=Vector2.zero;
+        obj.GetComponent<Image>().color=Color.clear; MenuBackdrop.Apply(obj);
+        var panel=obj.GetComponent<AbilitySetupPanel>();panel.template=prototype;panel.font=prototype.GetComponentInChildren<Text>(true).font;
+        panel.ownedSide=side;panel.started=ready;panel.cancelled=back;panel.Build();return panel;
     }
     bool AI(int side){return mode==1&&side==1||mode==2&&side==0;}
     RectTransform content;
@@ -85,21 +94,22 @@ public sealed class AbilitySetupPanel : MonoBehaviour
         AddText("赛前加点",new Vector2(0,315),32,new Vector2(1000,45));
         AddText("总预算 16 点 · 每项上限 8 · 特技每个 2 点",new Vector2(0,275),19,new Vector2(1030,35));
         for(int side=0;side<2;side++){
-            int p=side;float x=side==0?-260:260;if(AI(side))AbilityMode.Randomize(side);
+            if(ownedSide>=0&&side!=ownedSide)continue;
+            int p=side;float x=ownedSide>=0?0:side==0?-260:260;if(AI(side))AbilityMode.Randomize(side);
             totals[side]=AddText("",new Vector2(x,229),24,new Vector2(490,40));
             for(int d=0;d<3;d++){int dim=d;float y=183-d*45;stats[side,d]=AddText("",new Vector2(x,y),22,new Vector2(285,38));minus[side,d]=AddButton("−",new Vector2(x-190,y),new Vector2(65,36),delegate{AbilityMode.Builds[p].Change(dim,-1);Refresh();});plus[side,d]=AddButton("+",new Vector2(x+190,y),new Vector2(65,36),delegate{AbilityMode.Builds[p].Change(dim,1);Refresh();});}
-            AddText("特技商店 · 双方均可购买",new Vector2(x,40),19,new Vector2(470,32));
+            AddText(ownedSide>=0?"特技商店":"特技商店 · 双方均可购买",new Vector2(x,40),19,new Vector2(470,32));
             for(int i=0;i<10;i++){int skill=i;skills[side,i]=AddButton("",new Vector2(x+(i%2==0?-118:118),-5-(i/2)*40),new Vector2(228,35),delegate{bool ok=AbilityMode.Builds[p].Toggle(skill);hint.text=ok?AbilityMode.Skills[skill]+"："+AbilityMode.Descriptions[skill]:"剩余点数不足，请先减少能力点。";Refresh();});}
             AddButton(AI(side)?"重新随机":"恢复 4 / 4 / 4",new Vector2(x,-213),new Vector2(250,36),delegate{if(AI(p))AbilityMode.Randomize(p);else AbilityMode.Builds[p].Reset();Refresh();});
         }
-        hint=AddText("自由分配能力与特技；剩余点数可以保留，双方配置确认后即可开始。",new Vector2(0,-258),18,new Vector2(1030,38));
-        AddButton("返回",new Vector2(-210,-308),new Vector2(260,42),delegate{gameObject.SetActive(false);Destroy(gameObject);cancelled();});start=AddButton("开始比赛",new Vector2(210,-308),new Vector2(260,42),delegate{if(!AbilityMode.Builds[0].Valid||!AbilityMode.Builds[1].Valid)return;gameObject.SetActive(false);Destroy(gameObject);started();});Refresh();
+        hint=AddText(ownedSide>=0?"加点完成后准备":"自由分配能力与特技；剩余点数可以保留，双方配置确认后即可开始。",new Vector2(0,-258),18,new Vector2(1030,38));
+        AddButton("返回",new Vector2(-210,-308),new Vector2(260,42),delegate{gameObject.SetActive(false);Destroy(gameObject);cancelled();});start=AddButton(ownedSide>=0?"准备":"开始比赛",new Vector2(210,-308),new Vector2(260,42),delegate{if(!AbilityMode.Builds[0].Valid||!AbilityMode.Builds[1].Valid)return;gameObject.SetActive(false);Destroy(gameObject);started();});Refresh();
     }
     void Resize(){if(content==null)return;RectTransform r=(RectTransform)transform;content.localScale=Vector3.one*Mathf.Min(r.rect.width/1120f,r.rect.height/730f);}
     void Update(){Resize();}
     Text AddText(string value,Vector2 xy,int size,Vector2 dimensions){var obj=new GameObject("Allocation Label",typeof(RectTransform),typeof(CanvasRenderer),typeof(Text));obj.transform.SetParent(content,false);var r=(RectTransform)obj.transform;r.anchorMin=r.anchorMax=new Vector2(.5f,.5f);r.anchoredPosition=xy;r.sizeDelta=dimensions;Text t=obj.GetComponent<Text>();t.font=font;t.fontSize=size;t.text=value;t.color=Color.white;t.alignment=TextAnchor.MiddleCenter;t.raycastTarget=false;return t;}
     Button AddButton(string label,Vector2 xy,Vector2 dimensions,UnityEngine.Events.UnityAction action){Button b=Instantiate<Button>(template);b.transform.SetParent(content,false);b.gameObject.SetActive(true);var r=b.GetComponent<RectTransform>();r.anchorMin=r.anchorMax=new Vector2(.5f,.5f);r.anchoredPosition=xy;r.sizeDelta=dimensions;r.localScale=Vector3.one;Text text=b.GetComponentInChildren<Text>(true);text.text=label;text.fontSize=19;text.resizeTextForBestFit=false;text.alignment=TextAnchor.MiddleCenter;text.color=new Color(.07f,.10f,.14f);RectTransform tr=text.GetComponent<RectTransform>();tr.anchorMin=Vector2.zero;tr.anchorMax=Vector2.one;tr.offsetMin=new Vector2(4,2);tr.offsetMax=new Vector2(-4,-2);b.onClick.RemoveAllListeners();b.onClick.AddListener(action);return b;}
-    void Refresh(){for(int p=0;p<2;p++){var b=AbilityMode.Builds[p];totals[p].text=(p==0?"范志毅":"赵鹏")+(AI(p)?" AI":"")+" · 剩余 "+(AbilityMode.Budget-b.Used)+" 点";for(int d=0;d<3;d++){stats[p,d].text=Labels[d]+"   "+b.Levels[d]+" / "+AbilityMode.MaxLevel;minus[p,d].interactable=!AI(p)&&b.Levels[d]>0;plus[p,d].interactable=!AI(p)&&b.Levels[d]<AbilityMode.MaxLevel&&b.Used<AbilityMode.Budget;}for(int i=0;i<10;i++){skills[p,i].GetComponentInChildren<Text>(true).text=(b.Has(i)?"✓ ":"2点 · ")+AbilityMode.Skills[i];skills[p,i].interactable=!AI(p);}}if(start!=null)start.interactable=AbilityMode.Builds[0].Valid&&AbilityMode.Builds[1].Valid;}
+    void Refresh(){for(int p=0;p<2;p++){if(ownedSide>=0&&p!=ownedSide)continue;var b=AbilityMode.Builds[p];totals[p].text=(p==0?"范志毅":"赵鹏")+(AI(p)?" AI":"")+" · 剩余 "+(AbilityMode.Budget-b.Used)+" 点";for(int d=0;d<3;d++){stats[p,d].text=Labels[d]+"   "+b.Levels[d]+" / "+AbilityMode.MaxLevel;minus[p,d].interactable=!AI(p)&&b.Levels[d]>0;plus[p,d].interactable=!AI(p)&&b.Levels[d]<AbilityMode.MaxLevel&&b.Used<AbilityMode.Budget;}for(int i=0;i<10;i++){skills[p,i].GetComponentInChildren<Text>(true).text=(b.Has(i)?"✓ ":"2点 · ")+AbilityMode.Skills[i];skills[p,i].interactable=!AI(p);}}if(start!=null)start.interactable=AbilityMode.Builds[0].Valid&&AbilityMode.Builds[1].Valid;}
 }
 
 // All launches and contacts use the connected physical rig. No teleport,
