@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Reflection;
 using UnityEngine;
 
@@ -73,7 +73,7 @@ public sealed class PowerShot : MonoBehaviour
         if (fan) target = ball.velocity * SpeedMultiplier;
         else
         {
-            float speed = Mathf.Clamp(Mathf.Max(17f, ball.velocity.magnitude * 1.65f), 17f, 23f) * SpeedMultiplier * (PlayerSkills.Enabled ? SkillBurstMultiplier : 1f);
+            float speed = PlayerSkills.Enabled?SkillBurstSpeed(ball.velocity.magnitude):Mathf.Clamp(Mathf.Max(17f,ball.velocity.magnitude*1.65f),17f,23f)*SpeedMultiplier;
             floorHeight = FindFloor();
             target = new Vector2(-speed, FlatVertical()); flatUntil = Time.time + .6f;
         }
@@ -98,8 +98,10 @@ public sealed class PowerShot : MonoBehaviour
         if (Stopped()) { headerUntil = armedUntil = flatUntil = -1f; return; }
         if (Time.time <= flatUntil) ball.AddForce(Vector2.up * (FlatVertical() - ball.velocity.y) * ball.mass, ForceMode2D.Impulse);
     }
+    public static float SkillBurstSpeed(float incoming){return Mathf.Clamp(Mathf.Max(17f,incoming*1.65f),17f,23f)*SpeedMultiplier*SkillBurstMultiplier;}
     public static bool OnBallCollision(Collision2D collision)
     {
+        if(AbilityMode.Enabled)return false;
         if (collision == null || collision.collider == null) return false;
         PowerShot striker = collision.collider.GetComponentInParent<PowerShot>();
         bool launched = false;

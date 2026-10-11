@@ -621,7 +621,7 @@ public static class GameAIMod
                 if (jump != null && rigMass > 0f)
                     state.jumpSpeed = Mathf.Clamp(PlayerSkills.GetJumpForce((float)jump.GetValue(controller), controller) *
                         Time.fixedDeltaTime * Time.fixedDeltaTime / rigMass, 3f, 8f);
-                if (AbilityMode.Enabled && jump!=null && rigMass>0f) state.jumpSpeed=Mathf.Clamp((float)jump.GetValue(controller)*Time.fixedDeltaTime*Time.fixedDeltaTime/rigMass,3f,8f)*Mathf.Sqrt(AbilityMode.Strength(AbilityMode.MaxLevel))*(AbilityMode.Has(controller,2)?PlayerSkills.ZhaoJumpMultiplier:1f);
+                if (AbilityMode.Enabled && jump!=null && rigMass>0f) state.jumpSpeed=Mathf.Clamp((float)jump.GetValue(controller)*Time.fixedDeltaTime*Time.fixedDeltaTime/rigMass,3f,8f)*AbilityMode.JumpMultiplier(controller);
                 Type goals = type.Assembly.GetType("GoalTrigger");
                 if (goals != null)
                     foreach (UnityEngine.Object item in UnityEngine.Object.FindObjectsOfType(goals))

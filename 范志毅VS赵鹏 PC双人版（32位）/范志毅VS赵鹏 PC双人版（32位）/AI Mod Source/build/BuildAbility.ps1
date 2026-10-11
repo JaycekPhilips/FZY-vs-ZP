@@ -51,7 +51,7 @@ if ($Suite -in @('Defense','AI','Strategy','SelfPlay','FanStrategy','Ability','V
 [IO.File]::WriteAllText((Join-Path $testBuild 'ControlBindings.cs'),$bindings,[Text.UTF8Encoding]::new($false))
 $testSources = $sources | Where-Object { (Split-Path $_ -Leaf) -notin @('GameAIMod.cs','ControlBindings.cs') }
 if ($Suite -eq 'Ability') {
-    $ability = [IO.File]::ReadAllText((Join-Path $source 'AbilityMode.cs')).Replace('void Launch(Vector2 velocity){','void Launch(Vector2 velocity){AbilityModeTests.Launched(controller,velocity);')
+    $ability = [IO.File]::ReadAllText((Join-Path $source 'AbilityMode.cs')).Replace('void Launch(Vector2 velocity){','void Launch(Vector2 velocity){AbilityModeTests.Launched(controller,velocity);').Replace('p.interceptUntil=-1f;p.interceptPending=false;p.Contact(collision);','AbilityModeTests.Contacted(collision);p.interceptUntil=-1f;p.interceptPending=false;p.Contact(collision);').Replace('Vector2 target=ShotTarget(level);bool weird=','Vector2 target=ShotTarget(level);AbilityModeTests.Aimed(controller,target);bool weird=')
     [IO.File]::WriteAllText((Join-Path $testBuild 'AbilityMode.cs'),$ability,[Text.UTF8Encoding]::new($false))
     $testSources = $testSources | Where-Object { (Split-Path $_ -Leaf) -ne 'AbilityMode.cs' }
     $testSources += Join-Path $testBuild 'AbilityMode.cs'

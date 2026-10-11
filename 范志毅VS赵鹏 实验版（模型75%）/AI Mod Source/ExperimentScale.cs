@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Reflection;
 using UnityEngine;
 
@@ -48,6 +48,7 @@ public static class ExperimentScale
         FieldInfo radius = playerType.GetField("positionRadius");
         radius.SetValue(player, (float)radius.GetValue(player) * Size);
         Physics2D.SyncTransforms();
+        BuildPlayer.RescaleStanding(stick, Size);
     }
     private static float Bottom(Collider2D[] shapes)
     {

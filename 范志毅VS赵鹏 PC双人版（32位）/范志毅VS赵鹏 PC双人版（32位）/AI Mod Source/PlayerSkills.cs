@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -325,6 +325,7 @@ public sealed class PlayerSkills : MonoBehaviour
         ZhaoHeader.OnAction(player, action);
     }
 
+    public static Vector2 CannonVelocity(float facing,Vector2 incoming){float speed=Mathf.Clamp(Mathf.Max(13f,incoming.magnitude*1.55f),13f,19f);return new Vector2(facing*speed,Mathf.Clamp(incoming.y+2.8f,2.8f,6f))*FanHeaderSpeedMultiplier;}
     public static float GetJumpForce(float original, Component player)
     {
         return AbilityMode.JumpForce(Enabled && player != null && player.name == "Zhao" ? original * ZhaoJumpMultiplier : original, player);
@@ -560,7 +561,7 @@ public sealed class PlayerSkills : MonoBehaviour
             if (headUntil >= now && HeadReachable())
             {
                 float speed = Mathf.Clamp(Mathf.Max(13f, ball.velocity.magnitude * 1.55f), 13f, 19f);
-                Vector2 target = new Vector2(direction * speed, Mathf.Clamp(ball.velocity.y + 2.8f, 2.8f, 6f)) * FanHeaderSpeedMultiplier;
+                Vector2 target = CannonVelocity(direction,ball.velocity);
                 EnableContinuousBall();
                 ball.AddForce((target - ball.velocity) * ball.mass, ForceMode2D.Impulse);
                 CancelCurves();
@@ -704,35 +705,13 @@ public sealed class PlayerSkills : MonoBehaviour
         return false;
     }
 
+    private LeafShotProfile curveProfile;
     private void PrepareGoalCurve(Collider2D goal)
     {
-        curveGoal = goal;
-        curveOrigin = ball.position;
-        Bounds mouth = goal.bounds;
-        float radius = ballCollider.bounds.extents.y;
-        float minY = mouth.min.y + radius + .12f;
-        float maxY = mouth.max.y - radius - .12f;
-        // Finish the arc before crossing the goal/out trigger line, accounting
-        // for the whole ball. The final approach remains inside the mouth.
-        curveDestination = new Vector2(direction > 0f ? mouth.min.x - ballCollider.bounds.extents.x - .22f :
-            mouth.max.x + ballCollider.bounds.extents.x + .22f, Mathf.Lerp(minY, maxY, .52f));
-        curveForwardSpeed = Mathf.Clamp(Mathf.Max(12f, Mathf.Abs(ball.velocity.x) * 1.3f + 10f), 12f, 18f);
-        float distance = Mathf.Max(.1f, direction * (curveDestination.x - curveOrigin.x));
-        curveTravelTime = Mathf.Clamp(distance / curveForwardSpeed, .08f, 1.5f);
-        float ceiling = curveOrigin.y + FanVolleyArcHeight;
-        foreach (RaycastHit2D hit in Physics2D.RaycastAll(curveOrigin + Vector2.up * .05f, Vector2.up, 30f, groundMask))
-        {
-            if (hit.collider == null || hit.collider == ballCollider || hit.collider.isTrigger || hit.normal.y > -.5f) continue;
-            string root = hit.collider.transform.root.name;
-            if (root == "Fan" || root == "Zhao") continue;
-            ceiling = hit.point.y - radius - .25f;
-            break;
-        }
-        float available = Mathf.Max(0f, ceiling - Mathf.Max(curveOrigin.y, curveDestination.y));
-        curveArcHeight = Mathf.Min(available, FanVolleyArcHeight, FanVolleyLiftSpeed * curveTravelTime * .25f);
-        // Short-range shots need a short arc so they can descend before the bar.
-        curveArcHeight *= Mathf.Min(1f, curveTravelTime / .45f);
+        curveProfile=new LeafShotProfile(ball,ballCollider,goal,direction,groundMask,1f);
+        curveGoal=curveProfile.curveGoal;curveOrigin=curveProfile.curveOrigin;curveDestination=curveProfile.curveDestination;curveTravelTime=curveProfile.curveTravelTime;curveArcHeight=curveProfile.curveArcHeight;curveForwardSpeed=curveProfile.curveForwardSpeed;
     }
+
 
     private Vector2 GoalCurveVelocity(float age)
     {
@@ -745,32 +724,9 @@ public sealed class PlayerSkills : MonoBehaviour
         return GoalCurveProfileVelocityAt(age * FanVolleySpeedMultiplier, position) * FanVolleySpeedMultiplier;
     }
 
-    private Vector2 GoalCurveProfileVelocityAt(float age, Vector2 position)
-    {
-        Bounds mouth = curveGoal.bounds;
-        float radius = ballCollider.bounds.extents.y;
-        float minY = mouth.min.y + radius + .12f;
-        float maxY = mouth.max.y - radius - .12f;
-        float aimY = Mathf.Clamp(curveDestination.y, minY, maxY);
-        float distance = direction * (curveDestination.x - position.x);
-        if (distance < 2f || age >= curveTravelTime)
-        {
-            float arrival = Mathf.Max(.08f, Mathf.Max(0f, distance) / (curveForwardSpeed * FanVolleySpeedMultiplier));
-            float gravity = Physics2D.gravity.y * ball.gravityScale;
-            float vertical = (aimY - position.y) / arrival - .5f * gravity * arrival;
-            return new Vector2(direction * curveForwardSpeed, Mathf.Clamp(vertical / FanVolleySpeedMultiplier, -24f, 24f));
-        }
-        float u = Mathf.Clamp01(age / curveTravelTime);
-        float wave = Mathf.Sin(u * Mathf.PI * 4f);
-        float envelope = 4f * u * (1f - u);
-        Vector2 desired = Vector2.Lerp(curveOrigin, curveDestination, u);
-        desired.y += curveArcHeight * envelope + .18f * wave * envelope;
-        Vector2 velocity = (curveDestination - curveOrigin) / curveTravelTime;
-        velocity.y += (curveArcHeight * 4f * (1f - 2f * u) + .18f *
-            (Mathf.PI * 4f * Mathf.Cos(u * Mathf.PI * 4f) * envelope + wave * 4f * (1f - 2f * u))) / curveTravelTime;
-        velocity += (desired - position) * 8f;
-        return new Vector2(direction * Mathf.Clamp(velocity.x * direction, 8f, 20f), Mathf.Clamp(velocity.y, -24f, 24f));
-    }
+    private Vector2 GoalCurveProfileVelocityAt(float age,Vector2 position)
+    {return curveProfile.ProfileVelocityForSpecial(age,position);}
+
 
     private bool CurveAssistComplete(float age)
     {
@@ -1073,6 +1029,7 @@ public sealed class PlayerSkills : MonoBehaviour
 
     public static bool IsGroundBallContest(Component player)
     {
+        if(AbilityMode.Enabled){BuildPlayer owner=player!=null?player.GetComponent<BuildPlayer>():null;return owner!=null&&owner.GroundBallContest;}
         PlayerSkills skills = player != null ? player.GetComponent<PlayerSkills>() : null;
         return skills != null && !skills.fan && !skills.Stopped() && skills.BallInFront() && Time.time <= skills.groundContestUntil;
     }
@@ -1590,4 +1547,94 @@ public sealed class PowerTackleContact : MonoBehaviour
     public PlayerSkills owner;
     private void OnCollisionEnter2D(Collision2D collision) { if (owner != null) owner.OnBodyContact(collision); }
     private void OnCollisionStay2D(Collision2D collision) { if (owner != null) owner.OnBodyContact(collision); }
+}
+
+
+// Shared with allocation mode: a four-point purchased leaf shot uses precisely
+// the original special-mode preparation and velocity law.
+public sealed class LeafShotProfile
+{
+    public Collider2D curveGoal; public Vector2 curveOrigin,curveDestination;
+    public float curveTravelTime,curveArcHeight,curveForwardSpeed;
+    Rigidbody2D ball; Collider2D ballCollider; float direction,power; int groundMask;
+    const float FanVolleyArcHeight=PlayerSkills.FanVolleyArcHeight,FanVolleyLiftSpeed=PlayerSkills.FanVolleyLiftSpeed,FanVolleySpeedMultiplier=PlayerSkills.FanVolleySpeedMultiplier,FanVolleyFlightDuration=PlayerSkills.FanVolleyFlightDuration;
+    public LeafShotProfile(Rigidbody2D football,Collider2D shape,Collider2D goal,float facing,int mask,float strength)
+    {ball=football;ballCollider=shape;direction=facing;groundMask=mask;power=strength;Prepare(goal);}
+    void Prepare(Collider2D goal)
+    {
+        curveGoal = goal;
+        curveOrigin = ball.position;
+        Bounds mouth = goal.bounds;
+        float radius = ballCollider.bounds.extents.y;
+        float minY = mouth.min.y + radius + .12f;
+        float maxY = mouth.max.y - radius - .12f;
+        // Finish the arc before crossing the goal/out trigger line, accounting
+        // for the whole ball. The final approach remains inside the mouth.
+        curveDestination = new Vector2(direction > 0f ? mouth.min.x - ballCollider.bounds.extents.x - .22f :
+            mouth.max.x + ballCollider.bounds.extents.x + .22f, Mathf.Lerp(minY, maxY, .52f));
+        curveForwardSpeed = Mathf.Clamp(Mathf.Max(12f, Mathf.Abs(ball.velocity.x) * 1.3f + 10f), 12f, 18f);
+        float distance = Mathf.Max(.1f, direction * (curveDestination.x - curveOrigin.x));
+        curveTravelTime = Mathf.Clamp(distance / curveForwardSpeed, .08f, 1.5f);
+        float ceiling = curveOrigin.y + FanVolleyArcHeight;
+        foreach (RaycastHit2D hit in Physics2D.RaycastAll(curveOrigin + Vector2.up * .05f, Vector2.up, 30f, groundMask))
+        {
+            if (hit.collider == null || hit.collider == ballCollider || hit.collider.isTrigger || hit.normal.y > -.5f) continue;
+            string root = hit.collider.transform.root.name;
+            if (root == "Fan" || root == "Zhao") continue;
+            ceiling = hit.point.y - radius - .25f;
+            break;
+        }
+        float available = Mathf.Max(0f, ceiling - Mathf.Max(curveOrigin.y, curveDestination.y));
+        curveArcHeight = Mathf.Min(available, FanVolleyArcHeight, FanVolleyLiftSpeed * curveTravelTime * .25f);
+        // Short-range shots need a short arc so they can descend before the bar.
+        curveArcHeight *= Mathf.Min(1f, curveTravelTime / .45f);
+    
+        curveArcHeight*=power;curveForwardSpeed*=power;curveTravelTime=Mathf.Clamp(curveTravelTime/power,.08f,6f);
+        if(power<1f){curveDestination.y=Mathf.Lerp(curveOrigin.y,curveDestination.y,power)+UnityEngine.Random.Range(-1f,1f)*1.8f*(1f-power);}
+    }
+    public Vector2 Velocity(float age,Vector2 position){return ProfileVelocityForSpecial(age*FanVolleySpeedMultiplier,position)*FanVolleySpeedMultiplier;}
+    public Vector2 ProfileVelocityForSpecial(float age,Vector2 position)
+    {
+        Bounds mouth = curveGoal.bounds;
+        float radius = ballCollider.bounds.extents.y;
+        float minY = mouth.min.y + radius + .12f;
+        float maxY = mouth.max.y - radius - .12f;
+        float aimY = power<1f?curveDestination.y:Mathf.Clamp(curveDestination.y, minY, maxY);
+        float distance = direction * (curveDestination.x - position.x);
+        if (distance < 2f || age >= curveTravelTime)
+        {
+            float arrival = Mathf.Max(.08f, Mathf.Max(0f, distance) / (curveForwardSpeed * FanVolleySpeedMultiplier));
+            float gravity = Physics2D.gravity.y * ball.gravityScale;
+            float vertical = (aimY - position.y) / arrival - .5f * gravity * arrival;
+            return new Vector2(direction * curveForwardSpeed, Mathf.Clamp(vertical / FanVolleySpeedMultiplier, -24f, 24f));
+        }
+        float u = Mathf.Clamp01(age / curveTravelTime);
+        float wave = Mathf.Sin(u * Mathf.PI * 4f);
+        float envelope = 4f * u * (1f - u);
+        Vector2 desired = Vector2.Lerp(curveOrigin, curveDestination, u);
+        desired.y += curveArcHeight * envelope + .18f * wave * envelope;
+        Vector2 velocity = (curveDestination - curveOrigin) / curveTravelTime;
+        velocity.y += (curveArcHeight * 4f * (1f - 2f * u) + .18f *
+            (Mathf.PI * 4f * Mathf.Cos(u * Mathf.PI * 4f) * envelope + wave * 4f * (1f - 2f * u))) / curveTravelTime;
+        velocity += (desired - position) * 8f;
+        return new Vector2(direction * Mathf.Clamp(velocity.x * direction, 8f*power, 20f*power), Mathf.Clamp(velocity.y, -24f, 24f));
+    
+    }
+    public bool Complete(float age,Vector2 position)
+    {
+        age *= FanVolleySpeedMultiplier;
+        if (curveGoal == null || ballCollider == null || age >= FanVolleyFlightDuration/Mathf.Min(1f,power) ||
+            age >= curveTravelTime + .35f) return true;
+        Bounds mouth = curveGoal.bounds;
+        float leadingEdge = position.x + direction * ballCollider.bounds.extents.x;
+        float goalFront = direction > 0f ? mouth.min.x : mouth.max.x;
+        // Once the ball reaches the mouth, gravity and the native goal/net
+        // collisions take over. Never hold it against the frame with impulses.
+        if (direction * (leadingEdge - goalFront) >= -.04f) return true;
+        float radius = ballCollider.bounds.extents.y;
+        bool insideHeight = position.y >= mouth.min.y + radius + .08f &&
+            position.y <= mouth.max.y - radius - .08f;
+        return insideHeight && direction * (position.x - curveDestination.x) >= 0f;
+    
+    }
 }

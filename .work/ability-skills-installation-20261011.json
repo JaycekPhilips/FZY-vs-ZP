@@ -1,0 +1,32 @@
+{
+  "selfPlayRun": false,
+  "githubUpdated": false,
+  "backup": {
+    "stamp": "20261011-120904"
+  },
+  "editions": [
+    {
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "installedAt": "2026-10-11T12:30:05.9804186+08:00",
+      "tests": 42,
+      "edition": "original",
+      "failures": 0,
+      "logHash": "47CBC71B8A8A341CDA0774074FFE9D1D00ED431212669A2F90C48D320BE99211",
+      "policyHash": "B116C51EC54A95250368DD22B0BE9EE228DDA5814E55397A7E1E613E98AC0610",
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003",
+      "modHash": "B101D591508A08AD7F5D58549B27F160F09EFA601B22F05D3DF72718E1216BC0"
+    },
+    {
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "installedAt": "2026-10-11T12:30:06.2269520+08:00",
+      "tests": 42,
+      "edition": "experiment",
+      "failures": 0,
+      "logHash": "5DB4184E9F60A806EF33D22C72E58DAD5749799035C5B2E52CC2C767F147CB14",
+      "policyHash": "900BD797D551421FA7DE841B21634703127AA39AEE5107BFAD57519A5F515B6F",
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658",
+      "modHash": "0BE5EB2A5155D35AE0F35281CA43B1FB019D9D30A7FEE044101D923AEA24FE07"
+    }
+  ],
+  "testSourceHash": "2121F8766ED11025B09616928C311B2F616A84B0CD1AF3D2EA7994A0E2BC41FA"
+}
