@@ -80,18 +80,37 @@ public sealed class LanMenuUiTests : MonoBehaviour
         FindButton("mode_加点模式 · 自选能力与特技").onClick.Invoke(); yield return null;
         FindButton("mode_局域网对战").onClick.Invoke(); yield return null;
         FindButton("Lobby Create").onClick.Invoke(); yield return null;
+        Check(UnityEngine.Object.FindObjectOfType<AbilitySetupPanel>() == null, "allocation room waits for character confirmation");
+        object net=typeof(LanMultiplayer).GetField("instance",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic).GetValue(null);
+        var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+        string build=(string)typeof(LanMultiplayer).GetField("BuildId",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic).GetValue(null);
+        byte[] hello=System.Text.Encoding.UTF8.GetBytes("HELLO|2|2|"+build);
+        typeof(LanMultiplayer).GetMethod("HandleHostLobby",flags).Invoke(net,new object[]{hello,hello.Length,new System.Net.IPEndPoint(System.Net.IPAddress.Loopback,28951)});
+        yield return null;
+        Check(FindButton("Lobby Fan") != null && FindButton("Lobby Zhao") != null, "both native character buttons visible");
+        Check(!FindButton("Lobby Ready").interactable, "unselected players cannot ready");
+        FindButton("Lobby Fan").onClick.Invoke();yield return null;
+        int session=(int)typeof(LanMultiplayer).GetField("sessionId",flags).GetValue(net);
+        typeof(LanMultiplayer).GetMethod("HandleControl",flags).Invoke(net,new object[]{"CMD|"+session+"|1|0|ROLE|1"});yield return null;
+        Check(FindButton("Lobby Ready").interactable && !FindButton("Lobby Zhao").interactable, "other player's character locked and readiness enabled");
+        Check(FindButton("Lobby Fan").GetComponent<Image>().sprite == start.GetComponent<Image>().sprite, "character selectors keep menu artwork");
+        Check(!Bounds(FindButton("Lobby Ready").GetComponent<RectTransform>()).Overlaps(Bounds(FindButton("Lobby Back").GetComponent<RectTransform>())), "prepare and return do not overlap");
+        yield return new WaitForEndOfFrame();Capture("lan-role-selection.png");yield return new WaitForSeconds(.2f);
+        FindButton("Lobby Ready").onClick.Invoke();yield return null;
+        Check(UnityEngine.Object.FindObjectOfType<AbilitySetupPanel>() == null, "one player ready stays in room");
+        typeof(LanMultiplayer).GetMethod("HandleControl",flags).Invoke(net,new object[]{"CMD|"+session+"|2|0|READY|1"});yield return null;
         AbilitySetupPanel allocation = UnityEngine.Object.FindObjectOfType<AbilitySetupPanel>();
-        Check(allocation != null, "allocation LAN host opens current allocation panel");
-        Check(GameObject.Find("LAN Lobby") == null, "lobby controls hidden while allocating");
-        ClickText(allocation.gameObject, "返回"); yield return null;
-        Check(GameObject.Find("LAN Lobby") != null && UnityEngine.Object.FindObjectOfType<AbilitySetupPanel>() == null, "allocation cancellation restores lobby");
-        FindButton("Lobby Create").onClick.Invoke(); yield return null;
-        allocation = UnityEngine.Object.FindObjectOfType<AbilitySetupPanel>();
-        AbilityMode.Builds[0].Change(0, 1);
-        ClickText(allocation.gameObject, "开始比赛"); yield return null;
-        Check(GameObject.Find("Lobby Status").GetComponent<Text>().text == "等待加入", "confirmed allocations create waiting room");
-        Check(AbilityMode.Enabled && AbilityMode.Builds[0].Levels[0] == 5, "host allocation retained before guest joins");
-        FindButton("Lobby Back").onClick.Invoke(); yield return null;
+        Check(allocation != null, "both ready open LAN allocation");
+        Check(GameObject.Find("LAN Lobby") == null, "room controls hidden during allocation");
+        int plusCount=0;foreach(Button b in allocation.GetComponentsInChildren<Button>())if(b.GetComponentInChildren<Text>().text=="+")plusCount++;
+        Check(plusCount==3, "allocation only edits owned character");
+        yield return new WaitForEndOfFrame();Capture("lan-allocation.png");yield return new WaitForSeconds(.2f);
+        AbilityMode.Builds[0].Change(0,1);
+        ClickText(allocation.gameObject,"准备");yield return null;
+        Check(GameObject.Find("LAN Lobby") != null && !LanMultiplayer.Active, "allocation ready waits for other player");
+        Check(AbilityMode.Builds[0].Levels[0]==5, "local allocation retained while waiting");
+        FindButton("Lobby Back").onClick.Invoke();yield return null;
+        Check(UnityEngine.Object.FindObjectOfType<AbilitySetupPanel>()==null, "leaving destroys allocation panel");
     }
     private void ClickText(GameObject root, string text)
     {

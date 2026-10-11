@@ -9,19 +9,30 @@ using UnityEngine.UI;
 
 // Small host-authoritative LAN bridge for the original Unity player build.
 // Both copies simulate the match, while the joining copy follows host physics
-// snapshots. The host owns Fan controls; the joining player owns Zhao controls.
+// snapshots. Each player explicitly chooses a different character before kickoff.
 [DefaultExecutionOrder(10000)]
 public sealed class LanMultiplayer : MonoBehaviour
 {
     private const int Port = 28950;
-    private const int Protocol = 1;
+    private const int Protocol = 2;
     private enum State { Off, Hosting, Joining, Connected, InGame, Failed }
     private static LanMultiplayer instance;
     private GameObject lobbyRoot;
     private RectTransform lobbyContent;
     private Text lobbyStatus, lobbyAddress;
     private InputField lobbyInput;
-    private Button lobbyCreate, lobbyJoin, lobbyCopy;
+    private Button lobbyCreate, lobbyJoin, lobbyCopy, lobbyFan, lobbyZhao, lobbyReady;
+    private Text lobbyPlayers;
+    // Only the host commits room state. Guest commands repeat until acknowledged;
+    // phase and role guards keep delayed readiness from starting the next stage.
+    private int hostRole = -1, guestRole = -1, roomPhase, roomRevision, guestCommand, acceptedCommand;
+    private bool hostReady, guestReady;
+    private string pendingCommand;
+    private float lastRoomSend = -10f;
+    private AbilitySetupPanel allocationPanel;
+    private int LocalRole { get { return isHost ? hostRole : guestRole; } }
+    private bool LocalReady { get { return isHost ? hostReady : guestReady; } }
+    private bool RolesValid { get { return hostRole >= 0 && guestRole >= 0 && hostRole != guestRole; } }
     private Socket socket;
     private State state;
     private bool isHost, selectedStyle, selectedAbility, lobbyVisible;
@@ -76,6 +87,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         if (instance == null || !instance.launchSent || instance.matchStarted) return;
         instance.matchStarted = true;
         instance.lobbyVisible = false;
+        instance.DestroyAllocation();
         instance.DestroyLobby();
         instance.state = State.InGame;
         GameAIMod.StartLanGame();
@@ -87,19 +99,104 @@ public sealed class LanMultiplayer : MonoBehaviour
         GameObject host = new GameObject("LAN Multiplayer");
         UnityEngine.Object.DontDestroyOnLoad(host);
         instance = host.AddComponent<LanMultiplayer>();
+        host.AddComponent<LanInputPump>().Owner = instance;
         return instance;
     }
 
-    // Both allocations are chosen by the host, validated, then sent before READY.
-    private void ConfigureHost()
+    private void ConfigureHost() { StartHost(); }
+
+    private void ChooseRole(int role)
     {
-        if (!selectedAbility) { StartHost(); return; }
-        if (lobbyRoot == null || allocationTemplate == null) return;
-        lobbyRoot.SetActive(false);
-        AbilitySetupPanel.Open(lobbyRoot.transform.parent, allocationTemplate, 0,
-            delegate { if (lobbyRoot != null) lobbyRoot.SetActive(true); StartHost(); },
-            delegate { if (lobbyRoot != null) lobbyRoot.SetActive(true); });
+        if (state != State.Connected || roomPhase != 0 || launchSent || LocalReady || pendingCommand != null) return;
+        if (role < 0 || role > 1) return;
+        if (isHost) ApplyCommand("ROLE", role, null);
+        else QueueCommand("ROLE|" + role);
     }
+
+    private void Prepare()
+    {
+        if (state != State.Connected || launchSent || LocalRole < 0 || pendingCommand != null) return;
+        if (roomPhase == 0 && !RolesValid) return;
+        if (isHost) ApplyCommand("READY", LocalRole, null);
+        else QueueCommand("READY|" + LocalRole);
+    }
+
+    private void PrepareBuild()
+    {
+        if (state != State.Connected || roomPhase != 1 || LocalReady || LocalRole < 0) return;
+        AbilityMode.Build build = AbilityMode.Builds[LocalRole];
+        if (!build.Valid) return;
+        if (isHost) { hostReady = true; RoomChanged(); }
+        else QueueCommand("BUILD|" + LocalRole + "|" + EncodeBuild(build));
+        if (lobbyRoot != null) lobbyRoot.SetActive(true);
+        lobbyDirty = true;
+    }
+
+    private void QueueCommand(string command)
+    {
+        pendingCommand = "CMD|" + sessionId + "|" + (++guestCommand) + "|" + roomPhase + "|" + command;
+        Send(pendingCommand); lobbyDirty = true;
+    }
+
+    private void ApplyCommand(string command, int role, string[] parts)
+    {
+        if (state != State.Connected || launchSent) return;
+        bool local = parts == null;
+        int own = local ? hostRole : guestRole, other = local ? guestRole : hostRole;
+        if (command == "ROLE" && roomPhase == 0 && role >= 0 && role <= 1 && role != other && !(local ? hostReady : guestReady))
+        { if (local) hostRole = role; else guestRole = role; }
+        else if (command == "READY" && roomPhase == 0 && role == own && RolesValid)
+        { if (local) hostReady = !hostReady; else guestReady = !guestReady; }
+        else if (command == "BUILD" && roomPhase == 1 && role == guestRole && !guestReady && parts != null)
+        {
+            AbilityMode.Build build;
+            if (parts.Length != 10 || !ReadBuild(parts, 6, out build)) return;
+            CopyBuild(build, AbilityMode.Builds[role]); guestReady = true;
+        }
+        RoomChanged();
+    }
+
+    private void RoomChanged()
+    {
+        roomRevision++; lobbyDirty = true;
+        if (RolesValid && hostReady && guestReady && roomPhase == 0 && selectedAbility)
+        {
+            roomPhase = 1; hostReady = guestReady = false;
+            AbilityMode.Reset(); OpenAllocation();
+        }
+        SendRoom();
+        if (RolesValid && hostReady && guestReady)
+        { launchSent = true; Send("START|" + sessionId + "|" + roomRevision); StartLanGame(); }
+    }
+
+    private void SendRoom()
+    {
+        if (peer == null) return;
+        Send("ROOM|" + sessionId + "|" + roomRevision + "|" + roomPhase + "|" + hostRole + "|" + guestRole + "|" +
+            (hostReady ? 1 : 0) + "|" + (guestReady ? 1 : 0) + "|" + acceptedCommand + "|" + EncodeBuilds());
+    }
+
+    private void OpenAllocation()
+    {
+        if (allocationPanel != null || lobbyRoot == null || allocationTemplate == null) return;
+        lobbyRoot.SetActive(false);
+        allocationPanel = AbilitySetupPanel.OpenLan(lobbyRoot.transform.parent, allocationTemplate, LocalRole, PrepareBuild, CloseLobby);
+    }
+
+    private void DestroyAllocation()
+    {
+        if (allocationPanel != null) { allocationPanel.gameObject.SetActive(false); UnityEngine.Object.Destroy(allocationPanel.gameObject); allocationPanel = null; }
+    }
+
+    private static string EncodeBuild(AbilityMode.Build b) { return b.Levels[0]+"|"+b.Levels[1]+"|"+b.Levels[2]+"|"+b.Purchased; }
+    private static bool ReadBuild(string[] parts, int offset, out AbilityMode.Build build)
+    {
+        build = new AbilityMode.Build();
+        if (parts.Length < offset + 4) return false;
+        for (int i=0; i<3; i++) if (!Int32.TryParse(parts[offset+i], out build.Levels[i])) return false;
+        return Int32.TryParse(parts[offset+3], out build.Purchased) && build.Valid;
+    }
+    private static void CopyBuild(AbilityMode.Build from, AbilityMode.Build to) { Array.Copy(from.Levels, to.Levels, 3); to.Purchased = from.Purchased; }
 
     private static string EncodeBuilds()
     {
@@ -137,7 +234,7 @@ public sealed class LanMultiplayer : MonoBehaviour
             state = State.Hosting;
             sessionId = new System.Random(unchecked((int)DateTime.UtcNow.Ticks)).Next(1, int.MaxValue);
             address = localAddress;
-            message = "房间已创建，等待另一台电脑加入。游戏会在连接成功后自动开始。";
+            message = "等待加入";
         }
         catch (Exception error) { Fail("无法创建房间：" + error.Message); }
     }
@@ -156,36 +253,47 @@ public sealed class LanMultiplayer : MonoBehaviour
             peer = new IPEndPoint(ip, Port);
             isHost = false;
             state = State.Joining;
-            lastHelloTime = -10f;
+            lastHelloTime = -10f; lastReceiveTime = Time.realtimeSinceStartup;
             message = "正在连接 " + peer.Address + "；请确认房主已创建房间。";
         }
         catch (Exception error) { Fail("无法连接：" + error.Message); }
     }
 
-    private void Update()
+    private void Update() { RefreshLobby(); }
+
+    // Pumped before character Update/FixedUpdate; snapshot production remains late.
+    internal void ReceiveEarly()
     {
-        RefreshLobby();
         if (remotePressFrame >= 0 && remotePressFrame < Time.frameCount) { remotePressMask = 0; remotePressFrame = -1; }
-        if (state == State.Off || state == State.Failed) return;
-        ReceivePackets();
-        if (state == State.Joining && Time.realtimeSinceStartup - lastHelloTime > .5f)
+        if (state != State.Off && state != State.Failed) ReceivePackets();
+    }
+
+    internal void NetworkUpdate()
+    {
+        ReceiveEarly();
+        float now = Time.realtimeSinceStartup;
+        if (state == State.Joining)
         {
-            Send("HELLO|" + Protocol + "|" + SelectedMode + "|" + BuildId);
-            lastHelloTime = Time.realtimeSinceStartup;
+            if (now - lastHelloTime > .5f) { Send("HELLO|" + Protocol + "|" + SelectedMode + "|" + BuildId); lastHelloTime = now; }
+            if (now - lastReceiveTime > 10f) Fail("连接超时，请检查 IP");
         }
         if (state == State.Connected || state == State.InGame)
         {
-            SampleAndSendInput();
-            if (Time.realtimeSinceStartup - lastReceiveTime > 2f)
+            if (state == State.InGame) SampleAndSendInput();
+            if (now - lastRoomSend > .2f)
             {
-                message = "连接中断。请返回主菜单后重新连接。";
-                if (state == State.InGame) state = State.Connected;
-                remoteHeldMask = remotePressMask = 0;
-                remoteAxis = 0f;
+                if (isHost && (!matchStarted || !guestStarted)) SendRoom();
+                if (!isHost && !matchStarted) Send(pendingCommand ?? ("PING|" + sessionId));
+                if (isHost && launchSent && !guestStarted) Send("START|" + sessionId + "|" + roomRevision);
+                lastRoomSend = now;
+            }
+            if (now - lastReceiveTime > (matchStarted ? 2f : 5f))
+            {
+                remoteHeldMask = remotePressMask = 0; remoteAxis = 0f;
+                DestroyAllocation(); if (lobbyRoot != null) lobbyRoot.SetActive(true);
+                Fail("连接中断，请重新进房"); lobbyDirty = true;
             }
         }
-        if (isHost && launchSent && !guestStarted && peer != null && Time.realtimeSinceStartup - lastHelloTime > .5f)
-        { Send("START|" + sessionId); lastHelloTime = Time.realtimeSinceStartup; }
     }
 
     private void LateUpdate()
@@ -201,7 +309,7 @@ public sealed class LanMultiplayer : MonoBehaviour
     private void ReceivePackets()
     {
         if (socket == null) return;
-        while (socket.Available > 0)
+        while (socket != null && socket.Available > 0)
         {
             EndPoint source = new IPEndPoint(IPAddress.Any, 0);
             int length;
@@ -232,54 +340,78 @@ public sealed class LanMultiplayer : MonoBehaviour
         peer = sender;
         if (!matchStarted) state = State.Connected;
         lastReceiveTime = Time.realtimeSinceStartup;
-        message = "玩家已连接，正在准备比赛……";
-        SendTo(peer, "WELCOME|" + Protocol + "|" + sessionId + "|" + SelectedMode + "|" + BuildId + (selectedAbility ? "|" + EncodeBuilds() : ""));
+        message = "选择角色"; lobbyDirty = true;
+        SendTo(peer, "WELCOME|" + Protocol + "|" + sessionId + "|" + SelectedMode + "|" + BuildId);
+        SendRoom();
     }
 
     private void HandleControl(string packet)
     {
         string[] parts = packet.Split('|');
-        if (parts.Length == 0) return;
-        if (!isHost && parts[0] == "REJECT") { Fail(parts.Length > 1 ? parts[1] : "房主拒绝了连接。"); return; }
-        if (!isHost && parts[0] == "WELCOME" && parts.Length >= 5)
+        if (!isHost && parts[0] == "REJECT") { Fail(parts.Length > 1 ? parts[1] : "无法加入"); return; }
+        if (!isHost && parts[0] == "WELCOME" && parts.Length == 5)
         {
-            int protocol, style;
-            if (!Int32.TryParse(parts[1], out protocol) || protocol != Protocol || !Int32.TryParse(parts[2], out sessionId) ||
-                !Int32.TryParse(parts[3], out style) || style != SelectedMode || parts[4] != BuildId)
-            { Fail("房间版本或玩法不匹配。"); return; }
-            if (selectedAbility && (parts.Length != 13 || !ApplyBuilds(parts))) { Fail("加点配置无效。"); return; }
+            int protocol, mode, id;
+            if (!Int32.TryParse(parts[1], out protocol) || protocol != Protocol || !Int32.TryParse(parts[2], out id) ||
+                !Int32.TryParse(parts[3], out mode) || mode != SelectedMode || parts[4] != BuildId)
+            { Fail("房间版本或玩法不匹配"); return; }
+            if (state != State.Joining && sessionId != id) return;
+            sessionId = id;
             if (!matchStarted) state = State.Connected;
+            lastReceiveTime = Time.realtimeSinceStartup; lobbyDirty = true;
+            Send("PING|" + sessionId); return;
+        }
+        int session;
+        if (parts.Length < 2 || !Int32.TryParse(parts[1], out session) || session != sessionId) return;
+        if (isHost && parts[0] == "PING") { lastReceiveTime = Time.realtimeSinceStartup; return; }
+        if (isHost && parts[0] == "CMD" && parts.Length >= 6)
+        {
+            int seq, phase, role;
+            if (!Int32.TryParse(parts[2], out seq) || !Int32.TryParse(parts[3], out phase) || !Int32.TryParse(parts[5], out role)) return;
             lastReceiveTime = Time.realtimeSinceStartup;
-            message = "已连接房主，正在等待比赛开始……";
-            Send("READY|" + sessionId);
-            return;
+            if (seq > acceptedCommand)
+            {
+                acceptedCommand = seq;
+                if (phase == roomPhase) ApplyCommand(parts[4], role, parts);
+            }
+            SendRoom(); return;
         }
-        if (isHost && parts[0] == "READY" && (state == State.Connected || state == State.InGame) && parts.Length >= 2)
+        if (!isHost && parts[0] == "ROOM" && parts.Length == 17 && state != State.Joining)
         {
-            int id; if (!Int32.TryParse(parts[1], out id) || id != sessionId) return;
-            launchSent = true;
-            Send("START|" + sessionId);
-            if (!matchStarted) StartLanGame();
-            return;
+            int revision, phase, hr, gr, hready, gready, ack;
+            if (!Int32.TryParse(parts[2], out revision) || !Int32.TryParse(parts[3], out phase) ||
+                !Int32.TryParse(parts[4], out hr) || !Int32.TryParse(parts[5], out gr) ||
+                !Int32.TryParse(parts[6], out hready) || !Int32.TryParse(parts[7], out gready) || !Int32.TryParse(parts[8], out ack)) return;
+            if (phase < 0 || phase > 1 || hr < -1 || hr > 1 || gr < -1 || gr > 1 || (hr >= 0 && hr == gr) ||
+                hready < 0 || hready > 1 || gready < 0 || gready > 1 || (phase == 1 && (!selectedAbility || hr < 0 || gr < 0))) return;
+            AbilityMode.Build a, b;
+            if (!ReadBuild(parts, 9, out a) || !ReadBuild(parts, 13, out b)) return;
+            lastReceiveTime = Time.realtimeSinceStartup;
+            if (ack >= guestCommand) { pendingCommand = null; lobbyDirty = true; }
+            if (revision < roomRevision || matchStarted) return;
+            bool changedPhase = phase != roomPhase;
+            roomRevision = revision; roomPhase = phase; hostRole = hr; guestRole = gr;
+            hostReady = hready == 1; guestReady = gready == 1;
+            // A heartbeat must not overwrite this user's unfinished allocation.
+            if (phase == 0 || changedPhase || guestRole != 0 || guestReady) CopyBuild(a, AbilityMode.Builds[0]);
+            if (phase == 0 || changedPhase || guestRole != 1 || guestReady) CopyBuild(b, AbilityMode.Builds[1]);
+            lobbyDirty = true;
+            if (changedPhase) OpenAllocation(); return;
         }
-        if (!isHost && parts[0] == "START" && parts.Length >= 2)
+        if (!isHost && parts[0] == "START" && parts.Length == 3)
         {
-            int id; if (!Int32.TryParse(parts[1], out id) || id != sessionId) return;
-            bool firstStart = !launchSent;
-            launchSent = true;
-            Send("STARTED|" + sessionId);
-            if (firstStart) StartLanGame();
-            return;
+            int revision;
+            if (!Int32.TryParse(parts[2], out revision) || revision != roomRevision || !RolesValid || !hostReady || !guestReady ||
+                roomPhase != (selectedAbility ? 1 : 0)) return;
+            launchSent = true; Send("STARTED|" + sessionId);
+            StartLanGame(); return;
         }
-        if (isHost && parts[0] == "STARTED" && parts.Length >= 2)
-        {
-            int id; if (Int32.TryParse(parts[1], out id) && id == sessionId) { guestStarted = true; message = "联机比赛进行中。"; }
-        }
+        if (isHost && parts[0] == "STARTED") { guestStarted = true; lastReceiveTime = Time.realtimeSinceStartup; message = ""; }
     }
 
     private void SampleAndSendInput()
     {
-        bool localFan = isHost;
+        bool localFan = LocalRole == 0;
         int held = 0, pressed = 0;
         for (int i = 0; i < 7; i++)
         {
@@ -343,7 +475,7 @@ public sealed class LanMultiplayer : MonoBehaviour
     private byte[] latestSnapshot;
     private void HandleSnapshot(byte[] data, int length)
     {
-        if (length < 25) return;
+        if (isHost || state != State.InGame || length < 25) return;
         try
         {
             {
@@ -445,7 +577,7 @@ public sealed class LanMultiplayer : MonoBehaviour
     {
         LanMultiplayer net = instance;
         bool fan = player != null && player.name == "Fan";
-        if (net == null || net.state != State.InGame || net.peer == null || fan == net.isHost) { axis = 0f; return false; }
+        if (net == null || net.state != State.InGame || net.peer == null || fan == (net.LocalRole == 0)) { axis = 0f; return false; }
         axis = Time.realtimeSinceStartup - net.lastReceiveTime > .5f ? 0f : net.remoteAxis;
         return true;
     }
@@ -454,7 +586,7 @@ public sealed class LanMultiplayer : MonoBehaviour
     {
         LanMultiplayer net = instance;
         bool fan = player != null && player.name == "Fan";
-        if (net == null || net.state != State.InGame || net.peer == null || fan == net.isHost) { down = false; return false; }
+        if (net == null || net.state != State.InGame || net.peer == null || fan == (net.LocalRole == 0)) { down = false; return false; }
         down = Time.realtimeSinceStartup - net.lastReceiveTime <= .5f && (net.remotePressMask & (1 << (int)action)) != 0;
         return true;
     }
@@ -510,6 +642,10 @@ public sealed class LanMultiplayer : MonoBehaviour
         lobbyJoin = AddLobbyButton(template, "Lobby Join", "加入房间", -100, delegate { Join(lobbyInput.text); });
         lobbyAddress = AddLobbyText("Lobby Address", font, "", new Vector2(0, 50), new Vector2(640, 65), 34);
         lobbyCopy = AddLobbyButton(template, "Lobby Copy", "复制 IP", -70, delegate { GUIUtility.systemCopyBuffer = address; });
+        lobbyFan = AddLobbyButton(template, "Lobby Fan", "范志毅", 90, delegate { ChooseRole(0); });
+        lobbyZhao = AddLobbyButton(template, "Lobby Zhao", "赵鹏", -10, delegate { ChooseRole(1); });
+        lobbyPlayers = AddLobbyText("Lobby Players", font, "", new Vector2(0, -100), new Vector2(640, 55), 23);
+        lobbyReady = AddLobbyButton(template, "Lobby Ready", "准备", -160, Prepare);
         AddLobbyButton(template, "Lobby Back", "返回", -240, CloseLobby);
         RefreshLobby();
     }
@@ -533,15 +669,31 @@ public sealed class LanMultiplayer : MonoBehaviour
         lobbyCreate.gameObject.SetActive(idle);
         lobbyInput.gameObject.SetActive(idle);
         lobbyJoin.gameObject.SetActive(idle);
-        lobbyAddress.gameObject.SetActive(!idle);
+        bool selecting = state == State.Connected && !matchStarted;
+        lobbyAddress.gameObject.SetActive(!idle && !selecting);
         lobbyCopy.gameObject.SetActive(state == State.Hosting);
         lobbyAddress.text = state == State.Hosting ? address : (peer != null ? peerAddress : address);
+        lobbyFan.gameObject.SetActive(selecting && roomPhase == 0);
+        lobbyZhao.gameObject.SetActive(selecting && roomPhase == 0);
+        lobbyPlayers.gameObject.SetActive(selecting);
+        lobbyReady.gameObject.SetActive(selecting && roomPhase == 0);
+        int otherRole = isHost ? guestRole : hostRole;
+        lobbyFan.interactable = !LocalReady && pendingCommand == null && otherRole != 0;
+        lobbyZhao.interactable = !LocalReady && pendingCommand == null && otherRole != 1;
+        lobbyFan.GetComponentInChildren<Text>(true).text = "范志毅" + (LocalRole == 0 ? "  ✓" : otherRole == 0 ? "  对方" : "");
+        lobbyZhao.GetComponentInChildren<Text>(true).text = "赵鹏" + (LocalRole == 1 ? "  ✓" : otherRole == 1 ? "  对方" : "");
+        lobbyReady.interactable = RolesValid && pendingCommand == null;
+        lobbyReady.GetComponentInChildren<Text>(true).text = LocalReady ? "取消准备" : "准备";
+        lobbyPlayers.text = "你：" + RoleLabel(LocalRole) + (LocalReady ? " · 已准备" : "") + "     对方：" + RoleLabel(otherRole) +
+            ((isHost ? guestReady : hostReady) ? " · 已准备" : "");
         lobbyStatus.text = state == State.Failed ? message : state == State.Hosting ? "等待加入" :
-            state == State.Joining ? "正在连接…" : state == State.Connected ? "正在开赛…" : "";
+            state == State.Joining ? "正在连接…" : selecting ? (roomPhase == 1 ? "等待双方完成加点" : "选择角色") : "";
         lobbyDirty = false;
         }
         if (Input.GetKeyDown(KeyCode.Escape)) CloseLobby();
     }
+
+    private static string RoleLabel(int role) { return role == 0 ? "范志毅" : role == 1 ? "赵鹏" : "未选择"; }
 
     private void CloseLobby()
     {
@@ -615,7 +767,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         if (hudText == null || state != lastHudState || isHost != lastHudHost || message != lastHudMessage)
         {
             lastHudState = state; lastHudHost = isHost; lastHudMessage = message;
-            string label = state == State.InGame ? (isHost ? "局域网 · 房主（范志毅）" : "局域网 · 客机（赵鹏）") : "局域网已断开";
+            string label = state == State.InGame ? ((isHost ? "局域网 · 房主（" : "局域网 · 客机（") + RoleLabel(LocalRole) + "）") : "局域网已断开";
             hudText = label + "   " + message;
         }
         GUI.Label(new Rect(12, 12, 520, 28), hudText);
@@ -655,6 +807,11 @@ public sealed class LanMultiplayer : MonoBehaviour
 
     private void StopSession()
     {
+        DestroyAllocation();
+        hostRole = guestRole = -1; hostReady = guestReady = false;
+        roomPhase = roomRevision = guestCommand = acceptedCommand = 0;
+        pendingCommand = null; lastRoomSend = -10f; lobbyDirty = true;
+        sendSequence = pressSequence = 0;
         if (socket != null) { try { socket.Close(); } catch { } socket = null; }
         state = State.Off; peer = null; bodies = null; bodyPaths = null; latestSnapshot = null;
         launchSent = matchStarted = guestStarted = false; pendingPressMask = remotePressMask = remoteHeldMask = 0; remotePressFrame = -1; receivedPressSequence = -1;
@@ -665,6 +822,16 @@ public sealed class LanMultiplayer : MonoBehaviour
     {
         StopSession(); if (instance == this) instance = null;
     }
+}
+
+// Input arrives before native controllers consume it; host snapshots still run
+// after native FixedUpdate, preserving their physics cadence and payload.
+[DefaultExecutionOrder(-10000)]
+public sealed class LanInputPump : MonoBehaviour
+{
+    internal LanMultiplayer Owner;
+    void Update() { if (Owner != null) Owner.NetworkUpdate(); }
+    void FixedUpdate() { if (Owner != null) Owner.ReceiveEarly(); }
 }
 
 // Explicit little-endian encoding matches BinaryWriter byte-for-byte. Both
