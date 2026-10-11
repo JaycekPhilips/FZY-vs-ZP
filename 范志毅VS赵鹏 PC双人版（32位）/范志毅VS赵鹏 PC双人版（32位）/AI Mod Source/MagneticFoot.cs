@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
@@ -12,7 +13,8 @@ public sealed class MagneticFoot : MonoBehaviour
     private Animator animator;
     private Rigidbody2D body, ball;
     private Collider2D ballCollider;
-    private FieldInfo stopping;
+    private FieldInfo stopping, bodyTargetField;
+    private readonly List<AnimatorClipInfo> clips = new List<AnimatorClipInfo>(4);
     private Leg[] legs;
     private float direction;
     private float protectedUntil = -1f, lastEffect = -10f;
@@ -36,6 +38,7 @@ public sealed class MagneticFoot : MonoBehaviour
         skill.controller = player; skill.direction = player.name=="Fan"?1f:-1f;
         Type pt = player.GetType(), st = pt.Assembly.GetType("StickManController");
         skill.stick = player.GetComponent(st);
+        skill.bodyTargetField = st.GetField("body");
         skill.body = pt.GetField("rb").GetValue(player) as Rigidbody2D;
         skill.animator = pt.GetField("anim").GetValue(player) as Animator;
         Type mt = pt.Assembly.GetType("GameManager");
@@ -108,7 +111,8 @@ public sealed class MagneticFoot : MonoBehaviour
         // incoming shot cannot be caught or slowed without a real collision.
         Vector2 relative = ball.velocity - body.velocity;
         if (relative.magnitude > 7f || ball.position.y > body.position.y - .65f * Mathf.Abs(transform.lossyScale.y) / .8f) return false;
-        foreach (AnimatorClipInfo info in animator.GetCurrentAnimatorClipInfo(0))
+        animator.GetCurrentAnimatorClipInfo(0, clips);
+        foreach (AnimatorClipInfo info in clips)
             if (info.clip != null && info.weight > .25f && (info.clip.name == "Kick" || info.clip.name == "Head" || info.clip.name == "Jump")) return false;
         foreach (Leg leg in legs)
         {
@@ -195,7 +199,7 @@ public sealed class MagneticFoot : MonoBehaviour
             leg.upper.MoveRotation(support?leg.desiredUpper:Mathf.MoveTowardsAngle(leg.upper.rotation,leg.desiredUpper,1000f*Time.fixedDeltaTime));
             leg.lower.MoveRotation(support?leg.desiredLower:Mathf.MoveTowardsAngle(leg.lower.rotation,leg.desiredLower,1000f*Time.fixedDeltaTime));
         }
-        float target=(float)stick.GetType().GetField("body").GetValue(stick);
+        float target=(float)bodyTargetField.GetValue(stick);
         float error=Mathf.DeltaAngle(body.rotation,target)*Mathf.Deg2Rad;
         // Movement force is unchanged in the small-model edition, while the
         // torso inertia scales with size squared. Keep the same balance effort.

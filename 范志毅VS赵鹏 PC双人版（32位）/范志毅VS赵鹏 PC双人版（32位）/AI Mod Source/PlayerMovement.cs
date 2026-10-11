@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
@@ -27,6 +28,9 @@ public sealed class PlayerMovement : MonoBehaviour
     private bool smoothedMuscles;
     private Rigidbody2D body;
     private Component stick;
+    private FieldInfo groundField, bodyTargetField;
+    private readonly List<AnimatorClipInfo> clips = new List<AnimatorClipInfo>(4);
+    private List<AnimatorClipInfo> CurrentClips() { animator.GetCurrentAnimatorClipInfo(0, clips); return clips; }
 
     public static void Attach(Component player)
     {
@@ -50,6 +54,8 @@ public sealed class PlayerMovement : MonoBehaviour
         Type muscleType = player.GetType().Assembly.GetType("StickManController");
         Component muscles = player.GetComponent(muscleType);
         movement.stick = muscles;
+        movement.groundField = player.GetType().GetField("isOnGround");
+        movement.bodyTargetField = muscleType.GetField("body");
         movement.body = player.GetType().GetField("rb").GetValue(player) as Rigidbody2D;
         Array muscleArray = muscleType.GetField("muscles").GetValue(muscles) as Array;
         if (muscleArray != null && muscleArray.Length >= 10)
@@ -121,7 +127,7 @@ public sealed class PlayerMovement : MonoBehaviour
         if (smooth)
         {
             smooth = false;
-            foreach (AnimatorClipInfo clip in movement.animator.GetCurrentAnimatorClipInfo(0))
+            foreach (AnimatorClipInfo clip in movement.CurrentClips())
                 if (clip.clip != null && clip.clip.name == "BackWalk") { smooth = true; break; }
         }
         if (!smooth || movement.muscleForceField == null) { movement.RestoreMuscles(); return; }
@@ -151,7 +157,7 @@ public sealed class PlayerMovement : MonoBehaviour
         if (animator == null || Mathf.Abs(input) <= .1f || Time.time < actionProtectionUntil) { RestoreCadence(); return; }
         float sprint = fan ? PlayerSkills.GetMovementSkillMultiplier(controller, input) : 1f;
         if (fan && sprint <= 1f) { RestoreCadence(); return; }
-        AnimatorClipInfo[] clips = animator.GetCurrentAnimatorClipInfo(0);
+        List<AnimatorClipInfo> clips = CurrentClips();
         foreach (AnimatorClipInfo info in clips)
         {
             AnimationClip clip = info.clip;
@@ -171,13 +177,13 @@ public sealed class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (fan || !PlayerSkills.Enabled || Stopped() || body == null || stick == null || Time.time < actionProtectionUntil ||
-            GameAIMod.GetAxis(axis, controller) <= .1f || !(bool)controller.GetType().GetField("isOnGround").GetValue(controller)) return;
+            GameAIMod.GetAxis(axis, controller) <= .1f || !(bool)groundField.GetValue(controller)) return;
         bool walking = false;
-        foreach (AnimatorClipInfo clip in animator.GetCurrentAnimatorClipInfo(0)) if (clip.clip != null && clip.clip.name == "BackWalk") walking = true;
+        foreach (AnimatorClipInfo clip in CurrentClips()) if (clip.clip != null && clip.clip.name == "BackWalk") walking = true;
         if (!walking) return;
         // Dampen body roll through real torque, preserving all native joints,
         // animation targets, movement speed and unrestricted jump/shot motions.
-        float target = (float)stick.GetType().GetField("body").GetValue(stick);
+        float target = (float)bodyTargetField.GetValue(stick);
         float error = Mathf.DeltaAngle(body.rotation, target) * Mathf.Deg2Rad;
         float torque = (error * 90f - body.angularVelocity * Mathf.Deg2Rad * 18f) * body.inertia;
         body.AddTorque(Mathf.Clamp(torque, -body.inertia * 140f, body.inertia * 140f), ForceMode2D.Force);

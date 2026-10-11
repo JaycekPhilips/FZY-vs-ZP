@@ -1,0 +1,11 @@
+/.work/performance/
+/tools/performance/baseline-*/
+/tools/performance/candidate-*/
+/tools/performance/regression-*/
+/tools/performance/capture-*/
+**/AI Mod Source/backup-before-performance-*/
+/.work/adaptation/
+/resolve-merge.ps1
+/adapt-code.ps1
+/.work/adapt-latest/
+/.work/pre-upstream-adaptation-*/

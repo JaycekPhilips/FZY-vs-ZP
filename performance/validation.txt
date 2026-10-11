@@ -1,0 +1,72 @@
+=== original Gameplay.log ===
+- Completed reload, in  0.107 seconds
+BURSTRANGE COMPLETE checks=149 failures=0
+=== original NetworkPair-guest.log ===
+- Completed reload, in  0.110 seconds
+PAIRTEST COMPLETE role=guest checks=19 failures=0
+=== original NetworkPair-host.log ===
+- Completed reload, in  0.115 seconds
+PAIRTEST COMPLETE role=host checks=20 failures=0
+=== original Performance.log ===
+- Completed reload, in  0.105 seconds
+PERFMICRO raycast repeat=0 calls=10000 old_ms=302.0039 new_ms=238.0748 old_gc=156 new_gc=0
+PERFMICRO raycast repeat=1 calls=10000 old_ms=299.1733 new_ms=238.6672 old_gc=156 new_gc=0
+PERFMICRO raycast repeat=2 calls=10000 old_ms=302.9051 new_ms=240.8762 old_gc=156 new_gc=0
+PERFMICRO animation repeat=0 calls=10000 old_ms=4.3390 new_ms=2.5119 old_gc=2 new_gc=0
+PERFMICRO animation repeat=1 calls=10000 old_ms=4.4758 new_ms=2.4924 old_gc=2 new_gc=0
+PERFMICRO animation repeat=2 calls=10000 old_ms=4.1889 new_ms=2.5244 old_gc=2 new_gc=0
+PERFMICRO reflection repeat=0 calls=10000 old_ms=20.9134 new_ms=7.2848 old_gc=2 new_gc=1
+PERFMICRO reflection repeat=1 calls=10000 old_ms=20.8918 new_ms=7.2401 old_gc=2 new_gc=1
+PERFMICRO reflection repeat=2 calls=10000 old_ms=21.0948 new_ms=7.4475 old_gc=2 new_gc=1
+PERFMICRO roster repeat=0 calls=10000 old_ms=41.2296 new_ms=2.4399 old_gc=4 new_gc=0
+PERFMICRO roster repeat=1 calls=10000 old_ms=40.0537 new_ms=2.4022 old_gc=4 new_gc=0
+PERFMICRO roster repeat=2 calls=10000 old_ms=43.1055 new_ms=2.4231 old_gc=4 new_gc=0
+PERFMICRO input-codec repeat=0 calls=10000 old_ms=21.2680 new_ms=1.4672 old_gc=25 new_gc=0
+PERFMICRO input-codec repeat=1 calls=10000 old_ms=20.8587 new_ms=1.1651 old_gc=26 new_gc=0
+PERFMICRO input-codec repeat=2 calls=10000 old_ms=22.6955 new_ms=1.0610 old_gc=26 new_gc=0
+PERFMICRO snapshot-codec repeat=0 calls=10000 old_ms=288.3834 new_ms=28.0901 old_gc=394 new_gc=0
+PERFMICRO snapshot-codec repeat=1 calls=10000 old_ms=286.9894 new_ms=28.0825 old_gc=409 new_gc=0
+PERFMICRO snapshot-codec repeat=2 calls=10000 old_ms=284.9158 new_ms=28.1094 old_gc=409 new_gc=0
+PERFMICRO gui-style repeat=0 calls=10000 old_ms=14.7033 new_ms=0.6258 old_gc=9 new_gc=0
+PERFMICRO gui-style repeat=1 calls=10000 old_ms=15.7149 new_ms=0.6174 old_gc=10 new_gc=0
+PERFMICRO gui-style repeat=2 calls=10000 old_ms=15.9373 new_ms=0.6061 old_gc=10 new_gc=0
+PERFTEST COMPLETE checks=94 failures=0
+=== original UI.log ===
+- Completed reload, in  0.106 seconds
+LAN_TEST COMPLETE checks=23 failures=0
+=== experiment Gameplay.log ===
+- Completed reload, in  0.108 seconds
+BURSTRANGE COMPLETE checks=149 failures=0
+=== experiment NetworkPair-guest.log ===
+- Completed reload, in  0.118 seconds
+PAIRTEST COMPLETE role=guest checks=19 failures=0
+=== experiment NetworkPair-host.log ===
+- Completed reload, in  0.110 seconds
+PAIRTEST COMPLETE role=host checks=20 failures=0
+=== experiment Performance.log ===
+- Completed reload, in  0.138 seconds
+PERFMICRO raycast repeat=0 calls=10000 old_ms=332.4710 new_ms=238.7805 old_gc=156 new_gc=0
+PERFMICRO raycast repeat=1 calls=10000 old_ms=325.6291 new_ms=237.6699 old_gc=156 new_gc=0
+PERFMICRO raycast repeat=2 calls=10000 old_ms=316.9514 new_ms=250.9005 old_gc=156 new_gc=0
+PERFMICRO animation repeat=0 calls=10000 old_ms=4.8815 new_ms=2.7627 old_gc=2 new_gc=0
+PERFMICRO animation repeat=1 calls=10000 old_ms=4.6425 new_ms=2.5521 old_gc=2 new_gc=0
+PERFMICRO animation repeat=2 calls=10000 old_ms=4.4334 new_ms=2.5312 old_gc=2 new_gc=0
+PERFMICRO reflection repeat=0 calls=10000 old_ms=22.4794 new_ms=7.4980 old_gc=3 new_gc=1
+PERFMICRO reflection repeat=1 calls=10000 old_ms=23.5242 new_ms=7.9639 old_gc=3 new_gc=1
+PERFMICRO reflection repeat=2 calls=10000 old_ms=21.2942 new_ms=7.7982 old_gc=3 new_gc=1
+PERFMICRO roster repeat=0 calls=10000 old_ms=46.6043 new_ms=2.4652 old_gc=4 new_gc=0
+PERFMICRO roster repeat=1 calls=10000 old_ms=46.1967 new_ms=2.5729 old_gc=4 new_gc=0
+PERFMICRO roster repeat=2 calls=10000 old_ms=45.6296 new_ms=2.4981 old_gc=4 new_gc=0
+PERFMICRO input-codec repeat=0 calls=10000 old_ms=23.2843 new_ms=1.0803 old_gc=27 new_gc=0
+PERFMICRO input-codec repeat=1 calls=10000 old_ms=23.8264 new_ms=1.0328 old_gc=28 new_gc=0
+PERFMICRO input-codec repeat=2 calls=10000 old_ms=23.6979 new_ms=1.0667 old_gc=28 new_gc=0
+PERFMICRO snapshot-codec repeat=0 calls=10000 old_ms=298.9448 new_ms=26.8436 old_gc=425 new_gc=0
+PERFMICRO snapshot-codec repeat=1 calls=10000 old_ms=362.1027 new_ms=26.5350 old_gc=434 new_gc=0
+PERFMICRO snapshot-codec repeat=2 calls=10000 old_ms=313.9379 new_ms=26.8396 old_gc=434 new_gc=0
+PERFMICRO gui-style repeat=0 calls=10000 old_ms=15.6339 new_ms=0.6075 old_gc=9 new_gc=0
+PERFMICRO gui-style repeat=1 calls=10000 old_ms=16.8986 new_ms=0.6358 old_gc=11 new_gc=0
+PERFMICRO gui-style repeat=2 calls=10000 old_ms=17.1705 new_ms=0.6652 old_gc=10 new_gc=0
+PERFTEST COMPLETE checks=94 failures=0
+=== experiment UI.log ===
+- Completed reload, in  0.109 seconds
+LAN_TEST COMPLETE checks=23 failures=0
