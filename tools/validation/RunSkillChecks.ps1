@@ -1,4 +1,4 @@
-﻿param([ValidateSet('Original','Experiment')][string]$Edition='Original',[ValidateSet('ShotRescue','Ability','AIPressure','SkillSelfPlay')][string]$Suite='ShotRescue',[int]$GoalTarget=200)
+﻿param([ValidateSet('Original','Experiment')][string]$Edition='Original',[ValidateSet('ShotRescue','Ability','AIPressure','SkillSelfPlay','DownIntercept')][string]$Suite='ShotRescue',[int]$GoalTarget=200)
 $ErrorActionPreference='Stop'
 $repo=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $build=Join-Path $repo '范志毅VS赵鹏 PC双人版（32位）\范志毅VS赵鹏 PC双人版（32位）\AI Mod Source\build'

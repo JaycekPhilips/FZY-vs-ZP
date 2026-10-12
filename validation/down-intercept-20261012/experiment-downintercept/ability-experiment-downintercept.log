@@ -1,0 +1,211 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.887 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 2.873100 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.346600 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1017.
+Total: 0.760700 ms (FindLiveObjects: 0.079300 ms CreateObjectMapping: 0.009500 ms MarkObjects: 0.429900 ms  DeleteObjects: 0.241500 ms)
+
+ABILITY PASS initial standing threshold mode=0 actor=Fan head=1.9365 shin=1.408972 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS outside range rejects down without animation mode=0 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS stationary front ball ground manual action and paid effect mode=0 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.672100 ms
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 1.198600 ms (FindLiveObjects: 0.036400 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.300700 ms  DeleteObjects: 0.852600 ms)
+
+ABILITY PASS rear stationary air manual drops through physics mode=0 actor=Fan descent=-7.49228 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.244300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 1.079100 ms (FindLiveObjects: 0.031100 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.183500 ms  DeleteObjects: 0.856100 ms)
+
+ABILITY PASS initial standing threshold mode=0 actor=Zhao head=1.9365 shin=1.408972 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS outside range rejects down without animation mode=0 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS stationary front ball ground manual action and paid effect mode=0 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.278400 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 0.986400 ms (FindLiveObjects: 0.055200 ms CreateObjectMapping: 0.015400 ms MarkObjects: 0.225700 ms  DeleteObjects: 0.689600 ms)
+
+ABILITY PASS rear stationary air manual drops through physics mode=0 actor=Zhao descent=-7.490673 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.801100 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1068.
+Total: 0.995800 ms (FindLiveObjects: 0.034300 ms CreateObjectMapping: 0.008300 ms MarkObjects: 0.191100 ms  DeleteObjects: 0.761700 ms)
+
+ABILITY PASS initial standing threshold mode=1 actor=Fan head=1.9365 shin=1.408972 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS outside range rejects down without animation mode=1 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS stationary front ball ground manual action and paid effect mode=1 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.349700 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1068.
+Total: 1.405200 ms (FindLiveObjects: 0.041300 ms CreateObjectMapping: 0.039300 ms MarkObjects: 0.447200 ms  DeleteObjects: 0.877000 ms)
+
+ABILITY PASS rear stationary air manual drops through physics mode=1 actor=Fan descent=-5.42487 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.315300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1068.
+Total: 1.080500 ms (FindLiveObjects: 0.040300 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.250300 ms  DeleteObjects: 0.780500 ms)
+
+ABILITY PASS initial standing threshold mode=1 actor=Zhao head=1.9365 shin=1.408972 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS outside range rejects down without animation mode=1 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS stationary front ball ground manual action and paid effect mode=1 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.296800 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1068.
+Total: 1.155500 ms (FindLiveObjects: 0.034000 ms CreateObjectMapping: 0.008300 ms MarkObjects: 0.233600 ms  DeleteObjects: 0.879300 ms)
+
+ABILITY PASS rear stationary air manual drops through physics mode=1 actor=Zhao descent=-7.486101 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.255000 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1068.
+Total: 1.154100 ms (FindLiveObjects: 0.031700 ms CreateObjectMapping: 0.007700 ms MarkObjects: 0.206800 ms  DeleteObjects: 0.907600 ms)
+
+ABILITY PASS initial standing threshold mode=2 actor=Fan head=1.9365 shin=1.408972 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS outside range rejects down without animation mode=2 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS stationary front ball ground manual action and paid effect mode=2 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.441600 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.096600 ms (FindLiveObjects: 0.035000 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.231600 ms  DeleteObjects: 0.821500 ms)
+
+ABILITY PASS rear stationary air manual drops through physics mode=2 actor=Fan descent=-3.468734 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.304800 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.229800 ms (FindLiveObjects: 0.036000 ms CreateObjectMapping: 0.009000 ms MarkObjects: 0.199900 ms  DeleteObjects: 0.984400 ms)
+
+ABILITY PASS initial standing threshold mode=2 actor=Zhao head=1.9365 shin=1.408972 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS outside range rejects down without animation mode=2 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS stationary front ball ground manual action and paid effect mode=2 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.290800 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 0.865300 ms (FindLiveObjects: 0.039800 ms CreateObjectMapping: 0.029300 ms MarkObjects: 0.255400 ms  DeleteObjects: 0.540300 ms)
+
+ABILITY PASS rear stationary air manual drops through physics mode=2 actor=Zhao descent=-3.517703 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.280400 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.082800 ms (FindLiveObjects: 0.056000 ms CreateObjectMapping: 0.016600 ms MarkObjects: 0.214700 ms  DeleteObjects: 0.795100 ms)
+
+ABILITY PASS unskilled down uses actual leg/ball collision Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.289600 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.384000 ms (FindLiveObjects: 0.039100 ms CreateObjectMapping: 0.016300 ms MarkObjects: 0.216100 ms  DeleteObjects: 1.112200 ms)
+
+ABILITY PASS unskilled down uses actual leg/ball collision Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.260300 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.171400 ms (FindLiveObjects: 0.032000 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.177400 ms  DeleteObjects: 0.953400 ms)
+
+ABILITY PASS remapped down activates purchased zero-jump intercept 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS pause and reset suppress manual activation 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=28 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 928 -> priority: 1 
+  Thread -> id: 4c60 -> priority: 1 
+  Thread -> id: 7190 -> priority: 1 
+  Thread -> id: a530 -> priority: 1 
+  Thread -> id: 91b8 -> priority: 1 
+  Thread -> id: 2344 -> priority: 1 
+  Thread -> id: 8640 -> priority: 1 
+  Thread -> id: 8b00 -> priority: 1 
+  Thread -> id: 8888 -> priority: 1 
+  Thread -> id: 994 -> priority: 1 
+  Thread -> id: 36f8 -> priority: 1 
+  Thread -> id: 6934 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

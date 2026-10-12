@@ -2,8 +2,8 @@
     {
         "edition":  "original",
         "archive":  "downloads/fzy-vs-zp-original-win32.zip",
-        "archiveBytes":  28020953,
-        "archiveSha256":  "ea5e550d1ec7d97b3c6a7880220e9a907c6f0144c0a3a846bdab4c959da56ef0",
+        "archiveBytes":  28023715,
+        "archiveSha256":  "d5902d76a1ce7e8bf72dc209b5c887138046ddba9b967832b71dcdb14f815fd4",
         "files":  [
                       {
                           "path":  "FanZhiYi.exe",
@@ -32,8 +32,8 @@
                       },
                       {
                           "path":  "AI Mod Source/AbilityMode.cs",
-                          "bytes":  47417,
-                          "sha256":  "03a32f53573c10cbcc2a0f8f3b4424faa9826cdec95019752a014eee4e4dad2e"
+                          "bytes":  47491,
+                          "sha256":  "5526a0445cce2922b7275252a3e163c317bc5b8c0f6a6b8f8988799620844c23"
                       },
                       {
                           "path":  "AI Mod Source/Assembly-CSharp.original.dll",
@@ -82,8 +82,8 @@
                       },
                       {
                           "path":  "AI Mod Source/PlayerSkills.cs",
-                          "bytes":  95847,
-                          "sha256":  "0f92afc8eec44b2c34da2f7af5029f79bf15a77a83e0d7c4398db4505a58addc"
+                          "bytes":  100681,
+                          "sha256":  "1a4bac32f21a75a9a31f58e6183fb0e77252e6cc65203a4c1a7eac43acbe75b5"
                       },
                       {
                           "path":  "AI Mod Source/PowerShot.cs",
@@ -92,8 +92,8 @@
                       },
                       {
                           "path":  "AI Mod Source/README.md",
-                          "bytes":  30964,
-                          "sha256":  "7cfa76de35b2c4b9bba7fb0da0e55c32ec02f76b52e2ae6bf18c62697ad4f2ce"
+                          "bytes":  31554,
+                          "sha256":  "3775e4757daf3bc1fb8684437e30f41bbc3eb57297725a615efe40c7149eb2d2"
                       },
                       {
                           "path":  "AI Mod Source/ZhaoHeader.cs",
@@ -167,8 +167,8 @@
                       },
                       {
                           "path":  "FanZhiYi_Data/Managed/GameAIMod.dll",
-                          "bytes":  161792,
-                          "sha256":  "402a16898708cdfdbf8533bd7ea6627517ffbecb75e4a45d3ba141d9f98be120"
+                          "bytes":  164352,
+                          "sha256":  "ca57afacc30b4f4b60709522c66ba0aa686354929b08da0e7b89a8aa0935bac7"
                       },
                       {
                           "path":  "FanZhiYi_Data/Managed/Mono.Security.dll",
@@ -755,8 +755,8 @@
     {
         "edition":  "experimental",
         "archive":  "downloads/fzy-vs-zp-experimental-win32.zip",
-        "archiveBytes":  28015992,
-        "archiveSha256":  "0536342ee3a2a443c9833dfb56496ce377da8cd5b571115285646b12a670d8e5",
+        "archiveBytes":  28018688,
+        "archiveSha256":  "6a596b9e9eaa6288135e5060e3f2c72a44b9c5daf3cbf567b766f85901fde93a",
         "files":  [
                       {
                           "path":  "FanZhiYi.exe",
@@ -790,8 +790,8 @@
                       },
                       {
                           "path":  "AI Mod Source/AbilityMode.cs",
-                          "bytes":  48377,
-                          "sha256":  "a615267fccab0d510b043cc1e2127a2a4622b91042d6083ae36920bec8a598f3"
+                          "bytes":  48451,
+                          "sha256":  "d58a4beaeacc1415ac0b6c1508914288ca7e53234312c4ff840cd68d001ec349"
                       },
                       {
                           "path":  "AI Mod Source/Assembly-CSharp.original.dll",
@@ -810,8 +810,8 @@
                       },
                       {
                           "path":  "AI Mod Source/ExperimentScale.cs",
-                          "bytes":  8775,
-                          "sha256":  "1043618ad226fa8b9eca6504fa02c6e11733414b37bc938f3bd14f28a1288370"
+                          "bytes":  8815,
+                          "sha256":  "0f1b478a6b646ba8331aec698f268b4be0ad3ca73541e9f8f102bf47b7b4f904"
                       },
                       {
                           "path":  "AI Mod Source/GameAIMod.cs",
@@ -845,8 +845,8 @@
                       },
                       {
                           "path":  "AI Mod Source/PlayerSkills.cs",
-                          "bytes":  96710,
-                          "sha256":  "136524e35c5b7fa126703bcdb336fcaad5be03ed6933570980b82f5632acf12d"
+                          "bytes":  101544,
+                          "sha256":  "0e92ed886bf9604e4d15600e2f1f8664df1704be2c3aa956944e35c209e77a8e"
                       },
                       {
                           "path":  "AI Mod Source/PowerShot.cs",
@@ -855,8 +855,8 @@
                       },
                       {
                           "path":  "AI Mod Source/README.md",
-                          "bytes":  32511,
-                          "sha256":  "7bea24d6a5314a713f06a2628d15d66d84980a4fa9326d8371a450a7fde17176"
+                          "bytes":  33101,
+                          "sha256":  "e99563c867323d1fa5f33137c9baab9aac64f9a8f662c28fc5daf888be593dfa"
                       },
                       {
                           "path":  "AI Mod Source/ZhaoHeader.cs",
@@ -930,8 +930,8 @@
                       },
                       {
                           "path":  "FanZhiYi_Data/Managed/GameAIMod.dll",
-                          "bytes":  166400,
-                          "sha256":  "f8dd04c2a5d27d880b2664b365685b08bbb4278f3dc97eb9aded8ea68e6a86aa"
+                          "bytes":  168960,
+                          "sha256":  "c11babcb158837e89118ddd725ad190141800726ae919afcdaada481ebb5edf4"
                       },
                       {
                           "path":  "FanZhiYi_Data/Managed/Mono.Security.dll",

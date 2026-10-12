@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -308,6 +308,7 @@ public sealed class PlayerSkills : MonoBehaviour
     {
         if (player == null || (player.name != "Fan" && player.name != "Zhao")) return;
         PlayerMovement.Attach(player);
+        DownIntercept.Attach(player);
         AbilityMode.Attach(player);
         PowerShot.Attach(player);
         ZhaoHeader.Attach(player);
@@ -343,6 +344,7 @@ public sealed class PlayerSkills : MonoBehaviour
 
     public static void ResetAll()
     {
+        DownIntercept.ResetAll();
         AbilityMode.ResetRound();
         PowerShot.ResetAll();
         MagneticFoot.ResetAll();
@@ -384,6 +386,7 @@ public sealed class PlayerSkills : MonoBehaviour
         standingHeight = standingTop - standingBottom;
         Transform standingHead = player.transform.Find("Head");
         standingHeadHeight = standingHead != null ? standingHead.position.y - standingBottom : standingHeight * .9f;
+        standingInterceptHeight = standingHeadHeight;
         foreach (UnityEngine.Object item in UnityEngine.Object.FindObjectsOfType(type.Assembly.GetType("GoalTrigger")))
         { Component goal = item as Component; if (goal != null && goal.transform.position.x > 0f) ownGoal = goal.GetComponent<Collider2D>(); }
         normalAnimatorSpeed = animator != null ? animator.speed : 1f;
@@ -544,7 +547,7 @@ public sealed class PlayerSkills : MonoBehaviour
         if (!Stopped())
         {
             UpdateTackleRecovery();
-            if (fan && !BallInFront() && GameAIMod.GetDownCommand(controller)) BeginQuickDrop();
+
         }
     }
 
@@ -1234,6 +1237,8 @@ public sealed class PlayerSkills : MonoBehaviour
             skills.DropClearance() > .18f;
     }
 
+    public static void FootIntercept(Component player){PlayerSkills s=player!=null?player.GetComponent<PlayerSkills>():null;if(s!=null&&s.fan&&!s.Stopped()){s.Show(9);s.BeginQuickDrop();}}
+
     private void BeginQuickDrop()
     {
         if (!CanQuickDrop(controller)) return;
@@ -1257,7 +1262,7 @@ public sealed class PlayerSkills : MonoBehaviour
             string root = hit.collider.transform.root.name;
             if (root == "Fan" || root == "Zhao") continue;
             return ballCollider.bounds.min.y >= hit.point.y - .02f &&
-                ballCollider.bounds.max.y < hit.point.y + standingInterceptHeight;
+                ball.position.y < hit.point.y + standingInterceptHeight;
         }
         return false;
     }
@@ -1735,5 +1740,46 @@ public static class RescuePlanner
     {
         float behind=-direction*(ball.position.x-body.x),gap=width*.6f+radius+.12f;
         return bottom>floor+.12f&&((behind<-gap)||(ball.position.y>body.y+height*.65f&&Mathf.Abs(ball.position.x-body.x)>gap));
+    }
+}
+
+
+// Manual interception uses the original standing geometry in all three modes.
+// Input starts a native leg action; only real collision can intercept the ball.
+public sealed class DownIntercept : MonoBehaviour
+{
+    Component player,manager;Animator animator;Rigidbody2D body,ball;Collider2D ballShape;
+    Rigidbody2D[] limbs;Collider2D[] shapes;FieldInfo stopping,grounded;int mask;
+    float headHeight,shinHeight,scale,until=-1f,lastPress=-10f;bool basicDrop;
+    readonly RaycastHit2D[] groundHits=new RaycastHit2D[24];
+    public static void Attach(Component p){if(p!=null&&p.GetComponent<DownIntercept>()==null)p.gameObject.AddComponent<DownIntercept>().Initialize(p);}
+    public static void RescaleStanding(Component p,float factor){DownIntercept d=p!=null?p.GetComponent<DownIntercept>():null;if(d!=null){d.headHeight*=factor;d.shinHeight*=factor;d.scale*=factor;}}
+    public static bool HasSkill(Component p){return AbilityMode.Enabled?AbilityMode.Has(p,9):PlayerSkills.Enabled&&p!=null&&p.name=="Fan";}
+    public static bool Eligible(Component p,bool skilled){DownIntercept d=p!=null?p.GetComponent<DownIntercept>():null;return d!=null&&!d.Stopped()&&d.ball!=null&&d.ball.position.y<d.Floor()+(skilled?d.headHeight:d.shinHeight);}
+    public static void ResetAll(){foreach(DownIntercept d in UnityEngine.Object.FindObjectsOfType<DownIntercept>()){d.until=-1f;d.lastPress=-10f;d.basicDrop=false;}}
+    void Initialize(Component p){
+        player=p;Type t=p.GetType();body=(Rigidbody2D)t.GetField("rb").GetValue(p);animator=(Animator)t.GetField("anim").GetValue(p);grounded=t.GetField("isOnGround");mask=(int)(LayerMask)t.GetField("ground").GetValue(p);
+        limbs=p.GetComponentsInChildren<Rigidbody2D>();shapes=p.GetComponentsInChildren<Collider2D>();scale=Mathf.Max(.1f,Mathf.Abs(p.transform.lossyScale.x)/.8f);
+        float bottom=body.position.y,shin=bottom;foreach(Collider2D c in shapes)if(!c.isTrigger){bottom=Mathf.Min(bottom,c.bounds.min.y);if(c.name=="L_LowLeg"||c.name=="R_LowLeg")shin=Mathf.Max(shin,c.bounds.max.y);}
+        Transform head=p.transform.Find("Head");headHeight=head!=null?head.position.y-bottom:2f*scale;shinHeight=Mathf.Max(.1f,shin-bottom);
+        Component b=UnityEngine.Object.FindObjectOfType(t.Assembly.GetType("Ball")) as Component;if(b!=null){ball=b.GetComponent<Rigidbody2D>();ballShape=b.GetComponent<Collider2D>();}
+        manager=UnityEngine.Object.FindObjectOfType(t.Assembly.GetType("GameManager")) as Component;if(manager!=null)stopping=manager.GetType().GetField("isStopping");
+    }
+    bool Stopped(){return player==null||body==null||ball==null||Time.timeScale<=0||GameAIMod.BallOutThisRally||(manager!=null&&stopping!=null&&(bool)stopping.GetValue(manager));}
+    float Floor(){int count=Physics2D.RaycastNonAlloc(body.position,Vector2.down,groundHits,30f,mask);float floor=body.position.y-headHeight;bool found=false;for(int i=0;i<count;i++){var h=groundHits[i];if(h.collider==null||h.collider.isTrigger||h.normal.y<.5f||h.collider==ballShape)continue;string owner=h.collider.transform.root.name;if(owner=="Fan"||owner=="Zhao")continue;if(!found||h.point.y>floor){floor=h.point.y;found=true;}}return floor;}
+    float Bottom(){float low=body.position.y;foreach(var c in shapes)if(c!=null&&!c.isTrigger)low=Mathf.Min(low,c.bounds.min.y);return low;}
+    bool Ground(){return grounded!=null&&(bool)grounded.GetValue(player)||Bottom()<Floor()+.04f*scale;}
+    void Update(){
+        if(Stopped()){until=-1f;return;}if(!GameAIMod.GetDownCommand(player)||Time.time-lastPress<.35f)return;
+        bool skilled=HasSkill(player);if(!Eligible(player,skilled))return;lastPress=Time.time;until=Time.time+.65f;
+        basicDrop=!skilled&&!Ground();PlayerMovement.NotifyAction(player);if(animator!=null)animator.SetTrigger("Kick");
+        if(AbilityMode.Enabled){BuildPlayer b=player.GetComponent<BuildPlayer>();if(b!=null)b.FootIntercept();}
+        else if(skilled)PlayerSkills.FootIntercept(player);
+    }
+    void FixedUpdate(){
+        if(Stopped()||Time.time>until||Ground()){basicDrop=false;return;}if(!basicDrop)return;
+        float mass=0;Vector2 v=Vector2.zero;foreach(var limb in limbs)if(limb!=null){mass+=limb.mass;v+=limb.velocity*limb.mass;}if(mass<=0)return;v/=mass;
+        float clearance=Mathf.Max(.01f,Bottom()-Floor()),descent=-Mathf.Min(PlayerSkills.FanDropSpeed*scale,Mathf.Sqrt(2f*70f*clearance));float dv=Mathf.Clamp(descent-v.y,-80f*Time.fixedDeltaTime,80f*Time.fixedDeltaTime);
+        foreach(var limb in limbs)if(limb!=null)limb.AddForce(Vector2.up*dv*limb.mass,ForceMode2D.Impulse);
     }
 }

@@ -30,7 +30,7 @@ if($Edition -eq 'Experiment'){$names+='ExperimentScale.cs'}
 $names=@($names | Where-Object {Test-Path -LiteralPath (Join-Path $source $_)})
 $testClass=switch($Suite){
  'Ability'{'AbilityModeTests'} 'Visual'{'SkillVisualTests'} 'NetworkPair'{'NetworkPairTests'}
- 'Performance'{'PerformanceRegressionTests'} 'Gameplay'{'BurstRangeTests'} 'Controls'{'ControlsTests'} 'Boundary'{'BehindGoalTests'} 'Defense'{'ZhaoVolleyTests'} 'Goals'{'GoalHeightTests'} 'Magnetic'{'MagneticSpeedTests'} 'Contest'{'KnockbackTests'} 'AI'{'AIContestAirTests'} 'Drop'{'ThighInterceptTests'} 'Balance'{'RescueBalanceTests'} 'Corner'{'BehindGoalTests'} 'Network'{'LanMultiplayerTests'} 'UI'{'LanMenuUiTests'} default{throw 'Unknown suite'}
+ 'Performance'{'PerformanceRegressionTests'} 'Gameplay'{'BurstRangeTests'} 'Controls'{'ControlsTests'} 'Boundary'{'BehindGoalTests'} 'Defense'{'ZhaoVolleyTests'} 'Goals'{'GoalHeightTests'} 'Magnetic'{'MagneticSpeedTests'} 'Contest'{'KnockbackTests'} 'AI'{'AIContestAirTests'} 'Drop'{'DownInterceptTests'} 'Balance'{'RescueBalanceTests'} 'Corner'{'BehindGoalTests'} 'Network'{'LanMultiplayerTests'} 'UI'{'LanMenuUiTests'} default{throw 'Unknown suite'}
 }
 $sources=@()
 foreach($name in $names){
@@ -43,6 +43,7 @@ foreach($name in $names){
  if($name -eq 'ControlBindings.cs' -and $Suite -in @('Gameplay','Controls','Magnetic','Contest','AI','Drop','Balance','Ability','Visual')){$code=$code.Replace('return Input.GetKey(key);',('return '+$testClass+'.ReadKey(key);')).Replace('return Input.GetKeyDown(key);',('return '+$testClass+'.ReadDown(key);'))}
  if($Suite -eq 'NetworkPair' -and $name -in @('LanMultiplayer.cs','ControlBindings.cs')){$code=$code.Replace('Input.GetKey(key)','NetworkPairTests.ReadKey(key)').Replace('Input.GetKeyDown(key)','NetworkPairTests.ReadDown(key)')}
  if($Suite -eq 'Ability' -and $name -eq 'AbilityMode.cs'){$code=$code.Replace('void Launch(Vector2 velocity){','void Launch(Vector2 velocity){AbilityModeTests.Launched(controller,velocity);')}
+ if($name -eq 'PlayerSkills.cs' -and $Suite -eq 'Drop'){$code=$code.Replace('        bool power = PowerShot.OnBallCollision(collision);','        DownInterceptTests.Contacted(collision); bool power = PowerShot.OnBallCollision(collision);')}
  if($name -eq 'PlayerSkills.cs' -and $Suite -eq 'Gameplay'){$code=$code.Replace('        bool power = PowerShot.OnBallCollision(collision);','        BurstRangeTests.BeforeContact(collision);'+[Environment]::NewLine+'        bool power = PowerShot.OnBallCollision(collision);'+[Environment]::NewLine+'        BurstRangeTests.AfterContact(collision, power);')}
  if($name -eq 'PlayerSkills.cs' -and $Suite -eq 'Contest'){$code=$code.Replace('        lastTackle = Time.time;','        KnockbackTests.OnTackle(controller, opponent.controller, aerial, throughBall);'+[Environment]::NewLine+'        lastTackle = Time.time;')}
  if($Suite -eq 'Balance'){

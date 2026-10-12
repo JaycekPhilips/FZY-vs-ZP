@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -259,6 +259,7 @@ public sealed class BuildPlayer : MonoBehaviour
         if(jump){if(!rescuePlan.low||behind<-.1f||behind>height*1.25f||!Ground()||Time.time-lastJump<.65f||Time.time-lastJumpQueued<.3f)return false;lastJumpQueued=Time.time;return true;}
         if(headRescue||!rescuePlan.head||h<height*.7f||Vector2.Distance(ball.position,head.position)>.65f*scale+ballShape.bounds.extents.x)return false;headRescue=true;return true;
     }
+    public void FootIntercept(){if(Stopped()||!Has(9))return;ShowSkill(9);if(!Ground())dropUntil=Time.time+.5f;}
     public float MovementMultiplier(float input)
     {
         if(Stopped())return 1f;
@@ -326,7 +327,7 @@ public sealed class BuildPlayer : MonoBehaviour
         if(glowOwner==this&&now<glowUntil&&now-lastTrail>=.035f){lastTrail=now;ballTrail.Add(ball.position);if(ballTrail.Count>9)ballTrail.RemoveAt(0);}
         if (animator!=null) animator.speed=now<=dribbleUntil&&Has(0)?animatorSpeed*(1f+(PlayerSkills.FanDribbleAnimationMultiplier-1f)*Skill(0)):animatorSpeed;
         if(now<=knockUntil){float remaining=knockDistance-knockSign*(body.position.x-knockOrigin);if(remaining<=.02f)knockUntil=-1f;else {float vx=knockSign*RigVelocity().x;float target=Mathf.Min(knockDistance/.30f,Mathf.Sqrt(56f*remaining));Impulse(Vector2.right*knockSign*Mathf.Clamp(target-vx,-80f*Time.fixedDeltaTime,80f*Time.fixedDeltaTime));}}
-        if(Has(9)&&!Ground()&&(GameAIMod.GetDownCommand(controller)||(Front()&&ball.position.y<Floor()+height*.6f&&-direction*ball.velocity.x>.5f&&Mathf.Abs(ball.position.x-body.position.x)<3f*scale))){ShowSkill(9);dropUntil=now+.5f;}
+        if(Has(9)&&!Ground()&&Front()&&DownIntercept.Eligible(controller,true)&&-direction*ball.velocity.x>.5f&&Mathf.Abs(ball.position.x-body.position.x)<3f*scale){ShowSkill(9);dropUntil=now+.5f;}
         if(now<=dropUntil){if(Ground()){dropUntil=-1f;}else Impulse(Vector2.up*(-Mathf.Min(PlayerSkills.FanDropSpeed*Skill(9),Mathf.Sqrt(2f*70f*Mathf.Max(.01f,Bottom()-Floor())))-RigVelocity().y));}
         if(now<=rescueRecover){Stable();float target=now<=rescueUntil&&!rescueWaiting?-direction*rescueSpeed:0f;float vx=RigVelocity().x;Impulse(Vector2.right*Mathf.Clamp(target-vx,-35f*Time.fixedDeltaTime,35f*Time.fixedDeltaTime));}
         {BuildPlayer other=Opponent();if(other!=null){bool ours=false,theirs=false;foreach(var c in colliders)if(c.IsTouching(ballShape))ours=true;foreach(var c in other.colliders)if(c.IsTouching(ballShape))theirs=true;if(ours&&theirs){PlayerContact(other,true);other.PlayerContact(this,true);}}}
