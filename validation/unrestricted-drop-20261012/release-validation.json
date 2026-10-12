@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-12",
+  "manualOnly": true,
+  "ballHeightLimited": false,
+  "ordinaryDropMultiplier": 1.5,
+  "skillDropMultiplier": 3,
+  "committed": false,
+  "pushed": false,
+  "editions": [
+    {
+      "edition": "original",
+      "policyHash": "244BADAD815CD9F0A7D50D1838D26C8493DCB7FE2B6D524A4E84745C906DEBB4",
+      "modHash": "D0CC2F19C0217BDF734BCF50BE57A9E68BC2C7CBB2B937D92069E08F025C48EE",
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003",
+      "checks": 24,
+      "selfplayGoals": 200,
+      "fanGoals": 129,
+      "zhaoGoals": 71,
+      "failures": 0
+    },
+    {
+      "edition": "experiment",
+      "policyHash": "2C4F229216187AC0F14BACD5770B9BB5171916A1BA3A6DCF7334E32A5C2D4099",
+      "modHash": "D06BE897E64C8FD254F73C624A4A3A866D50387771CE4BACBDF4F6EE7ED1094D",
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658",
+      "checks": 24,
+      "selfplayGoals": 200,
+      "fanGoals": 98,
+      "zhaoGoals": 102,
+      "failures": 0
+    }
+  ]
+}

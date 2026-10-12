@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-12",
+  "manualOnly": true,
+  "committed": false,
+  "pushed": false,
+  "editions": [
+    {
+      "edition": "original",
+      "policyHash": "69FB60CAB2D58E867C55603599914A49CBBC737A57D5C15C67EEE86616E38125",
+      "modHash": "8E633A84BB383587A320C035561F572A8514A996E8EC631F21EFFDE5DD090E3E",
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003",
+      "checks": 34,
+      "selfplayGoals": 200,
+      "fanGoals": 114,
+      "zhaoGoals": 86,
+      "failures": 0
+    },
+    {
+      "edition": "experiment",
+      "policyHash": "EFACBC2344397D82A0C082808C39B84B70188519BE9D26C66FAF707C55A2D76B",
+      "modHash": "39D1B1BE0ACEC125F6498D4998A3D56773E6BDE5C8270F48BC003D8514ABF42F",
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658",
+      "checks": 34,
+      "selfplayGoals": 200,
+      "fanGoals": 108,
+      "zhaoGoals": 92,
+      "failures": 0
+    }
+  ]
+}

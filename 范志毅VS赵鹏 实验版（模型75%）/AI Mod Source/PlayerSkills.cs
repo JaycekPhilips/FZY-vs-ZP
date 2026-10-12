@@ -58,8 +58,6 @@ public sealed class PlayerSkills : MonoBehaviour
     private string horizontalAxis;
     private bool fasterDribble;
     private float normalAnimatorSpeed;
-    private bool quickDrop;
-    private float dropStarted = -10f;
     private float standingInterceptHeight;
     private Collider2D[] playerColliders;
     private Component muscles;
@@ -195,7 +193,7 @@ public sealed class PlayerSkills : MonoBehaviour
     private void UpdateRescueBalance()
     {
         if (fan || Stopped() || GameAIMod.BallOutThisRally || Time.time > rescueRecoveryUntil || physicalLimbs == null) return;
-        if(body.velocity.y<.1f&&RescuePlanner.FastDropSafe(ball,body.position,-1f,standingBodyWidth,ballCollider.bounds.extents.x,standingHeight,RescueFloor(),RescueBottom())){float descent=-Mathf.Min(12f,Mathf.Sqrt(2f*60f*Mathf.Max(.01f,RescueBottom()-RescueFloor())));ApplyLinearImpulse(Vector2.up*Mathf.Clamp(descent-body.velocity.y,-80f*Time.fixedDeltaTime,0f)*TotalMass());}
+        if(!DownIntercept.Active(controller)&&body.velocity.y<.1f&&RescuePlanner.FastDropSafe(ball,body.position,-1f,standingBodyWidth,ballCollider.bounds.extents.x,standingHeight,RescueFloor(),RescueBottom())){float descent=-Mathf.Min(12f,Mathf.Sqrt(2f*60f*Mathf.Max(.01f,RescueBottom()-RescueFloor())));ApplyLinearImpulse(Vector2.up*Mathf.Clamp(descent-body.velocity.y,-80f*Time.fixedDeltaTime,0f)*TotalMass());}
         float angle = (float)bodyTargetField.GetValue(muscles);
         float desiredSpin = Mathf.Clamp(Mathf.DeltaAngle(body.rotation, angle) * 7f, -120f, 120f);
         float spinChange = Mathf.Clamp(desiredSpin - body.angularVelocity, -900f * Time.fixedDeltaTime, 900f * Time.fixedDeltaTime);
@@ -564,8 +562,6 @@ public sealed class PlayerSkills : MonoBehaviour
     {
         if (Stopped() || ball == null) return;
         UpdateTackleRecovery();
-        if (fan && ShouldAutomaticQuickDrop()) BeginQuickDrop();
-        UpdateQuickDrop();
         UpdateRescueBalance();
         UpdateTackleKnockback();
         if (!fan) UpdateGroundBallContest();
@@ -1242,39 +1238,11 @@ public sealed class PlayerSkills : MonoBehaviour
     public static bool CanQuickDrop(Component player)
     {
         PlayerSkills skills = player != null ? player.GetComponent<PlayerSkills>() : null;
-        return skills != null && skills.fan && !skills.Stopped() && !skills.quickDrop && !skills.TouchesGround() &&
+        return skills != null && skills.fan && !skills.Stopped() && !DownIntercept.Active(player) && !skills.TouchesGround() &&
             skills.DropClearance() > .18f;
     }
 
-    public static void FootIntercept(Component player){PlayerSkills s=player!=null?player.GetComponent<PlayerSkills>():null;if(s!=null&&s.fan&&!s.Stopped()){s.Show(9);s.BeginQuickDrop();}}
-
-    private void BeginQuickDrop()
-    {
-        if (!CanQuickDrop(controller)) return;
-        RestoreDribbleSpeed();
-        quickDrop = true;
-        dropStarted = Time.time;
-        Show(9);
-    }
-
-    private bool ShouldAutomaticQuickDrop()
-    {
-        if (!CanQuickDrop(controller) || !BallInFront() || ballCollider == null || !IsBallAirborne()) return false;
-        float incoming = -direction * ball.velocity.x;
-        float scale = Mathf.Abs(transform.lossyScale.x) / .8f;
-        float gap = direction * (ball.position.x - body.position.x);
-        if (incoming < .5f || gap > Mathf.Min(3f * scale, incoming * .65f + ballCollider.bounds.extents.x) ||
-            Mathf.Abs(ball.velocity.y) > Mathf.Max(1.5f, incoming * .45f)) return false;
-        foreach (RaycastHit2D hit in rayHits.Raycast(body.position, Vector2.down, 30f, groundMask))
-        {
-            if (hit.collider == null || hit.collider.isTrigger || hit.normal.y < .5f || hit.collider == ballCollider) continue;
-            string root = hit.collider.transform.root.name;
-            if (root == "Fan" || root == "Zhao") continue;
-            return ballCollider.bounds.min.y >= hit.point.y - .02f &&
-                ball.position.y < hit.point.y + standingInterceptHeight;
-        }
-        return false;
-    }
+    public static void FootIntercept(Component player){PlayerSkills s=player!=null?player.GetComponent<PlayerSkills>():null;if(s!=null&&s.fan&&!s.Stopped())s.Show(9);}
 
     private float DropClearance()
     {
@@ -1290,21 +1258,6 @@ public sealed class PlayerSkills : MonoBehaviour
             return Mathf.Max(0f, lowest - hit.point.y);
         }
         return 30f;
-    }
-
-    private void UpdateQuickDrop()
-    {
-        if (!quickDrop) return;
-        if (Stopped() || TouchesGround() || Time.time - dropStarted > 1.2f) { quickDrop = false; return; }
-        float clearance = DropClearance();
-        float speed = Mathf.Min(FanDropSpeed, Mathf.Sqrt(2f * 70f * clearance));
-        float vertical = 0f;
-        foreach (Rigidbody2D limb in physicalLimbs) if (limb != null) vertical += limb.velocity.y * limb.mass;
-        vertical /= TotalMass();
-        // Accelerate the whole connected rig together; brake near the pitch.
-        // No teleporting, bone stretching, gravity edits or collision bypass.
-        ApplyLinearImpulse(Vector2.up * (-speed - vertical) * TotalMass());
-        if (clearance < .025f) quickDrop = false;
     }
 
     private void ApplyBalanceGain()
@@ -1363,9 +1316,7 @@ public sealed class PlayerSkills : MonoBehaviour
     private void ClearRound()
     {
         RestoreDribbleSpeed();
-        quickDrop = false;
         retreatUntil = rescueRecoveryUntil = -1f; retreatHeld = retreatJumped = retreatHeaded = rescueWaiting = retreatJumpQueued = false; rescueJumpAttempts = 0;
-        dropStarted = -10f;
         RestoreBallDetection();
         RestoreTacklePhysics();
         headUntil = shotUntil = kickUntil = burstUntil = -1f;
@@ -1753,42 +1704,34 @@ public static class RescuePlanner
 }
 
 
-// Manual interception uses the original standing geometry in all three modes.
-// Input starts a native leg action; only real collision can intercept the ball.
-public sealed class DownIntercept : MonoBehaviour
-{
-    Component player,manager;Animator animator;Rigidbody2D body,ball;Collider2D ballShape;
-    Rigidbody2D[] limbs;Collider2D[] shapes;FieldInfo stopping,grounded;int mask;
-    float headHeight,shinHeight,scale,until=-1f,lastPress=-10f;bool basicDrop;
-    readonly RaycastHit2D[] groundHits=new RaycastHit2D[24];
+
+// A down command accelerates the real connected rig. No ball-height gate.
+// Reference speed follows the same gravity and damping as ordinary free fall.
+public sealed class DownIntercept : MonoBehaviour {
+    Component player,manager;Animator animator;Rigidbody2D body;Rigidbody2D[] limbs;Collider2D[] shapes;
+    FieldInfo stopping,grounded;int mask;float scale,mass,referenceSpeed,multiplier,lastPress=-10f;bool active;
+    CollisionDetectionMode2D[] savedModes;readonly RaycastHit2D[] groundHits=new RaycastHit2D[24];
     public static void Attach(Component p){if(p!=null&&p.GetComponent<DownIntercept>()==null)p.gameObject.AddComponent<DownIntercept>().Initialize(p);}
-    public static void RescaleStanding(Component p,float factor){DownIntercept d=p!=null?p.GetComponent<DownIntercept>():null;if(d!=null){d.headHeight*=factor;d.shinHeight*=factor;d.scale*=factor;}}
+    public static void RescaleStanding(Component p,float factor){DownIntercept d=p!=null?p.GetComponent<DownIntercept>():null;if(d!=null)d.scale*=factor;}
     public static bool HasSkill(Component p){return AbilityMode.Enabled?AbilityMode.Has(p,9):PlayerSkills.Enabled&&p!=null&&p.name=="Fan";}
-    public static bool Eligible(Component p,bool skilled){DownIntercept d=p!=null?p.GetComponent<DownIntercept>():null;return d!=null&&!d.Stopped()&&d.ball!=null&&d.ball.position.y<d.Floor()+(skilled?d.headHeight:d.shinHeight);}
-    public static void ResetAll(){foreach(DownIntercept d in UnityEngine.Object.FindObjectsOfType<DownIntercept>()){d.until=-1f;d.lastPress=-10f;d.basicDrop=false;}}
-    void Initialize(Component p){
-        player=p;Type t=p.GetType();body=(Rigidbody2D)t.GetField("rb").GetValue(p);animator=(Animator)t.GetField("anim").GetValue(p);grounded=t.GetField("isOnGround");mask=(int)(LayerMask)t.GetField("ground").GetValue(p);
-        limbs=p.GetComponentsInChildren<Rigidbody2D>();shapes=p.GetComponentsInChildren<Collider2D>();scale=Mathf.Max(.1f,Mathf.Abs(p.transform.lossyScale.x)/.8f);
-        float bottom=body.position.y,shin=bottom;foreach(Collider2D c in shapes)if(!c.isTrigger){bottom=Mathf.Min(bottom,c.bounds.min.y);if(c.name=="L_LowLeg"||c.name=="R_LowLeg")shin=Mathf.Max(shin,c.bounds.max.y);}
-        Transform head=p.transform.Find("Head");headHeight=head!=null?head.position.y-bottom:2f*scale;shinHeight=Mathf.Max(.1f,shin-bottom);
-        Component b=UnityEngine.Object.FindObjectOfType(t.Assembly.GetType("Ball")) as Component;if(b!=null){ball=b.GetComponent<Rigidbody2D>();ballShape=b.GetComponent<Collider2D>();}
-        manager=UnityEngine.Object.FindObjectOfType(t.Assembly.GetType("GameManager")) as Component;if(manager!=null)stopping=manager.GetType().GetField("isStopping");
-    }
-    bool Stopped(){return player==null||body==null||ball==null||Time.timeScale<=0||GameAIMod.BallOutThisRally||(manager!=null&&stopping!=null&&(bool)stopping.GetValue(manager));}
-    float Floor(){int count=Physics2D.RaycastNonAlloc(body.position,Vector2.down,groundHits,30f,mask);float floor=body.position.y-headHeight;bool found=false;for(int i=0;i<count;i++){var h=groundHits[i];if(h.collider==null||h.collider.isTrigger||h.normal.y<.5f||h.collider==ballShape)continue;string owner=h.collider.transform.root.name;if(owner=="Fan"||owner=="Zhao")continue;if(!found||h.point.y>floor){floor=h.point.y;found=true;}}return floor;}
+    public static bool Active(Component p){DownIntercept d=p!=null?p.GetComponent<DownIntercept>():null;return d!=null&&d.active&&!d.Stopped();}
+    public static void ResetAll(){foreach(var d in UnityEngine.Object.FindObjectsOfType<DownIntercept>()){d.End();d.lastPress=-10f;}}
+    void Initialize(Component p){player=p;Type t=p.GetType();body=(Rigidbody2D)t.GetField("rb").GetValue(p);animator=(Animator)t.GetField("anim").GetValue(p);grounded=t.GetField("isOnGround");mask=(int)(LayerMask)t.GetField("ground").GetValue(p);limbs=p.GetComponentsInChildren<Rigidbody2D>();shapes=p.GetComponentsInChildren<Collider2D>();savedModes=new CollisionDetectionMode2D[limbs.Length];foreach(var b in limbs)mass+=b.mass;scale=Mathf.Max(.1f,Mathf.Abs(p.transform.lossyScale.x)/.8f);manager=UnityEngine.Object.FindObjectOfType(t.Assembly.GetType("GameManager")) as Component;if(manager!=null)stopping=manager.GetType().GetField("isStopping");}
+    bool Stopped(){return player==null||body==null||Time.timeScale<=0||GameAIMod.BallOutThisRally||(manager!=null&&stopping!=null&&(bool)stopping.GetValue(manager));}
+    float Floor(){int count=Physics2D.RaycastNonAlloc(body.position,Vector2.down,groundHits,100f,mask);float floor=body.position.y-100f;for(int i=0;i<count;i++){var h=groundHits[i];if(h.collider==null||h.collider.isTrigger||h.normal.y<.5f)continue;string owner=h.collider.transform.root.name;if(owner=="Fan"||owner=="Zhao"||h.collider.GetComponentInParent<BallBoundaryGuard>()!=null)continue;floor=Mathf.Max(floor,h.point.y);}return floor;}
     float Bottom(){float low=body.position.y;foreach(var c in shapes)if(c!=null&&!c.isTrigger)low=Mathf.Min(low,c.bounds.min.y);return low;}
     bool Ground(){return grounded!=null&&(bool)grounded.GetValue(player)||Bottom()<Floor()+.04f*scale;}
-    void Update(){
-        if(Stopped()){until=-1f;return;}if(!GameAIMod.GetDownCommand(player)||Time.time-lastPress<.35f)return;
-        bool skilled=HasSkill(player);if(!Eligible(player,skilled))return;lastPress=Time.time;until=Time.time+.65f;
-        basicDrop=!skilled&&!Ground();PlayerMovement.NotifyAction(player);if(animator!=null)animator.SetTrigger("Kick");
-        if(AbilityMode.Enabled){BuildPlayer b=player.GetComponent<BuildPlayer>();if(b!=null)b.FootIntercept();}
-        else if(skilled)PlayerSkills.FootIntercept(player);
-    }
+    Vector2 RigVelocity(){Vector2 v=Vector2.zero;foreach(var b in limbs)if(b!=null)v+=b.velocity*b.mass;return v/Mathf.Max(.001f,mass);}
+    void End(){if(active)for(int i=0;i<limbs.Length;i++)if(limbs[i]!=null)limbs[i].collisionDetectionMode=savedModes[i];active=false;referenceSpeed=0;}
+    void Show(){if(AbilityMode.Enabled){var b=player.GetComponent<BuildPlayer>();if(b!=null)b.FootIntercept();}else if(HasSkill(player))PlayerSkills.FootIntercept(player);}
+    void Update(){if(Stopped()){End();return;}if(active||!GameAIMod.GetDownCommand(player)||Ground())return;lastPress=Time.time;referenceSpeed=Mathf.Max(0,-RigVelocity().y);multiplier=HasSkill(player)?3f:1.5f;active=true;for(int i=0;i<limbs.Length;i++){savedModes[i]=limbs[i].collisionDetectionMode;limbs[i].collisionDetectionMode=CollisionDetectionMode2D.Continuous;}PlayerMovement.NotifyAction(player);if(animator!=null)animator.SetTrigger("Kick");Show();}
     void FixedUpdate(){
-        if(Stopped()||Time.time>until||Ground()){basicDrop=false;return;}if(!basicDrop)return;
-        float mass=0;Vector2 v=Vector2.zero;foreach(var limb in limbs)if(limb!=null){mass+=limb.mass;v+=limb.velocity*limb.mass;}if(mass<=0)return;v/=mass;
-        float clearance=Mathf.Max(.01f,Bottom()-Floor()),descent=-Mathf.Min(PlayerSkills.FanDropSpeed*scale,Mathf.Sqrt(2f*70f*clearance));float dv=Mathf.Clamp(descent-v.y,-80f*Time.fixedDeltaTime,80f*Time.fixedDeltaTime);
-        foreach(var limb in limbs)if(limb!=null)limb.AddForce(Vector2.up*dv*limb.mass,ForceMode2D.Impulse);
+        if(!active)return;if(Stopped()||Ground()){End();return;}
+        float gravity=0,drag=0;foreach(var b in limbs)if(b!=null){gravity+=b.mass*b.gravityScale;drag+=b.mass*b.drag;}gravity=Mathf.Max(0,-Physics2D.gravity.y*gravity/Mathf.Max(.001f,mass));drag/=Mathf.Max(.001f,mass);float dt=Time.fixedDeltaTime;
+        referenceSpeed=(referenceSpeed+gravity*dt)/(1f+drag*dt);float speed=referenceSpeed*multiplier;
+        // Brake only immediately above the pitch; continuous collisions keep
+        // high-speed feet on the pitch and preserve the native joints.
+        float clearance=Mathf.Max(.005f,Bottom()-Floor());if(clearance<.3f*scale)speed=Mathf.Min(speed,Mathf.Sqrt(2f*80f*clearance));
+        float beforeGravity=-speed*(1f+drag*dt)+gravity*dt;float dv=beforeGravity-RigVelocity().y;foreach(var b in limbs)if(b!=null)b.AddForce(Vector2.up*dv*b.mass,ForceMode2D.Impulse);Show();
     }
 }
