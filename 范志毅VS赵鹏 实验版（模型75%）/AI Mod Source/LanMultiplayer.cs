@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 using UnityEngine;
@@ -41,6 +42,9 @@ public sealed class LanMultiplayer : MonoBehaviour
     private Action returnToMenu;
     private string address = "";
     private string localAddress = "";
+    private float nextAddressRefresh, lastSocketWarning = -10f;
+    private bool backgroundHeld, previousRunInBackground;
+    private int helloAttempts;
     private string message = "选择创建房间，或输入房主的局域网 IPv4 地址加入。";
     private IPEndPoint peer;
     private int sessionId, sendSequence, receiveSequence = -1;
@@ -78,7 +82,8 @@ public sealed class LanMultiplayer : MonoBehaviour
         net.selectedAbility = AbilityMode.Enabled;
         net.returnToMenu = back;
         net.lobbyVisible = true;
-        net.localAddress = LocalAddress();
+        net.EnableBackground();
+        net.RefreshAddress(true);
         net.message = "选择创建房间，或输入房主的局域网 IPv4 地址加入。";
     }
 
@@ -225,6 +230,8 @@ public sealed class LanMultiplayer : MonoBehaviour
     private void StartHost()
     {
         StopSession();
+        EnableBackground();
+        RefreshAddress(true);
         try
         {
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
@@ -235,6 +242,7 @@ public sealed class LanMultiplayer : MonoBehaviour
             sessionId = new System.Random(unchecked((int)DateTime.UtcNow.Ticks)).Next(1, int.MaxValue);
             address = localAddress;
             message = "等待加入";
+            Debug.Log("[LAN] Hosting " + address + ":" + Port + " build=" + BuildId);
         }
         catch (Exception error) { Fail("无法创建房间：" + error.Message); }
     }
@@ -242,6 +250,7 @@ public sealed class LanMultiplayer : MonoBehaviour
     private void Join(string hostAddress)
     {
         StopSession();
+        EnableBackground();
         IPAddress ip;
         if (!IPAddress.TryParse(hostAddress.Trim(), out ip) || ip.AddressFamily != AddressFamily.InterNetwork)
         { message = "请输入有效的房主 IP"; state = State.Failed; return; }
@@ -255,6 +264,7 @@ public sealed class LanMultiplayer : MonoBehaviour
             state = State.Joining;
             lastHelloTime = -10f; lastReceiveTime = Time.realtimeSinceStartup;
             message = "正在连接 " + peer.Address + "；请确认房主已创建房间。";
+            Debug.Log("[LAN] Joining " + peer + " build=" + BuildId);
         }
         catch (Exception error) { Fail("无法连接：" + error.Message); }
     }
@@ -271,11 +281,16 @@ public sealed class LanMultiplayer : MonoBehaviour
     internal void NetworkUpdate()
     {
         ReceiveEarly();
+        if (lobbyVisible) RefreshAddress(false);
         float now = Time.realtimeSinceStartup;
         if (state == State.Joining)
         {
-            if (now - lastHelloTime > .5f) { Send("HELLO|" + Protocol + "|" + SelectedMode + "|" + BuildId); lastHelloTime = now; }
-            if (now - lastReceiveTime > 10f) Fail("连接超时，请检查 IP");
+            if (now - lastHelloTime > .5f) { helloAttempts++; Send("HELLO|" + Protocol + "|" + SelectedMode + "|" + BuildId); lastHelloTime = now; }
+            if (state == State.Joining && now - lastReceiveTime > 10f)
+            {
+                Debug.LogWarning("[LAN] No host response from " + peer + " after " + helloAttempts + " HELLO attempts.");
+                Fail("房主未响应：确认已建房，并允许 UDP 28950 通信");
+            }
         }
         if (state == State.Connected || state == State.InGame)
         {
@@ -309,12 +324,16 @@ public sealed class LanMultiplayer : MonoBehaviour
     private void ReceivePackets()
     {
         if (socket == null) return;
-        while (socket != null && socket.Available > 0)
+        while (socket != null)
         {
             EndPoint source = new IPEndPoint(IPAddress.Any, 0);
             int length;
-            try { length = socket.ReceiveFrom(receiveBuffer, 0, receiveBuffer.Length, SocketFlags.None, ref source); }
-            catch (SocketException) { break; }
+            try
+            {
+                if (socket.Available == 0) break;
+                length = socket.ReceiveFrom(receiveBuffer, 0, receiveBuffer.Length, SocketFlags.None, ref source);
+            }
+            catch (SocketException error) { SocketErrorReported(error); break; }
             IPEndPoint sender = source as IPEndPoint;
             if (sender == null) continue;
             if (isHost && length > 5 && receiveBuffer[0] == (byte)'H')
@@ -337,6 +356,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         { SendTo(sender, "REJECT|版本不兼容"); return; }
         if (style != SelectedMode) { SendTo(sender, "REJECT|双方必须选择相同的玩法。请返回并选择相同模式。"); return; }
         if (peer != null && !peer.Equals(sender)) { SendTo(sender, "REJECT|房间已有玩家。"); return; }
+        if (peer == null) Debug.Log("[LAN] HELLO accepted from " + sender);
         peer = sender;
         if (!matchStarted) state = State.Connected;
         lastReceiveTime = Time.realtimeSinceStartup;
@@ -356,6 +376,7 @@ public sealed class LanMultiplayer : MonoBehaviour
                 !Int32.TryParse(parts[3], out mode) || mode != SelectedMode || parts[4] != BuildId)
             { Fail("房间版本或玩法不匹配"); return; }
             if (state != State.Joining && sessionId != id) return;
+            if (state == State.Joining) Debug.Log("[LAN] WELCOME accepted from " + peer);
             sessionId = id;
             if (!matchStarted) state = State.Connected;
             lastReceiveTime = Time.realtimeSinceStartup; lobbyDirty = true;
@@ -700,6 +721,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         StopSession();
         lobbyVisible = false;
         DestroyLobby();
+        RestoreBackground();
         if (returnToMenu != null) returnToMenu();
     }
 
@@ -777,24 +799,76 @@ public sealed class LanMultiplayer : MonoBehaviour
     private void SendTo(IPEndPoint target, string text)
     {
         if (socket == null || target == null) return;
-        try { byte[] data = Encoding.UTF8.GetBytes(text); socket.SendTo(data, target); } catch { }
+        try { byte[] data = Encoding.UTF8.GetBytes(text); socket.SendTo(data, target); }
+        catch (SocketException error) { SocketErrorReported(error); }
     }
     private void SendBytes(byte[] data) { SendBytes(data, data.Length); }
     private void SendBytes(byte[] data, int length)
     {
         if (socket == null || peer == null) return;
-        try { socket.SendTo(data, 0, length, SocketFlags.None, peer); } catch { }
+        try { socket.SendTo(data, 0, length, SocketFlags.None, peer); }
+        catch (SocketException error) { SocketErrorReported(error); }
     }
 
     private static string LocalAddress()
     {
         try
         {
-            foreach (IPAddress ip in Dns.GetHostAddresses(Dns.GetHostName()))
-                if (ip.AddressFamily == AddressFamily.InterNetwork && !IPAddress.IsLoopback(ip) && !ip.ToString().StartsWith("169.254.")) return ip.ToString();
+            List<LanAddressCandidate> candidates = new List<LanAddressCandidate>();
+            foreach (NetworkInterface adapter in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (adapter.OperationalStatus != OperationalStatus.Up) continue;
+                IPInterfaceProperties properties;
+                try { properties = adapter.GetIPProperties(); } catch (NetworkInformationException) { continue; }
+                bool gateway = false;
+                foreach (GatewayIPAddressInformation g in properties.GatewayAddresses)
+                    if (LanAddressCandidate.Valid(g.Address)) gateway = true;
+                foreach (UnicastIPAddressInformation ip in properties.UnicastAddresses)
+                    candidates.Add(new LanAddressCandidate(ip.Address, adapter.NetworkInterfaceType,
+                        adapter.Name + " " + adapter.Description, gateway));
+            }
+            string selected = LanAddressCandidate.Select(candidates);
+            if (selected != null) return selected;
         }
         catch { }
-        return "请在网络设置中查看本机 IPv4 地址";
+        return "未找到可用 IPv4";
+    }
+
+    private void RefreshAddress(bool force)
+    {
+        float now = Time.realtimeSinceStartup;
+        if (!force && now < nextAddressRefresh) return;
+        nextAddressRefresh = now + 2f;
+        string current = LocalAddress();
+        if (current == localAddress) return;
+        localAddress = current;
+        if (state == State.Hosting) { address = current; lobbyDirty = true; }
+    }
+
+    private void EnableBackground()
+    {
+        if (!backgroundHeld) { previousRunInBackground = Application.runInBackground; backgroundHeld = true; }
+        Application.runInBackground = true;
+    }
+
+    private void RestoreBackground()
+    {
+        if (!backgroundHeld) return;
+        Application.runInBackground = previousRunInBackground; backgroundHeld = false;
+    }
+
+    private void SocketErrorReported(SocketException error)
+    {
+        // Nonblocking pressure and Windows UDP port-unreachable notifications
+        // do not prove a peer has disconnected. Keep retrying the handshake.
+        SocketError code = error.SocketErrorCode;
+        if (code == SocketError.WouldBlock || code == SocketError.NoBufferSpaceAvailable ||
+            code == SocketError.ConnectionReset || code == SocketError.ConnectionRefused) return;
+        if (Time.realtimeSinceStartup - lastSocketWarning > 2f)
+        { lastSocketWarning = Time.realtimeSinceStartup; Debug.LogWarning("[LAN] Socket error " + code + " (" + error.ErrorCode + ")"); }
+        if (code == SocketError.AccessDenied) Fail("网络访问被拒绝：请允许游戏 UDP 通信");
+        else if (code == SocketError.NetworkDown || code == SocketError.NetworkUnreachable || code == SocketError.AddressNotAvailable)
+            Fail("网络不可用：检查 Wi-Fi 后重新进房");
     }
 
     private void Fail(string reason)
@@ -811,6 +885,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         hostRole = guestRole = -1; hostReady = guestReady = false;
         roomPhase = roomRevision = guestCommand = acceptedCommand = 0;
         pendingCommand = null; lastRoomSend = -10f; lobbyDirty = true;
+        helloAttempts = 0;
         sendSequence = pressSequence = 0;
         if (socket != null) { try { socket.Close(); } catch { } socket = null; }
         state = State.Off; peer = null; bodies = null; bodyPaths = null; latestSnapshot = null;
@@ -820,7 +895,44 @@ public sealed class LanMultiplayer : MonoBehaviour
 
     private void OnDestroy()
     {
-        StopSession(); if (instance == this) instance = null;
+        StopSession(); RestoreBackground(); if (instance == this) instance = null;
+    }
+}
+
+// Prefer a connected physical LAN adapter over VPN/virtual interfaces. Virtual
+// adapters remain a fallback so an explicitly configured VPN can still host.
+internal sealed class LanAddressCandidate
+{
+    private readonly IPAddress ip;
+    private readonly NetworkInterfaceType type;
+    private readonly string description;
+    private readonly bool gateway;
+    internal LanAddressCandidate(IPAddress address, NetworkInterfaceType adapterType, string label, bool hasGateway)
+    { ip = address; type = adapterType; description = label ?? ""; gateway = hasGateway; }
+    internal static bool Valid(IPAddress address)
+    {
+        if (address == null || address.AddressFamily != AddressFamily.InterNetwork || IPAddress.IsLoopback(address)) return false;
+        byte[] bytes = address.GetAddressBytes();
+        return bytes[0] != 0 && bytes[0] < 224 && !(bytes[0] == 169 && bytes[1] == 254);
+    }
+    private int Rank()
+    {
+        if (!Valid(ip) || type == NetworkInterfaceType.Loopback) return -1;
+        string label = description.ToLowerInvariant();
+        bool physical = type == NetworkInterfaceType.Ethernet || type == NetworkInterfaceType.Wireless80211;
+        foreach (string virtualName in new[] { "vpn", "virtual", "vmware", "hyper-v", "veth", "tap-", "wintun", "zerotier", "hamachi", "tailscale", "wireguard", "bluetooth", "wan miniport" })
+            if (label.Contains(virtualName)) { physical = false; break; }
+        return (physical ? 100 : 0) + (gateway ? 20 : 0) + (type == NetworkInterfaceType.Wireless80211 ? 2 : 1);
+    }
+    internal static string Select(IEnumerable<LanAddressCandidate> candidates)
+    {
+        LanAddressCandidate selected = null; int best = -1;
+        foreach (LanAddressCandidate candidate in candidates)
+        {
+            int rank = candidate.Rank();
+            if (rank > best) { best = rank; selected = candidate; }
+        }
+        return selected == null ? null : selected.ip.ToString();
     }
 }
 

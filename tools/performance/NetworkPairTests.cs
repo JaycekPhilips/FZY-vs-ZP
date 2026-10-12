@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
 using System.Reflection;
+using System.Net;
+using System.Net.Sockets;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 // The same test DLL runs in two independent Unity players over loopback.
@@ -45,14 +48,57 @@ public sealed class NetworkPairTests : MonoBehaviour
     }
     IEnumerator Run()
     {
+        var vpn = new LanAddressCandidate(IPAddress.Parse("26.218.194.33"),NetworkInterfaceType.Ethernet,"Famatech Radmin VPN",true);
+        var wlan = new LanAddressCandidate(IPAddress.Parse("172.20.10.2"),NetworkInterfaceType.Wireless80211,"Realtek WLAN",true);
+        Check(LanAddressCandidate.Select(new[]{vpn,wlan})=="172.20.10.2","Wi-Fi preferred over Radmin even when VPN is enumerated first");
+        Check(LanAddressCandidate.Select(new[]{wlan,vpn})=="172.20.10.2","adapter enumeration order cannot select VPN over Wi-Fi");
+        var wired = new LanAddressCandidate(IPAddress.Parse("192.168.1.3"),NetworkInterfaceType.Ethernet,"Realtek Ethernet",true);
+        Check(LanAddressCandidate.Select(new[]{vpn,wired})=="192.168.1.3","physical Ethernet preferred over VPN");
+        Check(LanAddressCandidate.Select(new[]{vpn})=="26.218.194.33","VPN-only fallback retained");
+        Check(!LanAddressCandidate.Valid(IPAddress.Loopback)&&!LanAddressCandidate.Valid(IPAddress.Parse("169.254.1.3")),"loopback and unassigned link-local addresses excluded");
+        var changed = new LanAddressCandidate(IPAddress.Parse("192.168.50.4"),NetworkInterfaceType.Wireless80211,"Realtek WLAN",true);
+        Check(LanAddressCandidate.Select(new[]{vpn,changed})=="192.168.50.4","new Wi-Fi address replaces previous network");
         for(int cycle=0;cycle<3;cycle++)
         {
             if(!host)yield return new WaitForSeconds(cycle==0?1f:3.5f);
             PlayerSkills.Enabled=cycle==1; // Match the gameplay-style menu before opening the lobby.
             AbilityMode.Enabled=cycle==2; AbilityMode.Reset();
+            Application.runInBackground=false;
             LanMultiplayer.OpenLobby(cycle==1,null);
+            Check(Application.runInBackground,"production lobby enables background networking cycle "+cycle);
             net=typeof(LanMultiplayer).GetField("instance",SP).GetValue(null);
-            if(host)Call("StartHost");else Call("Join","127.0.0.1");
+            if(host)
+            {
+                Call("StartHost");
+                typeof(LanMultiplayer).GetField("localAddress",IP).SetValue(net,"192.0.2.1");
+                typeof(LanMultiplayer).GetField("address",IP).SetValue(net,"192.0.2.1");
+                typeof(LanMultiplayer).GetField("nextAddressRefresh",IP).SetValue(net,-1f);
+                Call("NetworkUpdate");
+                Check((string)Field("localAddress")!="192.0.2.1"&&(string)Field("address")== (string)Field("localAddress"),"hosting refreshes stale displayed IP without reopening lobby");
+                Debug.Log("PAIRTEST host LAN address="+Field("localAddress"));
+            }
+            else
+            {
+                if(cycle==0)
+                {
+                    string build=(string)typeof(LanMultiplayer).GetField("BuildId",SP).GetValue(null);
+                    foreach(string hello in new[]{"HELLO|2|0|wrong-build","HELLO|2|1|"+build})
+                    {
+                        using(Socket probe=new Socket(AddressFamily.InterNetwork,SocketType.Dgram,ProtocolType.Udp))
+                        {
+                            probe.Bind(new IPEndPoint(IPAddress.Loopback,0));probe.Blocking=false;
+                            probe.SendTo(System.Text.Encoding.UTF8.GetBytes(hello),new IPEndPoint(IPAddress.Loopback,28950));
+                            float wait=Time.realtimeSinceStartup;while(probe.Available==0&&Time.realtimeSinceStartup-wait<2f)yield return null;
+                            byte[] reply=new byte[1024];EndPoint sender=new IPEndPoint(IPAddress.Any,0);
+                            string response=probe.Available>0?System.Text.Encoding.UTF8.GetString(reply,0,probe.ReceiveFrom(reply,ref sender)):"";
+                            Check(response.StartsWith("REJECT|"),"incompatible build or mode receives rejection instead of silent timeout");
+                        }
+                    }
+                }
+                string target=cycle==1?(string)typeof(LanMultiplayer).GetMethod("LocalAddress",SP).Invoke(null,null):"127.0.0.1";
+                Call("Join",target);
+                Check(((IPEndPoint)Field("peer")).Address.ToString()==target,"guest targets selected loopback or active LAN IPv4");
+            }
             Check(Field("state").ToString()==(host?"Hosting":"Joining"),"room/join starts cycle "+cycle);
             float started=Time.realtimeSinceStartup;
             while(Field("state").ToString()!="Connected"&&Time.realtimeSinceStartup-started<10f)yield return null;
@@ -151,6 +197,24 @@ public sealed class NetworkPairTests : MonoBehaviour
             // would legitimately send a zero axis before the guest samples it.
             if(host&&cycle==2)yield return new WaitForSeconds(2f);
             input=false;
+        }
+        Call("CloseLobby");
+        Check(!Application.runInBackground,"leaving lobby restores previous background setting");
+        Application.runInBackground=true; // Let the hidden test runner finish.
+        if(!host)
+        {
+            // The host keeps its final input alive for two seconds. Wait for
+            // it to close, then retrieve the current component after OpenLobby.
+            yield return new WaitForSecondsRealtime(3f);
+            LanMultiplayer.OpenLobby(false,null);
+            net=typeof(LanMultiplayer).GetField("instance",SP).GetValue(null);
+            Call("Join","127.0.0.1");
+            float wait=Time.realtimeSinceStartup;
+            while(Field("state").ToString()=="Joining"&&Time.realtimeSinceStartup-wait<12f)yield return null;
+            Debug.Log("PAIRTEST closed-host result state="+Field("state")+" message="+Field("message")+" seconds="+(Time.realtimeSinceStartup-wait));
+            Check(Field("state").ToString()=="Failed"&&((string)Field("message")).Contains("房主未响应"),"closed host produces bounded timeout with useful diagnosis");
+            Check(Field("socket")==null,"timeout closes guest socket");
+            Call("CloseLobby");
         }
     }
 }

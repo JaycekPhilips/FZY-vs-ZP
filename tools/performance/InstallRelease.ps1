@@ -1,5 +1,6 @@
-﻿param([string]$MeasurementRoot,[switch]$Quick,[switch]$AdaptLatest)
+﻿param([string]$MeasurementRoot,[switch]$Quick,[switch]$AdaptLatest,[switch]$LanOnly)
 $ErrorActionPreference='Stop'
+if($LanOnly){$AdaptLatest=$true}
 $workspace=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 if(-not $MeasurementRoot){$MeasurementRoot=Join-Path $workspace '.work\performance'}
 $MeasurementRoot=[IO.Path]::GetFullPath($MeasurementRoot)
@@ -7,7 +8,7 @@ $gameRoot=(Get-ChildItem -LiteralPath (Join-Path $workspace '范志毅VS赵鹏 P
 $installedOriginal=Join-Path (Split-Path $gameRoot -Parent) '范志毅VS赵鹏 PC双人版（32位）'
 $experiment=Join-Path $workspace '范志毅VS赵鹏 实验版（模型75%）'
 $installedExperiment=Join-Path $workspace '范志毅VS赵鹏 实验版（模型75%）'
-$suiteNames=if($AdaptLatest){@('UI','Ability','NetworkPair-host','NetworkPair-guest')}elseif($Quick){@('Performance','Gameplay','UI','NetworkPair-host','NetworkPair-guest')}else{@('Performance','Gameplay','Controls','Boundary','Defense','Goals','Magnetic','Contest','AI','Drop','Balance','Corner','Network','UI','NetworkPair-host','NetworkPair-guest')}
+$suiteNames=if($LanOnly){@('UI','NetworkPair-host','NetworkPair-guest')}elseif($AdaptLatest){@('UI','Ability','NetworkPair-host','NetworkPair-guest')}elseif($Quick){@('Performance','Gameplay','UI','NetworkPair-host','NetworkPair-guest')}else{@('Performance','Gameplay','Controls','Boundary','Defense','Goals','Magnetic','Contest','AI','Drop','Balance','Corner','Network','UI','NetworkPair-host','NetworkPair-guest')}
 foreach($edition in @('original','experiment')){
  foreach($phase in $(if($AdaptLatest){@()}else{@('baseline','candidate')})){
   $folder=Join-Path $MeasurementRoot ($phase+'-'+$edition+$(if($Quick){'-smoke'}else{''}))
