@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -39,7 +39,7 @@ public static class ExperimentScale
         actor.Initialize(stick, true);
         Collider2D[] shapes = stick.GetComponentsInChildren<Collider2D>();
         float bottom = Bottom(shapes);
-        stick.transform.localScale *= Size; PlayerSkills.RescaleStanding(stick, Size);
+        stick.transform.localScale *= Size; PlayerSkills.RescaleStanding(stick, Size); BuildPlayer.RescaleStanding(stick,Size);
         Physics2D.SyncTransforms();
         stick.transform.position += Vector3.up * (bottom - Bottom(shapes));
         Type playerType = stick.GetType().Assembly.GetType("PlayerController");

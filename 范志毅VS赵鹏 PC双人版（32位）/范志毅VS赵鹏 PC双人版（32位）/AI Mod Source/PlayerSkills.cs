@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -121,6 +121,7 @@ public sealed class PlayerSkills : MonoBehaviour
     private float retreatUntil = -1f, standingHeight, standingHeadHeight;
     private bool retreatHeld, retreatJumped, retreatHeaded, rescueWaiting, retreatJumpQueued;
     private float rescueJumpRequestedAt = -10f, rescueJumpStarted = -10f, rescueStarted; private int rescueJumpAttempts;
+    private RescuePlanner.Plan rescuePlan;private float rescueNativeJump;
     private float rescueRecoveryUntil = -1f, rescueInput, rescueSpeed, nativeRunSpeed, rescueFloorTime = -1f, rescueFloorHeight;
     private readonly RaycastHit2D[] rescueGroundHits = new RaycastHit2D[24];
     private Collider2D ownGoal;
@@ -134,7 +135,7 @@ public sealed class PlayerSkills : MonoBehaviour
         bool pressed = input > .1f;
         if (s.Stopped() || GameAIMod.BallOutThisRally || s.ball == null)
         { s.retreatUntil = -1f; s.retreatHeld = pressed; return input; }
-        if (allowStart && pressed && !s.retreatHeld && s.ball.position.x > s.body.position.x + .05f)
+        if (allowStart && pressed && !s.retreatHeld && RescuePlanner.BehindThreat(s.ball,s.body.position,-1f,s.standingHeight,s.RescueFloor(),s.ballCollider.bounds.extents.y,s.ownGoal!=null?s.ownGoal.bounds.min.x:100f))
         { s.retreatUntil = Time.time + 2.6f; s.retreatJumped = s.retreatHeaded = s.retreatJumpQueued = false; s.rescueJumpAttempts = 0; s.rescueStarted = Time.time; s.Show(6); }
         s.retreatHeld = allowStart && pressed;
         if (input < -.1f) s.retreatUntil = s.rescueRecoveryUntil = -1f;
@@ -155,7 +156,7 @@ public sealed class PlayerSkills : MonoBehaviour
         float bottom = s.body.position.y;
         foreach (Collider2D limb in s.playerColliders)
             if (limb != null && !limb.isTrigger) bottom = Mathf.Min(bottom, limb.bounds.min.y);
-        float normalSpeed = s.nativeRunSpeed;
+        float normalSpeed = s.nativeRunSpeed * PlayerMovement.BackwardMultiplier;
         float remaining = Mathf.Max(0f, target - s.body.position.x);
         float crossingTime = s.retreatJumped ? .5f : .8f;
         if (s.retreatJumped && bottom > s.ballCollider.bounds.max.y + .12f)
@@ -166,21 +167,21 @@ public sealed class PlayerSkills : MonoBehaviour
             crossingTime = Mathf.Clamp(airTime - .06f, .12f, .5f);
         }
         float needed = Mathf.Max(0f, s.ball.velocity.x) + remaining / crossingTime;
-        s.rescueSpeed = Mathf.Min(Mathf.Clamp(needed, normalSpeed * .75f, normalSpeed * 2f), Mathf.Max(0f, s.ball.velocity.x) + Mathf.Sqrt(24f * remaining));
+        s.rescueSpeed = Mathf.Min(Mathf.Clamp(needed, normalSpeed * .75f, normalSpeed * 3f), Mathf.Max(0f, s.ball.velocity.x) + Mathf.Sqrt(24f * remaining));
         // Low balls are crossed only after the native jump has lifted every
         // limb above them. This avoids running into a ball toward our own goal.
 
         float gap = s.ball.position.x - s.body.position.x;
         float height = s.ball.position.y - s.RescueFloor();
+        if(s.rescueNativeJump<=0)s.rescueNativeJump=Mathf.Clamp((float)player.GetType().GetField("jumpForce").GetValue(player)*Time.fixedDeltaTime*Time.fixedDeltaTime/s.TotalMass(),3f,8f);
+        s.rescuePlan=RescuePlanner.Evaluate(s.ball,s.body.position,s.body.velocity,-1f,s.standingHeight,s.standingBodyWidth,s.RescueFloor(),s.ballCollider.bounds.extents.y,bottom,goalLine,normalSpeed,normalSpeed*3f,Mathf.Max(.1f,-Physics2D.gravity.y*s.body.gravityScale),s.rescueNativeJump);
+        s.rescueSpeed=s.rescuePlan.speed;
         if (s.ball.velocity.x < -.5f && gap < margin + Mathf.Abs(s.ball.velocity.x) * .25f && height < s.standingHeight * .8f)
         { s.retreatUntil = -1f; s.rescueWaiting = true; return 0f; }
         float closing = Mathf.Max(0f, s.body.velocity.x - s.ball.velocity.x);
         float brakeDistance = closing * .16f + closing * closing / 70f;
         float landingBottom = bottom + s.body.velocity.y * .16f + .5f * Physics2D.gravity.y * s.body.gravityScale * .16f * .16f;
-        if (height < s.standingHeight * .6f && gap < 2.3f &&
-            (bottom < s.ballCollider.bounds.max.y + .12f ||
-            (landingBottom < s.ballCollider.bounds.max.y + .16f && gap < margin + .15f + brakeDistance)))
-        { s.rescueWaiting = true; return 0f; }
+        if(s.rescuePlan.wait){s.rescueWaiting=true;return 0f;}
         // A falling high ball may enter the torso band before we can pass it.
         // Hold position rather than add a goalward body collision.
         if (height >= s.standingHeight * .6f && height < s.standingHeight * .8f && gap < margin + .25f) { s.rescueWaiting = true; return 0f; }
@@ -190,9 +191,11 @@ public sealed class PlayerSkills : MonoBehaviour
         if (s.retreatHeaded && gap < margin + .05f) { s.rescueWaiting = true; return 0f; }
         return 1f;
     }
+    private float RescueBottom(){float bottom=body.position.y;foreach(var c in playerColliders)if(c!=null&&!c.isTrigger)bottom=Mathf.Min(bottom,c.bounds.min.y);return bottom;}
     private void UpdateRescueBalance()
     {
         if (fan || Stopped() || GameAIMod.BallOutThisRally || Time.time > rescueRecoveryUntil || physicalLimbs == null) return;
+        if(body.velocity.y<.1f&&RescuePlanner.FastDropSafe(ball,body.position,-1f,standingBodyWidth,ballCollider.bounds.extents.x,standingHeight,RescueFloor(),RescueBottom())){float descent=-Mathf.Min(12f,Mathf.Sqrt(2f*60f*Mathf.Max(.01f,RescueBottom()-RescueFloor())));ApplyLinearImpulse(Vector2.up*Mathf.Clamp(descent-body.velocity.y,-80f*Time.fixedDeltaTime,0f)*TotalMass());}
         float angle = (float)bodyTargetField.GetValue(muscles);
         float desiredSpin = Mathf.Clamp(Mathf.DeltaAngle(body.rotation, angle) * 7f, -120f, 120f);
         float spinChange = Mathf.Clamp(desiredSpin - body.angularVelocity, -900f * Time.fixedDeltaTime, 900f * Time.fixedDeltaTime);
@@ -228,12 +231,12 @@ public sealed class PlayerSkills : MonoBehaviour
         if (jump)
         {
             if (s.retreatJumpQueued && Time.time - s.rescueJumpRequestedAt > .25f) s.retreatJumpQueued = false;
-            if (s.retreatJumpQueued || s.rescueJumpAttempts >= 2 || Mathf.Abs(s.ball.velocity.y) > 1.5f ||
-                height >= s.standingHeight * .6f || gap < -.1f || gap > 2.3f || !s.RescueHasSupport()) return false;
+            if (s.retreatJumpQueued || s.rescueJumpAttempts >= 2 ||
+                !s.rescuePlan.low || gap < -.1f || gap > 2.3f || !s.RescueHasSupport()) return false;
             if (s.retreatJumped && Time.time - s.rescueJumpStarted < .75f) return false;
             s.retreatJumpQueued = true; s.rescueJumpRequestedAt = Time.time; return true;
         }
-        if (s.retreatHeaded || s.ball.velocity.y > 1.5f || height < s.standingHeadHeight - s.standingHeight * .15f || height > s.standingHeight || gap < -.1f ||
+        if (s.retreatHeaded || !s.rescuePlan.head || height < s.standingHeadHeight - s.standingHeight * .15f || height > s.standingHeight || gap < -.1f ||
             Vector2.Distance(s.ball.position, s.head.position) > s.standingBodyWidth * .6f + s.ballCollider.bounds.extents.x + .45f) return false;
         s.retreatHeaded = true; s.retreatUntil = Mathf.Max(s.retreatUntil, Time.time + .65f); return true;
     }
@@ -330,8 +333,11 @@ public sealed class PlayerSkills : MonoBehaviour
         ZhaoHeader.OnAction(player, action);
     }
 
+    public static Vector2 CannonVelocity(float facing,Vector2 incoming){float speed=Mathf.Clamp(Mathf.Max(13f,incoming.magnitude*1.55f),13f,19f);return new Vector2(facing*speed,Mathf.Clamp(incoming.y+2.8f,2.8f,6f))*FanHeaderSpeedMultiplier;}
     public static float GetJumpForce(float original, Component player)
     {
+        PlayerSkills rescue=player!=null?player.GetComponent<PlayerSkills>():null;
+        if(Enabled&&rescue!=null&&!rescue.fan&&Time.time<=rescue.retreatUntil&&Time.time-rescue.rescueJumpRequestedAt<.35f)return original*Mathf.Clamp(1.15f*rescue.rescuePlan.jumpSpeed/Mathf.Max(.1f,rescue.rescueNativeJump),.15f,2f);
         return AbilityMode.JumpForce(Enabled && player != null && player.name == "Zhao" ? original * ZhaoJumpMultiplier : original, player);
     }
 
@@ -565,7 +571,7 @@ public sealed class PlayerSkills : MonoBehaviour
             if (headUntil >= now && HeadReachable())
             {
                 float speed = Mathf.Clamp(Mathf.Max(13f, ball.velocity.magnitude * 1.55f), 13f, 19f);
-                Vector2 target = new Vector2(direction * speed, Mathf.Clamp(ball.velocity.y + 2.8f, 2.8f, 6f)) * FanHeaderSpeedMultiplier;
+                Vector2 target = CannonVelocity(direction,ball.velocity);
                 EnableContinuousBall();
                 ball.AddForce((target - ball.velocity) * ball.mass, ForceMode2D.Impulse);
                 CancelCurves();
@@ -709,35 +715,13 @@ public sealed class PlayerSkills : MonoBehaviour
         return false;
     }
 
+    private LeafShotProfile curveProfile;
     private void PrepareGoalCurve(Collider2D goal)
     {
-        curveGoal = goal;
-        curveOrigin = ball.position;
-        Bounds mouth = goal.bounds;
-        float radius = ballCollider.bounds.extents.y;
-        float minY = mouth.min.y + radius + .12f;
-        float maxY = mouth.max.y - radius - .12f;
-        // Finish the arc before crossing the goal/out trigger line, accounting
-        // for the whole ball. The final approach remains inside the mouth.
-        curveDestination = new Vector2(direction > 0f ? mouth.min.x - ballCollider.bounds.extents.x - .22f :
-            mouth.max.x + ballCollider.bounds.extents.x + .22f, Mathf.Lerp(minY, maxY, .52f));
-        curveForwardSpeed = Mathf.Clamp(Mathf.Max(12f, Mathf.Abs(ball.velocity.x) * 1.3f + 10f), 12f, 18f);
-        float distance = Mathf.Max(.1f, direction * (curveDestination.x - curveOrigin.x));
-        curveTravelTime = Mathf.Clamp(distance / curveForwardSpeed, .08f, 1.5f);
-        float ceiling = curveOrigin.y + FanVolleyArcHeight;
-        foreach (RaycastHit2D hit in rayHits.Raycast(curveOrigin + Vector2.up * .05f, Vector2.up, 30f, groundMask))
-        {
-            if (hit.collider == null || hit.collider == ballCollider || hit.collider.isTrigger || hit.normal.y > -.5f) continue;
-            string root = hit.collider.transform.root.name;
-            if (root == "Fan" || root == "Zhao") continue;
-            ceiling = hit.point.y - radius - .25f;
-            break;
-        }
-        float available = Mathf.Max(0f, ceiling - Mathf.Max(curveOrigin.y, curveDestination.y));
-        curveArcHeight = Mathf.Min(available, FanVolleyArcHeight, FanVolleyLiftSpeed * curveTravelTime * .25f);
-        // Short-range shots need a short arc so they can descend before the bar.
-        curveArcHeight *= Mathf.Min(1f, curveTravelTime / .45f);
+        curveProfile=new LeafShotProfile(ball,ballCollider,goal,direction,groundMask,1f);
+        curveGoal=curveProfile.curveGoal;curveOrigin=curveProfile.curveOrigin;curveDestination=curveProfile.curveDestination;curveTravelTime=curveProfile.curveTravelTime;curveArcHeight=curveProfile.curveArcHeight;curveForwardSpeed=curveProfile.curveForwardSpeed;
     }
+
 
     private Vector2 GoalCurveVelocity(float age)
     {
@@ -750,32 +734,9 @@ public sealed class PlayerSkills : MonoBehaviour
         return GoalCurveProfileVelocityAt(age * FanVolleySpeedMultiplier, position) * FanVolleySpeedMultiplier;
     }
 
-    private Vector2 GoalCurveProfileVelocityAt(float age, Vector2 position)
-    {
-        Bounds mouth = curveGoal.bounds;
-        float radius = ballCollider.bounds.extents.y;
-        float minY = mouth.min.y + radius + .12f;
-        float maxY = mouth.max.y - radius - .12f;
-        float aimY = Mathf.Clamp(curveDestination.y, minY, maxY);
-        float distance = direction * (curveDestination.x - position.x);
-        if (distance < 2f || age >= curveTravelTime)
-        {
-            float arrival = Mathf.Max(.08f, Mathf.Max(0f, distance) / (curveForwardSpeed * FanVolleySpeedMultiplier));
-            float gravity = Physics2D.gravity.y * ball.gravityScale;
-            float vertical = (aimY - position.y) / arrival - .5f * gravity * arrival;
-            return new Vector2(direction * curveForwardSpeed, Mathf.Clamp(vertical / FanVolleySpeedMultiplier, -24f, 24f));
-        }
-        float u = Mathf.Clamp01(age / curveTravelTime);
-        float wave = Mathf.Sin(u * Mathf.PI * 4f);
-        float envelope = 4f * u * (1f - u);
-        Vector2 desired = Vector2.Lerp(curveOrigin, curveDestination, u);
-        desired.y += curveArcHeight * envelope + .18f * wave * envelope;
-        Vector2 velocity = (curveDestination - curveOrigin) / curveTravelTime;
-        velocity.y += (curveArcHeight * 4f * (1f - 2f * u) + .18f *
-            (Mathf.PI * 4f * Mathf.Cos(u * Mathf.PI * 4f) * envelope + wave * 4f * (1f - 2f * u))) / curveTravelTime;
-        velocity += (desired - position) * 8f;
-        return new Vector2(direction * Mathf.Clamp(velocity.x * direction, 8f, 20f), Mathf.Clamp(velocity.y, -24f, 24f));
-    }
+    private Vector2 GoalCurveProfileVelocityAt(float age,Vector2 position)
+    {return curveProfile.ProfileVelocityForSpecial(age,position);}
+
 
     private bool CurveAssistComplete(float age)
     {
@@ -1079,6 +1040,7 @@ public sealed class PlayerSkills : MonoBehaviour
 
     public static bool IsGroundBallContest(Component player)
     {
+        if(AbilityMode.Enabled){BuildPlayer owner=player!=null?player.GetComponent<BuildPlayer>():null;return owner!=null&&owner.GroundBallContest;}
         PlayerSkills skills = player != null ? player.GetComponent<PlayerSkills>() : null;
         return skills != null && !skills.fan && !skills.Stopped() && skills.BallInFront() && Time.time <= skills.groundContestUntil;
     }
@@ -1609,4 +1571,169 @@ public sealed class PowerTackleContact : MonoBehaviour
     public PlayerSkills owner;
     private void OnCollisionEnter2D(Collision2D collision) { if (owner != null) owner.OnBodyContact(collision); }
     private void OnCollisionStay2D(Collision2D collision) { if (owner != null) owner.OnBodyContact(collision); }
+}
+
+
+// Shared with allocation mode: a four-point purchased leaf shot uses precisely
+// the original special-mode preparation and velocity law.
+public sealed class LeafShotProfile
+{
+    public Collider2D curveGoal; public Vector2 curveOrigin,curveDestination;
+    public float curveTravelTime,curveArcHeight,curveForwardSpeed;
+    Rigidbody2D ball; Collider2D ballCollider; float direction,power; int groundMask;int shootingLevel=-1;float correction=8f,pace=1f;bool failedLift;
+    const float FanVolleyArcHeight=PlayerSkills.FanVolleyArcHeight,FanVolleyLiftSpeed=PlayerSkills.FanVolleyLiftSpeed,FanVolleySpeedMultiplier=PlayerSkills.FanVolleySpeedMultiplier,FanVolleyFlightDuration=PlayerSkills.FanVolleyFlightDuration;
+    public LeafShotProfile(Rigidbody2D football,Collider2D shape,Collider2D goal,float facing,int mask,float strength)
+    {ball=football;ballCollider=shape;direction=facing;groundMask=mask;power=strength;Prepare(goal);}
+    public LeafShotProfile(Rigidbody2D football,Collider2D shape,Collider2D goal,float facing,int mask,float strength,int level):this(football,shape,goal,facing,mask,1f)
+    {
+        shootingLevel=Mathf.Clamp(level,0,AbilityMode.MaxLevel);if(shootingLevel==4)return;
+        float radius=ballCollider.bounds.extents.y,scale=Mathf.Max(.25f,radius/.2f),floor=BallBoundaryGuard.FindGoalFloor(goal),bar=BallBoundaryGuard.FindGoalCeiling(goal);
+        pace=AbilityMode.LeafSpeed(shootingLevel);curveForwardSpeed*=pace;curveTravelTime/=pace;
+        float mastery=shootingLevel/8f;correction=Mathf.Lerp(2.5f,13f,mastery);
+        float ceiling=curveOrigin.y+FanVolleyArcHeight;
+        foreach(var hit in Physics2D.RaycastAll(curveOrigin+Vector2.up*.05f,Vector2.up,30f,groundMask))if(hit.collider!=null&&hit.collider!=ballCollider&&!hit.collider.isTrigger&&hit.normal.y<-.5f&&hit.collider.transform.root.name!="Fan"&&hit.collider.transform.root.name!="Zhao"){ceiling=hit.point.y-radius-.2f;break;}
+        float available=Mathf.Max(0,ceiling-Mathf.Max(curveOrigin.y,bar-radius));
+        if(shootingLevel<4){
+            float lack=1f-shootingLevel/4f;bool misfire=shootingLevel==0||UnityEngine.Random.value<lack*lack;
+            failedLift=misfire&&(available<.3f||UnityEngine.Random.value<.35f);
+            if(failedLift){curveDestination.y=floor+radius+.02f;curveArcHeight=0;}
+            else if(misfire){curveDestination.y=bar+radius+.55f*scale;curveArcHeight=Mathf.Max(curveArcHeight,available*.9f);}
+            else {curveDestination.y+=UnityEngine.Random.Range(-1f,1f)*1.1f*scale*lack;curveArcHeight=Mathf.Min(available,curveArcHeight*(1f+.55f*lack));}
+        }else{
+            float progress=(shootingLevel-4)/4f;
+            curveDestination.y=Mathf.Lerp(curveDestination.y,bar-radius-.08f*scale,progress);
+            curveDestination.y+=UnityEngine.Random.Range(-1f,1f)*.12f*scale*(1f-progress);
+            curveArcHeight=Mathf.Min(available,curveArcHeight*(1f+.4f*progress));
+        }
+    }
+
+    void Prepare(Collider2D goal)
+    {
+        curveGoal = goal;
+        curveOrigin = ball.position;
+        Bounds mouth = goal.bounds;
+        float radius = ballCollider.bounds.extents.y;
+        float minY = mouth.min.y + radius + .12f;
+        float maxY = mouth.max.y - radius - .12f;
+        // Finish the arc before crossing the goal/out trigger line, accounting
+        // for the whole ball. The final approach remains inside the mouth.
+        curveDestination = new Vector2(direction > 0f ? mouth.min.x - ballCollider.bounds.extents.x - .22f :
+            mouth.max.x + ballCollider.bounds.extents.x + .22f, Mathf.Lerp(minY, maxY, .52f));
+        curveForwardSpeed = Mathf.Clamp(Mathf.Max(12f, Mathf.Abs(ball.velocity.x) * 1.3f + 10f), 12f, 18f);
+        float distance = Mathf.Max(.1f, direction * (curveDestination.x - curveOrigin.x));
+        curveTravelTime = Mathf.Clamp(distance / curveForwardSpeed, .08f, 1.5f);
+        float ceiling = curveOrigin.y + FanVolleyArcHeight;
+        foreach (RaycastHit2D hit in Physics2D.RaycastAll(curveOrigin + Vector2.up * .05f, Vector2.up, 30f, groundMask))
+        {
+            if (hit.collider == null || hit.collider == ballCollider || hit.collider.isTrigger || hit.normal.y > -.5f) continue;
+            string root = hit.collider.transform.root.name;
+            if (root == "Fan" || root == "Zhao") continue;
+            ceiling = hit.point.y - radius - .25f;
+            break;
+        }
+        float available = Mathf.Max(0f, ceiling - Mathf.Max(curveOrigin.y, curveDestination.y));
+        curveArcHeight = Mathf.Min(available, FanVolleyArcHeight, FanVolleyLiftSpeed * curveTravelTime * .25f);
+        // Short-range shots need a short arc so they can descend before the bar.
+        curveArcHeight *= Mathf.Min(1f, curveTravelTime / .45f);
+    
+        curveArcHeight*=power;curveForwardSpeed*=power;curveTravelTime=Mathf.Clamp(curveTravelTime/power,.08f,6f);
+        if(power<1f){curveDestination.y=Mathf.Lerp(curveOrigin.y,curveDestination.y,power)+UnityEngine.Random.Range(-1f,1f)*1.8f*(1f-power);}
+    }
+    public Vector2 Velocity(float age,Vector2 position){return ProfileVelocityForSpecial(age*FanVolleySpeedMultiplier,position)*FanVolleySpeedMultiplier;}
+    public Vector2 ProfileVelocityForSpecial(float age,Vector2 position)
+    {
+        Bounds mouth = curveGoal.bounds;
+        float radius = ballCollider.bounds.extents.y;
+        float minY = mouth.min.y + radius + .12f;
+        float maxY = mouth.max.y - radius - .12f;
+        float aimY = shootingLevel>=0||power<1f?curveDestination.y:Mathf.Clamp(curveDestination.y, minY, maxY);
+        if(failedLift)return new Vector2(direction*curveForwardSpeed,Mathf.Min(0f,(aimY-position.y)*2f));
+        float distance = direction * (curveDestination.x - position.x);
+        if (distance < 2f || age >= curveTravelTime)
+        {
+            float arrival = Mathf.Max(.08f, Mathf.Max(0f, distance) / (curveForwardSpeed * FanVolleySpeedMultiplier));
+            float gravity = Physics2D.gravity.y * ball.gravityScale;
+            float vertical = (aimY - position.y) / arrival - .5f * gravity * arrival;
+            return new Vector2(direction * curveForwardSpeed, Mathf.Clamp(vertical / FanVolleySpeedMultiplier, -24f, 24f));
+        }
+        float u = Mathf.Clamp01(age / curveTravelTime);
+        float wave = Mathf.Sin(u * Mathf.PI * 4f);
+        float envelope = 4f * u * (1f - u);
+        Vector2 desired = Vector2.Lerp(curveOrigin, curveDestination, u);
+        desired.y += curveArcHeight * envelope + .18f * wave * envelope;
+        Vector2 velocity = (curveDestination - curveOrigin) / curveTravelTime;
+        velocity.y += (curveArcHeight * 4f * (1f - 2f * u) + .18f *
+            (Mathf.PI * 4f * Mathf.Cos(u * Mathf.PI * 4f) * envelope + wave * 4f * (1f - 2f * u))) / curveTravelTime;
+        velocity += (desired - position) * correction;
+        return new Vector2(direction * Mathf.Clamp(velocity.x * direction, 8f*power*pace, 20f*power*pace), Mathf.Clamp(velocity.y, -24f, 24f));
+    
+    }
+    public bool Complete(float age,Vector2 position)
+    {
+        age *= FanVolleySpeedMultiplier;
+        if (curveGoal == null || ballCollider == null || age >= FanVolleyFlightDuration/Mathf.Min(1f,power) ||
+            age >= curveTravelTime + .35f) return true;
+        Bounds mouth = curveGoal.bounds;
+        float leadingEdge = position.x + direction * ballCollider.bounds.extents.x;
+        float goalFront = direction > 0f ? mouth.min.x : mouth.max.x;
+        // Once the ball reaches the mouth, gravity and the native goal/net
+        // collisions take over. Never hold it against the frame with impulses.
+        if (direction * (leadingEdge - goalFront) >= -.04f) return true;
+        float radius = ballCollider.bounds.extents.y;
+        bool insideHeight = position.y >= mouth.min.y + radius + .08f &&
+            position.y <= mouth.max.y - radius - .08f;
+        return insideHeight && direction * (position.x - curveDestination.x) >= 0f;
+    
+    }
+}
+
+// Predict the actual crossing before choosing a safe retreat speed and jump.
+public static class RescuePlanner
+{
+    public struct Plan { public float behind,remaining,time,height,speed,jumpSpeed; public bool relevant,low,head,wait; }
+    public static Vector2 Predict(Rigidbody2D ball,float time,float floor,float radius)
+    {
+        Vector2 at=ball.position+ball.velocity*time;float gravity=Physics2D.gravity.y*ball.gravityScale;
+        at.y+=.5f*gravity*time*time;at.y=Mathf.Max(floor+radius,at.y);return at;
+    }
+    public static bool BehindThreat(Rigidbody2D ball,Vector2 body,float direction,float height,float floor,float radius,float ownLine)
+    {
+        float behind=-direction*(ball.position.x-body.x),rear=-direction*ball.velocity.x;
+        Vector2 future=Predict(ball,.2f,floor,radius);float projected=-direction*(future.x-body.x);
+        if(-direction*(ownLine-ball.position.x)<radius*.2f)return false;
+        if(behind<.04f&&!(behind>-.3f*height&&rear>.5f&&projected>.08f))return false;
+        if(rear<-.5f&&behind/(-rear)<.18f)return false;
+        return rear>.3f||behind<height*2f||-direction*(ownLine-ball.position.x)<height;
+    }
+    public static Plan Evaluate(Rigidbody2D ball,Vector2 body,Vector2 velocity,float direction,float height,float width,float floor,float radius,float bottom,float ownLine,float normalRetreat,float cap,float gravity,float nativeJump)
+    {
+        Plan p=new Plan();p.behind=-direction*(ball.position.x-body.x);
+        p.relevant=BehindThreat(ball,body,direction,height,floor,radius,ownLine);
+        float margin=width*.6f+radius,goalGap=-direction*(ownLine-body.x)-width*.6f-.15f;
+        float rear=Mathf.Max(0,-direction*ball.velocity.x);
+        p.time=Mathf.Clamp((Mathf.Max(0,p.behind)+margin)/Mathf.Max(normalRetreat,rear+normalRetreat*.6f),.10f,.75f);
+        Vector2 future=Predict(ball,p.time,floor,radius);p.height=future.y-floor;
+        p.remaining=Mathf.Min(-direction*(future.x-body.x)+margin,goalGap);
+        float closing=-direction*(velocity.x-ball.velocity.x),brake=Mathf.Max(0,closing*closing/70f);
+        float needed=rear+Mathf.Max(0,p.remaining)/p.time;
+        // Reach the goal side at the slowest feasible speed, then brake before contact.
+        p.speed=Mathf.Min(cap,Mathf.Min(needed,rear+Mathf.Sqrt(48f*Mathf.Max(0,p.remaining))));
+        if(p.remaining<.06f)p.speed=0;
+        p.low=p.height<height*.6f;
+        p.head=p.height>=height*.8f&&p.height<=height*1.08f;
+        float rise=Mathf.Max(.10f*height,future.y+radius-bottom+.12f*height);
+        float maxRise=Mathf.Max(nativeJump*nativeJump/(2f*Mathf.Max(.1f,gravity)),height*.8f);
+        p.jumpSpeed=Mathf.Sqrt(2f*Mathf.Max(.1f,gravity)*Mathf.Min(maxRise,rise));
+        float encounter=Mathf.Clamp(Mathf.Max(0,p.behind)/Mathf.Max(1f,Mathf.Max(0,-direction*velocity.x)-rear),.04f,.25f);
+        Vector2 crossing=Predict(ball,encounter,floor,radius);
+        float landing=bottom+velocity.y*encounter-.5f*gravity*encounter*encounter;
+        bool nearby=p.behind<height*1.25f;
+        p.wait=nearby&&((p.low&&(bottom<crossing.y+radius+.03f*height||landing<crossing.y+radius+.03f*height&&p.behind<margin+brake+.10f*height&&p.behind+margin>Mathf.Max(0,closing)*encounter+9f*encounter*encounter))||(!p.low&&p.height<height*.8f&&p.behind<margin+brake+.15f));
+        return p;
+    }
+    public static bool FastDropSafe(Rigidbody2D ball,Vector2 body,float direction,float width,float radius,float height,float floor,float bottom)
+    {
+        float behind=-direction*(ball.position.x-body.x),gap=width*.6f+radius+.12f;
+        return bottom>floor+.12f&&((behind<-gap)||(ball.position.y>body.y+height*.65f&&Mathf.Abs(ball.position.x-body.x)>gap));
+    }
 }

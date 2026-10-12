@@ -1,4 +1,4 @@
-﻿param([ValidateSet('Original','Experiment','Win64')][string]$Edition='Original',[ValidateSet('Gameplay','Controls','Boundary','Defense','Goals','Magnetic','Contest','AI','Drop','Corner','Balance','Strategy','SelfPlay','Rolling','FanStrategy','Ability','Visual')][string]$Suite='Gameplay',[switch]$Baseline,[int]$GoalTarget=2000,[ValidateRange(1,64)][int]$SelfPlaySpeed=24,[switch]$PrepareSelfPlay)
+﻿param([ValidateSet('Original','Experiment','Win64')][string]$Edition='Original',[ValidateSet('Gameplay','Controls','Boundary','Defense','Goals','Magnetic','Contest','AI','Drop','Corner','Balance','Strategy','SelfPlay','Rolling','FanStrategy','Ability','Visual','AbilityContest','AbilitySelfPlay','AIPressure','ShotRescue','SkillSelfPlay')][string]$Suite='Gameplay',[switch]$Baseline,[int]$GoalTarget=2000,[ValidateRange(1,64)][int]$SelfPlaySpeed=24,[switch]$PrepareSelfPlay)
 $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $workspace = Split-Path (Split-Path $taskRoot -Parent) -Parent
@@ -40,16 +40,30 @@ if ($LASTEXITCODE -ne 0) { throw 'Patcher compilation failed' }
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'Mono.Cecil.dll') -Destination $release -Force
 & (Join-Path $release 'PatchGame.exe') $originalAssembly (Join-Path $release 'GameAIMod.dll') (Join-Path $release 'Assembly-CSharp.dll')
 if ($LASTEXITCODE -ne 0) { throw 'Game patching failed' }
-$testClass = switch ($Suite) { 'Gameplay' { 'BurstRangeTests' } 'Controls' { 'ControlsTests' } 'Boundary' { 'BehindGoalTests' } 'Defense' { 'ZhaoVolleyTests' } 'Goals' { 'GoalHeightTests' } 'Magnetic' { 'MagneticSpeedTests' } 'Contest' { 'KnockbackTests' } 'AI' { 'AIContestAirTests' } 'Drop' { 'ThighInterceptTests' } 'Balance' { 'RescueBalanceTests' } 'Strategy' { 'ZhaoStrategyTests' } 'FanStrategy' { 'FanStrategyTests' } 'Ability' { 'AbilityModeTests' } 'Visual' { 'SkillVisualTests' } 'SelfPlay' { 'FanSelfPlayTests' } 'Rolling' { 'RollingRescueTests' } 'Corner' { 'BehindGoalTests' } }
+$testClass = switch ($Suite) { 'Gameplay' { 'BurstRangeTests' } 'Controls' { 'ControlsTests' } 'Boundary' { 'BehindGoalTests' } 'Defense' { 'ZhaoVolleyTests' } 'Goals' { 'GoalHeightTests' } 'Magnetic' { 'MagneticSpeedTests' } 'Contest' { 'KnockbackTests' } 'AI' { 'AIContestAirTests' } 'Drop' { 'ThighInterceptTests' } 'Balance' { 'RescueBalanceTests' } 'Strategy' { 'ZhaoStrategyTests' } 'FanStrategy' { 'FanStrategyTests' } 'AIPressure' { 'AIPressureTests' } 'AbilityContest' { 'AbilityContestTests' } 'AbilitySelfPlay' { 'AbilitySelfPlayTests' } 'ShotRescue' { 'ShotRescueTests' } 'SkillSelfPlay' { 'SkillSelfPlayTests' } 'Ability' { 'AbilityModeTests' } 'Visual' { 'SkillVisualTests' } 'SelfPlay' { 'FanSelfPlayTests' } 'Rolling' { 'RollingRescueTests' } 'Corner' { 'BehindGoalTests' } }
 $bridge = [IO.File]::ReadAllText((Join-Path $source 'GameAIMod.cs')).Replace('        menuPanel = panel;',('        ' + $testClass + '.Boot();' + [Environment]::NewLine + '        menuPanel = panel;'))
 if ($Suite -eq 'Corner') { $bridge = $bridge.Replace('BehindGoalTests.Boot();','BehindGoalTests.CornerOnly = true; BehindGoalTests.Boot();') }
-if ($Suite -eq 'SelfPlay') { $bridge = $bridge.Replace('        string name = controller.gameObject.name;','        return controller.name == '+[char]34+'Fan'+[char]34+' || controller.name == '+[char]34+'Zhao'+[char]34+';'+[Environment]::NewLine+'        string name = controller.gameObject.name;') }
+if ($Suite -in @('SelfPlay','AbilitySelfPlay','AIPressure','ShotRescue','SkillSelfPlay')) { $bridge = $bridge.Replace('        string name = controller.gameObject.name;','        return controller.name == '+[char]34+'Fan'+[char]34+' || controller.name == '+[char]34+'Zhao'+[char]34+';'+[Environment]::NewLine+'        string name = controller.gameObject.name;') }
 $bindings = [IO.File]::ReadAllText((Join-Path $source 'ControlBindings.cs'))
-if ($Suite -in @('Gameplay','Controls','Magnetic','Contest','AI','Drop','Balance','Strategy','SelfPlay','Rolling','FanStrategy','Ability','Visual')) { $bindings = $bindings.Replace('return Input.GetKey(key);',('return ' + $testClass + '.ReadKey(key);')).Replace('return Input.GetKeyDown(key);',('return ' + $testClass + '.ReadDown(key);')) }
-if ($Suite -in @('Defense','AI','Strategy','SelfPlay','FanStrategy','Ability','Visual')) { $bridge = $bridge.Replace('        if (controller == null) return false;', ('        if (!' + $testClass + '.UseAI) return false;') + [Environment]::NewLine + '        if (controller == null) return false;') }
+if ($Suite -in @('Gameplay','Controls','Magnetic','Contest','AI','Drop','Balance','Strategy','SelfPlay','Rolling','FanStrategy','Ability','Visual','AbilityContest','AbilitySelfPlay','AIPressure','ShotRescue','SkillSelfPlay')) { $bindings = $bindings.Replace('return Input.GetKey(key);',('return ' + $testClass + '.ReadKey(key);')).Replace('return Input.GetKeyDown(key);',('return ' + $testClass + '.ReadDown(key);')) }
+if ($Suite -in @('Defense','AI','Strategy','SelfPlay','FanStrategy','Ability','Visual','AbilityContest','AbilitySelfPlay','AIPressure','ShotRescue','SkillSelfPlay')) { $bridge = $bridge.Replace('        if (controller == null) return false;', ('        if (!' + $testClass + '.UseAI) return false;') + [Environment]::NewLine + '        if (controller == null) return false;') }
 [IO.File]::WriteAllText((Join-Path $testBuild 'GameAIMod.cs'),$bridge,[Text.UTF8Encoding]::new($false))
 [IO.File]::WriteAllText((Join-Path $testBuild 'ControlBindings.cs'),$bindings,[Text.UTF8Encoding]::new($false))
 $testSources = $sources | Where-Object { (Split-Path $_ -Leaf) -notin @('GameAIMod.cs','ControlBindings.cs') }
+if ($Suite -eq 'ShotRescue') {
+ $ability=[IO.File]::ReadAllText((Join-Path $source 'AbilityMode.cs')).Replace('void Launch(Vector2 velocity){','void Launch(Vector2 velocity){ShotRescueTests.Launched(controller,velocity);').Replace('p.interceptUntil=-1f;p.interceptPending=false;p.Contact(collision);','ShotRescueTests.Contacted(collision);p.interceptUntil=-1f;p.interceptPending=false;p.Contact(collision);').Replace('Vector2 target=ShotTarget(level);bool weird=','Vector2 target=ShotTarget(level);ShotRescueTests.Aimed(controller,target);bool weird=')
+ [IO.File]::WriteAllText((Join-Path $testBuild 'AbilityMode.cs'),$ability,[Text.UTF8Encoding]::new($false))
+ $testSources=$testSources|Where-Object {(Split-Path $_ -Leaf) -ne 'AbilityMode.cs'}
+ $testSources+=Join-Path $testBuild 'AbilityMode.cs'
+}
+if ($Suite -eq 'SkillSelfPlay') {
+ $ability=[IO.File]::ReadAllText((Join-Path $source 'AbilityMode.cs')).Replace('leafCurve=new LeafShotProfile','SkillSelfPlayTests.Leaf();leafCurve=new LeafShotProfile').Replace('rescueUntil=Time.time+3.2f;','SkillSelfPlayTests.Rescue();rescueUntil=Time.time+3.2f;')
+ $skills=[IO.File]::ReadAllText((Join-Path $source 'PlayerSkills.cs')).Replace('public static Vector2 CannonVelocity(float facing,Vector2 incoming){','public static Vector2 CannonVelocity(float facing,Vector2 incoming){SkillSelfPlayTests.Cannon();').Replace('curveProfile=new LeafShotProfile','SkillSelfPlayTests.Leaf();curveProfile=new LeafShotProfile').Replace('s.retreatUntil = Time.time + 2.6f;','SkillSelfPlayTests.Rescue();s.retreatUntil = Time.time + 2.6f;')
+ [IO.File]::WriteAllText((Join-Path $testBuild 'AbilityMode.cs'),$ability,[Text.UTF8Encoding]::new($false))
+ [IO.File]::WriteAllText((Join-Path $testBuild 'PlayerSkills.cs'),$skills,[Text.UTF8Encoding]::new($false))
+ $testSources=$testSources|Where-Object {(Split-Path $_ -Leaf) -notin @('AbilityMode.cs','PlayerSkills.cs')}
+ $testSources+=Join-Path $testBuild 'AbilityMode.cs';$testSources+=Join-Path $testBuild 'PlayerSkills.cs'
+}
 if ($Suite -eq 'Ability') {
     $ability = [IO.File]::ReadAllText((Join-Path $source 'AbilityMode.cs')).Replace('void Launch(Vector2 velocity){','void Launch(Vector2 velocity){AbilityModeTests.Launched(controller,velocity);').Replace('p.interceptUntil=-1f;p.interceptPending=false;p.Contact(collision);','AbilityModeTests.Contacted(collision);p.interceptUntil=-1f;p.interceptPending=false;p.Contact(collision);').Replace('Vector2 target=ShotTarget(level);bool weird=','Vector2 target=ShotTarget(level);AbilityModeTests.Aimed(controller,target);bool weird=')
     [IO.File]::WriteAllText((Join-Path $testBuild 'AbilityMode.cs'),$ability,[Text.UTF8Encoding]::new($false))
@@ -106,13 +120,13 @@ if ($PrepareSelfPlay) {
 }
 $logSuite = $Suite.ToLower() + $(if ($Baseline) { '-baseline' } else { '' })
 $taskLog = Join-Path $PSScriptRoot ('ability-' + $Edition.ToLower() + '-' + $logSuite + '.log')
-$selfplayArgs = if ($Suite -eq 'SelfPlay') { @('-batchmode','-nographics') } else { @() }
+$selfplayArgs = if ($Suite -in @('SelfPlay','AbilitySelfPlay','SkillSelfPlay')) { @('-batchmode','-nographics') } else { @() }
 $launchArgs = $selfplayArgs + @('-selfplaySpeed',$SelfPlaySpeed.ToString(),'-policyHash',$policyHash,'-selfplayGoals',$GoalTarget.ToString(),'-screen-width','1280','-screen-height','720','-screen-fullscreen','0','-logFile',('"' + $taskLog + '"'))
 $taskProcess = Start-Process -FilePath (Join-Path $testPlayer 'FanZhiYi.exe') -WorkingDirectory $testPlayer -ArgumentList $launchArgs -WindowStyle Hidden -PassThru
 $runStarted=Get-Date
-while (-not $taskProcess.WaitForExit(30000)) { if($Suite -ne 'SelfPlay' -and ((Get-Date)-$runStarted).TotalSeconds -gt 150){$taskProcess.Kill();throw "Isolated runtime timed out"}; Write-Output ($Edition + ' ' + $Suite + ' verification running') }
+while (-not $taskProcess.WaitForExit(30000)) { if($Suite -notin @('SelfPlay','AbilitySelfPlay','SkillSelfPlay') -and ((Get-Date)-$runStarted).TotalSeconds -gt 150){$taskProcess.Kill();throw "Isolated runtime timed out"}; Write-Output ($Edition + ' ' + $Suite + ' verification running') }
 Write-Output ('Exit: ' + $taskProcess.ExitCode)
-Select-String -LiteralPath $taskLog -Pattern '(VISUAL|ABILITY|ROLLING|SELFPLAY|FANSTRATEGY|STRATEGY|BURSTRANGE|AIMATCH|CONTEST|MAGNETIC|POWER|BOUNDARY|CONTROLS|DEFENSE|GOALHEIGHT|DROP|BALANCE) (FAIL|COMPLETE)|Exception:|TIMEOUT|GotoState'
+Select-String -LiteralPath $taskLog -Pattern '(VISUAL|ABILITY|ROLLING|SELFPLAY|FANSTRATEGY|STRATEGY|BURSTRANGE|AIMATCH|CONTEST|MAGNETIC|POWER|BOUNDARY|CONTROLS|DEFENSE|GOALHEIGHT|DROP|BALANCE) (FAIL|COMPLETE)|Exception:|TIMEOUT|GotoState' | Select-Object -First 25
 if ($taskProcess.ExitCode -ne 0) { throw 'Runtime checks failed' }
 
 @{edition=$Edition.ToLower();suite=$Suite.ToLower();policyHash=$policyHash;logHash=(Get-FileHash -LiteralPath $taskLog).Hash;completedAt=(Get-Date).ToString('o')} | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $PSScriptRoot ('ability-'+$Edition.ToLower()+'-'+$logSuite+'-validation.json')) -Encoding utf8

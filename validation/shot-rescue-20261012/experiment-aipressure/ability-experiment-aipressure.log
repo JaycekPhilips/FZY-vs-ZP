@@ -1,0 +1,73 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  2.133 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.934000 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.177900 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1017.
+Total: 0.667700 ms (FindLiveObjects: 0.046500 ms CreateObjectMapping: 0.012700 ms MarkObjects: 0.250000 ms  DeleteObjects: 0.358100 ms)
+
+ABILITY PASS Fan AI equals held D native push mode=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS Zhao AI equals held left native push mode=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.397500 ms
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 1067.
+Total: 1.551100 ms (FindLiveObjects: 0.049300 ms CreateObjectMapping: 0.010900 ms MarkObjects: 0.261400 ms  DeleteObjects: 1.229100 ms)
+
+ABILITY PASS Fan AI equals held D native push mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS Zhao AI equals held left native push mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.545500 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1067.
+Total: 1.284000 ms (FindLiveObjects: 0.032500 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.191100 ms  DeleteObjects: 1.051600 ms)
+
+ABILITY PASS Fan AI equals held D native push mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS Zhao AI equals held left native push mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=6 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 2ec -> priority: 1 
+  Thread -> id: 5e94 -> priority: 1 
+  Thread -> id: 83b4 -> priority: 1 
+  Thread -> id: 8c44 -> priority: 1 
+  Thread -> id: 8454 -> priority: 1 
+  Thread -> id: ab4 -> priority: 1 
+  Thread -> id: 57d0 -> priority: 1 
+  Thread -> id: 2a8c -> priority: 1 
+  Thread -> id: 7584 -> priority: 1 
+  Thread -> id: 78bc -> priority: 1 
+  Thread -> id: 358c -> priority: 1 
+  Thread -> id: 4b0c -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

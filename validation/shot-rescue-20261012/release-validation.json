@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-12",
+  "committed": false,
+  "pushed": false,
+  "editions": [
+    {
+      "edition": "original",
+      "policyHash": "F1A0E1143EE3BE8A550761FEF73299BDA5417775DE3C3B108E07A1B89F4E6E4B",
+      "modHash": "402A16898708CDFDBF8533BD7EA6627517FFBECB75E4A45D3BA141D9F98BE120",
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003",
+      "focusedChecks": 72,
+      "selfplayGoals": 200,
+      "fanGoals": 105,
+      "zhaoGoals": 95,
+      "cannonContacts": 541,
+      "leafContacts": 183,
+      "rescueAttempts": 558,
+      "pairedNetworkChecks": [
+        {
+          "logHash": "587C898D9EE630381DFB2B80BF076F62645C9B9124331852A8723FE1FCD56ED5",
+          "checks": 71,
+          "role": "host"
+        },
+        {
+          "logHash": "CDE601B6EDB4D4F644569EAEFBFA1FC5C86D2412C574A2B47FF27812BF974F12",
+          "checks": 67,
+          "role": "guest"
+        }
+      ]
+    },
+    {
+      "edition": "experiment",
+      "policyHash": "486C3764B38C28B8975ACDB1B5DE104E979BCACA8737FD62D715C7455317E232",
+      "modHash": "F8DD04C2A5D27D880B2664B365685B08BBB4278F3DC97EB9ADED8EA68E6A86AA",
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658",
+      "focusedChecks": 72,
+      "selfplayGoals": 200,
+      "fanGoals": 107,
+      "zhaoGoals": 93,
+      "cannonContacts": 277,
+      "leafContacts": 207,
+      "rescueAttempts": 440,
+      "pairedNetworkChecks": [
+        {
+          "logHash": "72DF9720C0ABDB6B7783C830290B7CAD1B03F953153D7ACA9EE411BE597D1921",
+          "checks": 71,
+          "role": "host"
+        },
+        {
+          "logHash": "793F661CA5E926F851662630AFC6812CB2D329339CE56FB2D71D2A9F80337150",
+          "checks": 67,
+          "role": "guest"
+        }
+      ]
+    }
+  ]
+}

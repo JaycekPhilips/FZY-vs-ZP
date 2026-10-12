@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -88,7 +88,7 @@ public sealed class PowerShot : MonoBehaviour
         if (fan) target = ball.velocity * SpeedMultiplier;
         else
         {
-            float speed = Mathf.Clamp(Mathf.Max(17f, ball.velocity.magnitude * 1.65f), 17f, 23f) * SpeedMultiplier * (PlayerSkills.Enabled ? SkillBurstMultiplier : 1f);
+            float speed = PlayerSkills.Enabled?SkillBurstSpeed(ball.velocity.magnitude):Mathf.Clamp(Mathf.Max(17f,ball.velocity.magnitude*1.65f),17f,23f)*SpeedMultiplier;
             floorHeight = FindFloor();
             target = new Vector2(-speed, FlatVertical()); flatUntil = Time.time + .6f;
         }
@@ -98,6 +98,7 @@ public sealed class PowerShot : MonoBehaviour
         if (!fan && PlayerSkills.Enabled) PlayerSkills.ShowPowerBurst(controller);
         return true;
     }
+    public static float SkillBurstSpeed(float incoming){return Mathf.Clamp(Mathf.Max(17f,incoming*1.65f),17f,23f)*SpeedMultiplier*SkillBurstMultiplier;}
     private float FindFloor()
     {
         foreach (RaycastHit2D hit in rayHits.Raycast(ball.position + Vector2.up * .1f, Vector2.down, 30f, groundMask))

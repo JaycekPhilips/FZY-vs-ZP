@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -758,14 +758,10 @@ public static class GameAIMod
             state.serveApproach = false;
             state.pendingKickTap = -10f;
             float opponentDirection = state.opponentBody.position.x - playerPosition.x;
-            float pressure = controller.name == "Zhao" && PlayerSkills.Enabled ? 1f : .85f;
-            // Both rigs carry the squeeze. Ease the AI's input as either
-            // player's intact joints take load, rather than waiting for its
-            // own torso alone to stretch. Cached arrays avoid per-frame work.
-            float load = Mathf.Max(ContestJointLoad(state.joints), ContestJointLoad(state.opponentJoints));
-            float safeLoad = .075f * Mathf.Abs(controller.transform.lossyScale.x) / .8f;
-            if (load > safeLoad) pressure = Mathf.Clamp(.45f * safeLoad / load, .2f, .45f);
-            if (Mathf.Abs(player.angularVelocity) > 120f) pressure = Mathf.Min(pressure, .45f);
+            // Same held-forward input as a human in every mode. Physics and
+            // ability/contact force handle bracing; never weaken both AIs because
+            // either opponent's joints have taken load.
+            float pressure = 1f;
             ZhaoContestJump(controller, state, ball);
             state.axis = (Mathf.Abs(opponentDirection) > .05f ? Mathf.Sign(opponentDirection) : attackDirection) * pressure;
             return;
@@ -886,9 +882,7 @@ public static class GameAIMod
         {
             float opponentDirection = state.opponentBody.position.x - state.body.position.x;
             float load = Mathf.Max(ContestJointLoad(state.joints), ContestJointLoad(state.opponentJoints));
-            float pressure = .85f;
-            if (load > .075f * scale) pressure = Mathf.Clamp(.45f * .075f * scale / load, .2f, .45f);
-            if (Mathf.Abs(state.body.angularVelocity) > 120f) pressure = Mathf.Min(pressure, .45f);
+            float pressure = 1f;
             state.axis = (Mathf.Abs(opponentDirection) > .05f ? Mathf.Sign(opponentDirection) : 1f) * pressure;
             state.pendingKickTap = -10f;
             // Jump for a reachable contested high ball, keeping the planted
@@ -1012,31 +1006,13 @@ public static class GameAIMod
 
     private static bool UpdateZhaoRecovery(Component controller, AIState state, Rigidbody2D ball)
     {
-        if (controller.name != "Zhao" || !PlayerSkills.Enabled) return false;
-        if (PlayerSkills.RescueActive(controller))
-        {
-            // Let the existing rescue choose its native jump/backbend and speed.
-            // Ordinary shooting/steering must not cancel a committed save.
-            state.rescuing = true; state.contesting = false; state.axis = 0f; return true;
-        }
-        // Finish landing and stabilizing before another kick or chase can
-        // load the joints. The existing rescue balance supplies the braking.
-        if (PlayerSkills.RescueRecovering(controller))
-        { state.axis = 0f; state.contesting = false; return true; }
-        if (state.contesting) return false;
-        Vector2 curvePosition, curveVelocity;
-        if (PlayerSkills.TryPredictFanVolley(0f, out curvePosition, out curveVelocity)) return false;
-        bool grounded = state.groundField != null && (bool)state.groundField.GetValue(controller);
-        if (!grounded && Mathf.Abs(state.body.velocity.y) > .3f) return false;
-        float gap = ball.position.x - state.body.position.x;
-        if (gap <= .08f || ball.position.x >= state.ownGoalLine + .1f) return false;
-        // An incoming lob that will pass our head shortly is intercepted from
-        // the pitch side, rather than chased in the opposite direction.
-        if (ball.velocity.x < -1f && gap / -ball.velocity.x < .4f) return false;
-        bool danger = ball.velocity.x > .3f || gap < 3.2f * state.rigScale || ball.position.x > state.ownGoalLine - 2f;
-        if (!danger || Time.time - state.lastRescue < .6f) return false;
-        state.rescuing = true; state.axis = 1f; state.lastRescue = Time.time;
-        state.serveApproach = false; state.pendingKickTap = -10f; return true;
+        bool allocated=AbilityMode.Has(controller,6),native=controller.name=="Zhao"&&PlayerSkills.Enabled;
+        if(!allocated&&!native)return false;float facing=controller.name=="Fan"?1f:-1f;BuildPlayer build=controller.GetComponent<BuildPlayer>();
+        if(PlayerSkills.RescueActive(controller)||BuildPlayer.Rescuing(controller)){state.rescuing=true;state.contesting=false;state.axis=0f;return true;}
+        if(PlayerSkills.RescueRecovering(controller)||(build!=null&&build.RescueRecovering)){state.axis=0f;state.contesting=false;return true;}
+        if(state.contesting)return false;float radius=ball.GetComponent<Collider2D>().bounds.extents.y;
+        if(!RescuePlanner.BehindThreat(ball,state.body.position,facing,Mathf.Max(.5f,state.standingHeadY-state.pitchFloor),state.pitchFloor,radius,state.ownGoalLine)||Time.time-state.lastRescue<.6f)return false;
+        state.rescuing=true;state.axis=-facing;state.lastRescue=Time.time;state.serveApproach=false;state.pendingKickTap=-10f;return true;
     }
     private static float ZhaoMoveTo(AIState state, float target, bool airborne)
     {

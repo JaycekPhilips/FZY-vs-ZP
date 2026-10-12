@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -91,7 +91,7 @@ public sealed class PlayerMovement : MonoBehaviour
     {
         PlayerMovement movement=player!=null?player.GetComponent<PlayerMovement>():null;
         float input=movement!=null?GameAIMod.GetAxis(movement.axis,player):0f;
-        return original * GetMultiplier(player) * MagneticFoot.MovementForceMultiplier(player,input);
+        return original * GetMultiplier(player) * MagneticFoot.MovementForceMultiplier(player,input) * AbilityMode.ContactForce(player,input);
     }
     public static float GetMovementLimit(float original, Component player) { return original * GetMultiplier(player); }
 
