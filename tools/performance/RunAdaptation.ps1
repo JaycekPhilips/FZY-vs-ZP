@@ -1,7 +1,7 @@
-﻿param([ValidateSet('Both','Original','Experiment')][string]$Edition='Both',[string]$Suites='UI,Ability,NetworkPair')
+﻿param([ValidateSet('Both','Original','Experiment')][string]$Edition='Both',[string]$Suites='UI,Ability,NetworkPair',[string]$EvidenceRoot)
 $ErrorActionPreference='Stop'
 $workspace=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
-$evidence=Join-Path $workspace '.work/adaptation'
+$evidence=if($EvidenceRoot){[IO.Path]::GetFullPath($EvidenceRoot)}else{Join-Path $workspace '.work/adaptation'}
 New-Item -ItemType Directory -Path $evidence -Force | Out-Null
 $editions=if($Edition -eq 'Both'){@('Original','Experiment')}else{@($Edition)}
 foreach($editionName in $editions){

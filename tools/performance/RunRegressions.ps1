@@ -19,7 +19,7 @@ if($Status -or $Stop){
 }
 $testBuild=Join-Path $testRoot $Suite
 New-Item -ItemType Directory -Path $testRoot,$testBuild -Force | Out-Null
-if(-not(Test-Path -LiteralPath (Join-Path $testRoot 'FanZhiYi.exe'))){
+if(-not(Test-Path -LiteralPath (Join-Path $testRoot 'FanZhiYi.exe')) -or -not(Test-Path -LiteralPath (Join-Path $testRoot 'FanZhiYi_Data\Managed\UnityEngine.dll'))){
  foreach($name in @('FanZhiYi.exe','UnityPlayer.dll','UnityCrashHandler32.exe','球场背景.png')){Copy-Item -LiteralPath (Join-Path $editionRoot $name) -Destination $testRoot}
  foreach($name in @('FanZhiYi_Data','MonoBleedingEdge')){Copy-Item -LiteralPath (Join-Path $editionRoot $name) -Destination $testRoot -Recurse}
 }
