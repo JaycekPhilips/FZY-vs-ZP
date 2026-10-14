@@ -1,0 +1,208 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  2.229 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 3.210700 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.410500 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1017.
+Total: 0.856800 ms (FindLiveObjects: 0.036900 ms CreateObjectMapping: 0.010700 ms MarkObjects: 0.476200 ms  DeleteObjects: 0.332700 ms)
+
+STARTUP INPUT axis=1 bridged=1 anim=0 stopping=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS startup mode=0 actor=Fan back=False response=0.03999996 speed100=1.18565 dist100=0.1080803 speed200=2.434022 restart=0.12 reverse=0.1400001 lift=0.4232683 lean=20.77206 joints=0.06139283 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.218800 ms
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1073.
+Total: 1.632700 ms (FindLiveObjects: 0.044000 ms CreateObjectMapping: 0.011100 ms MarkObjects: 0.278600 ms  DeleteObjects: 1.298500 ms)
+
+STARTUP INPUT axis=-1 bridged=-1 anim=-1 stopping=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS startup mode=0 actor=Fan back=True response=0.01999998 speed100=3.706646 dist100=0.2743736 speed200=2.983535 restart=0.03999996 reverse=0.0999999 lift=0.2922776 lean=15.66829 joints=0.06655159 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.606900 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1073.
+Total: 1.176200 ms (FindLiveObjects: 0.034600 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.209200 ms  DeleteObjects: 0.923500 ms)
+
+STARTUP INPUT axis=-1 bridged=-1 anim=-1 stopping=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS startup mode=0 actor=Zhao back=False response=0.07999992 speed100=1.28972 dist100=0.1201056 speed200=3.486368 restart=0.03999996 reverse=0.1200004 lift=0.5828527 lean=22.8273 joints=0.1372753 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.330000 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1073.
+Total: 1.640400 ms (FindLiveObjects: 0.043000 ms CreateObjectMapping: 0.010500 ms MarkObjects: 0.275400 ms  DeleteObjects: 1.311000 ms)
+
+STARTUP INPUT axis=1 bridged=1 anim=1 stopping=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS startup mode=0 actor=Zhao back=True response=0.01999998 speed100=3.866625 dist100=0.2767918 speed200=3.718704 restart=0.03999996 reverse=0.07999992 lift=1.019708 lean=34.03467 joints=0.257292 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.925800 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1076.
+Total: 1.725000 ms (FindLiveObjects: 0.034800 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.267300 ms  DeleteObjects: 1.414000 ms)
+
+STARTUP INPUT axis=1 bridged=1 anim=0 stopping=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS startup mode=1 actor=Fan back=False response=0.03999996 speed100=1.124044 dist100=0.1153693 speed200=3.744323 restart=0.03999996 reverse=0.1400003 lift=0.2003847 lean=19.27773 joints=0.08204647 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.269400 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1076.
+Total: 1.680700 ms (FindLiveObjects: 0.036300 ms CreateObjectMapping: 0.010300 ms MarkObjects: 0.253500 ms  DeleteObjects: 1.380100 ms)
+
+STARTUP INPUT axis=-1 bridged=-1 anim=0 stopping=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS startup mode=1 actor=Fan back=True response=0.03999996 speed100=3.744938 dist100=0.2606088 speed200=3.298589 restart=0.03999996 reverse=0.1000004 lift=0.30734 lean=14.89955 joints=0.08399154 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.282500 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1076.
+Total: 1.435300 ms (FindLiveObjects: 0.038400 ms CreateObjectMapping: 0.010200 ms MarkObjects: 0.247700 ms  DeleteObjects: 1.138600 ms)
+
+STARTUP INPUT axis=-1 bridged=-1 anim=-1 stopping=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS startup mode=1 actor=Zhao back=False response=0.07999992 speed100=1.235985 dist100=0.1228388 speed200=3.427058 restart=0.03999901 reverse=0.1200008 lift=0.6380795 lean=37.63394 joints=0.1099679 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.302400 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1076.
+Total: 1.902400 ms (FindLiveObjects: 0.041600 ms CreateObjectMapping: 0.012600 ms MarkObjects: 0.259900 ms  DeleteObjects: 1.587800 ms)
+
+STARTUP INPUT axis=1 bridged=1 anim=0 stopping=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS startup mode=1 actor=Zhao back=True response=0.03999901 speed100=4.216461 dist100=0.2615166 speed200=3.283975 restart=0.04000092 reverse=0.09999847 lift=0.9982244 lean=30.29144 joints=0.1424883 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.364900 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1076.
+Total: 1.715400 ms (FindLiveObjects: 0.040800 ms CreateObjectMapping: 0.010300 ms MarkObjects: 0.256300 ms  DeleteObjects: 1.407400 ms)
+
+STARTUP INPUT axis=1 bridged=1 anim=1 stopping=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS startup mode=2 actor=Fan back=False response=0.1200008 speed100=0.9263555 dist100=0.08002299 speed200=3.56162 restart=0.02000046 reverse=0.07999992 lift=0.32795 lean=12.17704 joints=0.08411977 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.482600 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.492100 ms (FindLiveObjects: 0.065700 ms CreateObjectMapping: 0.016700 ms MarkObjects: 0.272300 ms  DeleteObjects: 1.136800 ms)
+
+STARTUP INPUT axis=-1 bridged=-1 anim=-1 stopping=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS startup mode=2 actor=Fan back=True response=0.02000046 speed100=3.665035 dist100=0.2811471 speed200=3.422065 restart=0.03999901 reverse=0.1000004 lift=0.3592476 lean=12.50742 joints=0.1035678 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.321800 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.538200 ms (FindLiveObjects: 0.056200 ms CreateObjectMapping: 0.017200 ms MarkObjects: 0.344400 ms  DeleteObjects: 1.119900 ms)
+
+STARTUP INPUT axis=-1 bridged=-1 anim=0 stopping=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS startup mode=2 actor=Zhao back=False response=0.03999901 speed100=1.140327 dist100=0.1184239 speed200=2.883062 restart=0.02000046 reverse=0.1200008 lift=0.4411412 lean=15.12988 joints=0.2532722 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.380800 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.431500 ms (FindLiveObjects: 0.058400 ms CreateObjectMapping: 0.016100 ms MarkObjects: 0.251000 ms  DeleteObjects: 1.105500 ms)
+
+STARTUP INPUT axis=1 bridged=1 anim=0 stopping=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS startup mode=2 actor=Zhao back=True response=0.03999901 speed100=4.111084 dist100=0.2607029 speed200=3.39289 restart=0.04000092 reverse=0.1000004 lift=1.068481 lean=20.32578 joints=0.06736461 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.299000 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.766000 ms (FindLiveObjects: 0.045200 ms CreateObjectMapping: 0.011300 ms MarkObjects: 0.394200 ms  DeleteObjects: 1.314700 ms)
+
+ABILITY PASS skill display mode=1 persisted=True hidden=True restoredSkillState=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.466800 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.270500 ms (FindLiveObjects: 0.035900 ms CreateObjectMapping: 0.009400 ms MarkObjects: 0.213800 ms  DeleteObjects: 1.011000 ms)
+
+ABILITY PASS skill display mode=2 persisted=True hidden=True restoredSkillState=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.313500 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.510100 ms (FindLiveObjects: 0.057800 ms CreateObjectMapping: 0.017000 ms MarkObjects: 0.279300 ms  DeleteObjects: 1.155600 ms)
+
+ABILITY PASS in-match toggle attached and settings button toggles display 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=15 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 2048 -> priority: 1 
+  Thread -> id: 220 -> priority: 1 
+  Thread -> id: 6784 -> priority: 1 
+  Thread -> id: 8374 -> priority: 1 
+  Thread -> id: 75f8 -> priority: 1 
+  Thread -> id: 2834 -> priority: 1 
+  Thread -> id: 70cc -> priority: 1 
+  Thread -> id: 6740 -> priority: 1 
+  Thread -> id: 7a04 -> priority: 1 
+  Thread -> id: 5978 -> priority: 1 
+  Thread -> id: 7904 -> priority: 1 
+  Thread -> id: 90c0 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

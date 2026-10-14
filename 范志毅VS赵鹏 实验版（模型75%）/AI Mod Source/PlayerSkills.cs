@@ -1342,7 +1342,7 @@ public sealed class PlayerSkills : MonoBehaviour
     public static void DrawSkillEffects(Component controller, Rigidbody2D body, Transform head, Transform foot,
         float[] effects, bool highlight, Rigidbody2D ball, float glowUntil, Color glowColor, List<Vector2> ballTrail)
     {
-        if (Event.current.type != EventType.Repaint || controller == null || body == null) return;
+        if (!ControlBindings.ShowSkillAnimations || Event.current.type != EventType.Repaint || controller == null || body == null) return;
         bool fan = controller.name == "Fan";
         float direction = fan ? 1f : -1f;
         if (skillFont == null) skillFont = Font.CreateDynamicFontFromOSFont(new string[] { "Microsoft YaHei", "SimHei", "Arial" }, 22);

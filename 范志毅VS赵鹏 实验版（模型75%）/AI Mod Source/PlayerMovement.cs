@@ -28,7 +28,9 @@ public sealed class PlayerMovement : MonoBehaviour
     private bool smoothedMuscles;
     private Rigidbody2D body;
     private Component stick;
-    private readonly FieldInfo[] gaitFields=new FieldInfo[4];private readonly float[] gaitAngles=new float[4],gaitVelocity=new float[4];private bool gaitPrimed;private float startAxis,startAt,limitMultiplier=1f,lastLimitStep=-1f;
+    private Rigidbody2D[] runningLimbs;private Collider2D[] runningShapes;private readonly ContactPoint2D[] runningContacts=new ContactPoint2D[20];
+    private float runningMass,nativeLimit,previousInput,assistAt=-10f;
+    private readonly FieldInfo[] gaitFields=new FieldInfo[4];private readonly float[] gaitAngles=new float[4],gaitVelocity=new float[4];private bool gaitPrimed;
     private FieldInfo groundField, bodyTargetField;
     private readonly List<AnimatorClipInfo> clips = new List<AnimatorClipInfo>(4);
     private List<AnimatorClipInfo> CurrentClips() { animator.GetCurrentAnimatorClipInfo(0, clips); return clips; }
@@ -36,6 +38,7 @@ public sealed class PlayerMovement : MonoBehaviour
     public static void Attach(Component player)
     {
         if (player == null || (player.name != "Fan" && player.name != "Zhao") || player.GetComponent<PlayerMovement>() != null) return;
+        SkillAnimationToggle.Attach(player);
         // Faster native movement needs more constraint solving, so limbs stay
         // joined under a retreat impulse without changing joints or geometry.
         Physics2D.positionIterations = Mathf.Max(Physics2D.positionIterations, 64);
@@ -59,6 +62,8 @@ public sealed class PlayerMovement : MonoBehaviour
         movement.bodyTargetField = muscleType.GetField("body");
         string[] gaitNames={"L_Up_Leg","L_Low_Leg","R_Up_Leg","R_Low_Leg"};for(int i=0;i<4;i++)movement.gaitFields[i]=muscleType.GetField(gaitNames[i]);
         movement.body = player.GetType().GetField("rb").GetValue(player) as Rigidbody2D;
+        movement.runningLimbs=player.GetComponentsInChildren<Rigidbody2D>();movement.runningShapes=player.GetComponentsInChildren<Collider2D>();foreach(var limb in movement.runningLimbs)movement.runningMass+=limb.mass;
+        movement.nativeLimit=(float)player.GetType().GetField("maxVelocity").GetValue(player);
         Array muscleArray = muscleType.GetField("muscles").GetValue(muscles) as Array;
         if (muscleArray != null && muscleArray.Length >= 10)
             for (int i = 0; i < 4; i++)
@@ -93,17 +98,12 @@ public sealed class PlayerMovement : MonoBehaviour
     {
         PlayerMovement movement=player!=null?player.GetComponent<PlayerMovement>():null;
         float input=movement!=null?GameAIMod.GetAxis(movement.axis,player):0f;
-        return original * GetMultiplier(player) * MagneticFoot.MovementForceMultiplier(player,input) * AbilityMode.ContactForce(player,input) * (movement!=null?movement.Startup(input):1f);
-    }
-    private float Startup(float input){
-        if(Mathf.Abs(input)<=.1f){startAxis=0;return 1f;}if(Mathf.Abs(startAxis)<.1f||Mathf.Sign(startAxis)!=Mathf.Sign(input)){startAxis=input;startAt=Time.time;}
-        BuildPlayer b=controller.GetComponent<BuildPlayer>();if(Time.time<actionProtectionUntil||!(bool)groundField.GetValue(controller)||PlayerSkills.RescueActive(controller)||BuildPlayer.Rescuing(controller)||(b!=null&&b.GroundBallContest))return 1f;
-        float ramp=Mathf.SmoothStep(.18f,1f,Mathf.Clamp01((Time.time-startAt)/.18f));bool walking=false;foreach(var clip in CurrentClips())if(clip.clip!=null&&(clip.clip.name=="Walk"||clip.clip.name=="BackWalk"))walking=true;return walking?ramp:Mathf.Min(.3f,ramp);
+        return original * GetMultiplier(player) * MagneticFoot.MovementForceMultiplier(player,input) * AbilityMode.ContactForce(player,input);
     }
     public static float GetMovementLimit(float original,Component player){
-        float requested=GetMultiplier(player);PlayerMovement m=player!=null?player.GetComponent<PlayerMovement>():null;if(m==null)return original*requested;
-        if(m.lastLimitStep!=Time.fixedTime){m.lastLimitStep=Time.fixedTime;m.limitMultiplier=Mathf.MoveTowards(m.limitMultiplier,requested,4f*Time.fixedDeltaTime);}
-        return original*m.limitMultiplier;
+        // Native inertia controls acceleration. Never hold back the input or
+        // wait for a walk clip before allowing the requested running speed.
+        return original * GetMultiplier(player);
     }
 
     public static void NotifyAction(Component player)
@@ -134,7 +134,7 @@ public sealed class PlayerMovement : MonoBehaviour
         // Preserve native leg strength. Ease animation targets rather than
         // turning the legs into weak springs which trail behind the torso.
         float cadence=Mathf.Max(1f,m.animator.speed/Mathf.Max(.01f,m.originalAnimatorSpeed));
-        for(int i=0;i<4;i++){if(m.gaitFields[i]==null)continue;float target=(float)m.gaitFields[i].GetValue(stick);if(!m.gaitPrimed||!smooth){m.gaitAngles[i]=target;m.gaitVelocity[i]=0;}else{m.gaitAngles[i]=Mathf.SmoothDampAngle(m.gaitAngles[i],target,ref m.gaitVelocity[i],.055f/cadence,1200f*cadence,Time.deltaTime);m.gaitFields[i].SetValue(stick,m.gaitAngles[i]);}}
+        for(int i=0;i<4;i++){if(m.gaitFields[i]==null)continue;float target=(float)m.gaitFields[i].GetValue(stick);if(!m.gaitPrimed||!smooth){m.gaitAngles[i]=target;m.gaitVelocity[i]=0;}else{m.gaitAngles[i]=Mathf.SmoothDampAngle(m.gaitAngles[i],target,ref m.gaitVelocity[i],.028f/cadence,1800f*cadence,Time.deltaTime);m.gaitFields[i].SetValue(stick,m.gaitAngles[i]);}}
         m.gaitPrimed=true;
     }
 
@@ -150,7 +150,7 @@ public sealed class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Stopped()) { startAxis=0;RestoreCadence(); RestoreMuscles(); return; }
+        if (Stopped()) { RestoreCadence(); RestoreMuscles(); return; }
         float input = GameAIMod.GetAxis(axis, controller);
         PlayerSkills.NotifyMovement(controller, input);
         if (animator == null || Mathf.Abs(input) <= .1f || Time.time < actionProtectionUntil) { RestoreCadence(); return; }
@@ -166,7 +166,7 @@ public sealed class PlayerMovement : MonoBehaviour
             if (stateSpeed < .01f || clip.length <= 0f) break;
             float targetAnimatorSpeed = fan ? originalAnimatorSpeed * sprint :
                 Mathf.Clamp(clip.length * referenceAnimatorSpeed / (referenceWalkLength * stateSpeed), .25f, 4f) * Mathf.Max(1f, sprint);
-            adjustedAnimatorSpeed=Mathf.MoveTowards(adjustedCadence?adjustedAnimatorSpeed:animator.speed,targetAnimatorSpeed,6f*Time.deltaTime);
+            adjustedAnimatorSpeed=Mathf.MoveTowards(adjustedCadence?adjustedAnimatorSpeed:animator.speed,targetAnimatorSpeed,16f*Time.deltaTime);
             animator.speed = adjustedAnimatorSpeed;
             adjustedCadence = true;
             return;
@@ -174,8 +174,24 @@ public sealed class PlayerMovement : MonoBehaviour
         RestoreCadence();
     }
 
+    private void AssistStartup(){
+        if(Stopped()||body==null){previousInput=0;return;}
+        float input=GameAIMod.GetAxis(axis,controller);if(Mathf.Abs(input)<=.1f){previousInput=0;return;}
+        if(Mathf.Abs(previousInput)<.1f||Mathf.Sign(previousInput)!=Mathf.Sign(input))assistAt=Time.time;previousInput=input;
+        if(Time.time-assistAt>.16f||Time.time<actionProtectionUntil||!(bool)groundField.GetValue(controller)||PlayerSkills.RescueActive(controller)||BuildPlayer.Rescuing(controller))return;
+        // Contact contests keep native thrust. Starting support only acts on
+        // an unobstructed grounded rig, with the same acceleration on every limb.
+        foreach(var shape in runningShapes){int count=shape.GetContacts(runningContacts);for(int i=0;i<count;i++){var other=runningContacts[i].collider==shape?runningContacts[i].otherCollider:runningContacts[i].collider;if(other==null||other.transform.IsChildOf(transform))continue;string owner=other.transform.root.name;if(owner=="Fan"||owner=="Zhao"||other.GetComponentInParent<BallBoundaryGuard>()!=null)return;}}
+        float speed=0;foreach(var limb in runningLimbs)speed+=limb.velocity.x*limb.mass;speed/=Mathf.Max(.001f,runningMass);
+        float scale=Mathf.Max(.1f,Mathf.Abs(transform.lossyScale.x)/.8f),direction=Mathf.Sign(input);
+        float target=Mathf.Min(nativeLimit*GetMultiplier(controller),(.9f+16f*(Time.time-assistAt))*scale);
+        float change=direction*Mathf.Clamp(target-direction*speed,0f,40f*scale*Time.fixedDeltaTime);
+        foreach(var limb in runningLimbs)limb.AddForce(Vector2.right*change*limb.mass,ForceMode2D.Impulse);
+    }
+
     private void FixedUpdate()
     {
+        AssistStartup();
         if (fan || !PlayerSkills.Enabled || Stopped() || body == null || stick == null || Time.time < actionProtectionUntil ||
             GameAIMod.GetAxis(axis, controller) <= .1f || !(bool)groundField.GetValue(controller)) return;
         bool walking = false;

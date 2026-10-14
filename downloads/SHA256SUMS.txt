@@ -1,2 +1,2 @@
-747246704f4f397d4526e047984d1ac79cec3eecaa898816caa927ab1280f825  fzy-vs-zp-original-win32.zip
-bfbee65eb425fe0d03592cd498ec2d25b85668a7b3b05a9688e32e535c666c6c  fzy-vs-zp-experimental-win32.zip
+5b6a96e5b7eda7044cf0530027eaafd705fa9ba569dc89c239f7938335ac5223  fzy-vs-zp-original-win32.zip
+ee4c96b4c0625dd6b1c4cd94cf6dba5633c6452a249ac286913476935fcab53c  fzy-vs-zp-experimental-win32.zip
