@@ -2,8 +2,8 @@
     {
         "edition":  "original",
         "archive":  "downloads/fzy-vs-zp-original-win32.zip",
-        "archiveBytes":  28514470,
-        "archiveSha256":  "689409fb6b8d7a789cdd69d339c62c7b9f5a81bd35166fca78ca732e6b44cac2",
+        "archiveBytes":  28029796,
+        "archiveSha256":  "747246704f4f397d4526e047984d1ac79cec3eecaa898816caa927ab1280f825",
         "files":  [
                       {
                           "path":  "FanZhiYi.exe",
@@ -22,8 +22,8 @@
                       },
                       {
                           "path":  "按键设置.ini",
-                          "bytes":  325,
-                          "sha256":  "04fdcea8ff9b1a87d735db4e0f39e357b4cb54de47892f932142fd3f39c0bed0"
+                          "bytes":  345,
+                          "sha256":  "84dd4e03a827666571d5392db67e0eb5452f58763d136f50e8bf39eb5fa4f196"
                       },
                       {
                           "path":  "球场背景.png",
@@ -32,8 +32,8 @@
                       },
                       {
                           "path":  "AI Mod Source/AbilityMode.cs",
-                          "bytes":  47098,
-                          "sha256":  "49d354487b41309b3cb202db5ea74cb3e3d1f26a3bf27027d2a21e8b5afc9fb3"
+                          "bytes":  48734,
+                          "sha256":  "2de33898f6c57dc0adfd9992f6d1c606d7454763aacb0b21e6786eea4037d902"
                       },
                       {
                           "path":  "AI Mod Source/Assembly-CSharp.original.dll",
@@ -52,8 +52,8 @@
                       },
                       {
                           "path":  "AI Mod Source/GameAIMod.cs",
-                          "bytes":  82360,
-                          "sha256":  "8673efd97a8ef0800e44133492f9b982a58dbe21d18821292b4cda0d6cd4a6bd"
+                          "bytes":  82561,
+                          "sha256":  "b1f3786c7fe2a8cc221a54e1c2f887ddcd7e9a4f5178867fd52cacf66209419b"
                       },
                       {
                           "path":  "AI Mod Source/LanMultiplayer.cs",
@@ -67,48 +67,48 @@
                       },
                       {
                           "path":  "AI Mod Source/MenuBackdrop.cs",
-                          "bytes":  3219,
-                          "sha256":  "e583a3c41d73610337274fe0b5e81f64a8041e1eaa6099d948b707bb881000f5"
+                          "bytes":  3184,
+                          "sha256":  "7825339b2fa8779d5146af9f656899e67e7f339a6f8cd1e03153cd43748d9f47"
                       },
                       {
                           "path":  "AI Mod Source/PatchGame.cs",
-                          "bytes":  19266,
-                          "sha256":  "b359bd1cf320835a22df44d6178f217c31583d5e7e82dcd225742d8f8634d215"
+                          "bytes":  18944,
+                          "sha256":  "43a2f3adc01140dd409949ace07f28afaf140ff2a14be9744154b9a856bb9c8d"
                       },
                       {
                           "path":  "AI Mod Source/PlayerMovement.cs",
-                          "bytes":  11293,
-                          "sha256":  "c2905d71baee691708b3a8d66547552f32d5ca816fbb52f17d49882c8f352a6e"
+                          "bytes":  13115,
+                          "sha256":  "83de5706bb98a0721e8a5b6375da85674bbd7fd4e6a4aa9953a3c109d1df8d57"
                       },
                       {
                           "path":  "AI Mod Source/PlayerSkills.cs",
-                          "bytes":  98399,
-                          "sha256":  "1f5d141a86034383d8de9ce8c3cc79cfc979caf583dcd674fde11054cdf86382"
+                          "bytes":  99277,
+                          "sha256":  "a8148084d5409ae98ca7b2afb0955a6176a9277b9755de623c10b96734a27ced"
                       },
                       {
                           "path":  "AI Mod Source/PowerShot.cs",
-                          "bytes":  10931,
-                          "sha256":  "8261940fdaf2ae2d97454af637d3b988856b03cb6b5cdbc81efc083d3b80b8c8"
+                          "bytes":  11903,
+                          "sha256":  "94962aba23484ca6a119fe14514d4240bc8cf30d71b6e86ce80aea93c11383d8"
                       },
                       {
                           "path":  "AI Mod Source/README.md",
-                          "bytes":  32464,
-                          "sha256":  "e3799630bb571c9f98f051a72f6e43229b783646fbe195bdd239e338606d277f"
+                          "bytes":  33349,
+                          "sha256":  "c4e29542383990bdf9c7e0781686edcc11e6b71d99d20b702546968dcfdd9211"
                       },
                       {
                           "path":  "AI Mod Source/ZhaoHeader.cs",
-                          "bytes":  6342,
-                          "sha256":  "d185f098313a1540af48fb1d4add1d5fae06b4b5b3ff45b47294c101db827f0f"
+                          "bytes":  6243,
+                          "sha256":  "55ab999f4be45f7a111fb42878d96f903e59c295752eec027f070407f2f23c08"
                       },
                       {
                           "path":  "FanZhiYi_Data/app.info",
-                          "bytes":  14,
-                          "sha256":  "c7efb2831839c63923efe861a4beea447c203e524a9f9f45495d99dab59617ef"
+                          "bytes":  13,
+                          "sha256":  "9803d2e6b4647496eae25492542d77d2c1e043e6867ae3fa10e839abd120ffbb"
                       },
                       {
                           "path":  "FanZhiYi_Data/boot.config",
-                          "bytes":  65,
-                          "sha256":  "cdafe3b3e9a9155b91e49967b1c0795ca7438b3515e182a7c13765a8e838e2bf"
+                          "bytes":  62,
+                          "sha256":  "78cc47cbbed8923df2d9eb2da0c8fd7b3b400b3353544adb47c327802fc0ba56"
                       },
                       {
                           "path":  "FanZhiYi_Data/globalgamemanagers",
@@ -167,8 +167,8 @@
                       },
                       {
                           "path":  "FanZhiYi_Data/Managed/GameAIMod.dll",
-                          "bytes":  166912,
-                          "sha256":  "4af6345c527ad0ba7e39d263c1a11fd0b0876b39a1c250663ded0850c9c61075"
+                          "bytes":  170496,
+                          "sha256":  "65441c679041b3d4d23b9f510dbc7fca8f494659d1cdcdd1013d4a90814813ee"
                       },
                       {
                           "path":  "FanZhiYi_Data/Managed/Mono.Security.dll",
@@ -662,101 +662,101 @@
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/browscap.ini",
-                          "bytes":  328963,
-                          "sha256":  "f16656075bb34412335ca0b157f30384e15d79167c4dd2ec0fe0b64a51fffb71"
+                          "bytes":  311984,
+                          "sha256":  "4ddd50f31fb968f30bedefc253a46dc3f2890192d05cdaa9e0a64a056eee807e"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/config",
-                          "bytes":  3319,
-                          "sha256":  "5a05cf71c8552c5cc429bc906abc71abe77a2215bf327d8e344d5db5711eaa41"
+                          "bytes":  3276,
+                          "sha256":  "60099cf91bb1a5717fc1f2d23cf36a61d3bfb70d9489fbb6f4bae98c560bf3d5"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx",
-                          "bytes":  62476,
-                          "sha256":  "aa24e546fd54337d197b43e9559dc7517187967f794c77b6341ecdcb870460a8"
+                          "bytes":  60575,
+                          "sha256":  "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/2.0/machine.config",
-                          "bytes":  29399,
-                          "sha256":  "d0e5edaf9233df58e9ac5d6d6f60113912db2765db79b1f2c6a973118932ed04"
+                          "bytes":  29116,
+                          "sha256":  "edc5bcf685d930a607bc097927260a3f9ac7f52dd809db68158298bfd934b7ce"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/2.0/settings.map",
-                          "bytes":  2670,
-                          "sha256":  "842bc14c6e20294aa98cc6180c2a307e724a7fda66f41240a2d83a094665c8cf"
+                          "bytes":  2622,
+                          "sha256":  "49c6160f9d54af4270a3b4e997fc4a8301f79b9e2070118fa46ddbcbbc44f9a2"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/2.0/web.config",
-                          "bytes":  11840,
-                          "sha256":  "d72ff8c60ca58fd3bc106365d753c5bfad9f85d33757aeb2ffdf745d61cec1b1"
+                          "bytes":  11686,
+                          "sha256":  "3c1a76a5849074b437d297656a208a3bef6d84b982153542b9c797046c601dfc"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser",
-                          "bytes":  1627,
-                          "sha256":  "bf4ae2fe630714eee3d7b0a28285a3aa49a6589a3660e58cf7868aca3321a7b1"
+                          "bytes":  1605,
+                          "sha256":  "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx",
-                          "bytes":  62476,
-                          "sha256":  "aa24e546fd54337d197b43e9559dc7517187967f794c77b6341ecdcb870460a8"
+                          "bytes":  60575,
+                          "sha256":  "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.0/machine.config",
-                          "bytes":  33958,
-                          "sha256":  "bedb3515c6a3a796db1c04c996f337b76bfd3d1f736411375c6c8999e6c903f9"
+                          "bytes":  33648,
+                          "sha256":  "6919d5af506aae0d93e91bd83418a81895a5554b9f54cf94aad20d025a4db664"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.0/settings.map",
-                          "bytes":  2670,
-                          "sha256":  "52957cf8fbeb4d1e5f545673d67a2c9cb3469d26042a447790d66bcfc07a87ce"
+                          "bytes":  2622,
+                          "sha256":  "ce1db1ad8a9512073164e3eccdc193f7eda036e1a9733caec4635de21b2865c8"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.0/web.config",
-                          "bytes":  19101,
-                          "sha256":  "286404ca4044fca41fa8ad7b9c5a143c223af1123469476b2d0dd128c0495ca7"
+                          "bytes":  18848,
+                          "sha256":  "f1a6416eeedd9d040387fd85dcf7d6e074b6644c6829d08be220ff9fc32efb31"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser",
-                          "bytes":  1627,
-                          "sha256":  "bf4ae2fe630714eee3d7b0a28285a3aa49a6589a3660e58cf7868aca3321a7b1"
+                          "bytes":  1605,
+                          "sha256":  "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx",
-                          "bytes":  62476,
-                          "sha256":  "aa24e546fd54337d197b43e9559dc7517187967f794c77b6341ecdcb870460a8"
+                          "bytes":  60575,
+                          "sha256":  "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.5/machine.config",
-                          "bytes":  34419,
-                          "sha256":  "5530adac4009537e9104607c33899c3e7bdbe01e6973a97998b2d0aa62d668cb"
+                          "bytes":  34106,
+                          "sha256":  "ef9b9387168fd1dd6c996f96c134d9c44f8eb06f9587004bf997252a520182d6"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.5/settings.map",
-                          "bytes":  2670,
-                          "sha256":  "52957cf8fbeb4d1e5f545673d67a2c9cb3469d26042a447790d66bcfc07a87ce"
+                          "bytes":  2622,
+                          "sha256":  "ce1db1ad8a9512073164e3eccdc193f7eda036e1a9733caec4635de21b2865c8"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.5/web.config",
-                          "bytes":  19110,
-                          "sha256":  "985cd515adfddabd2c88a6e607769f0c177b35ab150d10de1d4f89fc0a3015ac"
+                          "bytes":  18857,
+                          "sha256":  "15a2c7a9242bf54d3ccb3e07fa6d8f84ba8b303d8877243787a1103009941bdb"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser",
-                          "bytes":  1627,
-                          "sha256":  "bf4ae2fe630714eee3d7b0a28285a3aa49a6589a3660e58cf7868aca3321a7b1"
+                          "bytes":  1605,
+                          "sha256":  "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/mconfig/config.xml",
-                          "bytes":  26433,
-                          "sha256":  "a1809f956176325c3ab236854789da917e8fd445d863b400272850e1f2336d64"
+                          "bytes":  25817,
+                          "sha256":  "0c56e34c69124510fa8c19e7b4c2ca6c1c4ff460ae19f798dd0ca035809e396d"
                       }
                   ]
     },
     {
         "edition":  "experimental",
         "archive":  "downloads/fzy-vs-zp-experimental-win32.zip",
-        "archiveBytes":  28511035,
-        "archiveSha256":  "b0184cee36b4814908198b7006bc8caa206dc9e24546d2a63b7aff5bc5bd2036",
+        "archiveBytes":  28024951,
+        "archiveSha256":  "bfbee65eb425fe0d03592cd498ec2d25b85668a7b3b05a9688e32e535c666c6c",
         "files":  [
                       {
                           "path":  "FanZhiYi.exe",
@@ -775,13 +775,13 @@
                       },
                       {
                           "path":  "实验版说明.txt",
-                          "bytes":  4018,
-                          "sha256":  "a9839aa44dd2a6941b51e76912ae2b141abbfe770cdf6e0a4767472bd0dcd0e1"
+                          "bytes":  3974,
+                          "sha256":  "514da97ac461dd1fb6b83192223c18f3042d742c5a565481fc3fba9477331b57"
                       },
                       {
                           "path":  "按键设置.ini",
-                          "bytes":  325,
-                          "sha256":  "04fdcea8ff9b1a87d735db4e0f39e357b4cb54de47892f932142fd3f39c0bed0"
+                          "bytes":  345,
+                          "sha256":  "84dd4e03a827666571d5392db67e0eb5452f58763d136f50e8bf39eb5fa4f196"
                       },
                       {
                           "path":  "球场背景.png",
@@ -790,8 +790,8 @@
                       },
                       {
                           "path":  "AI Mod Source/AbilityMode.cs",
-                          "bytes":  48058,
-                          "sha256":  "6e9ad09874d5aebfbdf7eac9dc465644bc9767a9898346e4d9f4e991807e101f"
+                          "bytes":  49694,
+                          "sha256":  "58559911f27060a3994a646676c447a0d28b8a96be2dc2ad6987b59310f174a4"
                       },
                       {
                           "path":  "AI Mod Source/Assembly-CSharp.original.dll",
@@ -815,8 +815,8 @@
                       },
                       {
                           "path":  "AI Mod Source/GameAIMod.cs",
-                          "bytes":  82534,
-                          "sha256":  "e32b6a7948e2b6e791adc627e1f1b10d006f061a3f2b70632cfbb965f901705d"
+                          "bytes":  82735,
+                          "sha256":  "a2cd3a462d3bfd9f17c499c2a40a1a8e042987bb3307c218ff023ce9641b03e5"
                       },
                       {
                           "path":  "AI Mod Source/LanMultiplayer.cs",
@@ -830,48 +830,48 @@
                       },
                       {
                           "path":  "AI Mod Source/MenuBackdrop.cs",
-                          "bytes":  3219,
-                          "sha256":  "e583a3c41d73610337274fe0b5e81f64a8041e1eaa6099d948b707bb881000f5"
+                          "bytes":  3184,
+                          "sha256":  "7825339b2fa8779d5146af9f656899e67e7f339a6f8cd1e03153cd43748d9f47"
                       },
                       {
                           "path":  "AI Mod Source/PatchGame.cs",
-                          "bytes":  19702,
-                          "sha256":  "0f298094a578a86256b5ac5252dcb8071dda50334ebe220f39adfa152d65ea43"
+                          "bytes":  19380,
+                          "sha256":  "3cf7eaacd5d41dc83420e53d331376f542ce32ef2f08878b05199dba68dda85d"
                       },
                       {
                           "path":  "AI Mod Source/PlayerMovement.cs",
-                          "bytes":  11293,
-                          "sha256":  "c2905d71baee691708b3a8d66547552f32d5ca816fbb52f17d49882c8f352a6e"
+                          "bytes":  13115,
+                          "sha256":  "83de5706bb98a0721e8a5b6375da85674bbd7fd4e6a4aa9953a3c109d1df8d57"
                       },
                       {
                           "path":  "AI Mod Source/PlayerSkills.cs",
-                          "bytes":  99262,
-                          "sha256":  "ef09a4242959d177871633edeb9d19220e166388549735d6a4ff3ee89bc7ac03"
+                          "bytes":  100140,
+                          "sha256":  "83b1d72599aad8791ff2060e2cc998db7c6fcea1374e693ffe2f22759a20371a"
                       },
                       {
                           "path":  "AI Mod Source/PowerShot.cs",
-                          "bytes":  10931,
-                          "sha256":  "8261940fdaf2ae2d97454af637d3b988856b03cb6b5cdbc81efc083d3b80b8c8"
+                          "bytes":  11903,
+                          "sha256":  "94962aba23484ca6a119fe14514d4240bc8cf30d71b6e86ce80aea93c11383d8"
                       },
                       {
                           "path":  "AI Mod Source/README.md",
-                          "bytes":  34011,
-                          "sha256":  "88ba575b8dfa369c88e981c63fe6e8be439ffd4919ec2bb52a8c79eb4b52b99c"
+                          "bytes":  34896,
+                          "sha256":  "421181aa83e6849cb525b6ae091364aae82bd8e00bd585563f42e581caaab2f6"
                       },
                       {
                           "path":  "AI Mod Source/ZhaoHeader.cs",
-                          "bytes":  6342,
-                          "sha256":  "d185f098313a1540af48fb1d4add1d5fae06b4b5b3ff45b47294c101db827f0f"
+                          "bytes":  6243,
+                          "sha256":  "55ab999f4be45f7a111fb42878d96f903e59c295752eec027f070407f2f23c08"
                       },
                       {
                           "path":  "FanZhiYi_Data/app.info",
-                          "bytes":  14,
-                          "sha256":  "c7efb2831839c63923efe861a4beea447c203e524a9f9f45495d99dab59617ef"
+                          "bytes":  13,
+                          "sha256":  "9803d2e6b4647496eae25492542d77d2c1e043e6867ae3fa10e839abd120ffbb"
                       },
                       {
                           "path":  "FanZhiYi_Data/boot.config",
-                          "bytes":  65,
-                          "sha256":  "cdafe3b3e9a9155b91e49967b1c0795ca7438b3515e182a7c13765a8e838e2bf"
+                          "bytes":  62,
+                          "sha256":  "78cc47cbbed8923df2d9eb2da0c8fd7b3b400b3353544adb47c327802fc0ba56"
                       },
                       {
                           "path":  "FanZhiYi_Data/globalgamemanagers",
@@ -930,8 +930,8 @@
                       },
                       {
                           "path":  "FanZhiYi_Data/Managed/GameAIMod.dll",
-                          "bytes":  171520,
-                          "sha256":  "b4210d810f21d0b9bbb842185a7b6e5c5beb0f7b0fd28b66625cbb81841a8157"
+                          "bytes":  175104,
+                          "sha256":  "0ba68a34a0f20c20cf8cce28b1616359a95f2442f692b8cf378eaac49472d45a"
                       },
                       {
                           "path":  "FanZhiYi_Data/Managed/Mono.Security.dll",
@@ -1425,93 +1425,93 @@
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/browscap.ini",
-                          "bytes":  328963,
-                          "sha256":  "f16656075bb34412335ca0b157f30384e15d79167c4dd2ec0fe0b64a51fffb71"
+                          "bytes":  311984,
+                          "sha256":  "4ddd50f31fb968f30bedefc253a46dc3f2890192d05cdaa9e0a64a056eee807e"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/config",
-                          "bytes":  3319,
-                          "sha256":  "5a05cf71c8552c5cc429bc906abc71abe77a2215bf327d8e344d5db5711eaa41"
+                          "bytes":  3276,
+                          "sha256":  "60099cf91bb1a5717fc1f2d23cf36a61d3bfb70d9489fbb6f4bae98c560bf3d5"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx",
-                          "bytes":  62476,
-                          "sha256":  "aa24e546fd54337d197b43e9559dc7517187967f794c77b6341ecdcb870460a8"
+                          "bytes":  60575,
+                          "sha256":  "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/2.0/machine.config",
-                          "bytes":  29399,
-                          "sha256":  "d0e5edaf9233df58e9ac5d6d6f60113912db2765db79b1f2c6a973118932ed04"
+                          "bytes":  29116,
+                          "sha256":  "edc5bcf685d930a607bc097927260a3f9ac7f52dd809db68158298bfd934b7ce"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/2.0/settings.map",
-                          "bytes":  2670,
-                          "sha256":  "842bc14c6e20294aa98cc6180c2a307e724a7fda66f41240a2d83a094665c8cf"
+                          "bytes":  2622,
+                          "sha256":  "49c6160f9d54af4270a3b4e997fc4a8301f79b9e2070118fa46ddbcbbc44f9a2"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/2.0/web.config",
-                          "bytes":  11840,
-                          "sha256":  "d72ff8c60ca58fd3bc106365d753c5bfad9f85d33757aeb2ffdf745d61cec1b1"
+                          "bytes":  11686,
+                          "sha256":  "3c1a76a5849074b437d297656a208a3bef6d84b982153542b9c797046c601dfc"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser",
-                          "bytes":  1627,
-                          "sha256":  "bf4ae2fe630714eee3d7b0a28285a3aa49a6589a3660e58cf7868aca3321a7b1"
+                          "bytes":  1605,
+                          "sha256":  "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx",
-                          "bytes":  62476,
-                          "sha256":  "aa24e546fd54337d197b43e9559dc7517187967f794c77b6341ecdcb870460a8"
+                          "bytes":  60575,
+                          "sha256":  "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.0/machine.config",
-                          "bytes":  33958,
-                          "sha256":  "bedb3515c6a3a796db1c04c996f337b76bfd3d1f736411375c6c8999e6c903f9"
+                          "bytes":  33648,
+                          "sha256":  "6919d5af506aae0d93e91bd83418a81895a5554b9f54cf94aad20d025a4db664"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.0/settings.map",
-                          "bytes":  2670,
-                          "sha256":  "52957cf8fbeb4d1e5f545673d67a2c9cb3469d26042a447790d66bcfc07a87ce"
+                          "bytes":  2622,
+                          "sha256":  "ce1db1ad8a9512073164e3eccdc193f7eda036e1a9733caec4635de21b2865c8"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.0/web.config",
-                          "bytes":  19101,
-                          "sha256":  "286404ca4044fca41fa8ad7b9c5a143c223af1123469476b2d0dd128c0495ca7"
+                          "bytes":  18848,
+                          "sha256":  "f1a6416eeedd9d040387fd85dcf7d6e074b6644c6829d08be220ff9fc32efb31"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser",
-                          "bytes":  1627,
-                          "sha256":  "bf4ae2fe630714eee3d7b0a28285a3aa49a6589a3660e58cf7868aca3321a7b1"
+                          "bytes":  1605,
+                          "sha256":  "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx",
-                          "bytes":  62476,
-                          "sha256":  "aa24e546fd54337d197b43e9559dc7517187967f794c77b6341ecdcb870460a8"
+                          "bytes":  60575,
+                          "sha256":  "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.5/machine.config",
-                          "bytes":  34419,
-                          "sha256":  "5530adac4009537e9104607c33899c3e7bdbe01e6973a97998b2d0aa62d668cb"
+                          "bytes":  34106,
+                          "sha256":  "ef9b9387168fd1dd6c996f96c134d9c44f8eb06f9587004bf997252a520182d6"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.5/settings.map",
-                          "bytes":  2670,
-                          "sha256":  "52957cf8fbeb4d1e5f545673d67a2c9cb3469d26042a447790d66bcfc07a87ce"
+                          "bytes":  2622,
+                          "sha256":  "ce1db1ad8a9512073164e3eccdc193f7eda036e1a9733caec4635de21b2865c8"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.5/web.config",
-                          "bytes":  19110,
-                          "sha256":  "985cd515adfddabd2c88a6e607769f0c177b35ab150d10de1d4f89fc0a3015ac"
+                          "bytes":  18857,
+                          "sha256":  "15a2c7a9242bf54d3ccb3e07fa6d8f84ba8b303d8877243787a1103009941bdb"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser",
-                          "bytes":  1627,
-                          "sha256":  "bf4ae2fe630714eee3d7b0a28285a3aa49a6589a3660e58cf7868aca3321a7b1"
+                          "bytes":  1605,
+                          "sha256":  "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741"
                       },
                       {
                           "path":  "MonoBleedingEdge/etc/mono/mconfig/config.xml",
-                          "bytes":  26433,
-                          "sha256":  "a1809f956176325c3ab236854789da917e8fd445d863b400272850e1f2336d64"
+                          "bytes":  25817,
+                          "sha256":  "0c56e34c69124510fa8c19e7b4c2ca6c1c4ff460ae19f798dd0ca035809e396d"
                       }
                   ]
     }

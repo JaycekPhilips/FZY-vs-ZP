@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -13,6 +13,7 @@ public sealed class PowerShot : MonoBehaviour
     public const float SkillBurstMultiplier = 1.1f;
     private Component controller, manager;
     private Rigidbody2D body, ball;
+    private Collider2D headShape; private float headReferenceAngle;
     private Collider2D ballShape;
     private FieldInfo stopping;
     private readonly PhysicsHitBuffer rayHits = new PhysicsHitBuffer();
@@ -33,6 +34,7 @@ public sealed class PowerShot : MonoBehaviour
         PowerShot shot = player.gameObject.AddComponent<PowerShot>();
         shot.controller = player; shot.fan = player.name == "Fan";
         shot.body = player.GetType().GetField("rb").GetValue(player) as Rigidbody2D;
+        Transform head=player.transform.Find("Head");shot.headShape=head.GetComponent<Collider2D>();shot.headReferenceAngle=head.eulerAngles.z;
         shot.groundMask = (int)(LayerMask)player.GetType().GetField("ground").GetValue(player);
         Component nativeBall = UnityEngine.Object.FindObjectOfType(player.GetType().Assembly.GetType("Ball")) as Component;
         if (nativeBall != null) { shot.ball = nativeBall.GetComponent<Rigidbody2D>(); shot.ballShape = nativeBall.GetComponent<Collider2D>(); if (nativeBall.GetComponent<HeaderContactSensor>() == null) nativeBall.gameObject.AddComponent<HeaderContactSensor>(); }
@@ -51,17 +53,21 @@ public sealed class PowerShot : MonoBehaviour
         shot.requestedFrame = -1;
     }
     public static void CompleteHeader(Component player) { PowerShot s = player != null ? player.GetComponent<PowerShot>() : null; if (s != null) s.headerUntil = -1f; }
-    private bool SlowHeader(Collider2D limb, bool exiting)
-    {
-        if (Stopped() || Time.time > headerUntil || limb.name != "Head") return false;
-        if (PlayerSkills.RescueHeader(controller)) return true;
-        if (!exiting) return false;
-        // Fan's assisted cannon header supplies its own reduced target once.
-        PlayerSkills skills = controller.GetComponent<PlayerSkills>();
-        if (skills != null && skills.AwaitingFanHeader) return false;
-        headerUntil = -1f;
-        ball.AddForce(ball.velocity * ((HeaderSpeedMultiplier - 1f) * ball.mass), ForceMode2D.Impulse);
-        return true;
+    public static bool FrontalHead(Component player,Rigidbody2D ball){
+        PowerShot s=player!=null?player.GetComponent<PowerShot>():null;if(s==null||s.headShape==null||ball==null)return false;
+        float angle=Mathf.DeltaAngle(s.headReferenceAngle,s.headShape.transform.eulerAngles.z)*Mathf.Deg2Rad;
+        Vector2 facing=new Vector2(Mathf.Cos(angle),Mathf.Sin(angle))*(s.fan?1f:-1f);
+        return Vector2.Dot(ball.position-(Vector2)s.headShape.bounds.center,facing)>.015f*Mathf.Abs(player.transform.lossyScale.x)/.8f;
+    }
+    public static Vector2 OrdinaryHeaderVelocity(Component player,Vector2 incoming){return PlayerSkills.CannonVelocity(player.name=="Fan"?1f:-1f,incoming)*.85f;}
+    private bool SlowHeader(Collider2D limb,bool exiting){
+        if(Stopped()||Time.time>headerUntil||limb.name!="Head")return false;
+        if(!FrontalHead(controller,ball)){headerUntil=-1f;return false;}
+        if(PlayerSkills.RescueHeader(controller))return true;
+        if(AbilityMode.Enabled)return false;
+        PlayerSkills skills=controller.GetComponent<PlayerSkills>();if(skills!=null&&skills.AwaitingFanHeader)return false;
+        headerUntil=-1f;Vector2 target=OrdinaryHeaderVelocity(controller,ball.velocity);
+        ball.collisionDetectionMode=CollisionDetectionMode2D.Continuous;ball.AddForce((target-ball.velocity)*ball.mass,ForceMode2D.Impulse);return true;
     }
     private bool Stopped() { return controller == null || ball == null || Time.timeScale <= 0f || GameAIMod.BallOutThisRally || (manager != null && (bool)stopping.GetValue(manager)); }
     private bool InFront() { return ball != null && body != null && (fan ? 1f : -1f) * (ball.position.x - body.position.x) >= -.1f; }

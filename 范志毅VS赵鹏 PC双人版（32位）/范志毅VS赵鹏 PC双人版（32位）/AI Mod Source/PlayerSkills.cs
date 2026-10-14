@@ -16,7 +16,7 @@ public sealed class PlayerSkills : MonoBehaviour
     public const float FanVolleyCommandWindow = .75f;
     public const float ShotDoubleTapWindow = .35f;
     public const float FanDribbleAnimationMultiplier = 1.5f;
-    public const float FanAttackSprintMultiplier = 1.25f;
+    public const float FanAttackSprintMultiplier = 1.6f;
     public const float FanVolleyLiftSpeed = 15.75f;
     public const float FanVolleyFlightDuration = 3f;
     public const float FanVolleyArcHeight = 4.2f;
@@ -119,7 +119,7 @@ public sealed class PlayerSkills : MonoBehaviour
     private float retreatUntil = -1f, standingHeight, standingHeadHeight;
     private bool retreatHeld, retreatJumped, retreatHeaded, rescueWaiting, retreatJumpQueued;
     private float rescueJumpRequestedAt = -10f, rescueJumpStarted = -10f, rescueStarted; private int rescueJumpAttempts;
-    private RescuePlanner.Plan rescuePlan;private float rescueNativeJump;
+    private RescuePlanner.Plan rescuePlan;private float rescueNativeJump,rescueAssistAt=-10f,rescueAssistUntil=-1f;
     private float rescueRecoveryUntil = -1f, rescueInput, rescueSpeed, nativeRunSpeed, rescueFloorTime = -1f, rescueFloorHeight;
     private readonly RaycastHit2D[] rescueGroundHits = new RaycastHit2D[24];
     private Collider2D ownGoal;
@@ -133,13 +133,13 @@ public sealed class PlayerSkills : MonoBehaviour
         bool pressed = input > .1f;
         if (s.Stopped() || GameAIMod.BallOutThisRally || s.ball == null)
         { s.retreatUntil = -1f; s.retreatHeld = pressed; return input; }
-        if (allowStart && pressed && !s.retreatHeld && RescuePlanner.BehindThreat(s.ball,s.body.position,-1f,s.standingHeight,s.RescueFloor(),s.ballCollider.bounds.extents.y,s.ownGoal!=null?s.ownGoal.bounds.min.x:100f))
+        if (allowStart && pressed && (!s.retreatHeld||Time.time>s.retreatUntil+.15f) && RescuePlanner.BehindThreat(s.ball,s.body.position,-1f,s.standingHeight,s.RescueFloor(),s.ballCollider.bounds.extents.y,s.ownGoal!=null?s.ownGoal.bounds.min.x:100f))
         { s.retreatUntil = Time.time + 2.6f; s.retreatJumped = s.retreatHeaded = s.retreatJumpQueued = false; s.rescueJumpAttempts = 0; s.rescueStarted = Time.time; s.Show(6); }
         s.retreatHeld = allowStart && pressed;
         if (input < -.1f) s.retreatUntil = s.rescueRecoveryUntil = -1f;
         if (Time.time > s.retreatUntil) return input;
         s.rescueRecoveryUntil = Time.time + 1f;
-        float margin = s.standingBodyWidth * .6f + s.ballCollider.bounds.extents.x;
+        float margin = s.standingBodyWidth * .6f + s.ballCollider.bounds.extents.x + .2f;
         float goalLine = s.ownGoal != null ? s.ownGoal.bounds.min.x : 100f;
         float rearExtent = s.standingBodyWidth * .5f;
         foreach (Collider2D limb in s.playerColliders)
@@ -149,6 +149,7 @@ public sealed class PlayerSkills : MonoBehaviour
                 {
             if (s.ball.position.x > s.body.position.x && target < s.ball.position.x + margin - .05f)
             { s.rescueWaiting = true; s.rescueSpeed = 0f; return 0f; }
+            if(s.RescueBottom()>s.RescueFloor()+.12f&&s.ball.velocity.x>.1f){s.retreatUntil=Mathf.Max(s.retreatUntil,Time.time+.45f);s.rescueSpeed=Mathf.Max(0f,s.ball.velocity.x+(target-s.body.position.x)*4f);return 1f;}
             s.retreatUntil = -1f; return input;
         }
         float bottom = s.body.position.y;
@@ -193,7 +194,13 @@ public sealed class PlayerSkills : MonoBehaviour
     private void UpdateRescueBalance()
     {
         if (fan || Stopped() || GameAIMod.BallOutThisRally || Time.time > rescueRecoveryUntil || physicalLimbs == null) return;
+        if(Time.time<=retreatUntil&&rescuePlan.low&&rescuePlan.wait&&rescuePlan.behind>0&&rescuePlan.remaining>.04f&&body.velocity.y<.8f&&Time.time-rescueAssistAt>.6f&&(RescueHasSupport()||RescueBottom()<RescueFloor()+standingHeight*.18f)){
+            rescueAssistAt=Time.time;rescueAssistUntil=Time.time+.16f;retreatJumped=true;retreatJumpQueued=false;rescueJumpStarted=Time.time;rescueJumpAttempts++;
+            if(animator!=null)animator.SetTrigger("Jump");PlayerMovement.NotifyAction(controller);
+        }
+        if(Time.time<rescueAssistUntil&&Time.time<=retreatUntil){float vy=0;foreach(var b in physicalLimbs)if(b!=null)vy+=b.velocity.y*b.mass;vy/=TotalMass();float target=Mathf.Min(7f,rescuePlan.jumpSpeed*1.18f);ApplyLinearImpulse(Vector2.up*Mathf.Clamp(target-vy,0f,50f*Time.fixedDeltaTime)*TotalMass());}
         if(!DownIntercept.Active(controller)&&body.velocity.y<.1f&&RescuePlanner.FastDropSafe(ball,body.position,-1f,standingBodyWidth,ballCollider.bounds.extents.x,standingHeight,RescueFloor(),RescueBottom())){float descent=-Mathf.Min(12f,Mathf.Sqrt(2f*60f*Mathf.Max(.01f,RescueBottom()-RescueFloor())));ApplyLinearImpulse(Vector2.up*Mathf.Clamp(descent-body.velocity.y,-80f*Time.fixedDeltaTime,0f)*TotalMass());}
+        foreach(var shape in playerColliders)if(shape!=null&&shape.IsTouching(ballCollider))CushionRescueContact(shape);
         float angle = (float)bodyTargetField.GetValue(muscles);
         float desiredSpin = Mathf.Clamp(Mathf.DeltaAngle(body.rotation, angle) * 7f, -120f, 120f);
         float spinChange = Mathf.Clamp(desiredSpin - body.angularVelocity, -900f * Time.fixedDeltaTime, 900f * Time.fixedDeltaTime);
@@ -226,15 +233,8 @@ public sealed class PlayerSkills : MonoBehaviour
         PlayerSkills s = player != null ? player.GetComponent<PlayerSkills>() : null;
         if (s == null || s.fan || s.Stopped() || GameAIMod.BallOutThisRally || Time.time > s.retreatUntil || s.ball == null) return false;
         float gap = s.ball.position.x - s.body.position.x, height = s.ball.position.y - s.RescueFloor();
-        if (jump)
-        {
-            if (s.retreatJumpQueued && Time.time - s.rescueJumpRequestedAt > .25f) s.retreatJumpQueued = false;
-            if (s.retreatJumpQueued || s.rescueJumpAttempts >= 2 ||
-                !s.rescuePlan.low || gap < -.1f || gap > 2.3f || !s.RescueHasSupport()) return false;
-            if (s.retreatJumped && Time.time - s.rescueJumpStarted < .75f) return false;
-            s.retreatJumpQueued = true; s.rescueJumpRequestedAt = Time.time; return true;
-        }
-        if (s.retreatHeaded || !s.rescuePlan.head || height < s.standingHeadHeight - s.standingHeight * .15f || height > s.standingHeight || gap < -.1f ||
+        if(jump)return false; // Smooth whole-rig hop is provided by the recovery physics.
+        if (s.retreatHeaded || !PowerShot.FrontalHead(player,s.ball) || !s.rescuePlan.head || height < s.standingHeadHeight - s.standingHeight * .15f || height > s.standingHeight || gap < -.1f ||
             Vector2.Distance(s.ball.position, s.head.position) > s.standingBodyWidth * .6f + s.ballCollider.bounds.extents.x + .45f) return false;
         s.retreatHeaded = true; s.retreatUntil = Mathf.Max(s.retreatUntil, Time.time + .65f); return true;
     }
@@ -284,7 +284,7 @@ public sealed class PlayerSkills : MonoBehaviour
     public static bool RescueHeader(Component player)
     {
         PlayerSkills s = player != null ? player.GetComponent<PlayerSkills>() : null;
-        if (s == null || s.fan || s.Stopped() || !s.retreatHeaded || Time.time > s.retreatUntil || GameAIMod.BallOutThisRally) return false;
+        if (s == null || s.fan || s.Stopped() || !PowerShot.FrontalHead(player,s.ball) || !s.headCollider.IsTouching(s.ballCollider) || !s.retreatHeaded || Time.time > s.retreatUntil || GameAIMod.BallOutThisRally) return false;
         // Strike only on a real head contact. Clear above the own crossbar;
         // near the line, turn the ball back onto the pitch instead of risking
         // a goalward impulse with too little vertical clearance.
@@ -336,6 +336,7 @@ public sealed class PlayerSkills : MonoBehaviour
     public static float GetJumpForce(float original, Component player)
     {
         PlayerSkills rescue=player!=null?player.GetComponent<PlayerSkills>():null;
+        if(rescue!=null&&Time.time<rescue.rescueAssistUntil)return 0f;
         if(Enabled&&rescue!=null&&!rescue.fan&&Time.time<=rescue.retreatUntil&&Time.time-rescue.rescueJumpRequestedAt<.35f)return original*Mathf.Clamp(1.15f*rescue.rescuePlan.jumpSpeed/Mathf.Max(.1f,rescue.rescueNativeJump),.15f,2f);
         return AbilityMode.JumpForce(Enabled && player != null && player.name == "Zhao" ? original * ZhaoJumpMultiplier : original, player);
     }
@@ -916,13 +917,7 @@ public sealed class PlayerSkills : MonoBehaviour
         ball.AddForce(Vector2.left * momentum, ForceMode2D.Impulse);
 
     }
-    private bool HeadReachable()
-    {
-        if (!BallInFront() || head == null || ball.position.y < -.6f) return false;
-        if (headCollider != null)
-            return Vector2.Distance(headCollider.ClosestPoint(ball.position), ball.position) <= .48f;
-        return Vector2.Distance(head.position, ball.position) <= .95f;
-    }
+    private bool HeadReachable(){return headCollider!=null&&ballCollider!=null&&PowerShot.FrontalHead(controller,ball)&&headCollider.IsTouching(ballCollider);}
 
     private bool GroundBallInReach(float reach)
     {
@@ -1665,7 +1660,7 @@ public static class RescuePlanner
     {
         Plan p=new Plan();p.behind=-direction*(ball.position.x-body.x);
         p.relevant=BehindThreat(ball,body,direction,height,floor,radius,ownLine);
-        float margin=width*.6f+radius,goalGap=-direction*(ownLine-body.x)-width*.6f-.15f;
+        float margin=width*.6f+radius+.2f,goalGap=-direction*(ownLine-body.x)-width*.6f-.15f;
         float rear=Mathf.Max(0,-direction*ball.velocity.x);
         p.time=Mathf.Clamp((Mathf.Max(0,p.behind)+margin)/Mathf.Max(normalRetreat,rear+normalRetreat*.6f),.10f,.75f);
         Vector2 future=Predict(ball,p.time,floor,radius);p.height=future.y-floor;
@@ -1684,7 +1679,7 @@ public static class RescuePlanner
         Vector2 crossing=Predict(ball,encounter,floor,radius);
         float landing=bottom+velocity.y*encounter-.5f*gravity*encounter*encounter;
         bool nearby=p.behind<height*1.25f;
-        p.wait=nearby&&((p.low&&(bottom<crossing.y+radius+.03f*height||landing<crossing.y+radius+.03f*height&&p.behind<margin+brake+.10f*height&&p.behind+margin>Mathf.Max(0,closing)*encounter+9f*encounter*encounter))||(!p.low&&p.height<height*.8f&&p.behind<margin+brake+.15f));
+        p.wait=nearby&&((p.low&&p.behind<margin+brake+.16f*height&&(bottom<crossing.y+radius+.03f*height||landing<crossing.y+radius+.03f*height))||(!p.low&&p.height<height*.8f&&p.behind<margin+brake+.15f));
         return p;
     }
     public static bool FastDropSafe(Rigidbody2D ball,Vector2 body,float direction,float width,float radius,float height,float floor,float bottom)
@@ -1700,7 +1695,7 @@ public static class RescuePlanner
 // Reference speed follows the same gravity and damping as ordinary free fall.
 public sealed class DownIntercept : MonoBehaviour {
     Component player,manager;Animator animator;Rigidbody2D body;Rigidbody2D[] limbs;Collider2D[] shapes;
-    FieldInfo stopping,grounded;int mask;float scale,mass,referenceSpeed,multiplier,lastPress=-10f;bool active;
+    FieldInfo stopping,grounded;int mask;float scale,mass,referenceSpeed,multiplier,lastPress=-10f,startedAt;bool active;
     CollisionDetectionMode2D[] savedModes;readonly RaycastHit2D[] groundHits=new RaycastHit2D[24];
     public static void Attach(Component p){if(p!=null&&p.GetComponent<DownIntercept>()==null)p.gameObject.AddComponent<DownIntercept>().Initialize(p);}
     public static void RescaleStanding(Component p,float factor){DownIntercept d=p!=null?p.GetComponent<DownIntercept>():null;if(d!=null)d.scale*=factor;}
@@ -1715,14 +1710,14 @@ public sealed class DownIntercept : MonoBehaviour {
     Vector2 RigVelocity(){Vector2 v=Vector2.zero;foreach(var b in limbs)if(b!=null)v+=b.velocity*b.mass;return v/Mathf.Max(.001f,mass);}
     void End(){if(active)for(int i=0;i<limbs.Length;i++)if(limbs[i]!=null)limbs[i].collisionDetectionMode=savedModes[i];active=false;referenceSpeed=0;}
     void Show(){if(AbilityMode.Enabled){var b=player.GetComponent<BuildPlayer>();if(b!=null)b.FootIntercept();}else if(HasSkill(player))PlayerSkills.FootIntercept(player);}
-    void Update(){if(Stopped()){End();return;}if(active||!GameAIMod.GetDownCommand(player)||Ground())return;lastPress=Time.time;referenceSpeed=Mathf.Max(0,-RigVelocity().y);multiplier=HasSkill(player)?3f:1.5f;active=true;for(int i=0;i<limbs.Length;i++){savedModes[i]=limbs[i].collisionDetectionMode;limbs[i].collisionDetectionMode=CollisionDetectionMode2D.Continuous;}PlayerMovement.NotifyAction(player);if(animator!=null)animator.SetTrigger("Kick");Show();}
+    void Update(){if(Stopped()){End();return;}if(active||!GameAIMod.GetDownCommand(player)||Ground())return;lastPress=Time.time;referenceSpeed=Mathf.Max(0,-RigVelocity().y);multiplier=HasSkill(player)?6f:1.5f;startedAt=Time.time;active=true;for(int i=0;i<limbs.Length;i++){savedModes[i]=limbs[i].collisionDetectionMode;limbs[i].collisionDetectionMode=CollisionDetectionMode2D.Continuous;}PlayerMovement.NotifyAction(player);Show();}
     void FixedUpdate(){
         if(!active)return;if(Stopped()||Ground()){End();return;}
         float gravity=0,drag=0;foreach(var b in limbs)if(b!=null){gravity+=b.mass*b.gravityScale;drag+=b.mass*b.drag;}gravity=Mathf.Max(0,-Physics2D.gravity.y*gravity/Mathf.Max(.001f,mass));drag/=Mathf.Max(.001f,mass);float dt=Time.fixedDeltaTime;
-        referenceSpeed=(referenceSpeed+gravity*dt)/(1f+drag*dt);float speed=referenceSpeed*multiplier;
+        referenceSpeed=(referenceSpeed+gravity*dt)/(1f+drag*dt);float gain=Mathf.SmoothStep(1f,multiplier,Mathf.Clamp01((Time.time-startedAt)/.08f));float speed=referenceSpeed*gain;
         // Brake only immediately above the pitch; continuous collisions keep
         // high-speed feet on the pitch and preserve the native joints.
         float clearance=Mathf.Max(.005f,Bottom()-Floor());if(clearance<.3f*scale)speed=Mathf.Min(speed,Mathf.Sqrt(2f*80f*clearance));
-        float beforeGravity=-speed*(1f+drag*dt)+gravity*dt;float dv=beforeGravity-RigVelocity().y;foreach(var b in limbs)if(b!=null)b.AddForce(Vector2.up*dv*b.mass,ForceMode2D.Impulse);Show();
+        float beforeGravity=-speed*(1f+drag*dt)+gravity*dt;float dv=Mathf.Clamp(beforeGravity-RigVelocity().y,-160f*dt,160f*dt);foreach(var b in limbs)if(b!=null)b.AddForce(Vector2.up*dv*b.mass,ForceMode2D.Impulse);Show();
     }
 }

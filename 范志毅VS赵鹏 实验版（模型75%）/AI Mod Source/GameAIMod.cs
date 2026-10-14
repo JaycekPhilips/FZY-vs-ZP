@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -1009,7 +1009,7 @@ public static class GameAIMod
         bool allocated=AbilityMode.Has(controller,6),native=controller.name=="Zhao"&&PlayerSkills.Enabled;
         if(!allocated&&!native)return false;float facing=controller.name=="Fan"?1f:-1f;BuildPlayer build=controller.GetComponent<BuildPlayer>();
         if(PlayerSkills.RescueActive(controller)||BuildPlayer.Rescuing(controller)){state.rescuing=true;state.contesting=false;state.axis=0f;return true;}
-        if(PlayerSkills.RescueRecovering(controller)||(build!=null&&build.RescueRecovering)){state.axis=0f;state.contesting=false;return true;}
+        if(PlayerSkills.RescueRecovering(controller)||(build!=null&&build.RescueRecovering)){state.axis=RescuePlanner.BehindThreat(ball,state.body.position,facing,Mathf.Max(.5f,state.standingHeadY-state.pitchFloor),state.pitchFloor,ball.GetComponent<Collider2D>().bounds.extents.y,state.ownGoalLine)?-facing:0f;state.contesting=false;return true;}
         if(state.contesting)return false;float radius=ball.GetComponent<Collider2D>().bounds.extents.y;
         if(!RescuePlanner.BehindThreat(ball,state.body.position,facing,Mathf.Max(.5f,state.standingHeadY-state.pitchFloor),state.pitchFloor,radius,state.ownGoalLine)||Time.time-state.lastRescue<.6f)return false;
         state.rescuing=true;state.axis=-facing;state.lastRescue=Time.time;state.serveApproach=false;state.pendingKickTap=-10f;return true;

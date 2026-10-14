@@ -1,0 +1,143 @@
+{
+  "backup": {
+    "path": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\backup-before-header-rescue-flow-20261014-080905",
+    "stamp": "20261014-080905"
+  },
+  "editions": [
+    {
+      "modHash": "65441C679041B3D4D23B9F510DBC7FCA8F494659D1CDCDD1013D4A90814813EE",
+      "selfplay": {
+        "policyHash": "58C8DE8ACA82723FCD8C1F084A3FE937A38BC02F303E8DC9DAC1C9AEA2432683",
+        "cannonContacts": 407,
+        "leafContacts": 310,
+        "rescueAttempts": 6781,
+        "target": 200,
+        "goals": 200,
+        "fanGoals": 90,
+        "zhaoGoals": 110,
+        "highGoals": 66,
+        "lowGoals": 134,
+        "specialSamples": 100,
+        "abilitySamples": 100,
+        "matches": 21,
+        "failures": 0,
+        "physicsSteps": 88321,
+        "bodySteps": 2070,
+        "feetSteps": 65,
+        "chestSteps": 0,
+        "headSteps": 24,
+        "highContactWins": 863,
+        "lowContactWins": 976,
+        "realSeconds": 81.64446258544922,
+        "simulatedSeconds": 1766.513427734375,
+        "maxJointError": 0.852550745010376,
+        "highContactPush": 17.469772338867188,
+        "lowContactPush": 19.871990203857422,
+        "feetHighPush": 0.7668274641036987,
+        "feetLowPush": 0.2557234764099121,
+        "chestHighPush": 0.0,
+        "chestLowPush": 0.0,
+        "headHighPush": 0.07821744680404663,
+        "headLowPush": 0.1663343906402588,
+        "bodyHighPush": 16.62472915649414,
+        "bodyLowPush": 19.449932098388672
+      },
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "evidence": [
+        {
+          "logHash": "E82AB272AF9DC261904095DF10743F69F97DC47D5E8C4EF78F0F45F593CFAB0C",
+          "suite": "combatflow",
+          "count": 35
+        },
+        {
+          "logHash": "8CF5D71524818857490E161B74A56FDCFECA9F50A703040436EE87018EE15280",
+          "suite": "downintercept",
+          "count": 24
+        },
+        {
+          "logHash": "0CC65CF602BAACB405997F720381B7FDA4BC06F321AFF8047B51D055DB7D43AF",
+          "suite": "aipressure",
+          "count": 6
+        },
+        {
+          "logHash": "533BD5AB1F22A5224DE841EE1F211C5BD298140989AF89DD64148B21652274AA",
+          "suite": "skillselfplay",
+          "count": 200
+        }
+      ],
+      "edition": "original",
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003",
+      "policyHash": "58C8DE8ACA82723FCD8C1F084A3FE937A38BC02F303E8DC9DAC1C9AEA2432683",
+      "checks": 65,
+      "installedAt": "2026-10-14T09:09:24.6671873+08:00"
+    },
+    {
+      "modHash": "0BA68A34A0F20C20CF8CCE28B1616359A95F2442F692B8CF378EAAC49472D45A",
+      "selfplay": {
+        "policyHash": "7F88AE8895A3E50950E79828D12462144016E0DD291690006D84E5DE5281E534",
+        "cannonContacts": 292,
+        "leafContacts": 290,
+        "rescueAttempts": 4832,
+        "target": 200,
+        "goals": 200,
+        "fanGoals": 95,
+        "zhaoGoals": 105,
+        "highGoals": 83,
+        "lowGoals": 117,
+        "specialSamples": 100,
+        "abilitySamples": 100,
+        "matches": 22,
+        "failures": 0,
+        "physicsSteps": 94513,
+        "bodySteps": 5406,
+        "feetSteps": 145,
+        "chestSteps": 4,
+        "headSteps": 7,
+        "highContactWins": 1789,
+        "lowContactWins": 2926,
+        "realSeconds": 87.18130493164062,
+        "simulatedSeconds": 1890.26953125,
+        "maxJointError": 0.4177382290363312,
+        "highContactPush": 21.5631160736084,
+        "lowContactPush": 27.384540557861328,
+        "feetHighPush": 0.15445274114608765,
+        "feetLowPush": 0.7733522057533264,
+        "chestHighPush": 0.061451733112335205,
+        "chestLowPush": 0.0,
+        "headHighPush": 0.003641754388809204,
+        "headLowPush": 0.06739046424627304,
+        "bodyHighPush": 21.343568801879883,
+        "bodyLowPush": 26.54379653930664
+      },
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "evidence": [
+        {
+          "logHash": "BDE6F557756276FB0C3E583021B06345CC8B871CEC964E153565983E0B322CF6",
+          "suite": "combatflow",
+          "count": 35
+        },
+        {
+          "logHash": "01F2B922E72157661D40523AEBA63A0CEB62B05092014C4BAEF8698237C2D897",
+          "suite": "downintercept",
+          "count": 24
+        },
+        {
+          "logHash": "B90F6CBB07E924B895C4D049741DA84B3D91C6432322194CFCE659AA4C68C2D9",
+          "suite": "aipressure",
+          "count": 6
+        },
+        {
+          "logHash": "FB5075031CA8C6229F4AAA9D7F3CBCF5558D14FBD333058C6FAE61752B174CAE",
+          "suite": "skillselfplay",
+          "count": 200
+        }
+      ],
+      "edition": "experiment",
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658",
+      "policyHash": "7F88AE8895A3E50950E79828D12462144016E0DD291690006D84E5DE5281E534",
+      "checks": 65,
+      "installedAt": "2026-10-14T09:09:24.8670653+08:00"
+    }
+  ],
+  "githubUpdated": false
+}

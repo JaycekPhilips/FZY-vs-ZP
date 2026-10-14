@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -28,6 +28,7 @@ public sealed class PlayerMovement : MonoBehaviour
     private bool smoothedMuscles;
     private Rigidbody2D body;
     private Component stick;
+    private readonly FieldInfo[] gaitFields=new FieldInfo[4];private readonly float[] gaitAngles=new float[4],gaitVelocity=new float[4];private bool gaitPrimed;private float startAxis,startAt,limitMultiplier=1f,lastLimitStep=-1f;
     private FieldInfo groundField, bodyTargetField;
     private readonly List<AnimatorClipInfo> clips = new List<AnimatorClipInfo>(4);
     private List<AnimatorClipInfo> CurrentClips() { animator.GetCurrentAnimatorClipInfo(0, clips); return clips; }
@@ -56,6 +57,7 @@ public sealed class PlayerMovement : MonoBehaviour
         movement.stick = muscles;
         movement.groundField = player.GetType().GetField("isOnGround");
         movement.bodyTargetField = muscleType.GetField("body");
+        string[] gaitNames={"L_Up_Leg","L_Low_Leg","R_Up_Leg","R_Low_Leg"};for(int i=0;i<4;i++)movement.gaitFields[i]=muscleType.GetField(gaitNames[i]);
         movement.body = player.GetType().GetField("rb").GetValue(player) as Rigidbody2D;
         Array muscleArray = muscleType.GetField("muscles").GetValue(muscles) as Array;
         if (muscleArray != null && muscleArray.Length >= 10)
@@ -91,9 +93,18 @@ public sealed class PlayerMovement : MonoBehaviour
     {
         PlayerMovement movement=player!=null?player.GetComponent<PlayerMovement>():null;
         float input=movement!=null?GameAIMod.GetAxis(movement.axis,player):0f;
-        return original * GetMultiplier(player) * MagneticFoot.MovementForceMultiplier(player,input) * AbilityMode.ContactForce(player,input);
+        return original * GetMultiplier(player) * MagneticFoot.MovementForceMultiplier(player,input) * AbilityMode.ContactForce(player,input) * (movement!=null?movement.Startup(input):1f);
     }
-    public static float GetMovementLimit(float original, Component player) { return original * GetMultiplier(player); }
+    private float Startup(float input){
+        if(Mathf.Abs(input)<=.1f){startAxis=0;return 1f;}if(Mathf.Abs(startAxis)<.1f||Mathf.Sign(startAxis)!=Mathf.Sign(input)){startAxis=input;startAt=Time.time;}
+        BuildPlayer b=controller.GetComponent<BuildPlayer>();if(Time.time<actionProtectionUntil||!(bool)groundField.GetValue(controller)||PlayerSkills.RescueActive(controller)||BuildPlayer.Rescuing(controller)||(b!=null&&b.GroundBallContest))return 1f;
+        float ramp=Mathf.SmoothStep(.18f,1f,Mathf.Clamp01((Time.time-startAt)/.18f));bool walking=false;foreach(var clip in CurrentClips())if(clip.clip!=null&&(clip.clip.name=="Walk"||clip.clip.name=="BackWalk"))walking=true;return walking?ramp:Mathf.Min(.3f,ramp);
+    }
+    public static float GetMovementLimit(float original,Component player){
+        float requested=GetMultiplier(player);PlayerMovement m=player!=null?player.GetComponent<PlayerMovement>():null;if(m==null)return original*requested;
+        if(m.lastLimitStep!=Time.fixedTime){m.lastLimitStep=Time.fixedTime;m.limitMultiplier=Mathf.MoveTowards(m.limitMultiplier,requested,4f*Time.fixedDeltaTime);}
+        return original*m.limitMultiplier;
+    }
 
     public static void NotifyAction(Component player)
     {
@@ -116,27 +127,15 @@ public sealed class PlayerMovement : MonoBehaviour
         if (movement != null) movement.RestoreCadence();
     }
 
-    public static void BeforeMuscles(Component stick)
-    {
-        PlayerMovement movement = stick != null ? stick.GetComponent<PlayerMovement>() : null;
-        if (movement == null) return;
-        PlayerSkills skills = stick.GetComponent<PlayerSkills>();
-        bool smooth = !movement.fan && !movement.Stopped() && movement.animator != null &&
-            Time.time >= movement.actionProtectionUntil && GameAIMod.GetAxis(movement.axis, movement.controller) > .1f &&
-            (skills == null || skills.CanSmoothWalkingMuscles());
-        if (smooth)
-        {
-            smooth = false;
-            foreach (AnimatorClipInfo clip in movement.CurrentClips())
-                if (clip.clip != null && clip.clip.name == "BackWalk") { smooth = true; break; }
-        }
-        if (!smooth || movement.muscleForceField == null) { movement.RestoreMuscles(); return; }
-        // The original 1500 gain snaps each leg straight to its new angle.
-        // Smooth the doubled backward gait through the existing muscle gain,
-        // keeping its cycle frequency and all native joint/geometry data.
-        for (int i = 0; i < 4; i++)
-            movement.muscleForceField.SetValue(movement.walkingMuscles[i], Mathf.Min(movement.originalMuscleForce[i], PlayerSkills.Enabled ? 35f : 25f));
-        movement.smoothedMuscles = true;
+    public static void BeforeMuscles(Component stick){
+        PlayerMovement m=stick!=null?stick.GetComponent<PlayerMovement>():null;if(m==null||m.animator==null)return;
+        bool walking=false;foreach(var info in m.CurrentClips())if(info.clip!=null&&(info.clip.name=="Walk"||info.clip.name=="BackWalk"))walking=true;
+        bool smooth=walking&&!m.Stopped()&&Time.time>=m.actionProtectionUntil&&(bool)m.groundField.GetValue(m.controller);
+        // Preserve native leg strength. Ease animation targets rather than
+        // turning the legs into weak springs which trail behind the torso.
+        float cadence=Mathf.Max(1f,m.animator.speed/Mathf.Max(.01f,m.originalAnimatorSpeed));
+        for(int i=0;i<4;i++){if(m.gaitFields[i]==null)continue;float target=(float)m.gaitFields[i].GetValue(stick);if(!m.gaitPrimed||!smooth){m.gaitAngles[i]=target;m.gaitVelocity[i]=0;}else{m.gaitAngles[i]=Mathf.SmoothDampAngle(m.gaitAngles[i],target,ref m.gaitVelocity[i],.055f/cadence,1200f*cadence,Time.deltaTime);m.gaitFields[i].SetValue(stick,m.gaitAngles[i]);}}
+        m.gaitPrimed=true;
     }
 
     private void RestoreMuscles()
@@ -151,11 +150,11 @@ public sealed class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Stopped()) { RestoreCadence(); RestoreMuscles(); return; }
+        if (Stopped()) { startAxis=0;RestoreCadence(); RestoreMuscles(); return; }
         float input = GameAIMod.GetAxis(axis, controller);
         PlayerSkills.NotifyMovement(controller, input);
         if (animator == null || Mathf.Abs(input) <= .1f || Time.time < actionProtectionUntil) { RestoreCadence(); return; }
-        float sprint = fan ? PlayerSkills.GetMovementSkillMultiplier(controller, input) : 1f;
+        float sprint = input * (fan ? 1f : -1f) > .1f ? PlayerSkills.GetMovementSkillMultiplier(controller, input) * AbilityMode.Movement(controller, input) : 1f;
         if (fan && sprint <= 1f) { RestoreCadence(); return; }
         List<AnimatorClipInfo> clips = CurrentClips();
         foreach (AnimatorClipInfo info in clips)
@@ -165,8 +164,9 @@ public sealed class PlayerMovement : MonoBehaviour
             AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
             float stateSpeed = Mathf.Abs(state.speed * state.speedMultiplier);
             if (stateSpeed < .01f || clip.length <= 0f) break;
-            adjustedAnimatorSpeed = fan ? originalAnimatorSpeed * sprint :
-                Mathf.Clamp(clip.length * referenceAnimatorSpeed / (referenceWalkLength * stateSpeed), .25f, 4f);
+            float targetAnimatorSpeed = fan ? originalAnimatorSpeed * sprint :
+                Mathf.Clamp(clip.length * referenceAnimatorSpeed / (referenceWalkLength * stateSpeed), .25f, 4f) * Mathf.Max(1f, sprint);
+            adjustedAnimatorSpeed=Mathf.MoveTowards(adjustedCadence?adjustedAnimatorSpeed:animator.speed,targetAnimatorSpeed,6f*Time.deltaTime);
             animator.speed = adjustedAnimatorSpeed;
             adjustedCadence = true;
             return;
@@ -188,6 +188,9 @@ public sealed class PlayerMovement : MonoBehaviour
         float torque = (error * 90f - body.angularVelocity * Mathf.Deg2Rad * 18f) * body.inertia;
         body.AddTorque(Mathf.Clamp(torque, -body.inertia * 140f, body.inertia * 140f), ForceMode2D.Force);
     }
+
+    // Ability physics runs after animation updates and must preserve the current running cadence.
+    public static float AnimationSpeed(Component player,float native){PlayerMovement m=player!=null?player.GetComponent<PlayerMovement>():null;return m!=null&&m.adjustedCadence?Mathf.Max(native,m.adjustedAnimatorSpeed):native;}
 
     private void RestoreCadence()
     {

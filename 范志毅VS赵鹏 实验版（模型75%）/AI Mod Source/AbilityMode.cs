@@ -11,7 +11,7 @@ public static class AbilityMode
     public static bool Enabled;
     public const int Budget=16, SkillCost=2, MaxLevel=8;
     public static readonly string[] Skills={"旋风盘带","炮弹式头球","空中堡垒","强力抢断","掠地瞬击","弧线落叶射门","紧急回防","进攻提速","磁力脚","伸脚抢截"};
-    public static readonly string[] Descriptions={"接触脚边足球时加快盘带","头球键：强力向前头球","跳跃键：强化起跳","真实接触或隔球顶牛：失衡击退","大力射门键：真实脚部接触后低平瞬击","射门键：真实脚部接触后弧线落叶","向己方球门移动：加速回防，身后球自动救球","向对方球门移动且球在前方：加速","实际脚边低球：伸脚控制足球","向下键：手动下落，正常速度3倍；不限球高"};
+    public static readonly string[] Descriptions={"接触脚边足球时加快盘带","头球键：强力向前头球","跳跃键：强化起跳","真实接触或隔球顶牛：失衡击退","大力射门键：真实脚部接触后低平瞬击","射门键：真实脚部接触后弧线落叶","向己方球门移动：加速回防，身后球自动救球","向对方球门移动且球在前方：提速60%","实际脚边低球：伸脚控制足球","向下键：手动下落，正常速度6倍；不限球高"};
     public sealed class Build
     {
         public readonly int[] Levels={4,4,4}; public int Purchased;
@@ -48,7 +48,7 @@ public static class AbilityMode
     {
         if(!Enabled)return native;
         BuildPlayer owner=player!=null?player.GetComponent<BuildPlayer>():null;
-        if(owner!=null&&(owner.JumpBlocked||owner.Intercepting))return 0f;
+        if(owner!=null&&(owner.JumpBlocked||owner.Intercepting||owner.RescueAssisting))return 0f;
         return native*(owner!=null&&owner.RescueJumpPending?owner.RescueJumpRatio:JumpMultiplier(player));
     }
 
@@ -120,7 +120,7 @@ public sealed class AbilitySetupPanel : MonoBehaviour
 public sealed class BuildPlayer : MonoBehaviour
 {
     Component controller,manager,stick;Animator animator;float animatorSpeed,dribbleUntil=-1f,knockUntil=-1f,knockOrigin,knockSign,knockDistance;FieldInfo stopping,grounded;Rigidbody2D body,ball;Collider2D ballShape,headShape,goal,ownGoal;Rigidbody2D[] limbs;Collider2D[] colliders;Transform head,foot;float direction,mass,height,width,standingBottom,standingHead,normalJumpSpeed,normalSpeed,groundY,scale;int mask;
-    object[] muscles;FieldInfo gain;float[] normalGains;FieldInfo[] targetFields;float staggerUntil=-1f,lastContest=-10f,kickUntil=-1f,headUntil=-1f,lastKickContact=-10f,rescueUntil=-1f,rescueSpeed,rescueRecover=-1f,lastJump=-10f,flatUntil=-1f;bool power,rescueHeld,rescueWaiting,headRescue;RescuePlanner.Plan rescuePlan;float lastJumpQueued=-10f;
+    object[] muscles;FieldInfo gain;float[] normalGains;FieldInfo[] targetFields;float staggerUntil=-1f,lastContest=-10f,kickUntil=-1f,headUntil=-1f,lastKickContact=-10f,rescueUntil=-1f,rescueSpeed,rescueRecover=-1f,lastJump=-10f,flatUntil=-1f;bool power,rescueHeld,rescueWaiting,headRescue;RescuePlanner.Plan rescuePlan;float lastJumpQueued=-10f,rescueAssistAt=-10f,rescueAssistUntil=-1f,lastRescuePhysics=-1f;
     readonly float[] effects={-10f,-10f,-10f,-10f,-10f,-10f,-10f,-10f,-10f,-10f};
     static BuildPlayer glowOwner; static float glowUntil=-1f,lastTrail=-10f; static Color glowColor; static readonly List<Vector2> ballTrail=new List<Vector2>();
     public void ShowSkill(int skill){if(Stopped()||skill<0||skill>=effects.Length||!Has(skill))return;if(Time.time-effects[skill]>=.55f)effects[skill]=Time.time;}
@@ -236,6 +236,7 @@ public sealed class BuildPlayer : MonoBehaviour
     }
 
     public static bool Rescuing(Component p){BuildPlayer s=p!=null?p.GetComponent<BuildPlayer>():null;return s!=null&&!s.Stopped()&&Time.time<=s.rescueUntil;}
+    public bool RescueAssisting {get{return Time.time<rescueAssistUntil;}}
     public bool RescueJumpPending {get{return !Stopped()&&Time.time<=rescueUntil&&Time.time-lastJumpQueued<.35f;}}
     public float RescueJumpRatio {get{return Mathf.Clamp(1.15f*rescuePlan.jumpSpeed/Mathf.Max(.1f,normalJumpSpeed),.15f,2f);}}
     public bool RescueRecovering {get{return !Stopped()&&Time.time<=rescueRecover;}}
@@ -243,12 +244,15 @@ public sealed class BuildPlayer : MonoBehaviour
     {
         if(Stopped()||!Has(6))return input;if(Staggered){rescueUntil=-1f;return input;}
         bool held=input*direction<-.1f;groundY=Floor();float line=ownGoal==null?(-direction*100f):(direction>0?ownGoal.bounds.max.x:ownGoal.bounds.min.x);
-        if(held&&!rescueHeld&&RescuePlanner.BehindThreat(ball,body.position,direction,height,groundY,ballShape.bounds.extents.y,line)){ShowSkill(6);rescueUntil=Time.time+3.2f;headRescue=false;rescueWaiting=false;lastJumpQueued=-10f;}
+        if(held&&(!rescueHeld||Time.time>rescueUntil+.15f)&&RescuePlanner.BehindThreat(ball,body.position,direction,height,groundY,ballShape.bounds.extents.y,line)){ShowSkill(6);rescueUntil=Time.time+3.2f;headRescue=false;rescueWaiting=false;lastJumpQueued=-10f;}
         rescueHeld=held;if(input*direction>.1f){rescueUntil=-1f;return input;}if(Time.time>rescueUntil)return input;
         float normalRetreat=normalSpeed*PlayerMovement.BackwardMultiplier*(direction>0?PlayerMovement.FanRetreatReduction:1f);
         rescuePlan=RescuePlanner.Evaluate(ball,body.position,RigVelocity(),direction,height,width,groundY,ballShape.bounds.extents.y,Bottom(),line,normalRetreat,normalRetreat*Mathf.Min(3f,1f+2f*Skill(6)),Mathf.Max(.1f,-Physics2D.gravity.y*body.gravityScale),normalJumpSpeed);
         rescueRecover=Time.time+.9f;
-        if(rescuePlan.remaining<=.04f||!rescuePlan.relevant){rescueUntil=-1f;rescueWaiting=false;return input;}
+        if(rescuePlan.remaining<=.04f||(!rescuePlan.relevant&&rescuePlan.behind<-(width*.6f+ballShape.bounds.extents.x+.2f))){
+            if(Bottom()>Floor()+.12f*scale&&-direction*ball.velocity.x>.1f){rescueUntil=Mathf.Max(rescueUntil,Time.time+.45f);rescueWaiting=false;rescueSpeed=Mathf.Max(0f,-direction*ball.velocity.x+rescuePlan.remaining*4f);return -direction;}
+            rescueUntil=-1f;rescueWaiting=false;return input;
+        }
         rescueSpeed=rescuePlan.speed;rescueWaiting=rescuePlan.wait||(headRescue&&rescuePlan.behind<width*.6f+ballShape.bounds.extents.x+.1f);
         return rescueWaiting?0f:-direction;
     }
@@ -256,15 +260,15 @@ public sealed class BuildPlayer : MonoBehaviour
     {
         if(Stopped()||!Has(6)||Time.time>rescueUntil)return false;
         float behind=-direction*(ball.position.x-body.position.x),h=ball.position.y-Floor();
-        if(jump){if(!rescuePlan.low||behind<-.1f||behind>height*1.25f||!Ground()||Time.time-lastJump<.65f||Time.time-lastJumpQueued<.3f)return false;lastJumpQueued=Time.time;return true;}
-        if(headRescue||!rescuePlan.head||h<height*.7f||Vector2.Distance(ball.position,head.position)>.65f*scale+ballShape.bounds.extents.x)return false;headRescue=true;return true;
+        if(jump)return false; // The connected rig performs its smooth rescue hop in physics.
+        if(headRescue||!PowerShot.FrontalHead(controller,ball)||!rescuePlan.head||h<height*.7f||Vector2.Distance(ball.position,head.position)>.65f*scale+ballShape.bounds.extents.x)return false;headRescue=true;return true;
     }
     public void FootIntercept(){if(Stopped())return;interceptUntil=-1f;interceptPending=false;if(Has(9))ShowSkill(9);}
     public float MovementMultiplier(float input)
     {
         if(Stopped())return 1f;
         if(Has(6)&&input*direction<-.1f)ShowSkill(6);
-        if(Has(6)&&input*direction<-.1f&&Time.time<=rescueUntil){float native=PlayerMovement.BackwardMultiplier*(direction>0?PlayerMovement.FanRetreatReduction:1f);return rescueSpeed/(normalSpeed*native);}
+        if(Has(6)&&input*direction<-.1f&&Time.time<=rescueUntil){float native=PlayerMovement.BackwardMultiplier*(direction>0?PlayerMovement.FanRetreatReduction:1f);return Mathf.Max(.75f,rescueSpeed/(normalSpeed*native));}
         if(Has(7)&&input*direction>.1f&&Front()&&Vector2.Distance(ball.position,body.position)>1.6f*scale){ShowSkill(7);return 1f+(PlayerSkills.FanAttackSprintMultiplier-1f)*Skill(7);}
         if (Has(6) && input*direction<-.1f && direction>0) return 1f+(1f/PlayerMovement.FanRetreatReduction-1f)*Skill(6);
         return 1f;
@@ -327,12 +331,20 @@ public sealed class BuildPlayer : MonoBehaviour
         // Stop at ground support; ordinary standing and legs are never softened.
         if(now<=airStaggerUntil&&Airborne()){float tilt=Mathf.Clamp(Mathf.DeltaAngle(body.rotation,airStaggerAngle)*20f-body.angularVelocity,-6000f*Time.fixedDeltaTime,6000f*Time.fixedDeltaTime)*Mathf.Deg2Rad;SpinImpulse(tilt);}
         if(now<=airBraceUntil&&!Staggered)Stable(32f,10000f);
+        bool rescueStep=lastRescuePhysics!=Time.fixedTime;
+        if(rescueStep){lastRescuePhysics=Time.fixedTime;
+        if(Has(6)&&now<=rescueUntil&&rescuePlan.low&&rescuePlan.wait&&rescuePlan.behind>0&&rescuePlan.remaining>.04f&&!JumpBlocked&&RigVelocity().y<.8f&&now-rescueAssistAt>.6f&&(Ground()||Bottom()<Floor()+height*.18f)){
+            rescueAssistAt=now;rescueAssistUntil=now+.16f;lastJump=now;lastJumpQueued=now;if(animator!=null)animator.SetTrigger("Jump");PlayerMovement.NotifyAction(controller);
+        }
+        if(now<rescueAssistUntil&&now<=rescueUntil)Impulse(Vector2.up*Mathf.Clamp(Mathf.Min(7f*scale,rescuePlan.jumpSpeed*1.18f)-RigVelocity().y,0f,50f*Time.fixedDeltaTime));
         if(!DownIntercept.Active(controller)&&Has(6)&&now<=rescueRecover&&RigVelocity().y<.1f&&RescuePlanner.FastDropSafe(ball,body.position,direction,width,ballShape.bounds.extents.x,height,Floor(),Bottom())){float descent=-Mathf.Min(12f*scale,Mathf.Sqrt(2f*60f*Mathf.Max(.01f,Bottom()-Floor())));Impulse(Vector2.up*Mathf.Clamp(descent-RigVelocity().y,-80f*Time.fixedDeltaTime,0f));}
+        }
+        if(Has(6)&&now<=rescueRecover){bool touch=false;foreach(var c in colliders)touch|=c.IsTouching(ballShape);float goalward=-direction*ball.velocity.x;if(touch&&goalward>0&&!headRescue)ball.AddForce(Vector2.right*direction*goalward*ball.mass,ForceMode2D.Impulse);}
         Intercept();
         if(glowOwner==this&&now<glowUntil&&now-lastTrail>=.035f){lastTrail=now;ballTrail.Add(ball.position);if(ballTrail.Count>9)ballTrail.RemoveAt(0);}
-        if (animator!=null) animator.speed=now<=dribbleUntil&&Has(0)?animatorSpeed*(1f+(PlayerSkills.FanDribbleAnimationMultiplier-1f)*Skill(0)):animatorSpeed;
+        if (animator!=null) animator.speed=PlayerMovement.AnimationSpeed(controller,now<=dribbleUntil&&Has(0)?animatorSpeed*(1f+(PlayerSkills.FanDribbleAnimationMultiplier-1f)*Skill(0)):animatorSpeed);
         if(now<=knockUntil){float remaining=knockDistance-knockSign*(body.position.x-knockOrigin);if(remaining<=.02f)knockUntil=-1f;else {float vx=knockSign*RigVelocity().x;float target=Mathf.Min(knockDistance/.30f,Mathf.Sqrt(56f*remaining));Impulse(Vector2.right*knockSign*Mathf.Clamp(target-vx,-80f*Time.fixedDeltaTime,80f*Time.fixedDeltaTime));}}
-        if(now<=rescueRecover){Stable();float target=now<=rescueUntil&&!rescueWaiting?-direction*rescueSpeed:0f;float vx=RigVelocity().x;Impulse(Vector2.right*Mathf.Clamp(target-vx,-35f*Time.fixedDeltaTime,35f*Time.fixedDeltaTime));}
+        if(rescueStep&&now<=rescueRecover){Stable();float target=now<=rescueUntil&&!rescueWaiting?-direction*rescueSpeed:0f;float vx=RigVelocity().x;Impulse(Vector2.right*Mathf.Clamp(target-vx,-35f*Time.fixedDeltaTime,35f*Time.fixedDeltaTime));}
         {BuildPlayer other=Opponent();if(other!=null){bool ours=false,theirs=false;foreach(var c in colliders)if(c.IsTouching(ballShape))ours=true;foreach(var c in other.colliders)if(c.IsTouching(ballShape))theirs=true;if(ours&&theirs){PlayerContact(other,true);other.PlayerContact(this,true);}}}
         if(now<=flatUntil){float floor=BallBoundaryGuard.FindGoalFloor(goal)+ballShape.bounds.extents.y+.03f;float vy=ball.position.y>floor+.1f?-Mathf.Clamp((ball.position.y-floor)*12f,2f,16f):.2f;ball.AddForce(Vector2.up*(vy-ball.velocity.y)*ball.mass,ForceMode2D.Impulse);}
         if(flightOwner==this)Flight();
@@ -348,10 +360,10 @@ public sealed class BuildPlayer : MonoBehaviour
     {
         float now=Time.time;bool isHead=c.collider==headShape;
         if(Has(6)&&Time.time<=rescueRecover&&!Front()){
-            if(isHead&&headRescue){float line=direction>0?ownGoal.bounds.max.x:ownGoal.bounds.min.x;float gap=-direction*(line-ball.position.x);float vx=-direction*10f,vy=8f;float t=gap/10f;float bar=BallBoundaryGuard.FindGoalCeiling(ownGoal)+ballShape.bounds.extents.y+.3f;if(t<.2f){vx=direction*8f;}else vy=Mathf.Max(3f,(bar-ball.position.y)/t-.5f*Physics2D.gravity.y*t+1f);Launch(new Vector2(vx,vy)*PowerShot.HeaderSpeedMultiplier);Highlight(6,.85f);headUntil=rescueUntil=-1f;return;}
+            if(isHead&&headRescue&&PowerShot.FrontalHead(controller,ball)){float line=direction>0?ownGoal.bounds.max.x:ownGoal.bounds.min.x;float gap=-direction*(line-ball.position.x);float vx=-direction*10f,vy=8f;float t=gap/10f;float bar=BallBoundaryGuard.FindGoalCeiling(ownGoal)+ballShape.bounds.extents.y+.3f;if(t<.2f){vx=direction*8f;}else vy=Mathf.Max(3f,(bar-ball.position.y)/t-.5f*Physics2D.gravity.y*t+1f);Launch(new Vector2(vx,vy)*PowerShot.HeaderSpeedMultiplier);Highlight(6,.85f);headUntil=rescueUntil=-1f;return;}
             float goalward=-direction*ball.velocity.x;if(goalward>0){ball.AddForce(Vector2.right*direction*goalward*ball.mass,ForceMode2D.Impulse);}return;
         }
-        if(isHead&&now<=headUntil){headUntil=-1f;if(Has(1)){Launch(PlayerSkills.CannonVelocity(direction,ball.velocity));Highlight(1,.85f);PowerShot.CompleteHeader(controller);}else {Launch(AimVelocity(ShotTarget(Level(0)),ball.velocity.magnitude*PowerShot.HeaderSpeedMultiplier*AbilityMode.Strength(Level(0))));PowerShot.CompleteHeader(controller);}return;}
+        if(isHead&&now<=headUntil&&PowerShot.FrontalHead(controller,ball)){headUntil=-1f;if(Has(1)){Launch(PlayerSkills.CannonVelocity(direction,ball.velocity));Highlight(1,.85f);PowerShot.CompleteHeader(controller);}else {Launch(AimVelocity(ShotTarget(Level(0)),PowerShot.OrdinaryHeaderVelocity(controller,ball.velocity).magnitude));PowerShot.CompleteHeader(controller);}return;}
         bool eligible=false;for(int i=0;i<c.contactCount;i++){var pt=c.GetContact(i);Vector2 normal=pt.normal;if(Vector2.Dot(normal,ball.position-pt.point)<0)normal=-normal;if(PlayerSkills.IsStrikeFoot(controller,c.collider,pt.point,normal,Has(4)||Has(5)))eligible=true;}
         if(!eligible)return;
         if(now<=kickUntil&&Front()&&now-lastKickContact>.06f){kickUntil=-1f;lastKickContact=now;Strike();return;}
@@ -392,7 +404,7 @@ public sealed class BuildPlayer : MonoBehaviour
         if(BallFlightSafety.WillHit(ball,velocity,controller,age)){flightOwner=null;return;}
         ball.AddForce((velocity-ball.velocity)*ball.mass,ForceMode2D.Impulse);
     }
-    public void Clear(){airBraceUntil=airStaggerUntil=-1f;leafCurve=null;interceptUntil=interceptAt=-1f;interceptPending=false;ClearVisuals();kickUntil=headUntil=staggerUntil=rescueUntil=rescueRecover=flatUntil=dribbleUntil=knockUntil=-1f;if(animator!=null)animator.speed=animatorSpeed;rescueHeld=rescueWaiting=headRescue=false;lastContest=-10f;flightStart=-10f;if(flightOwner==this)flightOwner=null;Restore();}
+    public void Clear(){airBraceUntil=airStaggerUntil=-1f;leafCurve=null;interceptUntil=interceptAt=-1f;interceptPending=false;ClearVisuals();kickUntil=headUntil=staggerUntil=rescueUntil=rescueRecover=flatUntil=dribbleUntil=knockUntil=-1f;if(animator!=null)animator.speed=PlayerMovement.AnimationSpeed(controller,animatorSpeed);rescueHeld=rescueWaiting=headRescue=false;lastContest=-10f;flightStart=-10f;if(flightOwner==this)flightOwner=null;Restore();}
     void OnDestroy(){ClearVisuals();if(flightOwner==this)flightOwner=null;}
 }
 public sealed class BuildContact : MonoBehaviour

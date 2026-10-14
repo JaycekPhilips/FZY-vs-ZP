@@ -1,0 +1,283 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  2.277 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.839100 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.210000 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1017.
+Total: 0.686200 ms (FindLiveObjects: 0.072100 ms CreateObjectMapping: 0.021200 ms MarkObjects: 0.319100 ms  DeleteObjects: 0.273400 ms)
+
+ABILITY PASS no-input incoming ball never starts descent mode=0 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.920800 ms
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 1.446400 ms (FindLiveObjects: 0.053300 ms CreateObjectMapping: 0.011900 ms MarkObjects: 0.270800 ms  DeleteObjects: 1.110100 ms)
+
+ABILITY PASS manual descent ignores low ball, cancels ascent when needed mode=0 actor=Fan v=-2.646 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.533600 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 2.685400 ms (FindLiveObjects: 0.061100 ms CreateObjectMapping: 0.012400 ms MarkObjects: 0.306300 ms  DeleteObjects: 2.305000 ms)
+
+ABILITY PASS manual descent ignores high ball, cancels ascent when needed mode=0 actor=Fan v=-5.646002 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.421100 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 1.470400 ms (FindLiveObjects: 0.044900 ms CreateObjectMapping: 0.010000 ms MarkObjects: 0.264500 ms  DeleteObjects: 1.150600 ms)
+
+ABILITY PASS no-input incoming ball never starts descent mode=0 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.325800 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 1.680500 ms (FindLiveObjects: 0.051500 ms CreateObjectMapping: 0.012500 ms MarkObjects: 0.307300 ms  DeleteObjects: 1.308600 ms)
+
+ABILITY PASS manual descent ignores low ball, cancels ascent when needed mode=0 actor=Zhao v=-2.352 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.331400 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1065.
+Total: 1.435300 ms (FindLiveObjects: 0.055500 ms CreateObjectMapping: 0.015700 ms MarkObjects: 0.336500 ms  DeleteObjects: 1.027100 ms)
+
+ABILITY PASS manual descent ignores high ball, cancels ascent when needed mode=0 actor=Zhao v=-5.646001 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.746000 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1068.
+Total: 1.404700 ms (FindLiveObjects: 0.045000 ms CreateObjectMapping: 0.011200 ms MarkObjects: 0.239700 ms  DeleteObjects: 1.108500 ms)
+
+ABILITY PASS no-input incoming ball never starts descent mode=1 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.315900 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1068.
+Total: 1.444700 ms (FindLiveObjects: 0.044100 ms CreateObjectMapping: 0.011000 ms MarkObjects: 0.268200 ms  DeleteObjects: 1.120900 ms)
+
+ABILITY PASS manual descent ignores low ball, cancels ascent when needed mode=1 actor=Fan v=-9.407999 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.357100 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1068.
+Total: 1.400900 ms (FindLiveObjects: 0.042700 ms CreateObjectMapping: 0.010600 ms MarkObjects: 0.235200 ms  DeleteObjects: 1.112200 ms)
+
+ABILITY PASS manual descent ignores high ball, cancels ascent when needed mode=1 actor=Fan v=-18.06053 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.275100 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1068.
+Total: 1.262300 ms (FindLiveObjects: 0.035300 ms CreateObjectMapping: 0.009500 ms MarkObjects: 0.193500 ms  DeleteObjects: 1.023800 ms)
+
+ABILITY PASS no-input incoming ball never starts descent mode=1 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.323500 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1068.
+Total: 1.203500 ms (FindLiveObjects: 0.051900 ms CreateObjectMapping: 0.015900 ms MarkObjects: 0.267800 ms  DeleteObjects: 0.867600 ms)
+
+ABILITY PASS manual descent ignores low ball, cancels ascent when needed mode=1 actor=Zhao v=-2.352 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.267100 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1068.
+Total: 1.035900 ms (FindLiveObjects: 0.050300 ms CreateObjectMapping: 0.015700 ms MarkObjects: 0.172700 ms  DeleteObjects: 0.796600 ms)
+
+ABILITY PASS manual descent ignores high ball, cancels ascent when needed mode=1 actor=Zhao v=-5.646001 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.257100 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1068.
+Total: 1.353000 ms (FindLiveObjects: 0.051200 ms CreateObjectMapping: 0.030500 ms MarkObjects: 0.177100 ms  DeleteObjects: 1.093800 ms)
+
+ABILITY PASS no-input incoming ball never starts descent mode=2 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.426700 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.158800 ms (FindLiveObjects: 0.031300 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.218300 ms  DeleteObjects: 0.900800 ms)
+
+ABILITY PASS manual descent ignores low ball, cancels ascent when needed mode=2 actor=Fan v=-10.584 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.334700 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.282900 ms (FindLiveObjects: 0.036200 ms CreateObjectMapping: 0.009500 ms MarkObjects: 0.212800 ms  DeleteObjects: 1.024000 ms)
+
+ABILITY PASS manual descent ignores high ball, cancels ascent when needed mode=2 actor=Fan v=-18.05925 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.352100 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.161700 ms (FindLiveObjects: 0.040700 ms CreateObjectMapping: 0.012000 ms MarkObjects: 0.287700 ms  DeleteObjects: 0.820900 ms)
+
+ABILITY PASS no-input incoming ball never starts descent mode=2 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.341500 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.146400 ms (FindLiveObjects: 0.045500 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.221800 ms  DeleteObjects: 0.870400 ms)
+
+ABILITY PASS manual descent ignores low ball, cancels ascent when needed mode=2 actor=Zhao v=-9.407999 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.337800 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.162700 ms (FindLiveObjects: 0.036100 ms CreateObjectMapping: 0.009700 ms MarkObjects: 0.240600 ms  DeleteObjects: 0.876100 ms)
+
+ABILITY PASS manual descent ignores high ball, cancels ascent when needed mode=2 actor=Zhao v=-21.40801 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.424200 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.332900 ms (FindLiveObjects: 0.052200 ms CreateObjectMapping: 0.015100 ms MarkObjects: 0.269400 ms  DeleteObjects: 0.995600 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.316800 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.497700 ms (FindLiveObjects: 0.095000 ms CreateObjectMapping: 0.015400 ms MarkObjects: 0.260000 ms  DeleteObjects: 1.126800 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.240400 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.230900 ms (FindLiveObjects: 0.050700 ms CreateObjectMapping: 0.015700 ms MarkObjects: 0.273600 ms  DeleteObjects: 0.890400 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.303000 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.262900 ms (FindLiveObjects: 0.050000 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.195900 ms  DeleteObjects: 1.008000 ms)
+
+ABILITY PASS real rig paired free-fall ratios Fan normal=3.764001 basic=1.5 paid=6 native=5.999999 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.263300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.396600 ms (FindLiveObjects: 0.046800 ms CreateObjectMapping: 0.010100 ms MarkObjects: 0.231600 ms  DeleteObjects: 1.107800 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.253100 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.209900 ms (FindLiveObjects: 0.049600 ms CreateObjectMapping: 0.007500 ms MarkObjects: 0.228900 ms  DeleteObjects: 0.923400 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.406100 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.158500 ms (FindLiveObjects: 0.045200 ms CreateObjectMapping: 0.010300 ms MarkObjects: 0.254500 ms  DeleteObjects: 0.848000 ms)
+
+ABILITY PASS real rig paired free-fall ratios Zhao normal=3.764001 basic=1.5 paid=6 native=6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.419400 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.369900 ms (FindLiveObjects: 0.051600 ms CreateObjectMapping: 0.015500 ms MarkObjects: 0.311500 ms  DeleteObjects: 0.990700 ms)
+
+ABILITY PASS real landing ends boost, restores collision modes and keeps balance Fan joints=0.09520532 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.409300 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 0.953200 ms (FindLiveObjects: 0.041700 ms CreateObjectMapping: 0.009100 ms MarkObjects: 0.194900 ms  DeleteObjects: 0.707200 ms)
+
+ABILITY PASS real landing ends boost, restores collision modes and keeps balance Zhao joints=0.03413476 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.280000 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.082400 ms (FindLiveObjects: 0.033400 ms CreateObjectMapping: 0.009200 ms MarkObjects: 0.188200 ms  DeleteObjects: 0.851400 ms)
+
+ABILITY PASS remapped down starts 6x descent at zero jump points 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.268800 ms
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 1070.
+Total: 1.452400 ms (FindLiveObjects: 0.058000 ms CreateObjectMapping: 0.017500 ms MarkObjects: 0.332300 ms  DeleteObjects: 1.044000 ms)
+
+ABILITY PASS pause/reset clear descent and grounded input cannot force through pitch 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=24 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 7bf4 -> priority: 1 
+  Thread -> id: 9f8 -> priority: 1 
+  Thread -> id: 75a0 -> priority: 1 
+  Thread -> id: 43a8 -> priority: 1 
+  Thread -> id: 8e60 -> priority: 1 
+  Thread -> id: 6e1c -> priority: 1 
+  Thread -> id: 8ed4 -> priority: 1 
+  Thread -> id: 6ef4 -> priority: 1 
+  Thread -> id: 7d4 -> priority: 1 
+  Thread -> id: 89e4 -> priority: 1 
+  Thread -> id: 604c -> priority: 1 
+  Thread -> id: 7990 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+
