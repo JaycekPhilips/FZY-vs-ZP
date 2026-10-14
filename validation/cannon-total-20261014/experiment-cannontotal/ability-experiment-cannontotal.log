@@ -1,0 +1,553 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  2.359 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.618800 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.206900 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1017.
+Total: 0.651400 ms (FindLiveObjects: 0.049100 ms CreateObjectMapping: 0.012500 ms MarkObjects: 0.300000 ms  DeleteObjects: 0.289200 ms)
+
+ABILITY PASS real header actor=Fan total=0 alternate=False native=False ordinary=False ratio=0.85 expected=0.85 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.941800 ms
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.378600 ms (FindLiveObjects: 0.040200 ms CreateObjectMapping: 0.009500 ms MarkObjects: 0.207500 ms  DeleteObjects: 1.121000 ms)
+
+ABILITY PASS real header actor=Fan total=8 alternate=False native=False ordinary=False ratio=0.95 expected=0.95 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.443300 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.725800 ms (FindLiveObjects: 0.055200 ms CreateObjectMapping: 0.016600 ms MarkObjects: 0.398800 ms  DeleteObjects: 1.254500 ms)
+
+ABILITY PASS real header actor=Fan total=11 alternate=False native=False ordinary=False ratio=0.9875 expected=0.9875 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.355600 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.384200 ms (FindLiveObjects: 0.033800 ms CreateObjectMapping: 0.009200 ms MarkObjects: 0.201200 ms  DeleteObjects: 1.139600 ms)
+
+ABILITY PASS real header actor=Fan total=12 alternate=False native=False ordinary=False ratio=1 expected=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.468100 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.286000 ms (FindLiveObjects: 0.036000 ms CreateObjectMapping: 0.009400 ms MarkObjects: 0.215800 ms  DeleteObjects: 1.024600 ms)
+
+ABILITY PASS real header actor=Fan total=13 alternate=False native=False ordinary=False ratio=1.5 expected=1.5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.323500 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.336600 ms (FindLiveObjects: 0.031900 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.187400 ms  DeleteObjects: 1.108800 ms)
+
+ABILITY PASS real header actor=Fan total=14 alternate=False native=False ordinary=False ratio=2 expected=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.338300 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.505600 ms (FindLiveObjects: 0.035700 ms CreateObjectMapping: 0.009400 ms MarkObjects: 0.231500 ms  DeleteObjects: 1.228800 ms)
+
+ABILITY PASS real header actor=Fan total=16 alternate=False native=False ordinary=False ratio=2 expected=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.499700 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.479800 ms (FindLiveObjects: 0.035800 ms CreateObjectMapping: 0.009700 ms MarkObjects: 0.223700 ms  DeleteObjects: 1.210400 ms)
+
+ABILITY PASS real header actor=Fan total=22 alternate=False native=False ordinary=False ratio=2 expected=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.498400 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.461700 ms (FindLiveObjects: 0.036000 ms CreateObjectMapping: 0.010100 ms MarkObjects: 0.227100 ms  DeleteObjects: 1.188100 ms)
+
+ABILITY PASS real header actor=Fan total=12 alternate=True native=False ordinary=False ratio=1 expected=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.405400 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.195100 ms (FindLiveObjects: 0.032900 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.195200 ms  DeleteObjects: 0.958400 ms)
+
+ABILITY PASS real header actor=Fan total=12 alternate=False native=False ordinary=True ratio=0.8500001 expected=0.85 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.386500 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.525700 ms (FindLiveObjects: 0.032000 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.240600 ms  DeleteObjects: 1.244100 ms)
+
+ABILITY PASS rear actual contact never launches actor=Fan total=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.291400 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.628800 ms (FindLiveObjects: 0.048800 ms CreateObjectMapping: 0.011600 ms MarkObjects: 0.301800 ms  DeleteObjects: 1.266200 ms)
+
+ABILITY PASS rear actual contact never launches actor=Fan total=14 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.303500 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.487200 ms (FindLiveObjects: 0.052100 ms CreateObjectMapping: 0.015900 ms MarkObjects: 0.283600 ms  DeleteObjects: 1.135200 ms)
+
+ABILITY PASS no remote high-total header actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.412000 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.419100 ms (FindLiveObjects: 0.033900 ms CreateObjectMapping: 0.009000 ms MarkObjects: 0.242400 ms  DeleteObjects: 1.133400 ms)
+
+ABILITY PASS flat correction improves at 13/14 and zero equals ordinary aim actor=Fan errors=0.1179981,0.04493225,3.814697E-05 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.311300 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.544600 ms (FindLiveObjects: 0.053400 ms CreateObjectMapping: 0.033500 ms MarkObjects: 0.301800 ms  DeleteObjects: 1.155400 ms)
+
+ABILITY PASS real jump plus head reaches forehead contact actor=Fan shot=True rise=0.6952368 joints=0.07274368 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.296600 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.643500 ms (FindLiveObjects: 0.034500 ms CreateObjectMapping: 0.009200 ms MarkObjects: 0.366900 ms  DeleteObjects: 1.232600 ms)
+
+ABILITY PASS high-total actual header enters native goal actor=Fan total=13 bounce=False floorContacts=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.313500 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.453000 ms (FindLiveObjects: 0.037500 ms CreateObjectMapping: 0.009500 ms MarkObjects: 0.228200 ms  DeleteObjects: 1.177300 ms)
+
+BOUNCE CONTACT actor=Fan at=(6.1, -1.5) velocity=(0.5, 17.0) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS high-total actual header enters native goal actor=Fan total=13 bounce=True floorContacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.382600 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.580400 ms (FindLiveObjects: 0.048200 ms CreateObjectMapping: 0.017200 ms MarkObjects: 0.277200 ms  DeleteObjects: 1.237600 ms)
+
+ABILITY PASS high-total actual header enters native goal actor=Fan total=14 bounce=False floorContacts=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.509600 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.679400 ms (FindLiveObjects: 0.039600 ms CreateObjectMapping: 0.010900 ms MarkObjects: 0.237400 ms  DeleteObjects: 1.391000 ms)
+
+BOUNCE CONTACT actor=Fan at=(6.1, -1.5) velocity=(0.4, 22.7) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS high-total actual header enters native goal actor=Fan total=14 bounce=True floorContacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.453800 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.392500 ms (FindLiveObjects: 0.035500 ms CreateObjectMapping: 0.009300 ms MarkObjects: 0.206800 ms  DeleteObjects: 1.140300 ms)
+
+ABILITY PASS high-total actual header enters native goal actor=Fan total=22 bounce=False floorContacts=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.403400 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.817800 ms (FindLiveObjects: 0.041900 ms CreateObjectMapping: 0.009900 ms MarkObjects: 0.343000 ms  DeleteObjects: 1.422600 ms)
+
+BOUNCE CONTACT actor=Fan at=(6.1, -1.5) velocity=(0.2, 22.7) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS high-total actual header enters native goal actor=Fan total=22 bounce=True floorContacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.352300 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.481100 ms (FindLiveObjects: 0.034500 ms CreateObjectMapping: 0.008800 ms MarkObjects: 0.212800 ms  DeleteObjects: 1.224800 ms)
+
+BOUNCE CONTACT actor=Fan at=(6.1, -1.5) velocity=(0.4, 22.7) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual late defender contact releases bounce guidance actor=Fan contacts=1 blocked=True released=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.368900 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.481100 ms (FindLiveObjects: 0.046900 ms CreateObjectMapping: 0.011100 ms MarkObjects: 0.229700 ms  DeleteObjects: 1.193200 ms)
+
+BOUNCE CONTACT actor=Fan at=(1.0, -1.5) velocity=(19.4, 11.9) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS planned bounce bypasses real airborne defender and enters goal actor=Fan contacts=1 blocked=False goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.312000 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.316700 ms (FindLiveObjects: 0.034400 ms CreateObjectMapping: 0.008900 ms MarkObjects: 0.203100 ms  DeleteObjects: 1.069800 ms)
+
+ABILITY PASS shooting skill threshold follows actual pitch eighth actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS allocated leaf and burst cannot activate in close contest actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS allocated leaf and burst activate beyond eighth pitch actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.312900 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1081.
+Total: 1.370200 ms (FindLiveObjects: 0.038900 ms CreateObjectMapping: 0.010400 ms MarkObjects: 0.283800 ms  DeleteObjects: 1.036700 ms)
+
+ABILITY PASS native special-mode leaf and burst share distance gate actor=Fan near=True far=True range=1.519055 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.500900 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1083.
+Total: 1.891500 ms (FindLiveObjects: 0.055000 ms CreateObjectMapping: 0.016500 ms MarkObjects: 0.335700 ms  DeleteObjects: 1.483600 ms)
+
+ABILITY PASS real header actor=Zhao total=0 alternate=False native=False ordinary=False ratio=0.85 expected=0.85 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.318300 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 2.321100 ms (FindLiveObjects: 0.034900 ms CreateObjectMapping: 0.009100 ms MarkObjects: 0.264100 ms  DeleteObjects: 2.012500 ms)
+
+ABILITY PASS real header actor=Zhao total=8 alternate=False native=False ordinary=False ratio=0.95 expected=0.95 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.318300 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.014900 ms (FindLiveObjects: 0.058100 ms CreateObjectMapping: 0.017100 ms MarkObjects: 0.210300 ms  DeleteObjects: 0.729000 ms)
+
+ABILITY PASS real header actor=Zhao total=11 alternate=False native=False ordinary=False ratio=0.9875 expected=0.9875 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.277500 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.526800 ms (FindLiveObjects: 0.034100 ms CreateObjectMapping: 0.008900 ms MarkObjects: 0.310500 ms  DeleteObjects: 1.172900 ms)
+
+ABILITY PASS real header actor=Zhao total=12 alternate=False native=False ordinary=False ratio=1 expected=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.408800 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.613500 ms (FindLiveObjects: 0.054400 ms CreateObjectMapping: 0.016700 ms MarkObjects: 0.263600 ms  DeleteObjects: 1.278300 ms)
+
+ABILITY PASS real header actor=Zhao total=13 alternate=False native=False ordinary=False ratio=1.5 expected=1.5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.305900 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.423000 ms (FindLiveObjects: 0.035700 ms CreateObjectMapping: 0.009700 ms MarkObjects: 0.213700 ms  DeleteObjects: 1.163700 ms)
+
+ABILITY PASS real header actor=Zhao total=14 alternate=False native=False ordinary=False ratio=2 expected=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.423900 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.282000 ms (FindLiveObjects: 0.033700 ms CreateObjectMapping: 0.008300 ms MarkObjects: 0.188700 ms  DeleteObjects: 1.051000 ms)
+
+ABILITY PASS real header actor=Zhao total=16 alternate=False native=False ordinary=False ratio=2 expected=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.317300 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.854800 ms (FindLiveObjects: 0.058700 ms CreateObjectMapping: 0.016900 ms MarkObjects: 0.423200 ms  DeleteObjects: 1.355500 ms)
+
+ABILITY PASS real header actor=Zhao total=22 alternate=False native=False ordinary=False ratio=2 expected=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.375800 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.666300 ms (FindLiveObjects: 0.036700 ms CreateObjectMapping: 0.010200 ms MarkObjects: 0.229000 ms  DeleteObjects: 1.390100 ms)
+
+ABILITY PASS real header actor=Zhao total=12 alternate=True native=False ordinary=False ratio=1 expected=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.290700 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.243000 ms (FindLiveObjects: 0.052000 ms CreateObjectMapping: 0.008500 ms MarkObjects: 0.188400 ms  DeleteObjects: 0.993800 ms)
+
+ABILITY PASS real header actor=Zhao total=12 alternate=False native=False ordinary=True ratio=0.85 expected=0.85 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.344100 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.490000 ms (FindLiveObjects: 0.053500 ms CreateObjectMapping: 0.016500 ms MarkObjects: 0.263200 ms  DeleteObjects: 1.156200 ms)
+
+ABILITY PASS rear actual contact never launches actor=Zhao total=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.451300 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.533600 ms (FindLiveObjects: 0.053100 ms CreateObjectMapping: 0.015300 ms MarkObjects: 0.371900 ms  DeleteObjects: 1.092400 ms)
+
+ABILITY PASS rear actual contact never launches actor=Zhao total=14 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.322100 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.326800 ms (FindLiveObjects: 0.035100 ms CreateObjectMapping: 0.009100 ms MarkObjects: 0.212400 ms  DeleteObjects: 1.070100 ms)
+
+ABILITY PASS no remote high-total header actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.495200 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 2.185700 ms (FindLiveObjects: 0.057600 ms CreateObjectMapping: 0.016900 ms MarkObjects: 0.329600 ms  DeleteObjects: 1.781100 ms)
+
+ABILITY PASS flat correction improves at 13/14 and zero equals ordinary aim actor=Zhao errors=0.1010312,0.04493332,3.755093E-05 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.366300 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1083.
+Total: 1.347000 ms (FindLiveObjects: 0.053000 ms CreateObjectMapping: 0.008800 ms MarkObjects: 0.268000 ms  DeleteObjects: 1.016600 ms)
+
+ABILITY PASS real jump plus head reaches forehead contact actor=Zhao shot=True rise=0.5493723 joints=0.05110515 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.365000 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.711000 ms (FindLiveObjects: 0.055600 ms CreateObjectMapping: 0.012000 ms MarkObjects: 0.337800 ms  DeleteObjects: 1.304800 ms)
+
+ABILITY PASS high-total actual header enters native goal actor=Zhao total=13 bounce=False floorContacts=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.378900 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.116500 ms (FindLiveObjects: 0.038800 ms CreateObjectMapping: 0.010200 ms MarkObjects: 0.232600 ms  DeleteObjects: 0.834600 ms)
+
+BOUNCE CONTACT actor=Zhao at=(-6.0, -1.5) velocity=(-0.4, 17.1) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS high-total actual header enters native goal actor=Zhao total=13 bounce=True floorContacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.483400 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.431400 ms (FindLiveObjects: 0.039800 ms CreateObjectMapping: 0.016500 ms MarkObjects: 0.298300 ms  DeleteObjects: 1.076300 ms)
+
+ABILITY PASS high-total actual header enters native goal actor=Zhao total=14 bounce=False floorContacts=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.439600 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.189600 ms (FindLiveObjects: 0.040100 ms CreateObjectMapping: 0.010600 ms MarkObjects: 0.277100 ms  DeleteObjects: 0.861400 ms)
+
+BOUNCE CONTACT actor=Zhao at=(-6.1, -1.5) velocity=(-0.1, 22.7) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS high-total actual header enters native goal actor=Zhao total=14 bounce=True floorContacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.436900 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.298000 ms (FindLiveObjects: 0.039400 ms CreateObjectMapping: 0.010300 ms MarkObjects: 0.268700 ms  DeleteObjects: 0.979300 ms)
+
+ABILITY PASS high-total actual header enters native goal actor=Zhao total=22 bounce=False floorContacts=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.477800 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.481200 ms (FindLiveObjects: 0.062200 ms CreateObjectMapping: 0.018300 ms MarkObjects: 0.381300 ms  DeleteObjects: 1.019000 ms)
+
+BOUNCE CONTACT actor=Zhao at=(-6.1, -1.5) velocity=(-0.1, 22.7) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS high-total actual header enters native goal actor=Zhao total=22 bounce=True floorContacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.509800 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.674400 ms (FindLiveObjects: 0.051000 ms CreateObjectMapping: 0.012700 ms MarkObjects: 0.333300 ms  DeleteObjects: 1.276900 ms)
+
+BOUNCE CONTACT actor=Zhao at=(-6.1, -1.5) velocity=(-0.1, 22.7) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual late defender contact releases bounce guidance actor=Zhao contacts=1 blocked=True released=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.386600 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.505600 ms (FindLiveObjects: 0.074600 ms CreateObjectMapping: 0.017900 ms MarkObjects: 0.342100 ms  DeleteObjects: 1.070700 ms)
+
+BOUNCE CONTACT actor=Zhao at=(-1.1, -1.5) velocity=(-19.2, 12.2) 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS planned bounce bypasses real airborne defender and enters goal actor=Zhao contacts=1 blocked=False goal=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.417200 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.345300 ms (FindLiveObjects: 0.068400 ms CreateObjectMapping: 0.011000 ms MarkObjects: 0.279800 ms  DeleteObjects: 0.985700 ms)
+
+ABILITY PASS shooting skill threshold follows actual pitch eighth actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS allocated leaf and burst cannot activate in close contest actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS allocated leaf and burst activate beyond eighth pitch actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.388400 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1083.
+Total: 2.125500 ms (FindLiveObjects: 0.056700 ms CreateObjectMapping: 0.012800 ms MarkObjects: 0.393800 ms  DeleteObjects: 1.661600 ms)
+
+ABILITY PASS native special-mode leaf and burst share distance gate actor=Zhao near=True far=True range=1.519055 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.341600 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1083.
+Total: 2.269800 ms (FindLiveObjects: 0.069400 ms CreateObjectMapping: 0.043200 ms MarkObjects: 0.430900 ms  DeleteObjects: 1.725900 ms)
+
+ABILITY PASS real header actor=Fan total=12 alternate=False native=True ordinary=False ratio=1 expected=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS match draw locks after one use 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS lottery includes both endpoints and new match restores default build 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS slot animation stops on locked result and disables repeat draw 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS allocation uses drawn budget and reopening cannot redraw 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS speed bands keep exact additive formula, ordinary floor and 24-point lottery maximum and 14-point cap 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=60 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 48c4 -> priority: 1 
+  Thread -> id: 3b0c -> priority: 1 
+  Thread -> id: 8184 -> priority: 1 
+  Thread -> id: 714c -> priority: 1 
+  Thread -> id: 6184 -> priority: 1 
+  Thread -> id: 2a04 -> priority: 1 
+  Thread -> id: 6ff0 -> priority: 1 
+  Thread -> id: 5f0c -> priority: 1 
+  Thread -> id: 3dd4 -> priority: 1 
+  Thread -> id: a5d0 -> priority: 1 
+  Thread -> id: 2d9c -> priority: 1 
+  Thread -> id: 35e4 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

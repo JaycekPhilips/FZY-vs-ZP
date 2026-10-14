@@ -15,7 +15,7 @@ using UnityEngine.UI;
 public sealed class LanMultiplayer : MonoBehaviour
 {
     private const int Port = 28950;
-    private const int Protocol = 2;
+    private const int Protocol = 3;
     private enum State { Off, Hosting, Joining, Connected, InGame, Failed }
     private static LanMultiplayer instance;
     private GameObject lobbyRoot;
@@ -167,7 +167,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         if (RolesValid && hostReady && guestReady && roomPhase == 0 && selectedAbility)
         {
             roomPhase = 1; hostReady = guestReady = false;
-            AbilityMode.Reset(); OpenAllocation();
+            AbilityMode.ResetLottery(); AbilityMode.DrawBudget(); OpenAllocation();
         }
         SendRoom();
         if (RolesValid && hostReady && guestReady)
@@ -207,18 +207,20 @@ public sealed class LanMultiplayer : MonoBehaviour
     {
         AbilityMode.Build a = AbilityMode.Builds[0], b = AbilityMode.Builds[1];
         return a.Levels[0]+"|"+a.Levels[1]+"|"+a.Levels[2]+"|"+a.Purchased+"|"+
-            b.Levels[0]+"|"+b.Levels[1]+"|"+b.Levels[2]+"|"+b.Purchased;
+            b.Levels[0]+"|"+b.Levels[1]+"|"+b.Levels[2]+"|"+b.Purchased+"|"+AbilityMode.Budget;
     }
 
     private static bool ApplyBuilds(string[] parts)
     {
+        int budget;if(parts.Length!=14||!Int32.TryParse(parts[13],out budget)||budget<12||budget>24)return false;
         AbilityMode.Build[] builds = { new AbilityMode.Build(), new AbilityMode.Build() };
         for (int side=0; side<2; side++)
         {
             for (int stat=0; stat<3; stat++)
                 if (!Int32.TryParse(parts[5+side*4+stat], out builds[side].Levels[stat])) return false;
-            if (!Int32.TryParse(parts[8+side*4], out builds[side].Purchased) || !builds[side].Valid) return false;
+            if (!Int32.TryParse(parts[8+side*4], out builds[side].Purchased) || ((builds[side].Purchased&~1023)!=0||builds[side].Used>budget||!Array.TrueForAll(builds[side].Levels,delegate(int n){return n>=0&&n<=AbilityMode.MaxLevel;}))) return false;
         }
+        AbilityMode.SetBudget(budget);
         for (int side=0; side<2; side++)
         {
             Array.Copy(builds[side].Levels, AbilityMode.Builds[side].Levels, 3);
@@ -397,7 +399,7 @@ public sealed class LanMultiplayer : MonoBehaviour
             }
             SendRoom(); return;
         }
-        if (!isHost && parts[0] == "ROOM" && parts.Length == 17 && state != State.Joining)
+        if (!isHost && parts[0] == "ROOM" && parts.Length == 18 && state != State.Joining)
         {
             int revision, phase, hr, gr, hready, gready, ack;
             if (!Int32.TryParse(parts[2], out revision) || !Int32.TryParse(parts[3], out phase) ||
@@ -405,8 +407,11 @@ public sealed class LanMultiplayer : MonoBehaviour
                 !Int32.TryParse(parts[6], out hready) || !Int32.TryParse(parts[7], out gready) || !Int32.TryParse(parts[8], out ack)) return;
             if (phase < 0 || phase > 1 || hr < -1 || hr > 1 || gr < -1 || gr > 1 || (hr >= 0 && hr == gr) ||
                 hready < 0 || hready > 1 || gready < 0 || gready > 1 || (phase == 1 && (!selectedAbility || hr < 0 || gr < 0))) return;
+            int budget;if(!Int32.TryParse(parts[17],out budget)||budget<12||budget>24)return;
+            if(revision<roomRevision||matchStarted)return;
+            int previousBudget=AbilityMode.Budget;AbilityMode.SetBudget(budget);
             AbilityMode.Build a, b;
-            if (!ReadBuild(parts, 9, out a) || !ReadBuild(parts, 13, out b)) return;
+            if (!ReadBuild(parts, 9, out a) || !ReadBuild(parts, 13, out b)){AbilityMode.SetBudget(previousBudget);return;}
             lastReceiveTime = Time.realtimeSinceStartup;
             if (ack >= guestCommand) { pendingCommand = null; lobbyDirty = true; }
             if (revision < roomRevision || matchStarted) return;

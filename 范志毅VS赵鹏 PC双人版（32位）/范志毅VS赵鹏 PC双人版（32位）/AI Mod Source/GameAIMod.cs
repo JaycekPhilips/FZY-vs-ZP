@@ -387,7 +387,7 @@ public static class GameAIMod
     private static void ChooseAbilityStyle(Component panel, Button template)
     {
         ChooseStyle(panel, template, false);
-        AbilityMode.Enabled = true; AbilityMode.Reset();
+        AbilityMode.Enabled = true; AbilityMode.ResetLottery();
         if (modeOverlay != null) { modeOverlay.name = "Retired Selection"; modeOverlay.SetActive(false); UnityEngine.Object.Destroy(modeOverlay); modeOverlay = null; }
         ShowSelection(panel, template, true);
     }
@@ -914,7 +914,7 @@ public static class GameAIMod
         if((contactWindow||incomingWindow) && Time.time-state.lastKick>.38f)
         {
             float separation=state.opponentBody!=null?Mathf.Abs(state.opponentBody.position.x-state.body.position.x):100f;
-            bool curveAvailable=PlayerSkills.Enabled && separation>(state.rightGoalLine-state.leftGoalLine)*.25f+.1f*scale;
+            bool curveAvailable=PlayerSkills.Enabled && separation>(state.rightGoalLine-state.leftGoalLine)*.125f+.1f*scale;
             state.kick=true;state.power=!curveAvailable;state.lastKick=Time.time;
         }
         if(PlayerSkills.Enabled && !grounded && !state.head && ahead<-.15f*scale &&

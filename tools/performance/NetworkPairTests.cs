@@ -82,7 +82,7 @@ public sealed class NetworkPairTests : MonoBehaviour
                 if(cycle==0)
                 {
                     string build=(string)typeof(LanMultiplayer).GetField("BuildId",SP).GetValue(null);
-                    foreach(string hello in new[]{"HELLO|2|0|wrong-build","HELLO|2|1|"+build})
+                    foreach(string hello in new[]{"HELLO|3|0|wrong-build","HELLO|3|1|"+build})
                     {
                         using(Socket probe=new Socket(AddressFamily.InterNetwork,SocketType.Dgram,ProtocolType.Udp))
                         {
@@ -132,8 +132,9 @@ public sealed class NetworkPairTests : MonoBehaviour
             {
                 Check((int)Field("roomPhase")==1&&!LanMultiplayer.Active,"first readiness enters allocation without kickoff");
                 Check(!(bool)Field("hostReady")&&!(bool)Field("guestReady"),"allocation needs fresh readiness");
+                Check(AbilityMode.Budget>=12&&AbilityMode.Budget<=24,"shared lottery budget received before allocation");Debug.Log("LOTTERY NETWORK budget="+AbilityMode.Budget);
                 AbilityMode.Build build=AbilityMode.Builds[own];
-                build.Levels[0]=own==0?6:2;build.Levels[1]=own==0?2:4;build.Levels[2]=own==0?4:6;build.Purchased=1<<(own==0?4:5);
+                build.Levels[0]=own==0?6:2;build.Levels[1]=2;build.Levels[2]=own==0?2:6;build.Purchased=1<<(own==0?4:5);
                 // Old phase commands cannot act as the second readiness.
                 if(host){Call("HandleControl","CMD|"+Field("sessionId")+"|100|0|READY|"+(1-hostSide));Check(!(bool)Field("guestReady"),"delayed selection readiness ignored");}
                 // Use a high sequence on the guest as well after the stale-command probe.
@@ -165,7 +166,7 @@ public sealed class NetworkPairTests : MonoBehaviour
             if(host&&manager!=null){manager.GetType().GetField("p1Score").SetValue(manager,3);manager.GetType().GetField("p2Score").SetValue(manager,4);}
             float scoreWait=Time.realtimeSinceStartup;
             while(!host&&manager!=null&&((int)manager.GetType().GetField("p1Score").GetValue(manager)!=3||(int)manager.GetType().GetField("p2Score").GetValue(manager)!=4)&&Time.realtimeSinceStartup-scoreWait<1f)yield return null;
-            Check(manager!=null&&(int)manager.GetType().GetField("p1Score").GetValue(manager)==3&&(int)manager.GetType().GetField("p2Score").GetValue(manager)==4,"host scoreboard state reaches guest");
+            Check(manager!=null&&(int)manager.GetType().GetField("p1Score").GetValue(manager)==3&&(int)manager.GetType().GetField("p2Score").GetValue(manager)==4,"host scoreboard state reaches guest state="+Field("state")+" manager="+(manager!=null));
             Check(PlayerSkills.Enabled==(cycle==1),"classic/skills mode preserved");
             Check(AbilityMode.Enabled==(cycle==2),"allocation mode preserved");
             if(cycle==2)
@@ -174,7 +175,7 @@ public sealed class NetworkPairTests : MonoBehaviour
                 Check(AbilityMode.Builds[1].Levels[0]==2&&AbilityMode.Builds[1].Levels[2]==6&&AbilityMode.Builds[1].Purchased==(1<<5),"Zhao allocation synchronized before kickoff");
                 Check(GameObject.Find("Fan").GetComponent<BuildPlayer>()!=null&&GameObject.Find("Zhao").GetComponent<BuildPlayer>()!=null,"both physical ability modules initialized");
                 Check(UnityEngine.Object.FindObjectOfType<AbilitySetupPanel>()==null,"kickoff does not reopen allocation screen");
-                string[] invalid={"WELCOME","1","0","2","build","6","2","4","16","9","0","0","0"};
+                string[] invalid={"WELCOME","1","0","2","build","6","2","4","16","9","0","0","0","24"};
                 bool accepted=(bool)typeof(LanMultiplayer).GetMethod("ApplyBuilds",SP).Invoke(null,new object[]{invalid});
                 Check(!accepted&&AbilityMode.Builds[0].Levels[0]==6&&AbilityMode.Builds[1].Levels[0]==2,"invalid remote allocation rejected atomically");
                 invalid[8]="-1";
@@ -192,10 +193,10 @@ public sealed class NetworkPairTests : MonoBehaviour
                     Check((int)Field("remoteHeldMask")==0&&(float)Field("remoteAxis")==0f,"disconnect clears held remote controls");
                 }
             }
-            // Keep host input alive until the guest has made its checks. The
+            // Keep both connections alive until the other process has made its checks. The
             // roles launch on different frames; ending the host immediately
             // would legitimately send a zero axis before the guest samples it.
-            if(host&&cycle==2)yield return new WaitForSeconds(2f);
+            if(cycle==2)yield return new WaitForSecondsRealtime(2f);
             input=false;
         }
         Call("CloseLobby");

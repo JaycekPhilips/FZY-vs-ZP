@@ -1,0 +1,143 @@
+{
+  "backup": {
+    "path": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\backup-before-cannon-total-20261014-105418",
+    "stamp": "20261014-105418"
+  },
+  "githubUpdated": false,
+  "editions": [
+    {
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003",
+      "checks": 60,
+      "policyHash": "C78024A7BFC0FBB64A448631F2E67FB6CBDF59E2ECD77EAE92B6FDCF72068CB2",
+      "evidence": [
+        {
+          "logHash": "D27B82390C605D5CD639722817C3B37876C8D640B58D971019DB9C324F2BEB4A",
+          "count": 60,
+          "suite": "cannontotal"
+        },
+        {
+          "logHash": "D9E5E86E8E298058A765BE083C5E2F3AC5E1FCC9B602BA825F3B083945B26A2F",
+          "count": 200,
+          "suite": "skillselfplay"
+        }
+      ],
+      "modHash": "6CCBF29C26EF3B6E4D1336EA91BE101CE9703D1EA799629BE26704002AB508F9",
+      "selfplay": {
+        "policyHash": "C78024A7BFC0FBB64A448631F2E67FB6CBDF59E2ECD77EAE92B6FDCF72068CB2",
+        "cannonBounces": 33,
+        "cannonContacts": 498,
+        "leafContacts": 218,
+        "rescueAttempts": 3270,
+        "ability0Goals": 16,
+        "ability8Goals": 16,
+        "ability10Goals": 16,
+        "ability12Goals": 16,
+        "ability13Goals": 16,
+        "ability22Goals": 20,
+        "lowSumCannonContacts": 184,
+        "baselineSumCannonContacts": 61,
+        "highSumCannonContacts": 94,
+        "target": 200,
+        "goals": 200,
+        "fanGoals": 106,
+        "zhaoGoals": 94,
+        "highGoals": 74,
+        "lowGoals": 126,
+        "specialSamples": 100,
+        "abilitySamples": 100,
+        "matches": 25,
+        "failures": 0,
+        "physicsSteps": 90674,
+        "bodySteps": 10455,
+        "feetSteps": 208,
+        "chestSteps": 14,
+        "headSteps": 40,
+        "highContactWins": 5447,
+        "lowContactWins": 3728,
+        "realSeconds": 85.20394134521484,
+        "simulatedSeconds": 1813.4310302734375,
+        "maxJointError": 0.5272408127784729,
+        "highContactPush": 87.3319320678711,
+        "lowContactPush": 55.86357879638672,
+        "feetHighPush": 0.5238874554634094,
+        "feetLowPush": 0.7618524432182312,
+        "chestHighPush": 0.1904066801071167,
+        "chestLowPush": 0.05849488079547882,
+        "headHighPush": 0.04842853546142578,
+        "headLowPush": 0.36159637570381165,
+        "bodyHighPush": 86.56928253173828,
+        "bodyLowPush": 54.68163299560547
+      },
+      "edition": "original",
+      "installedAt": "2026-10-14T13:52:39.7354471+08:00"
+    },
+    {
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658",
+      "checks": 60,
+      "policyHash": "A7AA112A23846B7D07EBBD87317D3CF18A8C270AF55A844312D667E3638B623D",
+      "evidence": [
+        {
+          "logHash": "0CB855F4FF9DED9CED16F7A17DAC0FF8EAF18F16D1F8BF992923FC5000EBAF47",
+          "count": 60,
+          "suite": "cannontotal"
+        },
+        {
+          "logHash": "2F3E0214A529CD1B01CB3B67349980418F6F9DE1FC7C04A940D9DC509B2257F7",
+          "count": 200,
+          "suite": "skillselfplay"
+        }
+      ],
+      "modHash": "D6F51570AF4BD3264113A3AAFA54DE41F427BBD9F33C460C82178292EE892705",
+      "selfplay": {
+        "policyHash": "A7AA112A23846B7D07EBBD87317D3CF18A8C270AF55A844312D667E3638B623D",
+        "cannonBounces": 21,
+        "cannonContacts": 320,
+        "leafContacts": 253,
+        "rescueAttempts": 3225,
+        "ability0Goals": 16,
+        "ability8Goals": 16,
+        "ability10Goals": 16,
+        "ability12Goals": 16,
+        "ability13Goals": 16,
+        "ability22Goals": 20,
+        "lowSumCannonContacts": 98,
+        "baselineSumCannonContacts": 56,
+        "highSumCannonContacts": 82,
+        "target": 200,
+        "goals": 200,
+        "fanGoals": 113,
+        "zhaoGoals": 87,
+        "highGoals": 91,
+        "lowGoals": 109,
+        "specialSamples": 100,
+        "abilitySamples": 100,
+        "matches": 27,
+        "failures": 0,
+        "physicsSteps": 102333,
+        "bodySteps": 10798,
+        "feetSteps": 665,
+        "chestSteps": 8,
+        "headSteps": 93,
+        "highContactWins": 4188,
+        "lowContactWins": 5849,
+        "realSeconds": 95.6678237915039,
+        "simulatedSeconds": 2046.5892333984375,
+        "maxJointError": 0.4900149703025818,
+        "highContactPush": 50.61213684082031,
+        "lowContactPush": 69.08979034423828,
+        "feetHighPush": 0.558868408203125,
+        "feetLowPush": 2.8771259784698486,
+        "chestHighPush": 0.010845541954040527,
+        "chestLowPush": 0.015282690525054932,
+        "headHighPush": 0.9244252443313599,
+        "headLowPush": 0.11119413375854492,
+        "bodyHighPush": 49.118011474609375,
+        "bodyLowPush": 66.08612060546875
+      },
+      "edition": "experiment",
+      "installedAt": "2026-10-14T13:52:40.0119446+08:00"
+    }
+  ]
+}

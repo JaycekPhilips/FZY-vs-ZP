@@ -7,6 +7,17 @@ using UnityEngine;
 // Kick motion and can launch only from a real, eligible foot-ball collision.
 public sealed class PowerShot : MonoBehaviour
 {
+    public static float ShootingSkillRange(Component player){
+        if(player==null)return float.PositiveInfinity;Type type=player.GetType().Assembly.GetType("GoalTrigger");if(type==null)return float.PositiveInfinity;float left=float.PositiveInfinity,right=float.NegativeInfinity;
+        foreach(UnityEngine.Object item in UnityEngine.Object.FindObjectsOfType(type)){var goal=(item as Component).GetComponent<Collider2D>();if(goal==null)continue;float line=goal.transform.position.x<0?goal.bounds.max.x:goal.bounds.min.x;left=Mathf.Min(left,line);right=Mathf.Max(right,line);}return right>left?(right-left)*.125f:float.PositiveInfinity;
+    }
+    public static bool ShootingSkillSpace(Component player){
+        if(player==null)return false;PowerShot ours=player.GetComponent<PowerShot>(),other=null;foreach(PowerShot p in players)if(p!=null&&p!=ours&&(p.name=="Fan"||p.name=="Zhao")){other=p;break;}
+        if(ours==null||other==null||ours.body==null||other.body==null||Mathf.Abs(ours.body.position.x-other.body.position.x)+.0001f<ShootingSkillRange(player))return false;
+        BuildPlayer build=player.GetComponent<BuildPlayer>();if(AbilityMode.Enabled&&build!=null&&build.InContest)return false;
+        bool ourBall=false,theirBall=false;foreach(var a in ours.limbShapes){if(a==null||!a.enabled||a.isTrigger)continue;ourBall|=ours.ballShape!=null&&a.IsTouching(ours.ballShape);foreach(var b in other.limbShapes){if(b!=null&&b.enabled&&!b.isTrigger&&a.IsTouching(b))return false;}}
+        foreach(var b in other.limbShapes)if(b!=null&&b.enabled&&!b.isTrigger)theirBall|=ours.ballShape!=null&&b.IsTouching(ours.ballShape);return !(ourBall&&theirBall);
+    }
     public const float HeaderSpeedMultiplier = .9f;
     private float headerUntil = -1f;
     public const float SpeedMultiplier = 1.2f;
@@ -18,12 +29,12 @@ public sealed class PowerShot : MonoBehaviour
     private FieldInfo stopping;
     private readonly PhysicsHitBuffer rayHits = new PhysicsHitBuffer();
     private static readonly List<PowerShot> players = new List<PowerShot>(2);
-    private Rigidbody2D[] limbs;
+    private Rigidbody2D[] limbs;private Collider2D[] limbShapes;
     private Rigidbody2D opponentBody;
-    private void Awake() { players.Add(this); players.Sort(ComparePlayers); limbs = GetComponentsInChildren<Rigidbody2D>(true); }
+    private void Awake() { players.Add(this); players.Sort(ComparePlayers); limbs = GetComponentsInChildren<Rigidbody2D>(true);limbShapes=GetComponentsInChildren<Collider2D>(true); }
     private static int ComparePlayers(PowerShot a, PowerShot b) { return a.GetInstanceID().CompareTo(b.GetInstanceID()); }
     private void OnDestroy() { players.Remove(this); }
-    private void OnTransformChildrenChanged() { limbs = GetComponentsInChildren<Rigidbody2D>(true); }
+    private void OnTransformChildrenChanged() { limbs = GetComponentsInChildren<Rigidbody2D>(true);limbShapes=GetComponentsInChildren<Collider2D>(true); }
     private int groundMask;
     private bool fan;
     private int requestedFrame = -1, commandFrame = -1;
@@ -55,10 +66,11 @@ public sealed class PowerShot : MonoBehaviour
     public static void CompleteHeader(Component player) { PowerShot s = player != null ? player.GetComponent<PowerShot>() : null; if (s != null) s.headerUntil = -1f; }
     public static bool FrontalHead(Component player,Rigidbody2D ball){
         PowerShot s=player!=null?player.GetComponent<PowerShot>():null;if(s==null||s.headShape==null||ball==null)return false;
-        float angle=Mathf.DeltaAngle(s.headReferenceAngle,s.headShape.transform.eulerAngles.z)*Mathf.Deg2Rad;
-        Vector2 facing=new Vector2(Mathf.Cos(angle),Mathf.Sin(angle))*(s.fan?1f:-1f);
-        return Vector2.Dot(ball.position-(Vector2)s.headShape.bounds.center,facing)>.015f*Mathf.Abs(player.transform.lossyScale.x)/.8f;
+        return Vector2.Dot(ball.position-(Vector2)s.headShape.bounds.center,HeadFacing(player))>.015f*Mathf.Abs(player.transform.lossyScale.x)/.8f;
     }
+    public static float HeadRestRotation(Component player){PowerShot s=player!=null?player.GetComponent<PowerShot>():null;return s!=null?s.headReferenceAngle:0f;}
+    public static Vector2 HeadFacing(Component player){PowerShot s=player!=null?player.GetComponent<PowerShot>():null;if(s==null||s.headShape==null)return Vector2.right*(player!=null&&player.name=="Zhao"?-1f:1f);float angle=Mathf.DeltaAngle(s.headReferenceAngle,s.headShape.transform.eulerAngles.z)*Mathf.Deg2Rad;return new Vector2(Mathf.Cos(angle),Mathf.Sin(angle))*(s.fan?1f:-1f);}
+    public static float ForeheadAlignment(Component player,Rigidbody2D ball){PowerShot s=player!=null?player.GetComponent<PowerShot>():null;if(s==null||ball==null)return 0f;return Vector2.Dot((ball.position-(Vector2)s.headShape.bounds.center).normalized,HeadFacing(player));}
     public static Vector2 OrdinaryHeaderVelocity(Component player,Vector2 incoming){return PlayerSkills.CannonVelocity(player.name=="Fan"?1f:-1f,incoming)*.85f;}
     private bool SlowHeader(Collider2D limb,bool exiting){
         if(Stopped()||Time.time>headerUntil||limb.name!="Head")return false;
@@ -150,7 +162,8 @@ public sealed class PowerShot : MonoBehaviour
 // resting against a commanded head is reduced after its actual launch too.
 public sealed class HeaderContactSensor : MonoBehaviour
 {
-    private void OnCollisionStay2D(Collision2D collision) { PowerShot.HeaderContact(collision, false); }
+    private void OnCollisionEnter2D(Collision2D collision){AbilityMode.CannonWorldContact(collision);}
+    private void OnCollisionStay2D(Collision2D collision) { AbilityMode.CannonWorldContact(collision);PowerShot.HeaderContact(collision, false); }
     private void OnCollisionExit2D(Collision2D collision) { PowerShot.HeaderContact(collision, true); }
 }
 

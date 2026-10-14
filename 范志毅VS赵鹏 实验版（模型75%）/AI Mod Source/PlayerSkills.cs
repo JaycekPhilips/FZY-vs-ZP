@@ -673,7 +673,7 @@ public sealed class PlayerSkills : MonoBehaviour
 
     private void VolleyOnContact(Collider2D limb, Vector2 contact, Vector2 outwardNormal)
     {
-        if (!fan || Stopped() || !BallInFront() || ballCollider == null || kickUntil < Time.time || IsCloseContest() ||
+        if (!fan || Stopped() || !BallInFront() || ballCollider == null || kickUntil < Time.time ||
             !IsFootContact(limb, contact, outwardNormal)) return;
         Collider2D goal = FindCurveGoal();
         if (goal == null || !HasVolleySeparation(goal) ||
@@ -703,26 +703,7 @@ public sealed class PlayerSkills : MonoBehaviour
         return null;
     }
 
-    private bool HasVolleySeparation(Collider2D attackingGoal)
-    {
-        if (body == null || opponentBody == null || attackingGoal == null) return false;
-        Type type = controller.GetType().Assembly.GetType("GoalTrigger");
-        if (type == null) return false;
-        foreach (UnityEngine.Object item in UnityEngine.Object.FindObjectsOfType(type))
-        {
-            Component goal = item as Component;
-            if (goal == null || goal.transform.position.x * direction >= 0f) continue;
-            Collider2D defendingGoal = goal.GetComponent<Collider2D>();
-            if (defendingGoal == null) continue;
-            // Measure the playable length between the two goal lines. Only
-            // horizontal player separation counts, including during jumps.
-            float attackLine = direction > 0f ? attackingGoal.bounds.min.x : attackingGoal.bounds.max.x;
-            float defendLine = direction > 0f ? defendingGoal.bounds.max.x : defendingGoal.bounds.min.x;
-            float quarterLength = Mathf.Abs(attackLine - defendLine) * .25f;
-            return quarterLength > 0f && Mathf.Abs(body.position.x - opponentBody.position.x) >= quarterLength;
-        }
-        return false;
-    }
+    private bool HasVolleySeparation(Collider2D attackingGoal){return attackingGoal!=null&&PowerShot.ShootingSkillSpace(controller);}
 
     private LeafShotProfile curveProfile;
     private void PrepareGoalCurve(Collider2D goal)
@@ -802,7 +783,7 @@ public sealed class PlayerSkills : MonoBehaviour
     private bool CanBurst()
     {
         return BallInFront() && ballCollider != null && opponentBody != null &&
-            !IsCloseContest();
+            PowerShot.ShootingSkillSpace(controller);
     }
 
     private bool IsCloseContest()
