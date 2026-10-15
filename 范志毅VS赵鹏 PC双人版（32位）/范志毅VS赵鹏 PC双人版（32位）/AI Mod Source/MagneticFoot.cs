@@ -107,7 +107,7 @@ public sealed class MagneticFoot : MonoBehaviour
     }
     private bool Eligible()
     {
-        if ((!PlayerSkills.Enabled && !AbilityMode.Has(controller,8)&&!Passive(controller)) || controller == null || ball == null || ballCollider == null || legs == null || Time.timeScale <= 0f || Time.time < protectedUntil ||
+        if ((!SkillRework.Has(controller,8)&&!Passive(controller)) || controller == null || ball == null || ballCollider == null || legs == null || Time.timeScale <= 0f || Time.time < protectedUntil ||
             (manager != null && (bool)stopping.GetValue(manager))) return false;
         // Passive dribbling follows intentional movement; idle standing keeps
         // its native feet instead of continuing to reach across a trapped ball.
@@ -169,7 +169,7 @@ public sealed class MagneticFoot : MonoBehaviour
     }
     private void SetAngles(Leg leg,float upper,float lower)
     {
-        if(aerialPose){if(!leg.airPrimed){leg.airPrimed=true;leg.airUpper=leg.upper.rotation;leg.airLower=leg.lower.rotation;}leg.airUpper=Mathf.MoveTowardsAngle(leg.airUpper,upper,720f*Time.deltaTime);leg.airLower=Mathf.MoveTowardsAngle(leg.airLower,lower,960f*Time.deltaTime);leg.upperTarget.SetValue(stick,leg.airUpper);leg.lowerTarget.SetValue(stick,leg.airLower);return;}
+        if(aerialPose){if(SkillRework.Mirrored(controller)){leg.upperTarget.SetValue(stick,upper);leg.lowerTarget.SetValue(stick,lower);return;}if(!leg.airPrimed){leg.airPrimed=true;leg.airUpper=leg.upper.rotation;leg.airLower=leg.lower.rotation;}leg.airUpper=Mathf.MoveTowardsAngle(leg.airUpper,upper,720f*Time.deltaTime);leg.airLower=Mathf.MoveTowardsAngle(leg.airLower,lower,960f*Time.deltaTime);leg.upperTarget.SetValue(stick,leg.airUpper);leg.lowerTarget.SetValue(stick,leg.airLower);return;}
         if(Passive(controller)){float blend=.2f+.3f*(AbilityMode.For(controller).Levels[1]-4)/4f;upper=Mathf.LerpAngle((float)leg.upperTarget.GetValue(stick),upper,blend);lower=Mathf.LerpAngle((float)leg.lowerTarget.GetValue(stick),lower,blend);}
         leg.desiredUpper=upper;leg.desiredLower=lower;
         // Bounded targets and finite muscle gains preserve the connected rig.

@@ -210,7 +210,7 @@ public sealed class BuildPlayer : MonoBehaviour
     }
     Vector2 RigVelocity(){Vector2 v=Vector2.zero;foreach(var b in limbs)if(b!=null)v+=b.velocity*b.mass;return v/mass;}
     void Impulse(Vector2 v){foreach(var b in limbs)if(b!=null)b.AddForce(v*b.mass,ForceMode2D.Impulse);}
-    void Stable(float response=5f,float acceleration=600f){float spin=Mathf.Clamp(Mathf.DeltaAngle(body.rotation,0f)*response-body.angularVelocity,-acceleration*Time.fixedDeltaTime,acceleration*Time.fixedDeltaTime)*Mathf.Deg2Rad;Vector2 center=body.position;foreach(var b in limbs)if(b!=null){Vector2 off=b.position-center;b.AddForce(new Vector2(-off.y,off.x)*spin*b.mass,ForceMode2D.Impulse);b.AddTorque(spin*b.inertia,ForceMode2D.Impulse);}}
+    void Stable(float response=5f,float acceleration=600f){if(SkillRework.InBicycle(controller))return;float spin=Mathf.Clamp(Mathf.DeltaAngle(body.rotation,0f)*response-body.angularVelocity,-acceleration*Time.fixedDeltaTime,acceleration*Time.fixedDeltaTime)*Mathf.Deg2Rad;Vector2 center=body.position;foreach(var b in limbs)if(b!=null){Vector2 off=b.position-center;b.AddForce(new Vector2(-off.y,off.x)*spin*b.mass,ForceMode2D.Impulse);b.AddTorque(spin*b.inertia,ForceMode2D.Impulse);}}
     public bool Staggered {get{return !Stopped()&&(Time.time<airStaggerUntil||(Time.time<staggerUntil&&ContestContact(Opponent(),true)));}}
     float Skill(int index){return AbilityMode.SkillStrength(controller,index);}
     public bool Intercepting {get{return !Stopped()&&Time.time<=interceptUntil;}}

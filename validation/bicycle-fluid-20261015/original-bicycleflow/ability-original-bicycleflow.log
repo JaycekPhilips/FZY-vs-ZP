@@ -1,0 +1,508 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.760 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.552300 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.265700 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1017.
+Total: 0.730800 ms (FindLiveObjects: 0.055000 ms CreateObjectMapping: 0.017900 ms MarkObjects: 0.220200 ms  DeleteObjects: 0.437300 ms)
+
+CAMERA_CAPTURE pos=(0.0, -0.1, -10.0) size=4.018806 actor=(0.0, 0.1) angle=5.905797 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, -0.3, -10.0) size=2.525699 actor=(0.2, 0.1) angle=12.86421 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(-0.1, -0.2, -10.0) size=1.985398 actor=(0.3, 0.1) angle=11.58801 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(-0.1, 0.0, -10.0) size=1.588066 actor=(0.4, 0.1) angle=-11.3648 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.3, 0.1) angle=-44.90794 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.4, 0.1) angle=-70.65933 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.4, 0.1) angle=-82.958 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.4, 0.1) angle=-93.88371 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.4, 0.0) angle=-109.6393 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.3, -0.1) angle=-112.3964 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -0.2) angle=-113.2451 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -0.2) angle=-114.1697 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -0.3) angle=-108.7279 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -0.3) angle=-97.01991 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.2, -0.4) angle=-89.03031 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -0.5) angle=-84.44588 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -0.6) angle=-86.44229 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -0.7) angle=-91.92046 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -0.8) angle=-92.61382 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -1.0) angle=-88.94157 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -1.2) angle=-87.23516 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -1.4) angle=-87.15904 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -1.6) angle=-89.96819 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -1.5) angle=-87.9635 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -1.5) angle=-87.73741 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -1.5) angle=-88.59885 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -1.5) angle=-87.58157 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -1.4) angle=-81.98592 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -1.2) angle=-76.68919 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -1.0) angle=-74.7217 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -0.9) angle=-77.52261 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -0.8) angle=-75.24477 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-0.1, -0.7) angle=-65.14854 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-0.2, -0.5) angle=-49.22524 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-0.3, -0.4) angle=-39.51976 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-0.5, -0.2) angle=-33.22074 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-0.6, -0.1) angle=-26.65598 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-0.8, 0.0) angle=-21.56589 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-0.9, 0.0) angle=-13.833 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-1.1, 0.1) angle=-8.494854 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-1.3, 0.1) angle=-4.728747 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-1.5, 0.1) angle=3.458243 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-1.7, 0.1) angle=14.27166 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-1.9, 0.1) angle=22.53289 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-2.0, 0.1) angle=25.58648 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-2.2, 0.1) angle=25.81356 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-2.3, 0.1) angle=23.18006 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-2.5, 0.0) angle=17.82212 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-2.6, 0.0) angle=17.02993 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-2.7, 0.1) angle=13.76387 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-2.8, 0.1) angle=9.316212 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-2.8, 0.1) angle=6.252849 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-2.9, 0.1) angle=3.864559 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-3.0, 0.1) angle=0.968098 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-3.0, 0.1) angle=-0.6712521 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-3.1, 0.1) angle=-0.5962009 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-3.1, 0.1) angle=-0.2482545 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS mirrored windup and half speed actor=Fan height=0.7 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS backward half somersault direction actor=Fan min=-114.1697 max=26.00809 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual boot collision shoots toward opposing goal actor=Fan height=0.7 offset=0.4 contacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS back landing then quick getup before turn actor=Fan landed=True getup=True earlyFoot=False angle=0.596172 feet=True nativeGround=True held=True turned=False scale=0.8 vy=-0.05257053 spin=15.73063 until=-1 getupAt=1.68 standSince=-1 now=2.96 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS connected rig stays smooth actor=Fan error=0.1093093 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS visible arm swing and scissor with continuous pose actor=Fan arm=116.3446 scissor=98.08013 maxTargetSpeed=1638.407 bodyStep=16.82678 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.908700 ms
+
+Unloading 39 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.245400 ms (FindLiveObjects: 0.048500 ms CreateObjectMapping: 0.010500 ms MarkObjects: 0.262000 ms  DeleteObjects: 0.924000 ms)
+
+ABILITY PASS mirrored windup and half speed actor=Fan height=1.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS backward half somersault direction actor=Fan min=-124.3283 max=27.0721 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual boot collision shoots toward opposing goal actor=Fan height=1.2 offset=0.45 contacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS back landing then quick getup before turn actor=Fan landed=True getup=True earlyFoot=False angle=-1.085626 feet=True nativeGround=True held=True turned=False scale=0.8 vy=-0.1724524 spin=-409.8901 until=-1 getupAt=4.48 standSince=-1 now=5.8 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS connected rig stays smooth actor=Fan error=0.07000406 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS visible arm swing and scissor with continuous pose actor=Fan arm=125.8152 scissor=99.70578 maxTargetSpeed=1643.913 bodyStep=20.19649 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.299300 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.086400 ms (FindLiveObjects: 0.052400 ms CreateObjectMapping: 0.016000 ms MarkObjects: 0.191600 ms  DeleteObjects: 0.825900 ms)
+
+ABILITY PASS mirrored windup and half speed actor=Fan height=0.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS backward half somersault direction actor=Fan min=-114.9763 max=25.29529 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual boot collision shoots toward opposing goal actor=Fan height=0.2 offset=0.4 contacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS back landing then quick getup before turn actor=Fan landed=True getup=True earlyFoot=False angle=-12.17583 feet=True nativeGround=True held=True turned=False scale=0.8 vy=0.3815631 spin=-292.9551 until=-1 getupAt=7.08 standSince=-1 now=8.179999 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS connected rig stays smooth actor=Fan error=0.2092229 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS visible arm swing and scissor with continuous pose actor=Fan arm=134.125 scissor=93.85509 maxTargetSpeed=1643.329 bodyStep=17.24916 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.309000 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.058300 ms (FindLiveObjects: 0.031600 ms CreateObjectMapping: 0.016000 ms MarkObjects: 0.184800 ms  DeleteObjects: 0.825400 ms)
+
+CAMERA_CAPTURE pos=(0.0, -0.1, -10.0) size=4.024234 actor=(0.0, 0.1) angle=-8.148959 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, -0.3, -10.0) size=2.551148 actor=(-0.2, 0.1) angle=-16.56241 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.1, -0.2, -10.0) size=1.951716 actor=(-0.3, 0.1) angle=-14.84386 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.2, 0.0, -10.0) size=1.606621 actor=(-0.3, 0.1) angle=3.823691 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-0.3, 0.1) angle=34.15773 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-0.4, 0.1) angle=65.69108 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-0.3, 0.1) angle=78.00543 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-0.3, 0.0) angle=90.04756 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-0.2, 0.0) angle=91.78983 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(-0.1, -0.1) angle=92.08081 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -0.2) angle=96.16135 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -0.2) angle=101.6666 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -0.3) angle=102.3247 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -0.4) angle=97.38474 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -0.5) angle=94.00519 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -0.6) angle=95.76968 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -0.7) angle=96.55247 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -0.8) angle=94.96524 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -0.9) angle=91.34104 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -1.1) angle=86.74794 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.2, -1.3) angle=84.41261 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.2, -1.5) angle=82.99042 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.2, -1.5) angle=86.39705 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.2, -1.5) angle=85.92506 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.2, -1.5) angle=86.34701 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.2, -1.5) angle=87.77574 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.2, -1.4) angle=85.51981 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -1.3) angle=81.36456 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -1.1) angle=78.48811 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.0, -0.9) angle=79.46767 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.1, -0.8) angle=80.94092 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.2, -0.7) angle=71.39062 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.2, -0.6) angle=61.1116 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.3, -0.4) angle=44.87025 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.4, -0.3) angle=32.25217 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.5, -0.2) angle=22.53234 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.6, -0.1) angle=16.17063 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.8, 0.0) angle=12.05866 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(0.9, 0.1) angle=8.380816 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(1.1, 0.1) angle=6.255908 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(1.3, 0.2) angle=1.211415 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(1.4, 0.2) angle=-7.749107 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(1.5, 0.2) angle=-16.77051 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(1.7, 0.2) angle=-21.80864 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(1.8, 0.1) angle=-20.93671 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(2.0, 0.1) angle=-15.83609 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(2.1, 0.1) angle=-8.058681 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(2.2, 0.1) angle=-2.86269 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(2.3, 0.1) angle=-0.4882695 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(2.4, 0.1) angle=-1.383824 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(2.5, 0.1) angle=-1.331639 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+CAMERA_CAPTURE pos=(0.0, 0.0, -10.0) size=5 actor=(2.6, 0.1) angle=0.665549 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS mirrored windup and half speed actor=Zhao height=0.7 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS backward half somersault direction actor=Zhao min=-102.7917 max=22.03714 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual boot collision shoots toward opposing goal actor=Zhao height=0.7 offset=0.4 contacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS back landing then quick getup before turn actor=Zhao landed=True getup=True earlyFoot=False angle=0.665549 feet=True nativeGround=True held=True turned=False scale=0.8 vy=-0.2531945 spin=-7.479981 until=-1 getupAt=9.62 standSince=-1 now=10.70445 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS connected rig stays smooth actor=Zhao error=0.1332266 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS visible arm swing and scissor with continuous pose actor=Zhao arm=149.8559 scissor=87.93338 maxTargetSpeed=1639.772 bodyStep=16.17291 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.347700 ms
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.598700 ms (FindLiveObjects: 0.056700 ms CreateObjectMapping: 0.017800 ms MarkObjects: 0.287700 ms  DeleteObjects: 1.235900 ms)
+
+ABILITY PASS mirrored windup and half speed actor=Zhao height=1.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS backward half somersault direction actor=Zhao min=-103.9808 max=20.48987 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual boot collision shoots toward opposing goal actor=Zhao height=1.2 offset=0.45 contacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS back landing then quick getup before turn actor=Zhao landed=True getup=True earlyFoot=False angle=2.100659 feet=True nativeGround=True held=True turned=False scale=0.8 vy=-0.03820338 spin=-8.846766 until=-1 getupAt=12.24 standSince=-1 now=13.4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS connected rig stays smooth actor=Zhao error=0.1270189 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS visible arm swing and scissor with continuous pose actor=Zhao arm=156.1536 scissor=94.30307 maxTargetSpeed=1643.91 bodyStep=18.7893 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.303600 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.029200 ms (FindLiveObjects: 0.040900 ms CreateObjectMapping: 0.008500 ms MarkObjects: 0.177400 ms  DeleteObjects: 0.802000 ms)
+
+ABILITY PASS mirrored windup and half speed actor=Zhao height=0.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS backward half somersault direction actor=Zhao min=-116.2645 max=23.16241 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual boot collision shoots toward opposing goal actor=Zhao height=0.2 offset=0.4 contacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS back landing then quick getup before turn actor=Zhao landed=True getup=True earlyFoot=False angle=6.76299 feet=True nativeGround=True held=True turned=False scale=0.8 vy=-0.3556944 spin=-60.59068 until=-1 getupAt=14.68 standSince=-1 now=16.02 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS connected rig stays smooth actor=Zhao error=0.3846222 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS visible arm swing and scissor with continuous pose actor=Zhao arm=151.8762 scissor=100.9274 maxTargetSpeed=1643.281 bodyStep=15.88506 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=36 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: cfc -> priority: 1 
+  Thread -> id: 17d0 -> priority: 1 
+  Thread -> id: 4d14 -> priority: 1 
+  Thread -> id: 8adc -> priority: 1 
+  Thread -> id: 89f8 -> priority: 1 
+  Thread -> id: 36ec -> priority: 1 
+  Thread -> id: 3f0c -> priority: 1 
+  Thread -> id: 9240 -> priority: 1 
+  Thread -> id: 8b7c -> priority: 1 
+  Thread -> id: 3e14 -> priority: 1 
+  Thread -> id: 2984 -> priority: 1 
+  Thread -> id: 1f9c -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

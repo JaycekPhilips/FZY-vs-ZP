@@ -1,0 +1,42 @@
+{
+  "githubUpdated": false,
+  "backup": {
+    "path": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\backup-before-skill-odds-20261016-012123"
+  },
+  "editions": [
+    {
+      "selfplayExempt": true,
+      "checks": 28,
+      "edition": "original",
+      "installedAt": "2026-10-16T01:25:13.0562470+08:00",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "evidence": [
+        {
+          "suite": "skillodds",
+          "count": 28,
+          "logHash": "9AF5DE1F090EC5C435945A17D613F3B15CB7CCF3898D93673B0D5FFA05C4902A"
+        }
+      ],
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003",
+      "modHash": "E1689A2C7632AEBADE792B16A851F5E8084B8598F94667D4ED14FD3ACD18201D",
+      "policyHash": "76CB10BFFBE514EA5811974EAB17E06B6CD7982F2645006673A75A51FCA05B5B"
+    },
+    {
+      "selfplayExempt": true,
+      "checks": 28,
+      "edition": "experiment",
+      "installedAt": "2026-10-16T01:25:13.2262425+08:00",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "evidence": [
+        {
+          "suite": "skillodds",
+          "count": 28,
+          "logHash": "A4C120FB9C83ACB3CFE856B85D3A047420FD24FB6D3A64D392B25093B25D81DF"
+        }
+      ],
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658",
+      "modHash": "2E44F0E36CC64CF1C06EFC2DAFCD1C92506311BFDEB1CA8847927B86046EB6CE",
+      "policyHash": "BF5E76B56D7A43AA7B08903BD64D84ED49FF7AE0E01ED9D57DF496F5E1CE85E3"
+    }
+  ]
+}

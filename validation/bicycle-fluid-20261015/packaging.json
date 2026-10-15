@@ -1,0 +1,22 @@
+﻿{
+  "completedAt": "2026-10-15T23:41:43.968039",
+  "packages": [
+    {
+      "edition": "original",
+      "files": 149,
+      "sha256": "4cc773af1678aa4a7098a5621de311835689eb9e6c1e876c0054e813508d5ef5",
+      "verified": true
+    },
+    {
+      "edition": "experimental",
+      "files": 151,
+      "sha256": "74179c7399b9cf8e2df2410d5a678f35f3722e1736167bd9563d2a520c82f34d",
+      "verified": true
+    }
+  ],
+  "selfplayRun": false,
+  "checksPerEdition": 36,
+  "repositoryPrepared": true,
+  "committed": false,
+  "pushed": false
+}

@@ -1,0 +1,42 @@
+{
+  "editions": [
+    {
+      "checks": 46,
+      "installedAt": "2026-10-16T01:09:25.5562175+08:00",
+      "selfplayExempt": true,
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003",
+      "modHash": "B683BBD66ACA3B502673A8DD51FE1E0FCCD2EB7005C66CF8AD4F71C0189C51C7",
+      "evidence": [
+        {
+          "count": 46,
+          "suite": "formlesssafety",
+          "logHash": "1804A8DA073B83C99811ED6F26372C727BB50EC14933999516D608AF49B61C54"
+        }
+      ],
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "edition": "original",
+      "policyHash": "19CE391F93559147F798F697A2EB75C81A0172296EF7EF2E88CA6CEF0CEEB874"
+    },
+    {
+      "checks": 46,
+      "installedAt": "2026-10-16T01:09:25.7325026+08:00",
+      "selfplayExempt": true,
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658",
+      "modHash": "693ED251D409C10F68044D7D7A9D794386C17E2CC3406A509A613444A5041F25",
+      "evidence": [
+        {
+          "count": 46,
+          "suite": "formlesssafety",
+          "logHash": "8116DFAFDFD27C1A4935CE20DFBF2E42196BFD41EA9E123C3ABB200419E5060A"
+        }
+      ],
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "edition": "experiment",
+      "policyHash": "1E2077A72420C3283E81856830BC31EF5EC09D30FCB0F566CC42C25BB1BCD551"
+    }
+  ],
+  "githubUpdated": false,
+  "backup": {
+    "path": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\backup-before-formless-safety-20261016-005630"
+  }
+}

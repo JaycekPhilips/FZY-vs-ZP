@@ -1,0 +1,42 @@
+{
+  "githubUpdated": false,
+  "editions": [
+    {
+      "installedAt": "2026-10-16T00:05:51.3445608+08:00",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "edition": "original",
+      "modHash": "3D5C6E55F5BE03CC8A6B574166D0981D974A8C9995331049F7574115154981DE",
+      "policyHash": "F8C2B0D7FF3A026C471DB6288FC4C4D060599B809FB6971D5085F93EFB187835",
+      "selfplayExempt": true,
+      "evidence": [
+        {
+          "count": 48,
+          "suite": "bicycleflow",
+          "logHash": "379DE7300F8CB94D72B10869E24ABAA08997392EFB64C4FF5E7C650985E3EB0B"
+        }
+      ],
+      "checks": 48,
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003"
+    },
+    {
+      "installedAt": "2026-10-16T00:05:51.5168665+08:00",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "edition": "experiment",
+      "modHash": "7013429363C795EDAC32702EED19E0073C1A8113D0AA1423CB9CCC23B5670C35",
+      "policyHash": "E307D7412DBCD934C4DD2D18F7D755EF950286DEA25FCEBF27CB6C05BBEF5973",
+      "selfplayExempt": true,
+      "evidence": [
+        {
+          "count": 48,
+          "suite": "bicycleflow",
+          "logHash": "E9F4DEAC0D9CB0F475B5A7120D859E21018DB42655DEEB8EE6708C7D3FEE754B"
+        }
+      ],
+      "checks": 48,
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658"
+    }
+  ],
+  "backup": {
+    "path": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\backup-before-bicycle-arms-20261015-235315"
+  }
+}

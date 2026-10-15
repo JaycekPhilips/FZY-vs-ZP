@@ -1,0 +1,21 @@
+{
+  "remainingTestCopies": 0,
+  "completedAt": "2026-10-16T01:10:11.7244266+08:00",
+  "removed": [
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-formlesssafety.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-formlesssafety-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-formlesssafety.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-formlesssafety-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\EditFormlessSafety.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\TestFormlessSafety.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\FixFormlessGoalField.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\InspectSafetyStart.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\PrepareFormlessInstall.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\RaisedInnerBicycleArm.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\FinishFormlessSafety.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\FinalizeFormlessSafety.py"
+  ],
+  "selfplayRun": false
+}

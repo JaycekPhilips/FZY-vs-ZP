@@ -1,0 +1,16 @@
+{
+  "remainingTestCopies": 0,
+  "removed": [
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-skillodds.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-skillodds-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-skillodds.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-skillodds-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\EditSkillOdds.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\RefineSkillOddsTests.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\PublishSkillOdds.py"
+  ],
+  "selfplayRun": false,
+  "completedAt": "2026-10-16T01:25:19.3963606+08:00"
+}

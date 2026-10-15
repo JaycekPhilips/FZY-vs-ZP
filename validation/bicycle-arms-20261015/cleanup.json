@@ -1,0 +1,31 @@
+{
+  "referenceMediaRemoved": true,
+  "completedAt": "2026-10-16T00:07:17.0852415+08:00",
+  "remainingTestCopies": 0,
+  "removed": [
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\arm-reference-tools",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-bicycleflow.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-bicycleflow-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-bicycleflow.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-bicycleflow-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\EditBicycleArms.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\CheckBicycleArms.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\ArmReferenceFrames.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\ReviewBicycleArms.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\RefineBicycleArms.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\InspectArmMirror.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\CorrectArmMirror.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\CheckActualElbows.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\InspectSignedElbows.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\FinishBicycleArmsTests.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\FinalizeBicycleArms.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\arm-reference.mp4",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\arm-reference-sheet.jpg",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\arm-reference-detail.jpg",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\arms-before.jpg",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\arms-first-review.jpg"
+  ],
+  "selfplayRun": false
+}

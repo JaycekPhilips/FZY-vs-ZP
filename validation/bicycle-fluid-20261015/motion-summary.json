@@ -1,0 +1,122 @@
+﻿[
+  {
+    "edition": "original",
+    "checks": 36,
+    "scenes": [
+      {
+        "scene": "motion-Fan-0.2-0.4",
+        "maxScissorDegrees": 93.85509,
+        "maxPoseSpeed": 1643.329,
+        "maxBodyStepPer20ms": 17.24916,
+        "actualShot": true,
+        "backLanded": true,
+        "gotUp": true
+      },
+      {
+        "scene": "motion-Fan-0.7-0.4",
+        "maxScissorDegrees": 98.08013,
+        "maxPoseSpeed": 1638.407,
+        "maxBodyStepPer20ms": 16.82678,
+        "actualShot": true,
+        "backLanded": true,
+        "gotUp": true
+      },
+      {
+        "scene": "motion-Fan-1.2-0.45",
+        "maxScissorDegrees": 99.70578,
+        "maxPoseSpeed": 1643.913,
+        "maxBodyStepPer20ms": 20.19649,
+        "actualShot": true,
+        "backLanded": true,
+        "gotUp": true
+      },
+      {
+        "scene": "motion-Zhao-0.2-0.4",
+        "maxScissorDegrees": 100.9274,
+        "maxPoseSpeed": 1643.281,
+        "maxBodyStepPer20ms": 15.88506,
+        "actualShot": true,
+        "backLanded": true,
+        "gotUp": true
+      },
+      {
+        "scene": "motion-Zhao-0.7-0.4",
+        "maxScissorDegrees": 87.93338,
+        "maxPoseSpeed": 1639.772,
+        "maxBodyStepPer20ms": 16.17291,
+        "actualShot": true,
+        "backLanded": true,
+        "gotUp": true
+      },
+      {
+        "scene": "motion-Zhao-1.2-0.45",
+        "maxScissorDegrees": 94.30307,
+        "maxPoseSpeed": 1643.91,
+        "maxBodyStepPer20ms": 18.7893,
+        "actualShot": true,
+        "backLanded": true,
+        "gotUp": true
+      }
+    ]
+  },
+  {
+    "edition": "experiment",
+    "checks": 36,
+    "scenes": [
+      {
+        "scene": "motion-Fan-0.2-0.4",
+        "maxScissorDegrees": 102.6714,
+        "maxPoseSpeed": 1643.739,
+        "maxBodyStepPer20ms": 18.87374,
+        "actualShot": true,
+        "backLanded": true,
+        "gotUp": true
+      },
+      {
+        "scene": "motion-Fan-0.7-0.4",
+        "maxScissorDegrees": 86.50929,
+        "maxPoseSpeed": 1638.405,
+        "maxBodyStepPer20ms": 18.1552,
+        "actualShot": true,
+        "backLanded": true,
+        "gotUp": true
+      },
+      {
+        "scene": "motion-Fan-1.2-0.45",
+        "maxScissorDegrees": 85.26118,
+        "maxPoseSpeed": 1643.91,
+        "maxBodyStepPer20ms": 20.43868,
+        "actualShot": true,
+        "backLanded": true,
+        "gotUp": true
+      },
+      {
+        "scene": "motion-Zhao-0.2-0.4",
+        "maxScissorDegrees": 102.2545,
+        "maxPoseSpeed": 1643.902,
+        "maxBodyStepPer20ms": 15.04921,
+        "actualShot": true,
+        "backLanded": true,
+        "gotUp": true
+      },
+      {
+        "scene": "motion-Zhao-0.7-0.4",
+        "maxScissorDegrees": 91.40353,
+        "maxPoseSpeed": 1639.66,
+        "maxBodyStepPer20ms": 15.69059,
+        "actualShot": true,
+        "backLanded": true,
+        "gotUp": true
+      },
+      {
+        "scene": "motion-Zhao-1.2-0.45",
+        "maxScissorDegrees": 98.03314,
+        "maxPoseSpeed": 1643.854,
+        "maxBodyStepPer20ms": 18.83347,
+        "actualShot": true,
+        "backLanded": true,
+        "gotUp": true
+      }
+    ]
+  }
+]

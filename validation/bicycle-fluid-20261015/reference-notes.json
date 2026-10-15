@@ -1,0 +1,28 @@
+﻿{
+  "url": "https://www.youtube.com/shorts/PJX-ZuQtmy0",
+  "title": "Best Bicycle Kicks Of All Time",
+  "viewed": true,
+  "viewedRangesSeconds": [
+    [
+      4.4,
+      6.3
+    ],
+    [
+      21,
+      23
+    ],
+    [
+      35.3,
+      37.1
+    ]
+  ],
+  "method": "Overview plus continuous video frames; detailed movement sampled from the three replay sequences.",
+  "observations": [
+    "Arms swing for takeoff and spread as counterbalance.",
+    "Non-striking leg rises first and exchanges with the extended striking leg in a scissor.",
+    "Torso opens close to horizontal at impact; head follows torso with a small chin tuck.",
+    "Legs continue through the strike and arms open to cushion back/shoulder landing."
+  ],
+  "sourceMediaIncludedInRepository": false,
+  "overviewDurationSeconds": 55.8
+}

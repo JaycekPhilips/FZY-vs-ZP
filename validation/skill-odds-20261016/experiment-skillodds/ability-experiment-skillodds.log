@@ -1,0 +1,163 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.812 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.866500 ms
+ABILITY PASS bicycle low/mid/high quality distribution 30/30/40 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS quality thresholds have no gaps or overlap 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.204100 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1017.
+Total: 0.547700 ms (FindLiveObjects: 0.035100 ms CreateObjectMapping: 0.010200 ms MarkObjects: 0.171600 ms  DeleteObjects: 0.330500 ms)
+
+ABILITY PASS magnetic foot ownership and actual ground assistance actor=Fan mode=0 active=False expected=False reachable=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS magnetic foot ownership and actual ground assistance actor=Zhao mode=0 active=False expected=False reachable=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.962500 ms
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.176300 ms (FindLiveObjects: 0.035900 ms CreateObjectMapping: 0.007900 ms MarkObjects: 0.179100 ms  DeleteObjects: 0.953200 ms)
+
+ABILITY PASS magnetic foot ownership and actual ground assistance actor=Fan mode=1 active=False expected=False reachable=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS magnetic foot ownership and actual ground assistance actor=Zhao mode=1 active=True expected=True reachable=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.464900 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1082.
+Total: 1.412000 ms (FindLiveObjects: 0.066700 ms CreateObjectMapping: 0.019500 ms MarkObjects: 0.234700 ms  DeleteObjects: 1.090600 ms)
+
+ABILITY PASS magnetic foot ownership and actual ground assistance actor=Fan mode=2 active=False expected=False reachable=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS magnetic foot ownership and actual ground assistance actor=Zhao mode=2 active=False expected=False reachable=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS magnetic foot ownership and actual ground assistance actor=Fan mode=purchased active=True expected=True reachable=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS magnetic foot ownership and actual ground assistance actor=Zhao mode=purchased active=True expected=True reachable=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.375100 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.306900 ms (FindLiveObjects: 0.031500 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.187300 ms  DeleteObjects: 1.079600 ms)
+
+ABILITY PASS magnetic aerial command adds shot point capped at eight actor=Fan boosted=5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.301500 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.300100 ms (FindLiveObjects: 0.031600 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.207100 ms  DeleteObjects: 1.052600 ms)
+
+ABILITY PASS magnetic aerial command adds shot point capped at eight actor=Zhao boosted=5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.308400 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.371600 ms (FindLiveObjects: 0.032400 ms CreateObjectMapping: 0.007700 ms MarkObjects: 0.194300 ms  DeleteObjects: 1.136900 ms)
+
+ABILITY PASS all bones including both upper/forearms reflect with torso actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS mirrored windup at normal speed actor=Fan height=1.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS backward half somersault direction actor=Fan min=-112.7449 max=25.1595 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual boot collision shoots toward opposing goal actor=Fan height=1.2 offset=0.58 contacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS back landing then quick getup before turn actor=Fan landed=True getup=True earlyFoot=False angle=-1.346408 feet=True nativeGround=True held=True turned=False scale=0.6 vy=0.1016563 spin=-222.4175 until=-1 getupAt=-1 standSince=-1 now=8.34 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS connected rig stays smooth actor=Fan error=0.1229126 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS visible arm swing and scissor with continuous pose actor=Fan arm=113.4619 scissor=100.7471 maxTargetSpeed=1515.285 bodyStep=25.24285 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS both mirrored elbows bend forward and vary with actual forward elbow flexion and restrained shoulder spread actor=Fan left=72.82718 right=43.46036 leftRange=62.83963 rightRange=38.09388 spread=173.4729 wrongBendSeconds=0.04 minInnerRaise=0.02616069 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.278000 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.219200 ms (FindLiveObjects: 0.033100 ms CreateObjectMapping: 0.007900 ms MarkObjects: 0.214100 ms  DeleteObjects: 0.964000 ms)
+
+ABILITY PASS all bones including both upper/forearms reflect with torso actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS mirrored windup at normal speed actor=Zhao height=1.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS backward half somersault direction actor=Zhao min=-104.3904 max=25.59192 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual boot collision shoots toward opposing goal actor=Zhao height=1.2 offset=0.58 contacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS back landing then quick getup before turn actor=Zhao landed=True getup=True earlyFoot=False angle=17.36109 feet=True nativeGround=True held=True turned=False scale=0.6 vy=-0.2813332 spin=133.2185 until=-1 getupAt=-1 standSince=-1 now=10.7 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS connected rig stays smooth actor=Zhao error=0.06856219 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS visible arm swing and scissor with continuous pose actor=Zhao arm=102.9436 scissor=87.05774 maxTargetSpeed=1515.285 bodyStep=24.59625 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS both mirrored elbows bend forward and vary with actual forward elbow flexion and restrained shoulder spread actor=Zhao left=45.78573 right=33.95304 leftRange=43.00636 rightRange=31.28979 spread=170.8355 wrongBendSeconds=0 minInnerRaise=0.08213377 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=28 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 3e34 -> priority: 1 
+  Thread -> id: 78c4 -> priority: 1 
+  Thread -> id: 1e80 -> priority: 1 
+  Thread -> id: 5c18 -> priority: 1 
+  Thread -> id: 9274 -> priority: 1 
+  Thread -> id: 8070 -> priority: 1 
+  Thread -> id: 509c -> priority: 1 
+  Thread -> id: 11f4 -> priority: 1 
+  Thread -> id: 8eb0 -> priority: 1 
+  Thread -> id: 4798 -> priority: 1 
+  Thread -> id: 367c -> priority: 1 
+  Thread -> id: 2830 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+
