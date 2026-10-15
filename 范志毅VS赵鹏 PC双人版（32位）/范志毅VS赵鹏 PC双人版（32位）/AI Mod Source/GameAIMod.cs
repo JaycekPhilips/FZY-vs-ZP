@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -744,6 +744,9 @@ public static class GameAIMod
         if (state.serveApproach && (Mathf.Abs(ballVelocity.x) > 1.8f || duel ||
             distance < 1.1f || now - state.lastServeReset > 3.5f)) state.serveApproach = false;
         bool serving = state.serveApproach;
+        if(!serving&&SkillRework.InBicycle(controller)){state.axis=0;state.head=state.kick=state.down=false;return;}
+        if(!serving&&SkillRework.WantsBicycle(controller)&&now-state.lastKick>.5f){state.axis=0;state.jump=state.kick=true;state.head=state.down=state.power=false;state.lastJump=state.lastKick=now;return;}
+        if(!serving&&SkillRework.WantsRecoveryShot(controller)&&now-state.lastKick>.4f){state.kick=true;state.head=false;state.power=false;state.lastKick=now;return;}
         if (!serving && UpdateFanTactics(controller, state, ball)) return;
         if (!serving && UpdateZhaoRecovery(controller, state, ball)) return;
         if (state.contesting)

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -98,7 +98,7 @@ public sealed class PlayerMovement : MonoBehaviour
     {
         PlayerMovement movement=player!=null?player.GetComponent<PlayerMovement>():null;
         float input=movement!=null?GameAIMod.GetAxis(movement.axis,player):0f;
-        return original * GetMultiplier(player) * MagneticFoot.MovementForceMultiplier(player,input) * AbilityMode.ContactForce(player,input);
+        return original * GetMultiplier(player) * MagneticFoot.MovementForceMultiplier(player,input) * AbilityMode.ContactForce(player,input)*SkillRework.NativeContactForce(player);
     }
     public static float GetMovementLimit(float original,Component player){
         // Native inertia controls acceleration. Never hold back the input or
@@ -152,10 +152,12 @@ public sealed class PlayerMovement : MonoBehaviour
     {
         if (Stopped()) { RestoreCadence(); RestoreMuscles(); return; }
         float input = GameAIMod.GetAxis(axis, controller);
+        if(animator!=null&&(PlayerSkills.RescueActive(controller)||PlayerSkills.RescueRecovering(controller)||BuildPlayer.Rescuing(controller))&&(bool)groundField.GetValue(controller)&&Mathf.Abs(body.velocity.x)>.3f&&Time.time>=actionProtectionUntil)animator.SetFloat("Horizontal",Mathf.Sign(body.velocity.x));
         PlayerSkills.NotifyMovement(controller, input);
         if (animator == null || Mathf.Abs(input) <= .1f || Time.time < actionProtectionUntil) { RestoreCadence(); return; }
-        float sprint = input * (fan ? 1f : -1f) > .1f ? PlayerSkills.GetMovementSkillMultiplier(controller, input) * AbilityMode.Movement(controller, input) : 1f;
-        if (fan && sprint <= 1f) { RestoreCadence(); return; }
+        float sprint = PlayerSkills.GetMovementSkillMultiplier(controller,input)*AbilityMode.Movement(controller,input);
+        bool retreat=input*(fan?1f:-1f)<-.1f;if(retreat)sprint=Mathf.Max(1f,sprint);
+        if (fan && sprint <= 1f&&!retreat) { RestoreCadence(); return; }
         List<AnimatorClipInfo> clips = CurrentClips();
         foreach (AnimatorClipInfo info in clips)
         {
@@ -164,6 +166,8 @@ public sealed class PlayerMovement : MonoBehaviour
             AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
             float stateSpeed = Mathf.Abs(state.speed * state.speedMultiplier);
             if (stateSpeed < .01f || clip.length <= 0f) break;
+            float actual=Mathf.Abs(body.velocity.x)/Mathf.Max(.1f,nativeLimit*(retreat?BackwardMultiplier*(fan?FanRetreatReduction:1f):1f));
+            if(retreat)sprint=Mathf.Max(sprint,actual);
             float targetAnimatorSpeed = fan ? originalAnimatorSpeed * sprint :
                 Mathf.Clamp(clip.length * referenceAnimatorSpeed / (referenceWalkLength * stateSpeed), .25f, 4f) * Mathf.Max(1f, sprint);
             adjustedAnimatorSpeed=Mathf.MoveTowards(adjustedCadence?adjustedAnimatorSpeed:animator.speed,targetAnimatorSpeed,16f*Time.deltaTime);

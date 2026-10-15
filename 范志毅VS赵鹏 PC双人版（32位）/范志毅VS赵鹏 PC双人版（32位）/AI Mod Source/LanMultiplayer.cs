@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -74,6 +74,11 @@ public sealed class LanMultiplayer : MonoBehaviour
 
     public static bool Active { get { return instance != null && instance.state == State.InGame && instance.peer != null; } }
 
+    int cineSequence,receivedCine=-1;string cineActor="Fan";bool cineOn;float cineSent;
+    public static bool IsRemoteSimulation {get{return Active&&!instance.isHost;}}
+    public static void Cinematic(string actor,bool on){if(!Active||!instance.isHost)return;instance.cineActor=actor;instance.cineOn=on;instance.cineSequence++;instance.cineSent=-10f;}
+    int mirrorSequence,receivedMirror=-1;bool mirrorFan,mirrorZhao;
+    public static void Mirror(string actor,bool on){if(!Active||!instance.isHost)return;if(actor=="Fan")instance.mirrorFan=on;else instance.mirrorZhao=on;instance.mirrorSequence++;instance.cineSent=-10f;}
     public static void OpenLobby(bool style, Action back)
     {
         LanMultiplayer net = GetOrCreate();
@@ -218,7 +223,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         {
             for (int stat=0; stat<3; stat++)
                 if (!Int32.TryParse(parts[5+side*4+stat], out builds[side].Levels[stat])) return false;
-            if (!Int32.TryParse(parts[8+side*4], out builds[side].Purchased) || ((builds[side].Purchased&~1023)!=0||builds[side].Used>budget||!Array.TrueForAll(builds[side].Levels,delegate(int n){return n>=0&&n<=AbilityMode.MaxLevel;}))) return false;
+            if (!Int32.TryParse(parts[8+side*4], out builds[side].Purchased) || ((builds[side].Purchased&~((1<<AbilityMode.Skills.Length)-1))!=0||builds[side].Used>budget||!Array.TrueForAll(builds[side].Levels,delegate(int n){return n>=0&&n<=AbilityMode.MaxLevel;}))) return false;
         }
         AbilityMode.SetBudget(budget);
         for (int side=0; side<2; side++)
@@ -297,6 +302,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         if (state == State.Connected || state == State.InGame)
         {
             if (state == State.InGame) SampleAndSendInput();
+            if(isHost&&state==State.InGame&&now-cineSent>.1f){Send("CINE|"+sessionId+"|"+cineSequence+"|"+cineActor+"|"+(cineOn?1:0));Send("MIRROR|"+sessionId+"|"+mirrorSequence+"|"+(mirrorFan?1:0)+"|"+(mirrorZhao?1:0));cineSent=now;}
             if (now - lastRoomSend > .2f)
             {
                 if (isHost && (!matchStarted || !guestStarted)) SendRoom();
@@ -352,6 +358,8 @@ public sealed class LanMultiplayer : MonoBehaviour
     {
         string packet = Encoding.UTF8.GetString(data, 0, length);
         string[] parts = packet.Split('|');
+        if(!isHost&&parts[0]=="MIRROR"&&parts.Length==5&&state==State.InGame){int id,seq,f,z;if(!Int32.TryParse(parts[1],out id)||id!=sessionId||!Int32.TryParse(parts[2],out seq)||seq<=receivedMirror||!Int32.TryParse(parts[3],out f)||!Int32.TryParse(parts[4],out z)||(f!=0&&f!=1)||(z!=0&&z!=1))return;receivedMirror=seq;var fan=GameObject.Find("Fan");var zhao=GameObject.Find("Zhao");if(fan!=null)SkillRework.ApplyMirror(fan.transform,f==1);if(zhao!=null)SkillRework.ApplyMirror(zhao.transform,z==1);return;}
+        if(!isHost&&parts[0]=="CINE"&&parts.Length==5&&state==State.InGame){int id,seq,on;if(!Int32.TryParse(parts[1],out id)||id!=sessionId||!Int32.TryParse(parts[2],out seq)||seq<=receivedCine||!Int32.TryParse(parts[4],out on)||(on!=0&&on!=1)||(parts[3]!="Fan"&&parts[3]!="Zhao"))return;receivedCine=seq;var actor=GameObject.Find(parts[3]);if(actor!=null){if(on==1)ShotCloseup.Play(actor.transform,true);else ShotCloseup.End(actor.transform);}return;}
         if (parts.Length < 4 || parts[0] != "HELLO") return;
         int protocol, style;
         if (!Int32.TryParse(parts[1], out protocol) || protocol != Protocol || !Int32.TryParse(parts[2], out style) || parts[3] != BuildId)
@@ -370,6 +378,7 @@ public sealed class LanMultiplayer : MonoBehaviour
     private void HandleControl(string packet)
     {
         string[] parts = packet.Split('|');
+        if(!isHost&&parts[0]=="CINE"&&parts.Length==5&&state==State.InGame){int id,seq,on;if(!Int32.TryParse(parts[1],out id)||id!=sessionId||!Int32.TryParse(parts[2],out seq)||seq<=receivedCine||!Int32.TryParse(parts[4],out on)||(on!=0&&on!=1)||(parts[3]!="Fan"&&parts[3]!="Zhao"))return;receivedCine=seq;var actor=GameObject.Find(parts[3]);if(actor!=null){if(on==1)ShotCloseup.Play(actor.transform,true);else ShotCloseup.End(actor.transform);}return;}
         if (!isHost && parts[0] == "REJECT") { Fail(parts.Length > 1 ? parts[1] : "无法加入"); return; }
         if (!isHost && parts[0] == "WELCOME" && parts.Length == 5)
         {
@@ -893,7 +902,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         helloAttempts = 0;
         sendSequence = pressSequence = 0;
         if (socket != null) { try { socket.Close(); } catch { } socket = null; }
-        state = State.Off; peer = null; bodies = null; bodyPaths = null; latestSnapshot = null;
+        ShotCloseup.ClearAll();cineSequence=0;receivedCine=-1;cineOn=false;mirrorSequence=0;receivedMirror=-1;mirrorFan=mirrorZhao=false;state = State.Off; peer = null; bodies = null; bodyPaths = null; latestSnapshot = null;
         launchSent = matchStarted = guestStarted = false; pendingPressMask = remotePressMask = remoteHeldMask = 0; remotePressFrame = -1; receivedPressSequence = -1;
         receiveSequence = -1; snapshotTick = 0; gameManager = null;
     }

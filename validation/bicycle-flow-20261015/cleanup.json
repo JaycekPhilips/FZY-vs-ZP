@@ -1,0 +1,28 @@
+{
+  "remainingTestCopies": 0,
+  "removed": [
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-bicycleflow.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-bicycleflow-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-skillrework.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-skillrework-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-bicycleflow.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-bicycleflow-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\PrepareBicycleFlow.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\EditBicycleFlow.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\PrepareBicycleTests.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\RefineBicycleFlow.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\StabilizeBicycleFlow.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\FinishBackLanding.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\BrakeBicycleTurn.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\GroundBicycleRecovery.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\CaptureBicycleFlow.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\PrepareBicycleInstall.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\PreserveBicycleLanding.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\FinishBicycleInterruption.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\FinalizeBicycleFlow.py"
+  ],
+  "completedAt": "2026-10-15T20:42:20.6763585+08:00",
+  "selfplayRun": false
+}

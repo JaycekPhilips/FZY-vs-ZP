@@ -1,0 +1,42 @@
+{
+  "githubUpdated": false,
+  "backup": {
+    "path": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\backup-before-bicycle-flow-20261015-201811"
+  },
+  "editions": [
+    {
+      "edition": "original",
+      "modHash": "6B12F591CE1BF2C1BB6701DA5156C3D4F8F4997B931C097EF1AFDF658A166BDE",
+      "evidence": [
+        {
+          "count": 30,
+          "logHash": "373CE6685374713025198984592EEFB6A930F3E942941ED69B8A6175A70DBF89",
+          "suite": "bicycleflow"
+        }
+      ],
+      "checks": 30,
+      "installedAt": "2026-10-15T20:40:48.2499774+08:00",
+      "policyHash": "0064F7CE798164DCAF6E7BA59ACCBBEFAB0D623299572CACC1955E72CEF45FBE",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003",
+      "selfplayExempt": true
+    },
+    {
+      "edition": "experiment",
+      "modHash": "7E6ACF05C129C0C31E4A704533982E03EF576966D22723C1C2E9FAB85F1ACCF2",
+      "evidence": [
+        {
+          "count": 30,
+          "logHash": "7BE2EF130D683A71BFEFA6014A2F8466F52748359789F6051CFC9D79DAA50A7B",
+          "suite": "bicycleflow"
+        }
+      ],
+      "checks": 30,
+      "installedAt": "2026-10-15T20:40:48.4274062+08:00",
+      "policyHash": "B1241361AE47070E35D8B7528E655A5A8792F76001F93B46D69CC39D5E35332C",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658",
+      "selfplayExempt": true
+    }
+  ]
+}

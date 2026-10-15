@@ -1,0 +1,316 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+FMOD failed to initialize. This may be because your sound card is configured to give applications exclusive access, thus preventing Unity from using this device. You can change this in Control Panel > Audio Devices and Sound Themes > Playback Device > Properties > Options ... : "Soundcard does not support the minimum features needed for this soundsystem (16bit stereo output). " (59) 
+(Filename:  Line: 1659)
+
+Forced to initialize FMOD to to the device driver's system output rate 44100, this may impact performance and/or give inconsistent experiences compared to selected sample rate 48000 
+(Filename:  Line: 1597)
+
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.890 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.569500 ms
+ABILITY PASS new skill shop, cost two and replacement 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS bicycle quality bands 70/20/10 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS power tackle limits baseline displacement to one body 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.179600 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1017.
+Total: 0.546500 ms (FindLiveObjects: 0.055400 ms CreateObjectMapping: 0.021400 ms MarkObjects: 0.195300 ms  DeleteObjects: 0.274000 ms)
+
+CAMERA_CAPTURE pos=(-0.1, -0.1, -10.0) size=1.740279 actor=(-0.6, 0.2) angle=11.05173 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PREVIEW_CAPTURE saved closeup 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS whole model mirrors before 0.5x bicycle actor=Fan joints=0.05589796 starts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS closeup restores normal camera and speed 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS mirror persists through landing and restores after standing actor=Fan angle=6.649572 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.958100 ms
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.032000 ms (FindLiveObjects: 0.089500 ms CreateObjectMapping: 0.019900 ms MarkObjects: 0.316900 ms  DeleteObjects: 0.605200 ms)
+
+CAMERA_CAPTURE pos=(0.0, -0.2, -10.0) size=1.82789 actor=(0.5, 0.3) angle=-18.25141 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PREVIEW_CAPTURE saved closeup 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS whole model mirrors before 0.5x bicycle actor=Zhao joints=0.0883192 starts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS closeup restores normal camera and speed 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS mirror persists through landing and restores after standing actor=Zhao angle=112.1526 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.320900 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.261600 ms (FindLiveObjects: 0.031300 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.251100 ms  DeleteObjects: 0.970600 ms)
+
+ABILITY PASS whirlwind advances at plus 40 percent actor=Fan multiplier=1.4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.413600 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.244600 ms (FindLiveObjects: 0.031300 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.258000 ms  DeleteObjects: 0.946500 ms)
+
+ABILITY PASS whirlwind advances at plus 40 percent actor=Zhao multiplier=1.4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.272600 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.291700 ms (FindLiveObjects: 0.032200 ms CreateObjectMapping: 0.008300 ms MarkObjects: 0.268900 ms  DeleteObjects: 0.981900 ms)
+
+ABILITY PASS ordinary Zhao power kick has no ground-skimming guidance mode=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.278800 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.184700 ms (FindLiveObjects: 0.048800 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.206200 ms  DeleteObjects: 0.920800 ms)
+
+ABILITY PASS ordinary Zhao power kick has no ground-skimming guidance mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.274600 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.200800 ms (FindLiveObjects: 0.035800 ms CreateObjectMapping: 0.016600 ms MarkObjects: 0.210600 ms  DeleteObjects: 0.937200 ms)
+
+ABILITY PASS ordinary Zhao power kick has no ground-skimming guidance mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.288100 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.276400 ms (FindLiveObjects: 0.031500 ms CreateObjectMapping: 0.008900 ms MarkObjects: 0.247200 ms  DeleteObjects: 0.988500 ms)
+
+ABILITY PASS current torso/head bounds and jump requirement 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.442000 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.226400 ms (FindLiveObjects: 0.053800 ms CreateObjectMapping: 0.016500 ms MarkObjects: 0.254100 ms  DeleteObjects: 0.901600 ms)
+
+ABILITY PASS allocated emergency rescue stays below 200 percent actual=12 cap=12 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.287400 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.176800 ms (FindLiveObjects: 0.031300 ms CreateObjectMapping: 0.008300 ms MarkObjects: 0.194300 ms  DeleteObjects: 0.942500 ms)
+
+ABILITY PASS rear leader +1.5 only while tied/leading actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS fortress +1 contest/jump only in close aerial duel actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.274300 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.199200 ms (FindLiveObjects: 0.031200 ms CreateObjectMapping: 0.007700 ms MarkObjects: 0.193400 ms  DeleteObjects: 0.966700 ms)
+
+ABILITY PASS post power-tackle shot qualifies actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.364400 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.349900 ms (FindLiveObjects: 0.051800 ms CreateObjectMapping: 0.009400 ms MarkObjects: 0.304500 ms  DeleteObjects: 0.983800 ms)
+
+ABILITY PASS magnetic aerial command adds shot point capped at eight actor=Fan boosted=5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.299700 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.381800 ms (FindLiveObjects: 0.058700 ms CreateObjectMapping: 0.018000 ms MarkObjects: 0.274700 ms  DeleteObjects: 1.030100 ms)
+
+ABILITY PASS actual awkward lower-body contact triggers 90 percent shot actor=Fan thigh=True fired=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.286600 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.188500 ms (FindLiveObjects: 0.052300 ms CreateObjectMapping: 0.015100 ms MarkObjects: 0.179900 ms  DeleteObjects: 0.940900 ms)
+
+ABILITY PASS actual awkward lower-body contact triggers 90 percent shot actor=Fan thigh=False fired=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.280000 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.308600 ms (FindLiveObjects: 0.052100 ms CreateObjectMapping: 0.016800 ms MarkObjects: 0.263900 ms  DeleteObjects: 0.975300 ms)
+
+ABILITY PASS kick arms real face/crown cannon but never rear actor=Fan mode=2 crown=False rear=False fired=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.287600 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.420600 ms (FindLiveObjects: 0.063800 ms CreateObjectMapping: 0.009800 ms MarkObjects: 0.250000 ms  DeleteObjects: 1.096600 ms)
+
+ABILITY PASS kick arms real face/crown cannon but never rear actor=Fan mode=2 crown=False rear=True fired=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.343500 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.308100 ms (FindLiveObjects: 0.059600 ms CreateObjectMapping: 0.017700 ms MarkObjects: 0.275200 ms  DeleteObjects: 0.955000 ms)
+
+ABILITY PASS kick arms real face/crown cannon but never rear actor=Fan mode=2 crown=True rear=False fired=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.298300 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.349700 ms (FindLiveObjects: 0.052200 ms CreateObjectMapping: 0.016200 ms MarkObjects: 0.192200 ms  DeleteObjects: 1.088600 ms)
+
+ABILITY PASS rear leader +1.5 only while tied/leading actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS fortress +1 contest/jump only in close aerial duel actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.296900 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.274000 ms (FindLiveObjects: 0.056900 ms CreateObjectMapping: 0.008800 ms MarkObjects: 0.245300 ms  DeleteObjects: 0.962500 ms)
+
+ABILITY PASS post power-tackle shot qualifies actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.293300 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.280000 ms (FindLiveObjects: 0.050900 ms CreateObjectMapping: 0.016700 ms MarkObjects: 0.303000 ms  DeleteObjects: 0.908900 ms)
+
+ABILITY PASS magnetic aerial command adds shot point capped at eight actor=Zhao boosted=5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.438700 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.212500 ms (FindLiveObjects: 0.036200 ms CreateObjectMapping: 0.008300 ms MarkObjects: 0.216500 ms  DeleteObjects: 0.951200 ms)
+
+ABILITY PASS actual awkward lower-body contact triggers 90 percent shot actor=Zhao thigh=True fired=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.274100 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.257700 ms (FindLiveObjects: 0.033700 ms CreateObjectMapping: 0.009100 ms MarkObjects: 0.177600 ms  DeleteObjects: 1.037100 ms)
+
+ABILITY PASS actual awkward lower-body contact triggers 90 percent shot actor=Zhao thigh=False fired=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.282500 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.159600 ms (FindLiveObjects: 0.034900 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.187700 ms  DeleteObjects: 0.928300 ms)
+
+ABILITY PASS kick arms real face/crown cannon but never rear actor=Zhao mode=2 crown=False rear=False fired=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.313400 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.180300 ms (FindLiveObjects: 0.031700 ms CreateObjectMapping: 0.007700 ms MarkObjects: 0.211500 ms  DeleteObjects: 0.929200 ms)
+
+ABILITY PASS kick arms real face/crown cannon but never rear actor=Zhao mode=2 crown=False rear=True fired=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.270200 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.244300 ms (FindLiveObjects: 0.033300 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.187500 ms  DeleteObjects: 1.014500 ms)
+
+ABILITY PASS kick arms real face/crown cannon but never rear actor=Zhao mode=2 crown=True rear=False fired=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.265900 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.222000 ms (FindLiveObjects: 0.034000 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.196600 ms  DeleteObjects: 0.982500 ms)
+
+ABILITY PASS kick arms real face/crown cannon but never rear actor=Fan mode=1 crown=True rear=False fired=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=35 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 1d80 -> priority: 1 
+  Thread -> id: 6908 -> priority: 1 
+  Thread -> id: 5b28 -> priority: 1 
+  Thread -> id: 7a94 -> priority: 1 
+  Thread -> id: 6098 -> priority: 1 
+  Thread -> id: 590c -> priority: 1 
+  Thread -> id: 8720 -> priority: 1 
+  Thread -> id: 1db0 -> priority: 1 
+  Thread -> id: de0 -> priority: 1 
+  Thread -> id: 81d4 -> priority: 1 
+  Thread -> id: 811c -> priority: 1 
+  Thread -> id: de8 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

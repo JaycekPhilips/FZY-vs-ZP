@@ -19,6 +19,7 @@ public sealed class MagneticFoot : MonoBehaviour
     private float direction;
     private float protectedUntil = -1f, lastEffect = -10f;
     public bool Active { get; private set; }
+    float aerialUntil=-1f;bool aerialPose;
     private sealed class Leg
     {
         public Rigidbody2D upper, lower;
@@ -27,14 +28,15 @@ public sealed class MagneticFoot : MonoBehaviour
         public FieldInfo upperTarget, lowerTarget, force;
         public object upperMuscle, lowerMuscle;
         public float upperGain, lowerGain;
-        public Vector2 instep;
+        public Vector2 instep;public bool airPrimed;public float airUpper,airLower;
         public float desiredUpper, desiredLower,lastUpperGain,lastLowerGain;public bool controlledGains;
     }
 
     static bool Passive(Component player){return AbilityMode.Enabled&&player!=null&&!AbilityMode.Has(player,8)&&AbilityMode.For(player).Levels[1]>4;}
-    public static void Attach(Component player)
+    public static void Attach(Component player,bool forShot=false)
     {
-        if (player == null || (!PlayerSkills.Enabled && !AbilityMode.Has(player,8)&&!Passive(player)) || (player.name != "Zhao" && !AbilityMode.Has(player,8)&&!Passive(player)) || player.GetComponent<MagneticFoot>() != null) return;
+        if(player==null||player.GetComponent<MagneticFoot>()!=null)return;
+        if(!forShot&&((!PlayerSkills.Enabled&&!AbilityMode.Has(player,8)&&!Passive(player))||(player.name!="Zhao"&&!AbilityMode.Has(player,8)&&!Passive(player))))return;
         MagneticFoot skill = player.gameObject.AddComponent<MagneticFoot>();
         skill.controller = player; skill.direction = player.name=="Fan"?1f:-1f;
         Type pt = player.GetType(), st = pt.Assembly.GetType("StickManController");
@@ -73,13 +75,14 @@ public sealed class MagneticFoot : MonoBehaviour
     {
         MagneticFoot skill = player != null ? player.GetComponent<MagneticFoot>() : null;
         if (skill == null) return;
-        skill.Release();
+        skill.Release();foreach(var leg in skill.legs)leg.airPrimed=false;
+        if(action=="Kick")skill.aerialUntil=SkillRework.Has(player,8)?Time.time+.8f:-1f;else if(action!="Jump")skill.aerialUntil=-1f;
         skill.protectedUntil = Time.time + (action == "Kick" ? .75f : action == "Head" ? .55f : .35f);
     }
     public static void ResetAll()
     {
         foreach (MagneticFoot skill in UnityEngine.Object.FindObjectsOfType<MagneticFoot>())
-        { skill.Release(); skill.protectedUntil = -1f; skill.lastEffect = -10f; }
+        { skill.Release(); skill.aerialUntil=-1f;skill.protectedUntil = -1f; skill.lastEffect = -10f; }
     }
     public static float MovementMultiplier(Component player, float input)
     {
@@ -127,6 +130,13 @@ public sealed class MagneticFoot : MonoBehaviour
         }
         return false;
     }
+    bool AerialEligible(){
+        if(!SkillRework.Has(controller,8)||Time.time>aerialUntil||ball==null||Time.timeScale<=0||(manager!=null&&(bool)stopping.GetValue(manager)))return false;
+        float scale=Mathf.Abs(transform.lossyScale.x)/.8f,ahead=direction*(ball.position.x-body.position.x);if(ahead<0||ahead>1.6f*scale||ball.position.y<body.position.y-.25f*scale)return false;
+        foreach(var leg in legs){Vector2 hip=leg.hip.connectedBody.transform.TransformPoint(leg.hip.connectedAnchor);float reach=Link(leg.upper,leg.knee.connectedAnchor-leg.hip.anchor).magnitude+Link(leg.lower,leg.instep-leg.knee.anchor).magnitude;if(Vector2.Distance(hip,ball.position)<reach+ballCollider.bounds.extents.x+.08f*scale)return true;}return false;
+    }
+    public static bool AssistReady(Component p){var s=p!=null?p.GetComponent<MagneticFoot>():null;return s!=null&&s.AerialEligible();}
+    public static void AimAir(Component p,Vector2 target){Attach(p,true);var s=p.GetComponent<MagneticFoot>();s.aerialPose=true;s.Pose(s.legs[0],target);s.aerialPose=false;}
     private static Vector2 Link(Rigidbody2D limb, Vector2 local)
     {
         return Vector2.Scale(local,new Vector2(limb.transform.lossyScale.x,limb.transform.lossyScale.y));
@@ -145,14 +155,21 @@ public sealed class MagneticFoot : MonoBehaviour
         // Keep the knee ahead and the shin close to upright. The boot stays
         // on the rear side of the ball instead of swinging over its top.
         float upper=line-bend-Angle(upperLink);
+        if(aerialPose&&transform.lossyScale.x<0){
+            Vector2 kneeNow=leg.upper.transform.TransformPoint(leg.knee.connectedAnchor),upNow=kneeNow-hip,lowNow=leg.lower.transform.TransformVector(leg.instep-leg.knee.anchor);
+            float upperWorld=line-direction*bend;Vector2 desiredKnee=hip+new Vector2(Mathf.Cos(upperWorld*Mathf.Deg2Rad),Mathf.Sin(upperWorld*Mathf.Deg2Rad))*a;
+            float upperAngle=leg.upper.rotation+Mathf.DeltaAngle(Angle(upNow),upperWorld),lowerAngle=leg.lower.rotation+Mathf.DeltaAngle(Angle(lowNow),Angle(hip+delta.normalized*distance-desiredKnee));
+            SetAngles(leg,Mathf.DeltaAngle(0,upperAngle),Mathf.DeltaAngle(0,lowerAngle));return;
+        }
         Vector2 knee=hip+new Vector2(Mathf.Cos((upper+Angle(upperLink))*Mathf.Deg2Rad),Mathf.Sin((upper+Angle(upperLink))*Mathf.Deg2Rad))*a;
         float lower=Angle(hip+delta.normalized*distance-knee)-Angle(lowerLink);
-        upper=Mathf.Clamp(Mathf.DeltaAngle(0f,upper),-48f,48f);
-        lower=Mathf.Clamp(Mathf.DeltaAngle(0f,lower),-18f,22f);
+        upper=Mathf.Clamp(Mathf.DeltaAngle(0f,upper),aerialPose?-175f:-48f,aerialPose?175f:48f);
+        lower=Mathf.Clamp(Mathf.DeltaAngle(0f,lower),aerialPose?-175f:-18f,aerialPose?175f:22f);
         SetAngles(leg,upper,lower);
     }
     private void SetAngles(Leg leg,float upper,float lower)
     {
+        if(aerialPose){if(!leg.airPrimed){leg.airPrimed=true;leg.airUpper=leg.upper.rotation;leg.airLower=leg.lower.rotation;}leg.airUpper=Mathf.MoveTowardsAngle(leg.airUpper,upper,720f*Time.deltaTime);leg.airLower=Mathf.MoveTowardsAngle(leg.airLower,lower,960f*Time.deltaTime);leg.upperTarget.SetValue(stick,leg.airUpper);leg.lowerTarget.SetValue(stick,leg.airLower);return;}
         if(Passive(controller)){float blend=.2f+.3f*(AbilityMode.For(controller).Levels[1]-4)/4f;upper=Mathf.LerpAngle((float)leg.upperTarget.GetValue(stick),upper,blend);lower=Mathf.LerpAngle((float)leg.lowerTarget.GetValue(stick),lower,blend);}
         leg.desiredUpper=upper;leg.desiredLower=lower;
         // Bounded targets and finite muscle gains preserve the connected rig.
@@ -168,6 +185,7 @@ public sealed class MagneticFoot : MonoBehaviour
     {
         MagneticFoot skill=stick != null ? stick.GetComponent<MagneticFoot>() : null;
         if(skill==null)return;
+        if(skill.AerialEligible()){skill.Release();skill.aerialPose=true;skill.Pose(skill.legs[0],skill.ball.position+skill.ball.velocity*.025f-Vector2.right*skill.direction*skill.ballCollider.bounds.extents.x*.7f);skill.aerialPose=false;PlayerSkills.ShowMagneticFoot(skill.controller);return;}
         if(!skill.Eligible()){skill.Release();return;}
         skill.Active=true;
         float radius=skill.ballCollider.bounds.extents.x;

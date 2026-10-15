@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -74,8 +74,8 @@ public sealed class PlayerSkills : MonoBehaviour
     private bool weakenedBalance;
     private float braceUntil = -1f;
     private float staggerUntil = -1f;
-    // Two standing body widths, measured before the player tips or jumps.
-    public const float TackleKnockbackBodyWidths = 2f;
+    // One standing body width, measured before the player tips or jumps.
+    public const float TackleKnockbackBodyWidths = 1f;
     private float standingBodyWidth;
     private float knockbackUntil = -1f, knockbackOrigin, knockbackDistance, knockbackDirection;
     private float balanceGain = 18f;
@@ -104,14 +104,14 @@ public sealed class PlayerSkills : MonoBehaviour
     private float burstFloorHeight;
     private float lastMovementFx = -10f;
     private int lastMovementSkill = -1;
-    private readonly float[] effects = { -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f };
-    private static readonly string[] names = { "旋风盘带", "炮弹式头球", "空中堡垒", "强力抢断", "掠地瞬击", "弧线落叶射门", "紧急回防", "进攻提速", "磁力脚", "伸脚抢截" };
+    private readonly float[] effects = { -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f };
+    private static readonly string[] names = { "旋风盘带", "炮弹式头球", "空中堡垒", "强力抢断", "后方领袖", "弧线落叶射门", "紧急回防", "进攻提速", "磁力脚", "伸脚抢截", "无定形射门" };
     private static readonly Color[] colors = {
         new Color(1f, .76f, .12f), new Color(1f, .36f, .12f),
         new Color(.25f, .83f, 1f), new Color(.4f, 1f, .3f),
         new Color(1f, .93f, .3f), new Color(.87f, .45f, 1f),
         new Color(.2f, .95f, 1f), new Color(1f, .6f, .15f),
-        new Color(1f, .45f, .65f), new Color(.3f, .8f, 1f)
+        new Color(1f, .45f, .65f), new Color(.3f, .8f, 1f),new Color(1f,.85f,.55f)
     };
 
     // A rearward movement command starts one bounded rescue attempt. Steering
@@ -149,7 +149,7 @@ public sealed class PlayerSkills : MonoBehaviour
                 {
             if (s.ball.position.x > s.body.position.x && target < s.ball.position.x + margin - .05f)
             { s.rescueWaiting = true; s.rescueSpeed = 0f; return 0f; }
-            if(s.RescueBottom()>s.RescueFloor()+.12f&&s.ball.velocity.x>.1f){s.retreatUntil=Mathf.Max(s.retreatUntil,Time.time+.45f);s.rescueSpeed=Mathf.Max(0f,s.ball.velocity.x+(target-s.body.position.x)*4f);return 1f;}
+            if(s.RescueBottom()>s.RescueFloor()+.12f&&s.ball.velocity.x>.1f){s.retreatUntil=Mathf.Max(s.retreatUntil,Time.time+.45f);s.rescueSpeed=Mathf.Clamp(s.ball.velocity.x+(target-s.body.position.x)*4f,0f,s.nativeRunSpeed*PlayerMovement.BackwardMultiplier*2f);return 1f;}
             s.retreatUntil = -1f; return input;
         }
         float bottom = s.body.position.y;
@@ -166,14 +166,14 @@ public sealed class PlayerSkills : MonoBehaviour
             crossingTime = Mathf.Clamp(airTime - .06f, .12f, .5f);
         }
         float needed = Mathf.Max(0f, s.ball.velocity.x) + remaining / crossingTime;
-        s.rescueSpeed = Mathf.Min(Mathf.Clamp(needed, normalSpeed * .75f, normalSpeed * 3f), Mathf.Max(0f, s.ball.velocity.x) + Mathf.Sqrt(24f * remaining));
+        s.rescueSpeed = Mathf.Min(Mathf.Clamp(needed, normalSpeed * .75f, normalSpeed * 2f), Mathf.Max(0f, s.ball.velocity.x) + Mathf.Sqrt(24f * remaining));
         // Low balls are crossed only after the native jump has lifted every
         // limb above them. This avoids running into a ball toward our own goal.
 
         float gap = s.ball.position.x - s.body.position.x;
         float height = s.ball.position.y - s.RescueFloor();
         if(s.rescueNativeJump<=0)s.rescueNativeJump=Mathf.Clamp((float)player.GetType().GetField("jumpForce").GetValue(player)*Time.fixedDeltaTime*Time.fixedDeltaTime/s.TotalMass(),3f,8f);
-        s.rescuePlan=RescuePlanner.Evaluate(s.ball,s.body.position,s.body.velocity,-1f,s.standingHeight,s.standingBodyWidth,s.RescueFloor(),s.ballCollider.bounds.extents.y,bottom,goalLine,normalSpeed,normalSpeed*3f,Mathf.Max(.1f,-Physics2D.gravity.y*s.body.gravityScale),s.rescueNativeJump);
+        s.rescuePlan=RescuePlanner.Evaluate(s.ball,s.body.position,s.body.velocity,-1f,s.standingHeight,s.standingBodyWidth,s.RescueFloor(),s.ballCollider.bounds.extents.y,bottom,goalLine,normalSpeed,normalSpeed*2f,Mathf.Max(.1f,-Physics2D.gravity.y*s.body.gravityScale),s.rescueNativeJump);
         s.rescueSpeed=s.rescuePlan.speed;
         if (s.ball.velocity.x < -.5f && gap < margin + Mathf.Abs(s.ball.velocity.x) * .25f && height < s.standingHeight * .8f)
         { s.retreatUntil = -1f; s.rescueWaiting = true; return 0f; }
@@ -318,6 +318,7 @@ public sealed class PlayerSkills : MonoBehaviour
         AbilityMode.Attach(player);
         PowerShot.Attach(player);
         ZhaoHeader.Attach(player);
+        SkillRework.Attach(player);
         if (!Enabled) return;
         MagneticFoot.Attach(player);
         PlayerSkills skills = player.GetComponent<PlayerSkills>();
@@ -329,6 +330,7 @@ public sealed class PlayerSkills : MonoBehaviour
     // Hook the actual animation command, after both human and AI input paths.
     public static void SetAction(Animator animator, string action, Component player)
     {
+        Attach(player);
         MagneticFoot.OnAction(player, action);
         PlayerMovement.NotifyAction(player);
         animator.SetTrigger(action);
@@ -338,6 +340,7 @@ public sealed class PlayerSkills : MonoBehaviour
         PlayerSkills skills = player.GetComponent<PlayerSkills>();
         if (skills != null) skills.BeginAction(action);
         ZhaoHeader.OnAction(player, action);
+        SkillRework.OnAction(player,action);
         ExperimentScale.OnAction(player, action);
     }
 
@@ -347,11 +350,12 @@ public sealed class PlayerSkills : MonoBehaviour
         PlayerSkills rescue=player!=null?player.GetComponent<PlayerSkills>():null;
         if(rescue!=null&&Time.time<rescue.rescueAssistUntil)return 0f;
         if(Enabled&&rescue!=null&&!rescue.fan&&Time.time<=rescue.retreatUntil&&Time.time-rescue.rescueJumpRequestedAt<.35f)return original*Mathf.Clamp(1.15f*rescue.rescuePlan.jumpSpeed/Mathf.Max(.1f,rescue.rescueNativeJump),.15f,2f);
-        return AbilityMode.JumpForce(Enabled && player != null && player.name == "Zhao" ? original * ZhaoJumpMultiplier : original, player);
+        return AbilityMode.JumpForce((Enabled && player != null && player.name == "Zhao" ? original * ZhaoJumpMultiplier : original)*(!AbilityMode.Enabled?SkillRework.NativeJumpScale(player):1f), player);
     }
 
     public static void ResetAll()
     {
+        SkillRework.ResetAll();
         DownIntercept.ResetAll();
         AbilityMode.ResetRound();
         PowerShot.ResetAll();
@@ -435,6 +439,7 @@ public sealed class PlayerSkills : MonoBehaviour
         // Emergency retreat now matches the previous Fan retreat (1.5x total).
         // That speed is also the common Zhao retreat balance in classic mode.
         if (!skills.fan && axis * skills.direction < -.1f) return Time.time <= skills.retreatUntil ? skills.rescueSpeed / (skills.nativeRunSpeed * PlayerMovement.BackwardMultiplier) : 1f;
+        if(skills.fan&&axis*skills.direction>.1f&&skills.GroundBallInReach(1.3f)&&!skills.IsBallAirborne()&&Time.time>skills.shotUntil)return 1.4f;
         return skills.CanAttackSprint(axis) ? FanAttackSprintMultiplier : 1f;
     }
 
@@ -491,7 +496,7 @@ public sealed class PlayerSkills : MonoBehaviour
         }
         if (action == "Kick" || (action == "Head" && !retreatHeaded)) retreatUntil = -1f;
         // Aerial Fortress boosts any normal Zhao jump, even with a rear ball.
-        if (!BallInFront())
+        if (!BallInFront()&&!PowerShot.FrontalHead(controller,ball))
         {
             SuppressBehindSkills();
             if (!fan && action == "Jump") Show(2);
@@ -501,6 +506,7 @@ public sealed class PlayerSkills : MonoBehaviour
         if (action == "Kick" || action == "Head" || action == "Jump") RestoreDribbleSpeed();
         if (action == "Kick")
         {
+            if(fan)headUntil=now+.34f;
             lastKick = now;
             // Normal Fan kicks prepare the leaf shot. Dedicated power kicks
             // are ordinary actions; Zhao no longer uses double-tap commands.
@@ -543,6 +549,7 @@ public sealed class PlayerSkills : MonoBehaviour
         if (skills != null) skills.Show(8);
     }
 
+    public static void ShowFormless(Component p){if(AbilityMode.Enabled)AbilityMode.ShowSkill(p,10);else {var s=p.GetComponent<PlayerSkills>();if(s!=null)s.effects[10]=Time.time;}}
     private void Show(int index)
     {
         if (!Stopped() && (index == 2 || index == 3 || index == 6 || index == 9 || BallInFront())) effects[index] = Time.time;
@@ -551,7 +558,7 @@ public sealed class PlayerSkills : MonoBehaviour
     private void Update()
     {
         if (controller != null && Stopped()) ClearRound();
-        else if (!BallInFront()) SuppressBehindSkills();
+        else if (!BallInFront()&&!PowerShot.FrontalHead(controller,ball)) SuppressBehindSkills();
         if (!Stopped())
         {
             UpdateTackleRecovery();
@@ -566,7 +573,7 @@ public sealed class PlayerSkills : MonoBehaviour
         UpdateRescueBalance();
         UpdateTackleKnockback();
         if (!fan) UpdateGroundBallContest();
-        if (!BallInFront()) SuppressBehindSkills();
+        if (!BallInFront()&&!PowerShot.FrontalHead(controller,ball)) SuppressBehindSkills();
         float now = Time.time;
         if (!fan && burstUntil >= now)
         {
@@ -577,6 +584,7 @@ public sealed class PlayerSkills : MonoBehaviour
         }
         if (fan)
         {
+            if(headUntil>=now&&headCollider.IsTouching(ballCollider)&&!PowerShot.FrontalHead(controller,ball)){headUntil=-1f;PowerShot.CompleteHeader(controller);}
             if (headUntil >= now && HeadReachable())
             {
                 float speed = Mathf.Clamp(Mathf.Max(13f, ball.velocity.magnitude * 1.55f), 13f, 19f);
@@ -584,7 +592,7 @@ public sealed class PlayerSkills : MonoBehaviour
                 EnableContinuousBall();
                 ball.AddForce((target - ball.velocity) * ball.mass, ForceMode2D.Impulse);
                 CancelCurves();
-                headUntil = -1f; // One successful strike per heading command.
+                kickUntil = headUntil = -1f; // One successful strike per heading command.
                 PowerShot.CompleteHeader(controller);
                 HighlightBall(1, .85f);
             }
@@ -708,7 +716,7 @@ public sealed class PlayerSkills : MonoBehaviour
     private LeafShotProfile curveProfile;
     private void PrepareGoalCurve(Collider2D goal)
     {
-        curveProfile=new LeafShotProfile(ball,ballCollider,goal,direction,groundMask,1f);
+        curveProfile=new LeafShotProfile(ball,ballCollider,goal,direction,groundMask,1f,SkillRework.ShootingLevel(controller));
         curveGoal=curveProfile.curveGoal;curveOrigin=curveProfile.curveOrigin;curveDestination=curveProfile.curveDestination;curveTravelTime=curveProfile.curveTravelTime;curveArcHeight=curveProfile.curveArcHeight;curveForwardSpeed=curveProfile.curveForwardSpeed;
     }
 
@@ -851,6 +859,7 @@ public sealed class PlayerSkills : MonoBehaviour
     public static void OnBallCollision(Collision2D collision)
     {
         foreach (PlayerSkills owner in players) if (owner != null && !owner.fan) owner.UpdateGroundBallContest();
+        if(SkillRework.OnBallContact(collision))return;
         bool power = PowerShot.OnBallCollision(collision);
         AbilityMode.Collision(collision);
         Collider2D touched = collision.collider;
@@ -1079,6 +1088,7 @@ public sealed class PlayerSkills : MonoBehaviour
         opponent.staggerUntil = Time.time + (aerial ? TackleAirDuration : throughBall ? .26f : GroundTackleDuration);
         opponent.balanceGain = aerial ? 15f : 18f;
         opponent.ApplyBalanceGain();
+        SkillRework.Tackled(opponent.controller);
         opponent.knockbackOrigin = opponent.RigCenter().x;
         opponent.knockbackDistance = opponent.standingBodyWidth * TackleKnockbackBodyWidths;
         opponent.knockbackDirection = direction;
@@ -1179,6 +1189,7 @@ public sealed class PlayerSkills : MonoBehaviour
         PlayerMovement.BeforeMuscles(stick);
         MagneticFoot.BeforeMuscles(stick);
         AbilityMode.BeforeMuscles(stick);
+        SkillRework.BeforeMuscles(stick);
         PlayerSkills skills = stick.GetComponent<PlayerSkills>();
         if (skills != null)
         {
@@ -1342,7 +1353,7 @@ public sealed class PlayerSkills : MonoBehaviour
             float progress = age / .8f;
             Color color = colors[index];
             color.a = 1f - progress * progress;
-            Vector3 anchor = index == 8 ? MagneticFoot.VisualAnchor(controller) : index == 1 ? head.position : index == 2 || index == 3 || index == 5 || index == 6 || index == 7 || index == 9 ? (Vector3)body.position :
+            Vector3 anchor = index == 8 ? MagneticFoot.VisualAnchor(controller) : index == 1 ? head.position : index == 2 || index == 3 || index == 4 || index == 10 || index == 5 || index == 6 || index == 7 || index == 9 ? (Vector3)body.position :
                 (foot != null ? foot.position + Vector3.up * .3f : (Vector3)body.position);
             Vector3 projected = camera.WorldToScreenPoint(anchor);
             if (projected.z <= 0f) continue;
@@ -1383,10 +1394,7 @@ public sealed class PlayerSkills : MonoBehaviour
                     Line(top, top + new Vector2(-7f, 10f) * scale, 3f * scale);
                     Line(top, top + new Vector2(7f, 10f) * scale, 3f * scale);
                 }
-            if (index == 4)
-                for (int ray = -1; ray <= 1; ray++)
-                    Line(center + new Vector2(direction * (10f + progress * 90f), ray * 7f) * scale,
-                        center + new Vector2(direction * (60f + progress * 120f), ray * 7f) * scale, 3f * scale);
+            if(index==4){Vector2 top=center+new Vector2(0,-32f)*scale;Line(top,center+new Vector2(25f,5f)*scale,3f*scale);Line(top,center+new Vector2(-25f,5f)*scale,3f*scale);Line(center+new Vector2(-25f,5f)*scale,center+new Vector2(0,30f)*scale,3f*scale);Line(center+new Vector2(25f,5f)*scale,center+new Vector2(0,30f)*scale,3f*scale);}
             if (index == 5)
                 for (int part = 0; part < 24; part++)
                 {
