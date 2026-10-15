@@ -1,0 +1,255 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; threaded=0
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+FMOD failed to initialize. This may be because your sound card is configured to give applications exclusive access, thus preventing Unity from using this device. You can change this in Control Panel > Audio Devices and Sound Themes > Playback Device > Properties > Options ... : "Soundcard does not support the minimum features needed for this soundsystem (16bit stereo output). " (59) 
+(Filename:  Line: 1659)
+
+Forced to initialize FMOD to to the device driver's system output rate 44100, this may impact performance and/or give inconsistent experiences compared to selected sample rate 48000 
+(Filename:  Line: 1597)
+
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.861 seconds
+Microsoft Media Foundation video decoding to texture disabled: graphics device is Null, only Direct3D 11 and Direct3D 12 (only on desktop) are supported for hardware-accelerated video decoding.
+UnloadTime: 0.504600 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.152500 ms
+
+Unloading 145 unused Assets to reduce memory usage. Loaded Objects now: 1011.
+Total: 0.461000 ms (FindLiveObjects: 0.043100 ms CreateObjectMapping: 0.009300 ms MarkObjects: 0.172700 ms  DeleteObjects: 0.235600 ms)
+
+SELFPLAY GOALS 10/200 high=4 low=6 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.291800 ms
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1076.
+Total: 1.258700 ms (FindLiveObjects: 0.044900 ms CreateObjectMapping: 0.010900 ms MarkObjects: 0.223800 ms  DeleteObjects: 0.978700 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.751700 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.022500 ms (FindLiveObjects: 0.031200 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.201300 ms  DeleteObjects: 0.781200 ms)
+
+SELFPLAY GOALS 20/200 high=9 low=11 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.534100 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.244200 ms (FindLiveObjects: 0.036400 ms CreateObjectMapping: 0.009100 ms MarkObjects: 0.283600 ms  DeleteObjects: 0.914900 ms)
+
+SELFPLAY GOALS 30/200 high=12 low=18 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY PROGRESS goals=32/200 matches=4 high=13 low=19 contacts=1294 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.517100 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.021600 ms (FindLiveObjects: 0.034400 ms CreateObjectMapping: 0.009500 ms MarkObjects: 0.217200 ms  DeleteObjects: 0.760200 ms)
+
+SELFPLAY GOALS 40/200 high=17 low=23 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.561900 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.170500 ms (FindLiveObjects: 0.036300 ms CreateObjectMapping: 0.009100 ms MarkObjects: 0.232100 ms  DeleteObjects: 0.892800 ms)
+
+SELFPLAY GOALS 50/200 high=18 low=32 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.428000 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.080900 ms (FindLiveObjects: 0.038900 ms CreateObjectMapping: 0.009800 ms MarkObjects: 0.241300 ms  DeleteObjects: 0.790600 ms)
+
+SELFPLAY GOALS 60/200 high=21 low=39 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.495000 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.168300 ms (FindLiveObjects: 0.040600 ms CreateObjectMapping: 0.008900 ms MarkObjects: 0.277600 ms  DeleteObjects: 0.840900 ms)
+
+SELFPLAY GOALS 70/200 high=27 low=43 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY PROGRESS goals=71/200 matches=8 high=28 low=43 contacts=2326 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.342100 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.081200 ms (FindLiveObjects: 0.037600 ms CreateObjectMapping: 0.009300 ms MarkObjects: 0.266800 ms  DeleteObjects: 0.767200 ms)
+
+SELFPLAY GOALS 80/200 high=31 low=49 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.372600 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.226200 ms (FindLiveObjects: 0.058500 ms CreateObjectMapping: 0.009000 ms MarkObjects: 0.242500 ms  DeleteObjects: 0.915900 ms)
+
+SELFPLAY GOALS 90/200 high=34 low=56 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.460200 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.158100 ms (FindLiveObjects: 0.040200 ms CreateObjectMapping: 0.008800 ms MarkObjects: 0.264000 ms  DeleteObjects: 0.844600 ms)
+
+SELFPLAY GOALS 100/200 high=39 low=61 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.423300 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.345800 ms (FindLiveObjects: 0.039100 ms CreateObjectMapping: 0.010300 ms MarkObjects: 0.288700 ms  DeleteObjects: 1.007300 ms)
+
+SELFPLAY PROGRESS goals=102/200 matches=12 high=40 low=62 contacts=4156 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.472500 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.152000 ms (FindLiveObjects: 0.034700 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.264500 ms  DeleteObjects: 0.843900 ms)
+
+SELFPLAY GOALS 110/200 high=42 low=68 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.375900 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.113400 ms (FindLiveObjects: 0.034300 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.217100 ms  DeleteObjects: 0.853000 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.407900 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.409700 ms (FindLiveObjects: 0.033900 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.326800 ms  DeleteObjects: 1.040300 ms)
+
+SELFPLAY GOALS 120/200 high=43 low=77 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.440900 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.110000 ms (FindLiveObjects: 0.034800 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.238800 ms  DeleteObjects: 0.827400 ms)
+
+SELFPLAY GOALS 130/200 high=46 low=84 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY PROGRESS goals=135/200 matches=16 high=49 low=86 contacts=5683 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.414500 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.209500 ms (FindLiveObjects: 0.036500 ms CreateObjectMapping: 0.009500 ms MarkObjects: 0.276400 ms  DeleteObjects: 0.886800 ms)
+
+SELFPLAY GOALS 140/200 high=51 low=89 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.441300 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.381100 ms (FindLiveObjects: 0.046500 ms CreateObjectMapping: 0.012000 ms MarkObjects: 0.272400 ms  DeleteObjects: 1.049900 ms)
+
+SELFPLAY GOALS 150/200 high=59 low=91 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.492100 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.725800 ms (FindLiveObjects: 0.048300 ms CreateObjectMapping: 0.010700 ms MarkObjects: 0.340200 ms  DeleteObjects: 1.326100 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.444800 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.463100 ms (FindLiveObjects: 0.036400 ms CreateObjectMapping: 0.008300 ms MarkObjects: 0.274200 ms  DeleteObjects: 1.143700 ms)
+
+SELFPLAY GOALS 160/200 high=64 low=96 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.393400 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.029200 ms (FindLiveObjects: 0.041300 ms CreateObjectMapping: 0.010800 ms MarkObjects: 0.331800 ms  DeleteObjects: 0.645100 ms)
+
+SELFPLAY PROGRESS goals=162/200 matches=21 high=65 low=97 contacts=6757 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.399000 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.124500 ms (FindLiveObjects: 0.037000 ms CreateObjectMapping: 0.010200 ms MarkObjects: 0.244100 ms  DeleteObjects: 0.832700 ms)
+
+SELFPLAY GOALS 170/200 high=67 low=103 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY GOALS 180/200 high=71 low=109 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.372200 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 0.814700 ms (FindLiveObjects: 0.035300 ms CreateObjectMapping: 0.009600 ms MarkObjects: 0.277000 ms  DeleteObjects: 0.492200 ms)
+
+SELFPLAY GOALS 190/200 high=78 low=112 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.356300 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 0.887700 ms (FindLiveObjects: 0.039900 ms CreateObjectMapping: 0.008900 ms MarkObjects: 0.295700 ms  DeleteObjects: 0.542800 ms)
+
+SELFPLAY GOALS 200/200 high=84 low=116 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+SELFPLAY COMPLETE goals=200 fan=102 zhao=98 high=84 low=116 matches=24 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 837c -> priority: 1 
+  Thread -> id: 7f48 -> priority: 1 
+  Thread -> id: 1850 -> priority: 1 
+  Thread -> id: 8d7c -> priority: 1 
+  Thread -> id: 44fc -> priority: 1 
+  Thread -> id: 8dbc -> priority: 1 
+  Thread -> id: 1340 -> priority: 1 
+  Thread -> id: 2c64 -> priority: 1 
+  Thread -> id: 84cc -> priority: 1 
+  Thread -> id: 69e4 -> priority: 1 
+  Thread -> id: 7ff0 -> priority: 1 
+  Thread -> id: 3840 -> priority: 1 

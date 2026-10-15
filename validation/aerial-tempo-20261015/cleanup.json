@@ -1,0 +1,25 @@
+{
+  "completedAt": "2026-10-15T11:34:33.4476797+08:00",
+  "remainingTestCopies": 0,
+  "removed": [
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-aerialtempo.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-aerialtempo-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-skillselfplay.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-skillselfplay-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-aerialtempo.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-aerialtempo-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-skillselfplay.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-skillselfplay-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\EditAerialTempo.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\PrepareAerialChecks.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\RefineAerialPaths.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\DebugAerialBypass.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\DebugAerialCancel.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\AerialTempo-debug-full.cs",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\BuildAbility.pre-aerial-debug.ps1",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\FinalizeAerialTempo.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\PrepareAerialCleanup.py"
+  ]
+}

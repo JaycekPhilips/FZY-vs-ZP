@@ -1,0 +1,340 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/F vs Z/tools/performance/regression-original-guest/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/F vs Z/tools/performance/regression-original-guest/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/F vs Z/tools/performance/regression-original-guest/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  2.845 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.725000 ms
+PAIRTEST PASS Wi-Fi preferred over Radmin even when VPN is enumerated first 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS adapter enumeration order cannot select VPN over Wi-Fi 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS physical Ethernet preferred over VPN 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS VPN-only fallback retained 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS loopback and unassigned link-local addresses excluded 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS new Wi-Fi address replaces previous network 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS production lobby enables background networking cycle 0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS incompatible build or mode receives rejection instead of silent timeout 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS incompatible build or mode receives rejection instead of silent timeout 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+[LAN] Joining 127.0.0.1:28950 build=abc4b2ce68244b7ab5027eee0e8e4d1b 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS guest targets selected loopback or active LAN IPv4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS room/join starts cycle 0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+[LAN] WELCOME accepted from 127.0.0.1:28950 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS connection waits for explicit selection cycle 0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS own role is not assigned automatically 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS occupied character rejected 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS different choices committed and swapped host supported 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS choosing both characters does not start game 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS guest still sees pre-match room 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS both confirmations reach kickoff cycle 0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS chosen ownership retained at kickoff 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS network pump runs before native input consumers 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.258200 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1023.
+Total: 0.698600 ms (FindLiveObjects: 0.042800 ms CreateObjectMapping: 0.012700 ms MarkObjects: 0.305100 ms  DeleteObjects: 0.337700 ms)
+
+PAIRTEST PASS bidirectional input packets decoded 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS action sequence received 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS press acknowledgement clears pending input 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS remote player direction preserved 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS only selected opponent reads remote controls 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS snapshots advance at original physics cadence 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS host scoreboard state reaches guest state=InGame manager=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS classic/skills mode preserved 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS allocation mode preserved 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS guest disconnect releases session data 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS production lobby enables background networking cycle 1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+[LAN] Joining 172.16.228.85:28950 build=abc4b2ce68244b7ab5027eee0e8e4d1b 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS guest targets selected loopback or active LAN IPv4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS room/join starts cycle 1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+[LAN] WELCOME accepted from 172.16.228.85:28950 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS connection waits for explicit selection cycle 1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS own role is not assigned automatically 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS occupied character rejected 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS different choices committed and swapped host supported 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS choosing both characters does not start game 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS guest still sees pre-match room 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS both confirmations reach kickoff cycle 1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS chosen ownership retained at kickoff 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS network pump runs before native input consumers 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.781000 ms
+
+Unloading 39 unused Assets to reduce memory usage. Loaded Objects now: 1082.
+Total: 2.201200 ms (FindLiveObjects: 0.062600 ms CreateObjectMapping: 0.035000 ms MarkObjects: 0.366000 ms  DeleteObjects: 1.736900 ms)
+
+PAIRTEST PASS bidirectional input packets decoded 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS action sequence received 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS press acknowledgement clears pending input 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS remote player direction preserved 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS only selected opponent reads remote controls 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS snapshots advance at original physics cadence 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS host scoreboard state reaches guest state=InGame manager=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS classic/skills mode preserved 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS allocation mode preserved 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS guest disconnect releases session data 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS production lobby enables background networking cycle 2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+[LAN] Joining 127.0.0.1:28950 build=abc4b2ce68244b7ab5027eee0e8e4d1b 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS guest targets selected loopback or active LAN IPv4 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS room/join starts cycle 2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+[LAN] WELCOME accepted from 127.0.0.1:28950 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS connection waits for explicit selection cycle 2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS own role is not assigned automatically 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS occupied character rejected 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS different choices committed and swapped host supported 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS choosing both characters does not start game 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS guest still sees pre-match room 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS first readiness enters allocation without kickoff 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS allocation needs fresh readiness 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS shared lottery budget received before allocation 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+LOTTERY NETWORK budget=17 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS both confirmations reach kickoff cycle 2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS chosen ownership retained at kickoff 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS network pump runs before native input consumers 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.549700 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1082.
+Total: 1.949100 ms (FindLiveObjects: 0.063100 ms CreateObjectMapping: 0.013400 ms MarkObjects: 0.400200 ms  DeleteObjects: 1.471800 ms)
+
+PAIRTEST PASS bidirectional input packets decoded 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS action sequence received 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS press acknowledgement clears pending input 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS remote player direction preserved 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS only selected opponent reads remote controls 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS snapshots advance at original physics cadence 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS host scoreboard state reaches guest state=InGame manager=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS classic/skills mode preserved 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS allocation mode preserved 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS Fan allocation synchronized before kickoff 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS Zhao allocation synchronized before kickoff 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS both physical ability modules initialized 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS kickoff does not reopen allocation screen 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS invalid remote allocation rejected atomically 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS negative skill bitmask rejected without looping 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS leaving lobby restores previous background setting 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+[LAN] Joining 127.0.0.1:28950 build=abc4b2ce68244b7ab5027eee0e8e4d1b 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+[LAN] No host response from 127.0.0.1:28950 after 20 HELLO attempts. 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST closed-host result state=Failed message=房主未响应：确认已建房，并允许 UDP 28950 通信 seconds=10.00077 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS closed host produces bounded timeout with useful diagnosis 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST PASS timeout closes guest socket 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+PAIRTEST COMPLETE role=guest checks=85 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 6828 -> priority: 1 
+  Thread -> id: 2550 -> priority: 1 
+  Thread -> id: 7c88 -> priority: 1 
+  Thread -> id: 1db0 -> priority: 1 
+  Thread -> id: 958 -> priority: 1 
+  Thread -> id: 75c4 -> priority: 1 
+  Thread -> id: 838c -> priority: 1 
+  Thread -> id: 8638 -> priority: 1 
+  Thread -> id: 7efc -> priority: 1 
+  Thread -> id: 8354 -> priority: 1 
+  Thread -> id: 6904 -> priority: 1 
+  Thread -> id: 5efc -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

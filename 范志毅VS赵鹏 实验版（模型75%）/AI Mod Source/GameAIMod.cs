@@ -869,7 +869,7 @@ public static class GameAIMod
         if(t<0f||t>.18f)t=.04f;
         Vector2 p,v;ForecastBall(ball,t,out p,out v);
         float headX=state.headTransform.position.x+state.body.velocity.x*t;
-        float headY=state.headTransform.position.y+(grounded?0f:state.body.velocity.y*t+.5f*Physics2D.gravity.y*state.body.gravityScale*t*t);
+        float headY=state.headTransform.position.y+(grounded?0f:state.body.velocity.y*t+.5f*Physics2D.gravity.y*state.body.gravityScale*AbilityMode.JumpGravity(state.body.GetComponentInParent<BuildPlayer>())*t*t);
         return Mathf.Abs(p.x-headX)<radius+state.headCollider.bounds.extents.x+.20f*scale &&
             Mathf.Abs(p.y-headY)<radius+state.headCollider.bounds.extents.y+.16f*scale;
     }
@@ -888,7 +888,7 @@ public static class GameAIMod
             // Jump for a reachable contested high ball, keeping the planted
             // gait and strike suppression for actual ground squeezes.
             Vector2 p,v;ForecastBall(ball,.20f,out p,out v);
-            float gravity=Mathf.Max(.1f,-Physics2D.gravity.y*state.body.gravityScale);
+            float gravity=Mathf.Max(.1f,-Physics2D.gravity.y*state.body.gravityScale)*AbilityMode.JumpGravity(state.body.GetComponentInParent<BuildPlayer>());
             float lift=state.jumpSpeed*.20f-.5f*gravity*.04f;
             if(grounded && load<.09f*scale && Time.time-state.lastJump>.65f &&
                 p.y>state.standingHeadY+.1f*scale && p.y<state.standingHeadY+lift+.45f*scale &&
@@ -939,7 +939,7 @@ public static class GameAIMod
             !( !grounded && ball.position.y > headY - .4f * scale)) return false;
         state.highBallPlan = true;
         BuildZhaoForecast(state, ball);
-        float gravity = Mathf.Max(.1f, -Physics2D.gravity.y * state.body.gravityScale);
+        float gravity = Mathf.Max(.1f, -Physics2D.gravity.y * state.body.gravityScale)*AbilityMode.JumpGravity(state.body.GetComponentInParent<BuildPlayer>());
         float jumpSpeed = state.jumpSpeed;
         float headRadius = state.headCollider.bounds.extents.y, radius = state.ballCollider.bounds.extents.x;
         float reach = headRadius + radius + .12f * scale;
@@ -1068,7 +1068,7 @@ public static class GameAIMod
             !( !grounded && ball.position.y > headY - .4f * scale)) return false;
         state.highBallPlan = true;
         BuildZhaoForecast(state, ball);
-        float gravity = Mathf.Max(.1f, -Physics2D.gravity.y * state.body.gravityScale);
+        float gravity = Mathf.Max(.1f, -Physics2D.gravity.y * state.body.gravityScale)*AbilityMode.JumpGravity(state.body.GetComponentInParent<BuildPlayer>());
         float jumpSpeed = state.jumpSpeed;
         float headRadius = state.headCollider.bounds.extents.y, radius = state.ballCollider.bounds.extents.x;
         float reach = headRadius + radius + .12f * scale;
@@ -1140,7 +1140,7 @@ public static class GameAIMod
         float gap = Mathf.Abs(ball.position.x - state.body.position.x);
         if (gap > 1.1f * state.rigScale || ball.position.y < state.standingHeadY - .25f * state.rigScale) return;
         Vector2 p,v;ForecastBall(ball,.20f,out p,out v);
-        float gravity = Mathf.Max(.1f,-Physics2D.gravity.y * state.body.gravityScale);
+        float gravity = Mathf.Max(.1f,-Physics2D.gravity.y * state.body.gravityScale)*AbilityMode.JumpGravity(state.body.GetComponentInParent<BuildPlayer>());
         float reach = state.jumpSpeed * .20f - .5f * gravity * .04f;
         if (p.y > state.standingHeadY - .1f * state.rigScale && p.y < state.standingHeadY + reach + .5f * state.rigScale &&
             Mathf.Abs(p.x - state.body.position.x - state.body.velocity.x * .20f) < 1.1f * state.rigScale)
@@ -1260,7 +1260,7 @@ public static class GameAIMod
         if (ball.position.y < headY + .3f * scale && !(ball.velocity.y > 3f && ball.position.y > headY - .15f * scale)) return false;
         state.highBallPlan = true;
         bool grounded = state.groundField != null && (bool)state.groundField.GetValue(controller);
-        float gravity = Mathf.Max(.1f, -Physics2D.gravity.y * state.body.gravityScale);
+        float gravity = Mathf.Max(.1f, -Physics2D.gravity.y * state.body.gravityScale)*AbilityMode.JumpGravity(state.body.GetComponentInParent<BuildPlayer>());
         float apexTime = Mathf.Clamp(state.jumpSpeed / gravity, .12f, .65f);
         float radius = state.ballCollider != null ? state.ballCollider.bounds.extents.x : .2f * scale;
         Collider2D headCollider = state.headTransform != null ? state.headTransform.GetComponent<Collider2D>() : null;

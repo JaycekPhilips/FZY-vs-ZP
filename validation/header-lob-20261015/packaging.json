@@ -1,0 +1,22 @@
+﻿{
+  "completedAt": "2026-10-15T12:42:37.550686",
+  "packages": [
+    {
+      "edition": "original",
+      "archive": "downloads/fzy-vs-zp-original-win32.zip",
+      "files": 149,
+      "sha256": "09d75929f0fb99871df0ea268de0108f4fd9ac26d044be8c5f05df7082841211",
+      "verified": true
+    },
+    {
+      "edition": "experimental",
+      "archive": "downloads/fzy-vs-zp-experimental-win32.zip",
+      "files": 151,
+      "sha256": "a3e8a34eeb3e0b217756f6d165e14fb9010446675606ddf613cc5002f1674e07",
+      "verified": true
+    }
+  ],
+  "repositoryPrepared": true,
+  "committed": false,
+  "pushed": false
+}
