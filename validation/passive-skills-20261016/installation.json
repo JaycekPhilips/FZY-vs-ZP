@@ -1,0 +1,42 @@
+{
+  "editions": [
+    {
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003",
+      "evidence": [
+        {
+          "suite": "passiveskills",
+          "logHash": "98937019DFEFC52428FF9B218ABE6FC6AF4882E9F8F8B82E976C1AFE167B5D41",
+          "count": 23
+        }
+      ],
+      "policyHash": "C0FAAE7C61B48E3303B9F636A9C6A77141702748416E59A37D1D699A29AEDA82",
+      "edition": "original",
+      "modHash": "79672D39C01D3B5261FAFEA5EE7296BF037D96C5AB2ED66304B0BB9D7135622B",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "selfplayExempt": true,
+      "checks": 23,
+      "installedAt": "2026-10-16T08:49:30.2510441+08:00"
+    },
+    {
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658",
+      "evidence": [
+        {
+          "suite": "passiveskills",
+          "logHash": "D208780C1D5F9E6C2F3ECA513457390C999EE44D90993EE723179BB3566BA82C",
+          "count": 23
+        }
+      ],
+      "policyHash": "D2BAF385682B6766FBC16968AB132D89D67FFCBBCA6504BBDFE7FD9C34A927BD",
+      "edition": "experiment",
+      "modHash": "F4BB4B5D471E0E6CC189989DD22778750F9FFC6303F409D8559D7D0A398FED58",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "selfplayExempt": true,
+      "checks": 23,
+      "installedAt": "2026-10-16T08:49:30.4246824+08:00"
+    }
+  ],
+  "backup": {
+    "path": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\backup-before-passive-skills-20261016-084024"
+  },
+  "githubUpdated": false
+}

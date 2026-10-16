@@ -207,7 +207,31 @@ public sealed class SkillRework : MonoBehaviour {
     float Floor(){var floor=GameObject.Find("Down");return floor!=null?floor.GetComponent<Collider2D>().bounds.max.y:body.position.y-Height*.5f;}
     SkillRework Other(){foreach(var s in all)if(s!=null&&s!=this&&s.player!=null&&s.player.gameObject.activeInHierarchy)return s;return null;}
     bool AerialDuel(){var o=Other();return o!=null&&!Stopped&&!o.Stopped&&(Air||o.Air)&&ball.position.y>Mathf.Min(body.position.y,o.body.position.y)+Height*.2f&&Mathf.Abs(body.position.x-o.body.position.x)<(Width+o.Width)*.55f+.25f*Scale;}
-    public static float Effective(Component p,int dimension){float level=AbilityMode.Enabled?AbilityMode.For(p).Levels[dimension]:4;var s=p!=null?p.GetComponent<SkillRework>():null;if(s==null||s.Stopped)return level;if(dimension==1||dimension==2){int a=(int)s.score1.GetValue(s.manager),b=(int)s.score2.GetValue(s.manager);bool ahead=p.name=="Fan"?a>=b:b>=a;if(Has(p,4)&&ahead)level+=1.5f;if(Has(p,2)&&s.AerialDuel())level+=1f;}return level;}
+    bool LeaderActive {get{if(!RallyLive||manager==null||!Has(player,4))return false;int a=(int)score1.GetValue(manager),b=(int)score2.GetValue(manager);return player.name=="Fan"?a>=b:b>=a;}}
+    bool ContactLinked(SkillRework other){
+        if(other==null)return false;bool ours=false,theirs=false;
+        foreach(var c in shapes)if(c.enabled&&!c.isTrigger){ours|=c.IsTouching(ballShape);foreach(var q in other.shapes)if(q.enabled&&!q.isTrigger&&c.IsTouching(q))return true;}
+        if(!ours)return false;foreach(var q in other.shapes)if(q.enabled&&!q.isTrigger)theirs|=q.IsTouching(ballShape);return theirs;
+    }
+    bool DuelGrounded(){
+        if(FeetOnFloor()&&body.position.y-Floor()<Height*.85f)return true;
+        if(floorShape==null||Mathf.Abs(body.velocity.y)>1.5f*Scale||Physics2D.Distance(ballShape,floorShape).distance>.035f*Scale)return false;
+        foreach(var c in shapes)if(c.enabled&&!c.isTrigger&&LowerBody(c)&&c.name.IndexOf("Up_Leg",StringComparison.OrdinalIgnoreCase)<0&&c.IsTouching(ballShape)&&c.bounds.min.y<Floor()+ballShape.bounds.size.y+.15f*Scale)return true;
+        return false;
+    }
+    bool GroundDuel(){var other=Other();return RallyLive&&other!=null&&other.RallyLive&&DuelGrounded()&&other.DuelGrounded()&&ContactLinked(other);}
+    public static float Effective(Component p,int dimension){float level=AbilityMode.Enabled?AbilityMode.For(p).Levels[dimension]:4;var s=p!=null?p.GetComponent<SkillRework>():null;if(s==null||s.Stopped)return level;if(dimension==1||dimension==2){if(s.LeaderActive)level+=1.5f;if(Has(p,2)&&s.AerialDuel())level+=1f;if(dimension==1&&Has(p,8)&&s.GroundDuel())level+=2f;}return level;}
+    void LeaderContactEffect(){if(!AbilityMode.Enabled&&PlayerSkills.Enabled&&LeaderActive&&ContactLinked(Other()))PlayerSkills.ShowRearLeader(player);}
+    public static void OnBallTouch(Collision2D c){
+        if(AbilityMode.Enabled||!PlayerSkills.Enabled||c==null||c.collider==null||c.contactCount==0)return;
+        var s=c.collider.GetComponentInParent<SkillRework>();if(s==null||s.Stopped||!s.LeaderActive||c.otherCollider!=s.ballShape)return;
+        if(c.collider==s.head||s.ball.position.y>=s.body.position.y+s.Height*.15f||s.ContactLinked(s.Other()))PlayerSkills.ShowRearLeader(s.player);
+    }
+    public static void OnPlayerTouch(Component player,Collision2D c){
+        if(AbilityMode.Enabled||!PlayerSkills.Enabled||player==null||c==null||c.collider==null||c.contactCount==0)return;
+        var s=player.GetComponent<SkillRework>();var other=c.collider.GetComponentInParent<SkillRework>();
+        if(s!=null&&!s.Stopped&&s.LeaderActive&&other!=null&&other!=s)PlayerSkills.ShowRearLeader(player);
+    }
     public static float NativeJumpScale(Component p){return AbilityMode.JumpTempo(Effective(p,2))/AbilityMode.JumpTempo(4);}
     public static int ShootingLevel(Component p){return Mathf.Min(8,(AbilityMode.Enabled?AbilityMode.For(p).Levels[0]:4)+(MagneticFoot.AssistReady(p)?1:0));}
     public static void Tackled(Component p){var s=p!=null?p.GetComponent<SkillRework>():null;if(s!=null)s.knockedUntil=Time.time+.85f;}
@@ -216,7 +240,7 @@ public sealed class SkillRework : MonoBehaviour {
     public static int Quality(float roll){return roll<.3f?0:roll<.6f?1:2;}
     public bool Bicycle {get{return Time.time<=bicycleUntil;}}
     bool BicycleRange(){float behind=-facing*(ball.position.x-body.position.x);return behind>0&&behind<=Width&&ball.position.y>=body.GetComponent<Collider2D>().bounds.center.y&&ball.position.y<=head.bounds.max.y+head.bounds.size.y;}
-    public static float NativeContactForce(Component p){if(AbilityMode.Enabled||!PlayerSkills.Enabled)return 1f;var s=p!=null?p.GetComponent<SkillRework>():null;if(s==null||s.Stopped)return 1f;var other=s.Other();if(other==null)return 1f;bool ours=false,theirs=false,contact=false;foreach(var c in s.shapes){ours|=c.IsTouching(s.ballShape);foreach(var q in other.shapes)contact|=c.IsTouching(q);}foreach(var q in other.shapes)theirs|=q.IsTouching(s.ballShape);return contact||(ours&&theirs)?(.6f+Effective(p,1)*.05f)/.8f:1f;}
+    public static float NativeContactForce(Component p){if(AbilityMode.Enabled||!PlayerSkills.Enabled)return 1f;var s=p!=null?p.GetComponent<SkillRework>():null;if(s==null||s.Stopped)return 1f;var other=s.Other();if(other==null)return 1f;return s.ContactLinked(other)?(.6f+Effective(p,1)*.05f)/.8f:1f;}
     public static bool WantsBicycle(Component p){var s=p!=null?p.GetComponent<SkillRework>():null;return s!=null&&!s.Stopped&&s.RallyLive&&Has(p,10)&&!s.Bicycle&&!s.turned&&Time.time-s.lastBicycle>1.25f&&!s.turned&&s.BicycleRange();}
     public static bool Mirrored(Component p){var s=p!=null?p.GetComponent<SkillRework>():null;return s!=null&&s.turned;}
     public static bool InBicycle(Component p){var s=p!=null?p.GetComponent<SkillRework>():null;return s!=null&&!s.Stopped&&(s.Bicycle||s.turned);}
@@ -277,7 +301,7 @@ public sealed class SkillRework : MonoBehaviour {
         var s=p!=null?p.GetComponent<SkillRework>():null;if(s==null||s.Stopped||LanMultiplayer.IsRemoteSimulation)return;
         if(!s.turned){s.ReleasePose();return;}if(!s.poseOwned)s.BeginPose();
         if(!s.Bicycle){foreach(string field in poseFields)s.PoseBone(field,0f);s.ApplyPose();return;}
-        float t=Time.time-s.started,target=s.FlipAngle(),landing=Ease(0f,1f,(t-.30f)/.27f),stand=s.getupAt<0?0f:Ease(0f,1f,(Time.time-s.getupAt)/.40f);
+        float t=Time.time-s.started,target=s.FlipAngle(),landing=s.landedAt<0?0f:Ease(0f,1f,(Time.time-s.landedAt)/.14f),stand=s.getupAt<0?0f:Ease(0f,1f,(Time.time-s.getupAt)/.40f);
         s.PoseBone("body",target);s.PoseBone("head",target+s.facing*Ease(0f,8f,t/.25f)*(1f-stand));
         float left=MotionCurve(t,armTimes,leftArmCurve);
         float leftElbow=MotionCurve(Mathf.Max(0f,t-.025f),armTimes,leftElbowCurve);
@@ -289,17 +313,21 @@ public sealed class SkillRework : MonoBehaviour {
         // Keeping this arm in world space avoids dropping it as the torso turns horizontal.
         s.PoseBone("R_Up_Arm",Mathf.LerpAngle(Mathf.LerpAngle(s.facing*125f,target+s.facing*8f,armSettle),0f,stand));s.PoseBone("R_Low_Arm",Mathf.LerpAngle(Mathf.LerpAngle(s.facing*100f,target-s.facing*12f,armSettle),0f,stand));
         float upper=-s.facing*MotionCurve(t,poseTimes,trailUpperCurve),lower=-s.facing*MotionCurve(t,poseTimes,trailLowerCurve);
+        // Keep the proven approach to the real ball contact, then open into the held aerial silhouette.
+        float trailHold=s.strikeAt<0?Ease(0f,1f,(t-.23f)/.12f):Ease(0f,1f,(Time.time-s.strikeAt)/.12f);
+        upper=Mathf.LerpAngle(upper,-s.facing*105f,trailHold);lower=Mathf.LerpAngle(lower,-s.facing*115f,trailHold);
         s.PoseBone("R_Up_Leg",Mathf.LerpAngle(Mathf.LerpAngle(upper,-s.facing*140f,landing),0f,stand));s.PoseBone("R_Low_Leg",Mathf.LerpAngle(Mathf.LerpAngle(lower,-s.facing*165f,landing),0f,stand));
         if(s.RallyLive&&!s.bicycleStruck&&s.landedAt<0&&t<.68f){MagneticFoot.AimAir(p,s.ball.position+s.ball.velocity*.04f-Vector2.right*s.facing*s.ballShape.bounds.extents.x*.5f);s.poseDesired[6]=(float)s.poseTargets[6].GetValue(s.stick);s.poseDesired[7]=(float)s.poseTargets[7].GetValue(s.stick);}
         else{
-            float follow=s.strikeAt<0?1f:Mathf.Clamp01((Time.time-s.strikeAt)/.20f);
-            float up=s.strikeAt<0?s.poseAngles[6]:Mathf.LerpAngle(s.strikeLeg.x,-s.facing*190f,Ease(0f,1f,follow));float low=s.strikeAt<0?s.poseAngles[7]:Mathf.LerpAngle(s.strikeLeg.y,-s.facing*205f,Ease(0f,1f,follow));
+            float follow=s.strikeAt<0?1f:Mathf.Clamp01((Time.time-s.strikeAt)/.16f);
+            float up=s.strikeAt<0?-s.facing*155f:Mathf.LerpAngle(s.strikeLeg.x,-s.facing*155f,Ease(0f,1f,follow));float low=s.strikeAt<0?-s.facing*165f:Mathf.LerpAngle(s.strikeLeg.y,-s.facing*165f,Ease(0f,1f,follow));
             s.PoseBone("L_Up_Leg",Mathf.LerpAngle(Mathf.LerpAngle(up,-s.facing*150f,landing),0f,stand));s.PoseBone("L_Low_Leg",Mathf.LerpAngle(Mathf.LerpAngle(low,-s.facing*170f,landing),0f,stand));
         }
-        float split=Mathf.DeltaAngle(s.poseDesired[6],s.poseDesired[8]);if(Mathf.Abs(split)>100f){s.poseDesired[8]=s.poseDesired[6]+Mathf.Sign(split)*100f;s.poseDesired[9]=s.poseDesired[8]-s.facing*55f;}
+        float split=Mathf.DeltaAngle(s.poseDesired[6],s.poseDesired[8]);if(Mathf.Abs(split)>100f){s.poseDesired[8]=s.poseDesired[6]+Mathf.Sign(split)*100f;s.poseDesired[9]=s.poseDesired[8]+(s.strikeAt<0?-s.facing*55f:s.facing*20f);}
         s.ApplyPose();
     }
     void FixedUpdate(){if(Stopped){Clear();return;}if(LanMultiplayer.IsRemoteSimulation)return;
+        LeaderContactEffect();
         if(turned&&Time.fixedTime>observedAt){observedSpin=Mathf.DeltaAngle(observedAngle,body.rotation)/(Time.fixedTime-observedAt);observedAngle=body.rotation;observedAt=Time.fixedTime;}
         if(magneticHop){magneticHop=false;float lift=ball.position.y-body.position.y;if(!Bicycle&&(bool)grounded.GetValue(player)&&facing*(ball.position.x-body.position.x)>0&&Mathf.Abs(ball.position.x-body.position.x)<1.3f*Scale&&lift>.1f*Scale&&lift<Height){float vy=Mathf.Min(5.5f*Scale,Mathf.Sqrt(2f*Mathf.Abs(Physics2D.gravity.y*body.gravityScale)*Mathf.Max(.05f*Scale,lift-.1f*Scale)));foreach(var limb in rig)limb.AddForce(Vector2.up*Mathf.Max(0,vy-body.velocity.y)*limb.mass,ForceMode2D.Impulse);}}
         if(!RallyLive){armedUntil=magneticShotUntil=-1f;magneticHop=false;jumpCommand=kickCommand=-10f;bicycleStruck=true;}

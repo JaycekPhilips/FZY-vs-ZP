@@ -1,0 +1,42 @@
+{
+  "editions": [
+    {
+      "evidence": [
+        {
+          "suite": "bicyclelegs",
+          "count": 36,
+          "logHash": "4AAD41364BEE5EB89786CE66404942B029CBD287AC4BEE82C19D90362D79E2D3"
+        }
+      ],
+      "modHash": "A0E0BF3FF5A4B0DC244DA6D999B910389CC233CDA9061CCC64DD60199B03465A",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003",
+      "policyHash": "D92F14784B84BB5786FA4A70830EB278946A9304898C0C85A70F02174EF0B7CD",
+      "edition": "original",
+      "checks": 36,
+      "selfplayExempt": true,
+      "installedAt": "2026-10-16T08:28:17.8821000+08:00"
+    },
+    {
+      "evidence": [
+        {
+          "suite": "bicyclelegs",
+          "count": 36,
+          "logHash": "71D83465C96E8CEFAFE5F26180A65677856F6EDC4CAAFFB01783C87B6F18DC0B"
+        }
+      ],
+      "modHash": "B07C03047644D9F18F9009211FEFB23E3555A0882AE34505D3B70FFE0CC0F530",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658",
+      "policyHash": "E485AFB5BD05998FF2C40652F6BE74A1BF11BCE3D16EC5547B726D6E654A2A4C",
+      "edition": "experiment",
+      "checks": 36,
+      "selfplayExempt": true,
+      "installedAt": "2026-10-16T08:28:18.0534011+08:00"
+    }
+  ],
+  "backup": {
+    "path": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\backup-before-bicycle-leg-hold-20261016-082132"
+  },
+  "githubUpdated": false
+}

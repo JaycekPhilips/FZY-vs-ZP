@@ -1,0 +1,20 @@
+{
+  "completedAt": "2026-10-16T08:29:10.7143505+08:00",
+  "remainingTestCopies": 0,
+  "removed": [
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-bicyclelegs.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-bicyclelegs-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-bicyclelegs.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-bicyclelegs-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\EditBicycleLegHold.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\RefineBicycleLegHold.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\ReviewBicycleLegHold.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\InspectBicycleLegHold.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\TimeBicycleLegHold.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\PublishBicycleLegHold.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\bicycle-leg-review.jpg"
+  ],
+  "selfplayRun": false
+}

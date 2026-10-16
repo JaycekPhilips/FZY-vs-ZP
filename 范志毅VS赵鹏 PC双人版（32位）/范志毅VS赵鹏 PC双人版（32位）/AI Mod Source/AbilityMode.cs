@@ -137,7 +137,7 @@ public sealed class AbilitySetupPanel : MonoBehaviour
             totals[side]=AddText("",new Vector2(x,229),24,new Vector2(490,40));
             for(int d=0;d<3;d++){int dim=d;float y=183-d*45;stats[side,d]=AddText("",new Vector2(x,y),22,new Vector2(285,38));minus[side,d]=AddButton("−",new Vector2(x-190,y),new Vector2(65,36),delegate{AbilityMode.Builds[p].Change(dim,-1);Refresh();});plus[side,d]=AddButton("+",new Vector2(x+190,y),new Vector2(65,36),delegate{AbilityMode.Builds[p].Change(dim,1);Refresh();});}
             AddText(ownedSide>=0?"特技商店":"特技商店 · 双方均可购买",new Vector2(x,40),19,new Vector2(470,32));
-            for(int i=0;i<AbilityMode.Skills.Length;i++){int skill=i;skills[side,i]=AddButton("",new Vector2(x+(i%2==0?-118:118),-5-(i/2)*40),new Vector2(228,35),delegate{bool ok=AbilityMode.Builds[p].Toggle(skill);hint.text=ok?AbilityMode.Skills[skill]+"："+AbilityMode.Descriptions[skill]:"剩余点数不足，请先减少能力点。";Refresh();});}
+            for(int i=0;i<AbilityMode.Skills.Length;i++){int skill=i;skills[side,i]=AddButton("",new Vector2(x+(i%2==0?-118:118),-5-(i/2)*40),new Vector2(228,35),delegate{bool ok=AbilityMode.Builds[p].Toggle(skill);hint.text=ok?AbilityMode.Skills[skill]+(AbilityMode.Builds[p].Has(skill)?"：已购买":"：已取消"):"剩余点数不足，请先减少能力点。";Refresh();});}
             AddButton(AI(side)?"重新随机":"恢复 4 / 4 / 4",new Vector2(x,-242),new Vector2(250,36),delegate{if(AI(p))AbilityMode.Randomize(p);else AbilityMode.Builds[p].Reset();Refresh();});
         }
         hint=AddText(ownedSide>=0?"加点完成后准备":"自由分配能力与特技；剩余点数可以保留，双方配置确认后即可开始。",new Vector2(0,-276),18,new Vector2(1030,38));

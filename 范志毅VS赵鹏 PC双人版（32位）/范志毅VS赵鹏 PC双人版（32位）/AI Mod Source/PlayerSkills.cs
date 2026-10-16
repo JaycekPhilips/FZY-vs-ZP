@@ -540,6 +540,10 @@ public sealed class PlayerSkills : MonoBehaviour
         if (skills != null) skills.Show(8);
     }
 
+    public static void ShowRearLeader(Component player){
+        if(AbilityMode.Enabled||!Enabled||player==null||player.name!="Zhao")return;var skills=player.GetComponent<PlayerSkills>();
+        if(skills!=null&&!skills.Stopped()&&Time.time-skills.effects[4]>=.55f)skills.effects[4]=Time.time;
+    }
     public static void ShowFormless(Component p){if(AbilityMode.Enabled)AbilityMode.ShowSkill(p,10);else {var s=p.GetComponent<PlayerSkills>();if(s!=null)s.effects[10]=Time.time;}}
     private void Show(int index)
     {
@@ -849,6 +853,7 @@ public sealed class PlayerSkills : MonoBehaviour
     // An opponent touch ends flight assistance so the next player can take control.
     public static void OnBallCollision(Collision2D collision)
     {
+        SkillRework.OnBallTouch(collision);
         foreach (PlayerSkills owner in players) if (owner != null && !owner.fan) owner.UpdateGroundBallContest();
         if(SkillRework.OnBallContact(collision))return;
         bool power = PowerShot.OnBallCollision(collision);
@@ -1008,6 +1013,7 @@ public sealed class PlayerSkills : MonoBehaviour
 
     public void OnBodyContact(Collision2D collision)
     {
+        SkillRework.OnPlayerTouch(controller,collision);
         if (fan || Stopped() || Time.time - lastTackle < .95f ||
             collision == null || collision.contactCount == 0 || !IsUpperBody(collision.collider)) return;
         PlayerSkills opponent = collision.collider.GetComponentInParent<PlayerSkills>();

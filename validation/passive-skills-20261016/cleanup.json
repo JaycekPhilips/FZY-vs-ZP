@@ -1,0 +1,24 @@
+{
+  "formalGamesAndRepositoryMatch": true,
+  "selfplayRun": false,
+  "remainingTestCopies": 0,
+  "completedAt": "2026-10-16T08:50:25.9345356+08:00",
+  "removed": [
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-passiveskills.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-passiveskills-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\验证记录\\被动特技与购买界面-20261016\\original-passiveskills\\后方领袖防空.png",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\验证记录\\被动特技与购买界面-20261016\\original-passiveskills\\加点界面无技能描述.png",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-passiveskills.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-passiveskills-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\验证记录\\被动特技与购买界面-20261016\\experiment-passiveskills\\后方领袖防空.png",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\验证记录\\被动特技与购买界面-20261016\\experiment-passiveskills\\加点界面无技能描述.png",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\EditPassiveSkills.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\LeaderContactEvents.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\TestPassiveSkills.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\PublishPassiveSkills.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\F vs Z\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\RunPassiveSkillsValidation.ps1",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\F vs Z\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\InstallPassiveSkills.ps1"
+  ]
+}
