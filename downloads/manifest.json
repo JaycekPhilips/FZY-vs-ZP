@@ -3,7 +3,7 @@
         "edition": "original",
         "archive": "downloads/fzy-vs-zp-original-win32.zip",
         "archiveBytes": 28068437,
-        "archiveSha256": "50866b4ac413880bbfd416694fc0165bc19533ecdb46169e697130d2d820f146",
+        "archiveSha256": "ddcd8086794c71f178419e2f018c0bd2c323af1080d59320ff16ba710fcb07b1",
         "files": [
             {
                 "path": "FanZhiYi.exe",
@@ -33,7 +33,7 @@
             {
                 "path": "AI Mod Source/AbilityMode.cs",
                 "bytes": 64726,
-                "sha256": "15b257486c96f50e47405814c4d3fd5fadc17568b165844a84db07ca9a2c81c5"
+                "sha256": "18d595a0f2765b0032fb1149f77d9b113bb9306bdf1eab8892c4294c873fb0af"
             },
             {
                 "path": "AI Mod Source/Assembly-CSharp.original.dll",
@@ -83,7 +83,7 @@
             {
                 "path": "AI Mod Source/PlayerSkills.cs",
                 "bytes": 99869,
-                "sha256": "0c9728f6c5bb58fe28663504b4de19ae7ef04d9b7ba19bf4ea0ceb97c1d7e7d7"
+                "sha256": "f905ba5f458c9f1c9d78284b8cc64a099c23ad791a13b5fd10313b00180954ee"
             },
             {
                 "path": "AI Mod Source/PowerShot.cs",
@@ -93,7 +93,7 @@
             {
                 "path": "AI Mod Source/README.md",
                 "bytes": 49046,
-                "sha256": "0a4f2d869ff3ad859b5e32fce33f492132580419671ed6bf507665faa9e8c539"
+                "sha256": "fa6dfedc9b4899f898d67c604be8b4f54ac8163aded0aa336d99b235b78440c3"
             },
             {
                 "path": "AI Mod Source/ZhaoHeader.cs",
@@ -168,7 +168,7 @@
             {
                 "path": "FanZhiYi_Data/Managed/GameAIMod.dll",
                 "bytes": 208896,
-                "sha256": "79672d39c01d3b5261fafea5ee7296bf037d96c5ab2ed66304b0bb9d7135622b"
+                "sha256": "4a92137172ec62d6c843a4fbcd8a5828e7199941690d84d244ff70079f0c54ed"
             },
             {
                 "path": "FanZhiYi_Data/Managed/Mono.Security.dll",
@@ -755,8 +755,8 @@
     {
         "edition": "experimental",
         "archive": "downloads/fzy-vs-zp-experimental-win32.zip",
-        "archiveBytes": 28063695,
-        "archiveSha256": "a465f400a245152d5e2164e2f051e16049cb53874ac73b476e23e2493f7634e5",
+        "archiveBytes": 28063692,
+        "archiveSha256": "a249802f421e2a3e420e1176253841d7d82856a3d663f7db1369f7b020268ebd",
         "files": [
             {
                 "path": "FanZhiYi.exe",
@@ -791,7 +791,7 @@
             {
                 "path": "AI Mod Source/AbilityMode.cs",
                 "bytes": 65706,
-                "sha256": "1c26d18ed7f6a17fbf8afc33d5a1ca23407cedbfe9f06d623fc93d728e8cf33d"
+                "sha256": "3ed29105036152cc60096deb4a0fa2a45654a20e2a99d776b095484b4fe6aad3"
             },
             {
                 "path": "AI Mod Source/Assembly-CSharp.original.dll",
@@ -846,7 +846,7 @@
             {
                 "path": "AI Mod Source/PlayerSkills.cs",
                 "bytes": 100732,
-                "sha256": "99dee999b97ff49e413a31b33297af9be38e73f1de91ba945f12a4f902509a77"
+                "sha256": "8c5c6fdaacc63c41110a0cbe92372ef88e22082a44c9e13981730f17ce0a08fa"
             },
             {
                 "path": "AI Mod Source/PowerShot.cs",
@@ -856,7 +856,7 @@
             {
                 "path": "AI Mod Source/README.md",
                 "bytes": 50593,
-                "sha256": "b7fbaf578ba0e487c846178d985386e0d3d9a75071743edcefa96fb6a68e99a6"
+                "sha256": "26b83c12818062ca8caedfe0d1595230e828105a7af8da13521c6e72b37639b3"
             },
             {
                 "path": "AI Mod Source/ZhaoHeader.cs",
@@ -931,7 +931,7 @@
             {
                 "path": "FanZhiYi_Data/Managed/GameAIMod.dll",
                 "bytes": 213504,
-                "sha256": "f4bb4b5d471e0e6cc189989dd22778750f9ffc6303f409d8559d7d0a398fed58"
+                "sha256": "875acd3bf1e5ff4a22cf4b587fa4edbd029f878b0d188d7d17f8cdb9b79858f1"
             },
             {
                 "path": "FanZhiYi_Data/Managed/Mono.Security.dll",

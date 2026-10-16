@@ -105,7 +105,7 @@ public sealed class PlayerSkills : MonoBehaviour
     private float lastMovementFx = -10f;
     private int lastMovementSkill = -1;
     private readonly float[] effects = { -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f };
-    private static readonly string[] names = { "旋风盘带", "炮弹式头球", "空中堡垒", "强力抢断", "后方领袖", "弧线落叶射门", "紧急回防", "进攻提速", "磁力脚", "伸脚抢截", "无定形射门" };
+    private static readonly string[] names = { "旋风盘带", "炮弹式头球", "空中堡垒", "强力抢断", "后防领袖", "弧线落叶射门", "紧急回防", "进攻提速", "磁力脚", "伸脚抢截", "无定形射门" };
     private static readonly Color[] colors = {
         new Color(1f, .76f, .12f), new Color(1f, .36f, .12f),
         new Color(.25f, .83f, 1f), new Color(.4f, 1f, .3f),

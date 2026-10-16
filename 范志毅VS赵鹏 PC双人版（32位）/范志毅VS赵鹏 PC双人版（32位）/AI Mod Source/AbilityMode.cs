@@ -15,7 +15,7 @@ public static class AbilityMode
     public static bool LotteryDrawn {get;private set;}
     public static void ResetLottery(){LotteryDrawn=false;budget=12;Reset();}
     public static int DrawBudget(){if(LotteryDrawn)return Budget;budget=UnityEngine.Random.Range(12,25);LotteryDrawn=true;Reset();return Budget;}
-    public static readonly string[] Skills={"旋风盘带","炮弹式头球","空中堡垒","强力抢断","后方领袖","弧线落叶射门","紧急回防","进攻提速","磁力脚","伸脚抢截","无定形射门"};
+    public static readonly string[] Skills={"旋风盘带","炮弹式头球","空中堡垒","强力抢断","后防领袖","弧线落叶射门","紧急回防","进攻提速","磁力脚","伸脚抢截","无定形射门"};
     public static readonly string[] Descriptions={"带球向前推进速度提升40%","头球键：三项合计12为基准；高于12不增加球速，保留球路修正；平快与头球吊射各50%，低于12轻度减弱","强化起跳与反应；近身争高空球时等效对抗、跳跃各提升1","真实接触或隔球顶牛：失衡并击退一个身位","打平或领先时，等效对抗、跳跃各提升1.5","射门键：距对手至少球场1/8且非顶牛：真实脚部弧线落叶","向己方球门移动：加速回防，身后球自动救球","向对方球门移动且球在前方：提速60%","射门时辅助脚部迎接身前高球，射门质量等效提升1点，最高8","向下键：手动下落，正常速度6倍；不限球高","尴尬姿态射门保留90%球速和精度；跳跃＋射门：身后上半身至头顶加一头，50%机会倒挂金钩"};
     public sealed class Build
     {
