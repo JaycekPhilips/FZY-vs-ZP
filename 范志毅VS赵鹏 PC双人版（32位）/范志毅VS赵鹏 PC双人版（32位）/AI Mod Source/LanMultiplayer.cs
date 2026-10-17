@@ -15,7 +15,7 @@ using UnityEngine.UI;
 public sealed class LanMultiplayer : MonoBehaviour
 {
     private const int Port = 28950;
-    private const int Protocol = 3;
+    private const int Protocol = 5;
     private enum State { Off, Hosting, Joining, Connected, InGame, Failed }
     private static LanMultiplayer instance;
     private GameObject lobbyRoot;
@@ -31,6 +31,7 @@ public sealed class LanMultiplayer : MonoBehaviour
     private string pendingCommand;
     private float lastRoomSend = -10f;
     private AbilitySetupPanel allocationPanel;
+    private SkillGroupPanel groupPanel;
     private int LocalRole { get { return isHost ? hostRole : guestRole; } }
     private bool LocalReady { get { return isHost ? hostReady : guestReady; } }
     private bool RolesValid { get { return hostRole >= 0 && guestRole >= 0 && hostRole != guestRole; } }
@@ -85,6 +86,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         net.StopSession();
         net.selectedStyle = style;
         net.selectedAbility = AbilityMode.Enabled;
+        SkillGroups.Reset(style&&!AbilityMode.Enabled);
         net.returnToMenu = back;
         net.lobbyVisible = true;
         net.EnableBackground();
@@ -135,7 +137,7 @@ public sealed class LanMultiplayer : MonoBehaviour
     {
         if (state != State.Connected || roomPhase != 1 || LocalReady || LocalRole < 0) return;
         AbilityMode.Build build = AbilityMode.Builds[LocalRole];
-        if (!build.Valid) return;
+        if (selectedStyle&&!selectedAbility ? !SkillGroups.Valid(build) : !build.Valid) return;
         if (isHost) { hostReady = true; RoomChanged(); }
         else QueueCommand("BUILD|" + LocalRole + "|" + EncodeBuild(build));
         if (lobbyRoot != null) lobbyRoot.SetActive(true);
@@ -169,10 +171,12 @@ public sealed class LanMultiplayer : MonoBehaviour
     private void RoomChanged()
     {
         roomRevision++; lobbyDirty = true;
-        if (RolesValid && hostReady && guestReady && roomPhase == 0 && selectedAbility)
+        if (RolesValid && hostReady && guestReady && roomPhase == 0 && (selectedAbility||selectedStyle))
         {
             roomPhase = 1; hostReady = guestReady = false;
-            AbilityMode.ResetLottery(); AbilityMode.DrawBudget(); OpenAllocation();
+            if(selectedAbility){AbilityMode.ResetLottery(); AbilityMode.DrawBudget();}
+            else SkillGroups.Reset(true);
+            OpenAllocation();
         }
         SendRoom();
         if (RolesValid && hostReady && guestReady)
@@ -188,13 +192,15 @@ public sealed class LanMultiplayer : MonoBehaviour
 
     private void OpenAllocation()
     {
-        if (allocationPanel != null || lobbyRoot == null || allocationTemplate == null) return;
+        if (allocationPanel != null || groupPanel != null || lobbyRoot == null || allocationTemplate == null) return;
         lobbyRoot.SetActive(false);
+        if(selectedStyle&&!selectedAbility){groupPanel=SkillGroupPanel.OpenLan(lobbyRoot.transform.parent,allocationTemplate,LocalRole,PrepareBuild,CloseLobby);return;}
         allocationPanel = AbilitySetupPanel.OpenLan(lobbyRoot.transform.parent, allocationTemplate, LocalRole, PrepareBuild, CloseLobby);
     }
 
     private void DestroyAllocation()
     {
+        if(groupPanel!=null){groupPanel.gameObject.SetActive(false);UnityEngine.Object.Destroy(groupPanel.gameObject);groupPanel=null;}
         if (allocationPanel != null) { allocationPanel.gameObject.SetActive(false); UnityEngine.Object.Destroy(allocationPanel.gameObject); allocationPanel = null; }
     }
 
@@ -204,7 +210,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         build = new AbilityMode.Build();
         if (parts.Length < offset + 4) return false;
         for (int i=0; i<3; i++) if (!Int32.TryParse(parts[offset+i], out build.Levels[i])) return false;
-        return Int32.TryParse(parts[offset+3], out build.Purchased) && build.Valid;
+        return Int32.TryParse(parts[offset+3], out build.Purchased) && (PlayerSkills.Enabled&&!AbilityMode.Enabled&&SkillGroups.Configured?SkillGroups.Valid(build):build.Valid);
     }
     private static void CopyBuild(AbilityMode.Build from, AbilityMode.Build to) { Array.Copy(from.Levels, to.Levels, 3); to.Purchased = from.Purchased; }
 
@@ -223,7 +229,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         {
             for (int stat=0; stat<3; stat++)
                 if (!Int32.TryParse(parts[5+side*4+stat], out builds[side].Levels[stat])) return false;
-            if (!Int32.TryParse(parts[8+side*4], out builds[side].Purchased) || ((builds[side].Purchased&~((1<<AbilityMode.Skills.Length)-1))!=0||builds[side].Used>budget||!Array.TrueForAll(builds[side].Levels,delegate(int n){return n>=0&&n<=AbilityMode.MaxLevel;}))) return false;
+            if (!Int32.TryParse(parts[8+side*4], out builds[side].Purchased) || (PlayerSkills.Enabled&&!AbilityMode.Enabled&&SkillGroups.Configured?!SkillGroups.Valid(builds[side]):((builds[side].Purchased&~((1<<AbilityMode.Skills.Length)-1))!=0||builds[side].Used>budget||!Array.TrueForAll(builds[side].Levels,delegate(int n){return n>=0&&n<=AbilityMode.MaxLevel;})))) return false;
         }
         AbilityMode.SetBudget(budget);
         for (int side=0; side<2; side++)
@@ -358,7 +364,7 @@ public sealed class LanMultiplayer : MonoBehaviour
     {
         string packet = Encoding.UTF8.GetString(data, 0, length);
         string[] parts = packet.Split('|');
-        if(!isHost&&parts[0]=="MIRROR"&&parts.Length==5&&state==State.InGame){int id,seq,f,z;if(!Int32.TryParse(parts[1],out id)||id!=sessionId||!Int32.TryParse(parts[2],out seq)||seq<=receivedMirror||!Int32.TryParse(parts[3],out f)||!Int32.TryParse(parts[4],out z)||(f!=0&&f!=1)||(z!=0&&z!=1))return;receivedMirror=seq;var fan=GameObject.Find("Fan");var zhao=GameObject.Find("Zhao");if(fan!=null)SkillRework.ApplyMirror(fan.transform,f==1);if(zhao!=null)SkillRework.ApplyMirror(zhao.transform,z==1);return;}
+
         if(!isHost&&parts[0]=="CINE"&&parts.Length==5&&state==State.InGame){int id,seq,on;if(!Int32.TryParse(parts[1],out id)||id!=sessionId||!Int32.TryParse(parts[2],out seq)||seq<=receivedCine||!Int32.TryParse(parts[4],out on)||(on!=0&&on!=1)||(parts[3]!="Fan"&&parts[3]!="Zhao"))return;receivedCine=seq;var actor=GameObject.Find(parts[3]);if(actor!=null){if(on==1)ShotCloseup.Play(actor.transform,true);else ShotCloseup.End(actor.transform);}return;}
         if (parts.Length < 4 || parts[0] != "HELLO") return;
         int protocol, style;
@@ -378,6 +384,7 @@ public sealed class LanMultiplayer : MonoBehaviour
     private void HandleControl(string packet)
     {
         string[] parts = packet.Split('|');
+        if(!isHost&&parts[0]=="MIRROR"&&parts.Length==5&&state==State.InGame){int id,seq,f,z;if(!Int32.TryParse(parts[1],out id)||id!=sessionId||!Int32.TryParse(parts[2],out seq)||seq<=receivedMirror||!Int32.TryParse(parts[3],out f)||!Int32.TryParse(parts[4],out z)||(f!=0&&f!=1)||(z!=0&&z!=1))return;receivedMirror=seq;var fan=GameObject.Find("Fan");var zhao=GameObject.Find("Zhao");if(fan!=null)SkillRework.ApplyMirror(fan.transform,f==1);if(zhao!=null)SkillRework.ApplyMirror(zhao.transform,z==1);return;}
         if(!isHost&&parts[0]=="CINE"&&parts.Length==5&&state==State.InGame){int id,seq,on;if(!Int32.TryParse(parts[1],out id)||id!=sessionId||!Int32.TryParse(parts[2],out seq)||seq<=receivedCine||!Int32.TryParse(parts[4],out on)||(on!=0&&on!=1)||(parts[3]!="Fan"&&parts[3]!="Zhao"))return;receivedCine=seq;var actor=GameObject.Find(parts[3]);if(actor!=null){if(on==1)ShotCloseup.Play(actor.transform,true);else ShotCloseup.End(actor.transform);}return;}
         if (!isHost && parts[0] == "REJECT") { Fail(parts.Length > 1 ? parts[1] : "无法加入"); return; }
         if (!isHost && parts[0] == "WELCOME" && parts.Length == 5)
@@ -415,7 +422,7 @@ public sealed class LanMultiplayer : MonoBehaviour
                 !Int32.TryParse(parts[4], out hr) || !Int32.TryParse(parts[5], out gr) ||
                 !Int32.TryParse(parts[6], out hready) || !Int32.TryParse(parts[7], out gready) || !Int32.TryParse(parts[8], out ack)) return;
             if (phase < 0 || phase > 1 || hr < -1 || hr > 1 || gr < -1 || gr > 1 || (hr >= 0 && hr == gr) ||
-                hready < 0 || hready > 1 || gready < 0 || gready > 1 || (phase == 1 && (!selectedAbility || hr < 0 || gr < 0))) return;
+                hready < 0 || hready > 1 || gready < 0 || gready > 1 || (phase == 1 && ((!selectedAbility&&!selectedStyle) || hr < 0 || gr < 0))) return;
             int budget;if(!Int32.TryParse(parts[17],out budget)||budget<12||budget>24)return;
             if(revision<roomRevision||matchStarted)return;
             int previousBudget=AbilityMode.Budget;AbilityMode.SetBudget(budget);
@@ -437,7 +444,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         {
             int revision;
             if (!Int32.TryParse(parts[2], out revision) || revision != roomRevision || !RolesValid || !hostReady || !guestReady ||
-                roomPhase != (selectedAbility ? 1 : 0)) return;
+                roomPhase != (selectedAbility||selectedStyle ? 1 : 0)) return;
             launchSent = true; Send("STARTED|" + sessionId);
             StartLanGame(); return;
         }
@@ -520,7 +527,7 @@ public sealed class LanMultiplayer : MonoBehaviour
                 if (bodies == null && !BuildBodyCatalog()) return;
                 if (fingerprint != bodyFingerprint || count != bodies.Length)
                 { Fail("双方游戏文件不一致，无法同步场景。请安装同一版本后重试。"); return; }
-                if (length < 30 + count * 24) return;
+                if (length < 38 + count * 24) return;
                 snapshotTick = tick;
                 latestSnapshot = snapshotStorage; snapshotLength = length;
                 Buffer.BlockCopy(data, 0, latestSnapshot, 0, length);
@@ -593,12 +600,13 @@ public sealed class LanMultiplayer : MonoBehaviour
         writer.Write(isGoaling != null && (bool)isGoaling.GetValue(gameManager));
         writer.Write(stopMove != null && (bool)stopMove.GetValue(gameManager));
         writer.Write(gameTime != null ? (float)gameTime.GetValue(gameManager) : 0f);
+        writer.Write(SkillRework.ResilienceFor("Fan"));writer.Write(SkillRework.ResilienceFor("Zhao"));
     }
 
     private void ReadManagerState(PacketReader reader)
     {
         if (gameManager == null) BuildBodyCatalog();
-        int a = reader.ReadInt32(), b = reader.ReadInt32(); bool stopping = reader.ReadBoolean(), goaling = reader.ReadBoolean(), stopped = reader.ReadBoolean(); float time = reader.ReadSingle();
+        int a = reader.ReadInt32(), b = reader.ReadInt32(); bool stopping = reader.ReadBoolean(), goaling = reader.ReadBoolean(), stopped = reader.ReadBoolean(); float time = reader.ReadSingle();int fanStacks=reader.ReadInt32(),zhaoStacks=reader.ReadInt32();
         if (gameManager == null) return;
         if (p1Score != null) p1Score.SetValue(gameManager, a);
         if (p2Score != null) p2Score.SetValue(gameManager, b);
@@ -606,6 +614,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         if (isGoaling != null) isGoaling.SetValue(gameManager, goaling);
         if (stopMove != null) stopMove.SetValue(gameManager, stopped);
         if (gameTime != null) gameTime.SetValue(gameManager, time);
+        SkillRework.ApplyResilience(fanStacks,zhaoStacks);
     }
 
     public static bool TryGetAxis(Component player, out float axis)
@@ -722,7 +731,7 @@ public sealed class LanMultiplayer : MonoBehaviour
         lobbyPlayers.text = "你：" + RoleLabel(LocalRole) + (LocalReady ? " · 已准备" : "") + "     对方：" + RoleLabel(otherRole) +
             ((isHost ? guestReady : hostReady) ? " · 已准备" : "");
         lobbyStatus.text = state == State.Failed ? message : state == State.Hosting ? "等待加入" :
-            state == State.Joining ? "正在连接…" : selecting ? (roomPhase == 1 ? "等待双方完成加点" : "选择角色") : "";
+            state == State.Joining ? "正在连接…" : selecting ? (roomPhase == 1 ? (selectedAbility?"等待双方完成加点":"等待双方选择技能组") : "选择角色") : "";
         lobbyDirty = false;
         }
         if (Input.GetKeyDown(KeyCode.Escape)) CloseLobby();

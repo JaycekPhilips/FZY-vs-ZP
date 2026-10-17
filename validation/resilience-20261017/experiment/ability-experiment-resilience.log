@@ -1,0 +1,247 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.740 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.853800 ms
+ABILITY PASS attack group, point shop and guide use new skill with no numerical mechanic disclosure 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.170800 ms
+
+Unloading 146 unused Assets to reduce memory usage. Loaded Objects now: 1020.
+Total: 0.628100 ms (FindLiveObjects: 0.057900 ms CreateObjectMapping: 0.017500 ms MarkObjects: 0.222500 ms  DeleteObjects: 0.329900 ms)
+
+ABILITY PASS empty shot commands and ordinary possession never create a bonus 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS opponent touching an unshot ball is not a blocked shot 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.776300 ms
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 1091.
+Total: 1.377300 ms (FindLiveObjects: 0.032500 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.216200 ms  DeleteObjects: 1.119700 ms)
+
+ABILITY PASS body-contact header is excluded even when shot command is real air=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.277300 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.241600 ms (FindLiveObjects: 0.052300 ms CreateObjectMapping: 0.015300 ms MarkObjects: 0.207800 ms  DeleteObjects: 0.965800 ms)
+
+ABILITY PASS body-contact header is excluded even when shot command is real air=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.280700 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.363100 ms (FindLiveObjects: 0.053500 ms CreateObjectMapping: 0.015900 ms MarkObjects: 0.287100 ms  DeleteObjects: 1.006100 ms)
+
+ABILITY PASS real foot-ball-foot pushing while pressing shoot grants no stacks both=True stacks=0/0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.254500 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.351100 ms (FindLiveObjects: 0.054800 ms CreateObjectMapping: 0.016500 ms MarkObjects: 0.253700 ms  DeleteObjects: 1.025900 ms)
+
+ABILITY PASS no kickoff shooting/jumping bonus mode=1 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual separated cannon shot earns one block actor=Fan stacks=1 contacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS same blocked shot cannot farm multiple collision callbacks actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS one interception grants exactly fractional shooting +1.5 only actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS three distinct blocked shots stack beyond eight without rounding actor=Fan stacks=3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS new skill animation and exact fractional cannon total use accumulated bonus actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS non-scoring stoppage does not erase the accumulated scoring bonus actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS native scoring coroutine clears both players' stacks scorer=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.272600 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.293100 ms (FindLiveObjects: 0.031000 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.179700 ms  DeleteObjects: 1.073600 ms)
+
+ABILITY PASS no kickoff shooting/jumping bonus mode=1 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual separated cannon shot earns one block actor=Zhao stacks=1 contacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS same blocked shot cannot farm multiple collision callbacks actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS one interception grants exactly fractional shooting +1.5 only actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS three distinct blocked shots stack beyond eight without rounding actor=Zhao stacks=3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS new skill animation and exact fractional cannon total use accumulated bonus actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS non-scoring stoppage does not erase the accumulated scoring bonus actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS native scoring coroutine clears both players' stacks scorer=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.284000 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1091.
+Total: 1.243100 ms (FindLiveObjects: 0.033300 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.184300 ms  DeleteObjects: 1.017100 ms)
+
+ABILITY PASS no kickoff shooting/jumping bonus mode=2 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual separated cannon shot earns one block actor=Fan stacks=1 contacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS same blocked shot cannot farm multiple collision callbacks actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS one interception grants exactly fractional shooting +1.5 only actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS three distinct blocked shots stack beyond eight without rounding actor=Fan stacks=3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS new skill animation and exact fractional cannon total use accumulated bonus actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS non-scoring stoppage does not erase the accumulated scoring bonus actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS native scoring coroutine clears both players' stacks scorer=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.257500 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.170200 ms (FindLiveObjects: 0.049100 ms CreateObjectMapping: 0.010600 ms MarkObjects: 0.171700 ms  DeleteObjects: 0.938500 ms)
+
+ABILITY PASS no kickoff shooting/jumping bonus mode=2 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual separated cannon shot earns one block actor=Zhao stacks=1 contacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS same blocked shot cannot farm multiple collision callbacks actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS one interception grants exactly fractional shooting +1.5 only actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS three distinct blocked shots stack beyond eight without rounding actor=Zhao stacks=3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS new skill animation and exact fractional cannon total use accumulated bonus actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS non-scoring stoppage does not erase the accumulated scoring bonus actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS native scoring coroutine clears both players' stacks scorer=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.298900 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1091.
+Total: 1.262000 ms (FindLiveObjects: 0.031900 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.187100 ms  DeleteObjects: 1.034600 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.336900 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.319000 ms (FindLiveObjects: 0.057200 ms CreateObjectMapping: 0.016900 ms MarkObjects: 0.279800 ms  DeleteObjects: 0.964600 ms)
+
+ABILITY PASS real separated lower-body shot is tracked as well as a header actor=Fan contact=R_Up_Leg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.255000 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.313900 ms (FindLiveObjects: 0.062200 ms CreateObjectMapping: 0.009600 ms MarkObjects: 0.237400 ms  DeleteObjects: 1.004300 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.274200 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.197800 ms (FindLiveObjects: 0.051700 ms CreateObjectMapping: 0.016200 ms MarkObjects: 0.262800 ms  DeleteObjects: 0.866700 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.309500 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.200400 ms (FindLiveObjects: 0.031900 ms CreateObjectMapping: 0.008000 ms MarkObjects: 0.226600 ms  DeleteObjects: 0.933500 ms)
+
+ABILITY PASS real separated lower-body shot is tracked as well as a header actor=Zhao contact=L_LowLeg 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.287300 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.259500 ms (FindLiveObjects: 0.031000 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.182700 ms  DeleteObjects: 1.037100 ms)
+
+ABILITY PASS both purchasers track their own interceptions independently 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS native scoring coroutine clears both players' stacks scorer=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=42 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 53d0 -> priority: 1 
+  Thread -> id: f8c -> priority: 1 
+  Thread -> id: 449c -> priority: 1 
+  Thread -> id: 6718 -> priority: 1 
+  Thread -> id: 7dd0 -> priority: 1 
+  Thread -> id: 12ec -> priority: 1 
+  Thread -> id: 398c -> priority: 1 
+  Thread -> id: 8c38 -> priority: 1 
+  Thread -> id: 3e44 -> priority: 1 
+  Thread -> id: 4554 -> priority: 1 
+  Thread -> id: 2e7c -> priority: 1 
+  Thread -> id: 6060 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

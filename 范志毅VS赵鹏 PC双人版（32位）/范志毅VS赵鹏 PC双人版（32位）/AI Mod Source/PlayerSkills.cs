@@ -105,7 +105,7 @@ public sealed class PlayerSkills : MonoBehaviour
     private float lastMovementFx = -10f;
     private int lastMovementSkill = -1;
     private readonly float[] effects = { -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f };
-    private static readonly string[] names = { "旋风盘带", "炮弹式头球", "空中堡垒", "强力抢断", "后防领袖", "弧线落叶射门", "紧急回防", "进攻提速", "磁力脚", "伸脚抢截", "无定形射门", "进攻号手" };
+    private static readonly string[] names = { "旋风盘带", "炮弹式头球", "空中堡垒", "强力抢断", "后防领袖", "弧线落叶射门", "紧急回防", "进攻提速", "磁力脚", "伸脚抢截", "无定形射门", "百折不挠" };
     private static readonly Color[] colors = {
         new Color(1f, .76f, .12f), new Color(1f, .36f, .12f),
         new Color(.25f, .83f, 1f), new Color(.4f, 1f, .3f),
@@ -262,7 +262,7 @@ public sealed class PlayerSkills : MonoBehaviour
     }
     public static bool GetGrounded(bool native, Component player)
     {
-        if (AbilityMode.Enabled) return AbilityMode.Grounded(native, player);
+        if (AbilityMode.Runtime) return AbilityMode.Grounded(native, player);
         if (native) return true;
         PlayerSkills s = player != null ? player.GetComponent<PlayerSkills>() : null;
         return s != null && !s.fan && !s.Stopped() && !GameAIMod.BallOutThisRally && Time.time <= s.retreatUntil &&
@@ -311,7 +311,7 @@ public sealed class PlayerSkills : MonoBehaviour
         PowerShot.Attach(player);
         ZhaoHeader.Attach(player);
         SkillRework.Attach(player);
-        if (!Enabled) return;
+        if (!Enabled || AbilityMode.Runtime) return;
         MagneticFoot.Attach(player);
         PlayerSkills skills = player.GetComponent<PlayerSkills>();
         if (skills != null) return;
@@ -341,7 +341,7 @@ public sealed class PlayerSkills : MonoBehaviour
         PlayerSkills rescue=player!=null?player.GetComponent<PlayerSkills>():null;
         if(rescue!=null&&Time.time<rescue.rescueAssistUntil)return 0f;
         if(Enabled&&rescue!=null&&!rescue.fan&&Time.time<=rescue.retreatUntil&&Time.time-rescue.rescueJumpRequestedAt<.35f)return original*Mathf.Clamp(1.15f*rescue.rescuePlan.jumpSpeed/Mathf.Max(.1f,rescue.rescueNativeJump),.15f,2f);
-        return AbilityMode.JumpForce((Enabled && player != null && player.name == "Zhao" ? original * ZhaoJumpMultiplier : original)*(!AbilityMode.Enabled?SkillRework.NativeJumpScale(player):1f), player);
+        return AbilityMode.JumpForce((Enabled && !AbilityMode.Runtime && player != null && player.name == "Zhao" ? original * ZhaoJumpMultiplier : original)*(!AbilityMode.Runtime?SkillRework.NativeJumpScale(player):1f), player);
     }
 
     public static void ResetAll()
@@ -535,17 +535,17 @@ public sealed class PlayerSkills : MonoBehaviour
 
     public static void ShowMagneticFoot(Component player)
     {
-        if (AbilityMode.Enabled) { AbilityMode.ShowSkill(player, 8); return; }
+        if (AbilityMode.Runtime) { AbilityMode.ShowSkill(player, 8); return; }
         PlayerSkills skills = player != null ? player.GetComponent<PlayerSkills>() : null;
         if (skills != null) skills.Show(8);
     }
 
     public static void ShowRearLeader(Component player){
-        if(AbilityMode.Enabled||!Enabled||player==null||player.name!="Zhao")return;var skills=player.GetComponent<PlayerSkills>();
+        if(AbilityMode.Runtime||!Enabled||player==null||player.name!="Zhao")return;var skills=player.GetComponent<PlayerSkills>();
         if(skills!=null&&!skills.Stopped()&&Time.time-skills.effects[4]>=.55f)skills.effects[4]=Time.time;
     }
-    public static void ShowPassive(Component p,int index){if(p==null||!SkillRework.Has(p,index))return;if(AbilityMode.Enabled){AbilityMode.ShowSkill(p,index);return;}var s=p.GetComponent<PlayerSkills>();if(s!=null&&!s.Stopped()&&Time.time-s.effects[index]>=.55f)s.effects[index]=Time.time;}
-    public static void ShowFormless(Component p){if(AbilityMode.Enabled)AbilityMode.ShowSkill(p,10);else {var s=p.GetComponent<PlayerSkills>();if(s!=null)s.effects[10]=Time.time;}}
+    public static void ShowPassive(Component p,int index){if(p==null||!SkillRework.Has(p,index))return;if(AbilityMode.Runtime){AbilityMode.ShowSkill(p,index);return;}var s=p.GetComponent<PlayerSkills>();if(s!=null&&!s.Stopped()&&Time.time-s.effects[index]>=.55f)s.effects[index]=Time.time;}
+    public static void ShowFormless(Component p){if(AbilityMode.Runtime)AbilityMode.ShowSkill(p,10);else {var s=p.GetComponent<PlayerSkills>();if(s!=null)s.effects[10]=Time.time;}}
     private void Show(int index)
     {
         if (!Stopped() && (index == 2 || index == 3 || index == 6 || index == 9 || BallInFront())) effects[index] = Time.time;
@@ -587,6 +587,7 @@ public sealed class PlayerSkills : MonoBehaviour
                 Vector2 target = SkillRework.NativeCannon(controller,ball.velocity);
                 EnableContinuousBall();
                 ball.AddForce((target - ball.velocity) * ball.mass, ForceMode2D.Impulse);
+                SkillRework.TrackShot(controller,target);
                 CancelCurves();
                 kickUntil = headUntil = -1f; // One successful strike per heading command.
                 PowerShot.CompleteHeader(controller);
@@ -690,6 +691,7 @@ public sealed class PlayerSkills : MonoBehaviour
         kickUntil = headUntil = -1f;
         shotUntil = Time.time + curveTravelTime / FanVolleySpeedMultiplier + .4f;
         curveStarted = Time.time;
+        SkillRework.TrackShot(controller,target);
         Show(5);
         HighlightBall(5, Mathf.Min(FanVolleyFlightDuration / FanVolleySpeedMultiplier, curveTravelTime / FanVolleySpeedMultiplier + .8f));
     }
@@ -897,20 +899,7 @@ public sealed class PlayerSkills : MonoBehaviour
 
         if (touched == headCollider && retreatHeaded && Time.time <= retreatUntil)
         { if (RescueHeader(controller)) return; }
-        // Preserve the existing deliberate backward header above the crossbar.
-        if (retreatHeaded && ownGoal != null && ball.velocity.x > 0f && ball.velocity.y > 0f)
-        {
-            float t = (ownGoal.bounds.min.x - ballCollider.bounds.max.x) / ball.velocity.x;
-            float ceiling = BallBoundaryGuard.FindGoalCeiling(ownGoal) + ballCollider.bounds.extents.y + .25f;
-            if (t > 0f && ball.position.y + ball.velocity.y * t + .5f * Physics2D.gravity.y * ball.gravityScale * t * t > ceiling) return;
-        }
-        // Clockwise spin becomes goalward rolling velocity at the next pitch
-        // bounce. Absorb it at this real defensive contact as well.
-        if (ball.angularVelocity < 0f)
-            ball.AddTorque(-ball.angularVelocity * Mathf.Deg2Rad * ball.inertia, ForceMode2D.Impulse);
-        if (ball.velocity.x <= 0f) return;
-        float momentum = ball.velocity.x * ball.mass;
-        ball.AddForce(Vector2.left * momentum, ForceMode2D.Impulse);
+        // Movement rescues the ball. Rear contacts must not cancel its speed or spin.
 
     }
     private bool HeadReachable(){return headCollider!=null&&ballCollider!=null&&PowerShot.FrontalHead(controller,ball)&&headCollider.IsTouching(ballCollider);}
@@ -1031,7 +1020,7 @@ public sealed class PlayerSkills : MonoBehaviour
 
     public static bool IsGroundBallContest(Component player)
     {
-        if(AbilityMode.Enabled){BuildPlayer owner=player!=null?player.GetComponent<BuildPlayer>():null;return owner!=null&&owner.GroundBallContest;}
+        if(AbilityMode.Runtime){BuildPlayer owner=player!=null?player.GetComponent<BuildPlayer>():null;return owner!=null&&owner.GroundBallContest;}
         PlayerSkills skills = player != null ? player.GetComponent<PlayerSkills>() : null;
         return skills != null && !skills.fan && !skills.Stopped() && skills.BallInFront() && Time.time <= skills.groundContestUntil;
     }
@@ -1528,11 +1517,11 @@ public sealed class LeafShotProfile
 {
     public Collider2D curveGoal; public Vector2 curveOrigin,curveDestination;
     public float curveTravelTime,curveArcHeight,curveForwardSpeed;
-    Rigidbody2D ball; Collider2D ballCollider; float direction,power; int groundMask;int shootingLevel=-1;float correction=8f,pace=1f;bool failedLift;
+    Rigidbody2D ball; Collider2D ballCollider; float direction,power; int groundMask;float shootingLevel=-1;float correction=8f,pace=1f;bool failedLift;
     const float FanVolleyArcHeight=PlayerSkills.FanVolleyArcHeight,FanVolleyLiftSpeed=PlayerSkills.FanVolleyLiftSpeed,FanVolleySpeedMultiplier=PlayerSkills.FanVolleySpeedMultiplier,FanVolleyFlightDuration=PlayerSkills.FanVolleyFlightDuration;
     public LeafShotProfile(Rigidbody2D football,Collider2D shape,Collider2D goal,float facing,int mask,float strength)
     {ball=football;ballCollider=shape;direction=facing;groundMask=mask;power=strength;Prepare(goal);}
-    public LeafShotProfile(Rigidbody2D football,Collider2D shape,Collider2D goal,float facing,int mask,float strength,int level):this(football,shape,goal,facing,mask,1f)
+    public LeafShotProfile(Rigidbody2D football,Collider2D shape,Collider2D goal,float facing,int mask,float strength,float level):this(football,shape,goal,facing,mask,1f)
     {
         shootingLevel=Mathf.Max(0,level);if(shootingLevel==4)return;
         float radius=ballCollider.bounds.extents.y,scale=Mathf.Max(.25f,radius/.2f),floor=BallBoundaryGuard.FindGoalFloor(goal),bar=BallBoundaryGuard.FindGoalCeiling(goal);
@@ -1550,7 +1539,7 @@ public sealed class LeafShotProfile
         }else{
             float progress=(shootingLevel-4)/4f;
             curveDestination.y=Mathf.Lerp(curveDestination.y,bar-radius-.08f*scale,progress);
-            curveDestination.y+=UnityEngine.Random.Range(-1f,1f)*.12f*scale*(1f-progress);
+            curveDestination.y+=UnityEngine.Random.Range(-1f,1f)*.12f*scale*Mathf.Max(0,1f-progress);
             curveArcHeight=Mathf.Min(available,curveArcHeight*(1f+.4f*progress));
         }
     }
@@ -1696,7 +1685,7 @@ public sealed class DownIntercept : MonoBehaviour {
     CollisionDetectionMode2D[] savedModes;readonly RaycastHit2D[] groundHits=new RaycastHit2D[24];
     public static void Attach(Component p){if(p!=null&&p.GetComponent<DownIntercept>()==null)p.gameObject.AddComponent<DownIntercept>().Initialize(p);}
     public static void RescaleStanding(Component p,float factor){DownIntercept d=p!=null?p.GetComponent<DownIntercept>():null;if(d!=null)d.scale*=factor;}
-    public static bool HasSkill(Component p){return AbilityMode.Enabled?AbilityMode.Has(p,9):PlayerSkills.Enabled&&SkillRework.Has(p,9);}
+    public static bool HasSkill(Component p){return AbilityMode.Runtime?AbilityMode.Has(p,9):PlayerSkills.Enabled&&SkillRework.Has(p,9);}
     public static bool Active(Component p){DownIntercept d=p!=null?p.GetComponent<DownIntercept>():null;return d!=null&&d.active&&!d.Stopped();}
     public static void ResetAll(){foreach(var d in UnityEngine.Object.FindObjectsOfType<DownIntercept>()){d.End();d.lastPress=-10f;}}
     void Initialize(Component p){player=p;Type t=p.GetType();body=(Rigidbody2D)t.GetField("rb").GetValue(p);animator=(Animator)t.GetField("anim").GetValue(p);grounded=t.GetField("isOnGround");mask=(int)(LayerMask)t.GetField("ground").GetValue(p);limbs=p.GetComponentsInChildren<Rigidbody2D>();shapes=p.GetComponentsInChildren<Collider2D>();savedModes=new CollisionDetectionMode2D[limbs.Length];foreach(var b in limbs)mass+=b.mass;scale=Mathf.Max(.1f,Mathf.Abs(p.transform.lossyScale.x)/.8f);manager=UnityEngine.Object.FindObjectOfType(t.Assembly.GetType("GameManager")) as Component;if(manager!=null)stopping=manager.GetType().GetField("isStopping");}
@@ -1706,7 +1695,7 @@ public sealed class DownIntercept : MonoBehaviour {
     bool Ground(){return grounded!=null&&(bool)grounded.GetValue(player)||Bottom()<Floor()+.04f*scale;}
     Vector2 RigVelocity(){Vector2 v=Vector2.zero;foreach(var b in limbs)if(b!=null)v+=b.velocity*b.mass;return v/Mathf.Max(.001f,mass);}
     void End(){if(active)for(int i=0;i<limbs.Length;i++)if(limbs[i]!=null)limbs[i].collisionDetectionMode=savedModes[i];active=false;referenceSpeed=0;}
-    void Show(){if(AbilityMode.Enabled){var b=player.GetComponent<BuildPlayer>();if(b!=null)b.FootIntercept();}else if(HasSkill(player))PlayerSkills.FootIntercept(player);}
+    void Show(){if(AbilityMode.Runtime){var b=player.GetComponent<BuildPlayer>();if(b!=null)b.FootIntercept();}else if(HasSkill(player))PlayerSkills.FootIntercept(player);}
     void Update(){if(Stopped()){End();return;}if(active||!GameAIMod.GetDownCommand(player)||Ground())return;lastPress=Time.time;referenceSpeed=Mathf.Max(0,-RigVelocity().y);multiplier=HasSkill(player)?6f:3f;startedAt=Time.time;active=true;for(int i=0;i<limbs.Length;i++){savedModes[i]=limbs[i].collisionDetectionMode;limbs[i].collisionDetectionMode=CollisionDetectionMode2D.Continuous;}PlayerMovement.NotifyAction(player);Show();}
     void FixedUpdate(){
         if(!active)return;if(Stopped()||Ground()){End();return;}

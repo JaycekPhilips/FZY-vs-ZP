@@ -14,7 +14,7 @@ public sealed class PowerShot : MonoBehaviour
     public static bool ShootingSkillSpace(Component player){
         if(player==null)return false;PowerShot ours=player.GetComponent<PowerShot>(),other=null;foreach(PowerShot p in players)if(p!=null&&p!=ours&&(p.name=="Fan"||p.name=="Zhao")){other=p;break;}
         if(ours==null||other==null||ours.body==null||other.body==null||Mathf.Abs(ours.body.position.x-other.body.position.x)+.0001f<ShootingSkillRange(player))return false;
-        BuildPlayer build=player.GetComponent<BuildPlayer>();if(AbilityMode.Enabled&&build!=null&&build.InContest)return false;
+        BuildPlayer build=player.GetComponent<BuildPlayer>();if(AbilityMode.Runtime&&build!=null&&build.InContest)return false;
         bool ourBall=false,theirBall=false;foreach(var a in ours.limbShapes){if(a==null||!a.enabled||a.isTrigger)continue;ourBall|=ours.ballShape!=null&&a.IsTouching(ours.ballShape);foreach(var b in other.limbShapes){if(b!=null&&b.enabled&&!b.isTrigger&&a.IsTouching(b))return false;}}
         foreach(var b in other.limbShapes)if(b!=null&&b.enabled&&!b.isTrigger)theirBall|=ours.ballShape!=null&&b.IsTouching(ours.ballShape);return !(ourBall&&theirBall);
     }
@@ -80,10 +80,10 @@ public sealed class PowerShot : MonoBehaviour
         if(exiting||Stopped()||Time.time>headerUntil||limb.name!="Head"||!headShape.IsTouching(ballShape))return false;
         if(!FrontalHead(controller,ball)){headerUntil=-1f;return false;}
         if(PlayerSkills.RescueHeader(controller))return true;
-        if(AbilityMode.Enabled)return false;
+        if(AbilityMode.Runtime)return false;
         PlayerSkills skills=controller.GetComponent<PlayerSkills>();if(skills!=null&&skills.AwaitingFanHeader)return false;
         headerUntil=-1f;Vector2 target=OrdinaryHeaderVelocity(controller,ball.velocity);
-        ball.collisionDetectionMode=CollisionDetectionMode2D.Continuous;ball.AddForce((target-ball.velocity)*ball.mass,ForceMode2D.Impulse);return true;
+        ball.collisionDetectionMode=CollisionDetectionMode2D.Continuous;ball.AddForce((target-ball.velocity)*ball.mass,ForceMode2D.Impulse);SkillRework.TrackShot(controller,target);return true;
     }
     private bool Stopped() { return controller == null || ball == null || Time.timeScale <= 0f || GameAIMod.BallOutThisRally || (manager != null && (bool)stopping.GetValue(manager)); }
     private bool InFront() { return ball != null && body != null && (fan ? 1f : -1f) * (ball.position.x - body.position.x) >= -.1f; }
@@ -109,11 +109,11 @@ public sealed class PowerShot : MonoBehaviour
         Vector2 target;
         if (fan) target = ball.velocity * SpeedMultiplier;
         else { float speed=Mathf.Clamp(Mathf.Max(10f,ball.velocity.magnitude*1.2f),10f,20f)*SpeedMultiplier;target=SkillRework.Aim(controller,ball.position,speed,SkillRework.ShootingLevel(controller),1f); }
-        if(!AbilityMode.Enabled){target*=AbilityMode.Strength(SkillRework.ShootingLevel(controller))/AbilityMode.Strength(4);target=SkillRework.OrdinaryShot(controller,target);}
+        if(!AbilityMode.Runtime){target*=AbilityMode.Strength(SkillRework.ShootingLevel(controller))/AbilityMode.Strength(4);target=SkillRework.OrdinaryShot(controller,target);}
         armedUntil = -1f;
         PlayerSkills.CancelShotFlights();
         ball.AddForce((target - ball.velocity) * ball.mass, ForceMode2D.Impulse);
-
+        if(!AbilityMode.Runtime)SkillRework.TrackShot(controller,target);
         return true;
     }
     public static Vector2 GroundBicycle(Component player,float speed){var s=player.GetComponent<PowerShot>();float dir=player.name=="Fan"?1f:-1f;if(s==null)return Vector2.right*dir*speed;s.floorHeight=s.FindFloor();s.flatUntil=Time.time+.75f;s.bicycleFlat=true;s.flatDirection=dir;s.flatClearX=s.body.position.x;foreach(var c in s.limbShapes)if(!c.isTrigger)s.flatClearX=dir>0?Mathf.Max(s.flatClearX,c.bounds.max.x):Mathf.Min(s.flatClearX,c.bounds.min.x);s.flatClearX+=dir*(s.ballShape.bounds.extents.x+.12f);return new Vector2(dir*speed,speed*.18f);}
@@ -196,12 +196,12 @@ public sealed class SkillRework : MonoBehaviour {
     Component player,manager,stick;Rigidbody2D body,ball;Collider2D ballShape,goal,head,floorShape;Rigidbody2D[] rig;Collider2D[] shapes;Animator animator;
     FieldInfo score1,score2,stopping,goaling,grounded,bodyTarget;float facing,mass,baseHeight,baseWidth,armedUntil=-1f,bicycleUntil=-1f,lastBicycle=-10f,knockedUntil=-1f,started,recoverUntil=-1f;float standSince=-1f;float magneticShotUntil=-1f;bool magneticPower;bool jumped,turned,magneticHop,bicycleStruck,bicycleOpportunity;float landedAt=-1f,getupAt=-1f,standingBodyHeight;Vector3 mirrorScale;
     FieldInfo[] poseTargets;Rigidbody2D[] poseBones;float[] poseAngles,poseSpeeds,poseDesired;bool poseOwned;float strikeAt=-1f;Vector2 strikeLeg;float observedAngle,observedAt=-1f,observedSpin;
-    bool trumpetUsed,trumpetActive;float lastTrumpetFx=-10f;static string kickoffSide;
+    int resilienceBlocks,observedP1,observedP2;static SkillRework pendingShot;static float shotAt;static Vector2 shotOrigin;static bool shotSeparated;
     float nativeCannonStarted=-10f,nativeCannonGravity,nativeCannonSpeed;bool nativeCannonLob,nativeCannonFlight;Vector2 nativeCannonTarget;
     bool hookActive;bool[] hookIgnored;float hookReleaseUntil=-1f;Vector2 hookOrigin,hookIncoming;
     static readonly List<SkillRework> all=new List<SkillRework>(2);
-    public static bool Has(Component p,int skill){if(p==null)return false;if(AbilityMode.Enabled)return AbilityMode.Has(p,skill);if(!PlayerSkills.Enabled)return false;return p.name=="Fan"?(skill==0||skill==1||skill==5||skill==7||skill==8||skill==10||skill==11):(skill==2||skill==3||skill==4||skill==6||skill==9);}
-    public static void Attach(Component p){if(p==null||p.GetComponent<SkillRework>()!=null)return;var s=p.gameObject.AddComponent<SkillRework>();s.player=p;s.facing=p.name=="Fan"?1:-1;var t=p.GetType();s.body=(Rigidbody2D)t.GetField("rb").GetValue(p);s.animator=(Animator)t.GetField("anim").GetValue(p);s.grounded=t.GetField("isOnGround");s.stick=p.GetComponent(t.Assembly.GetType("StickManController"));s.bodyTarget=s.stick.GetType().GetField("body");s.rig=p.GetComponentsInChildren<Rigidbody2D>();s.shapes=p.GetComponentsInChildren<Collider2D>();float bottom=s.body.position.y,top=bottom,min=s.body.position.x,max=min;foreach(var b in s.rig)s.mass+=b.mass;foreach(var c in s.shapes)if(!c.isTrigger){bottom=Mathf.Min(bottom,c.bounds.min.y);top=Mathf.Max(top,c.bounds.max.y);min=Mathf.Min(min,c.bounds.min.x);max=Mathf.Max(max,c.bounds.max.x);}s.standingBodyHeight=s.body.position.y-s.Floor();s.baseHeight=(top-bottom)/s.Scale;s.baseWidth=(max-min)/s.Scale;s.head=p.transform.Find("Head").GetComponent<Collider2D>();var groundObject=GameObject.Find("Down");s.floorShape=groundObject!=null?groundObject.GetComponent<Collider2D>():null;s.manager=UnityEngine.Object.FindObjectOfType(t.Assembly.GetType("GameManager")) as Component;s.score1=s.manager.GetType().GetField("p1Score");s.score2=s.manager.GetType().GetField("p2Score");s.stopping=s.manager.GetType().GetField("isStopping");s.goaling=s.manager.GetType().GetField("isGoaling",BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic);var football=UnityEngine.Object.FindObjectOfType(t.Assembly.GetType("Ball")) as Component;s.ball=football.GetComponent<Rigidbody2D>();s.ballShape=football.GetComponent<Collider2D>();foreach(UnityEngine.Object o in UnityEngine.Object.FindObjectsOfType(t.Assembly.GetType("GoalTrigger"))){var c=(Component)o;if(c.transform.position.x*s.facing>0)s.goal=c.GetComponent<Collider2D>();}all.Add(s);MagneticFoot.Attach(p,true);if(p.name==kickoffSide&&Has(p,11))s.ActivateTrumpet();}
+    public static bool Has(Component p,int skill){if(p==null)return false;if(AbilityMode.Runtime)return AbilityMode.Has(p,skill);if(!PlayerSkills.Enabled)return false;return p.name=="Fan"?(skill==0||skill==1||skill==5||skill==7||skill==8||skill==10||skill==11):(skill==2||skill==3||skill==4||skill==6||skill==9);}
+    public static void Attach(Component p){if(p==null||p.GetComponent<SkillRework>()!=null)return;var s=p.gameObject.AddComponent<SkillRework>();s.player=p;s.facing=p.name=="Fan"?1:-1;var t=p.GetType();s.body=(Rigidbody2D)t.GetField("rb").GetValue(p);s.animator=(Animator)t.GetField("anim").GetValue(p);s.grounded=t.GetField("isOnGround");s.stick=p.GetComponent(t.Assembly.GetType("StickManController"));s.bodyTarget=s.stick.GetType().GetField("body");s.rig=p.GetComponentsInChildren<Rigidbody2D>();s.shapes=p.GetComponentsInChildren<Collider2D>();float bottom=s.body.position.y,top=bottom,min=s.body.position.x,max=min;foreach(var b in s.rig)s.mass+=b.mass;foreach(var c in s.shapes)if(!c.isTrigger){bottom=Mathf.Min(bottom,c.bounds.min.y);top=Mathf.Max(top,c.bounds.max.y);min=Mathf.Min(min,c.bounds.min.x);max=Mathf.Max(max,c.bounds.max.x);}s.standingBodyHeight=s.body.position.y-s.Floor();s.baseHeight=(top-bottom)/s.Scale;s.baseWidth=(max-min)/s.Scale;s.head=p.transform.Find("Head").GetComponent<Collider2D>();var groundObject=GameObject.Find("Down");s.floorShape=groundObject!=null?groundObject.GetComponent<Collider2D>():null;s.manager=UnityEngine.Object.FindObjectOfType(t.Assembly.GetType("GameManager")) as Component;s.score1=s.manager.GetType().GetField("p1Score");s.score2=s.manager.GetType().GetField("p2Score");s.stopping=s.manager.GetType().GetField("isStopping");s.goaling=s.manager.GetType().GetField("isGoaling",BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic);var football=UnityEngine.Object.FindObjectOfType(t.Assembly.GetType("Ball")) as Component;s.ball=football.GetComponent<Rigidbody2D>();s.ballShape=football.GetComponent<Collider2D>();foreach(UnityEngine.Object o in UnityEngine.Object.FindObjectsOfType(t.Assembly.GetType("GoalTrigger"))){var c=(Component)o;if(c.transform.position.x*s.facing>0)s.goal=c.GetComponent<Collider2D>();}all.Add(s);MagneticFoot.Attach(p,true);s.observedP1=(int)s.score1.GetValue(s.manager);s.observedP2=(int)s.score2.GetValue(s.manager);}
     float Scale {get{return Mathf.Abs(transform.lossyScale.x)/.8f;}}float Height {get{return baseHeight*Scale;}}float Width {get{return baseWidth*Scale;}}
     bool RallyLive {get{return player!=null&&ball!=null&&!GameAIMod.BallOutThisRally&&(manager==null||(!(bool)stopping.GetValue(manager)&&!(bool)goaling.GetValue(manager)));}}
     // An action already in the air may finish landing after the whistle; it cannot start or shoot.
@@ -224,43 +224,63 @@ public sealed class SkillRework : MonoBehaviour {
         return false;
     }
     bool GroundDuel(){var other=Other();return RallyLive&&other!=null&&other.RallyLive&&DuelGrounded()&&other.DuelGrounded()&&ContactLinked(other);}
-    public static float Effective(Component p,int dimension){float level=AbilityMode.Enabled?AbilityMode.For(p).Levels[dimension]:4;var s=p!=null?p.GetComponent<SkillRework>():null;if(s==null||s.Stopped)return level;if(dimension==0&&Has(p,8)&&MagneticFoot.AssistReady(p))level+=1f;if((dimension==0||dimension==2)&&s.trumpetActive)level+=2f;if(dimension==1||dimension==2){if(s.LeaderActive)level+=1.5f;if(Has(p,2)&&s.AerialDuel())level+=1f;if(dimension==1&&Has(p,8)&&s.GroundDuel())level+=2f;}return level;}
-    void LeaderContactEffect(){if(!AbilityMode.Enabled&&PlayerSkills.Enabled&&LeaderActive&&ContactLinked(Other()))PlayerSkills.ShowRearLeader(player);}
+    public static float Effective(Component p,int dimension){float level=AbilityMode.Enabled?AbilityMode.For(p).Levels[dimension]:4;var s=p!=null?p.GetComponent<SkillRework>():null;if(s==null)return level;s.ObserveScore();if(s.Stopped)return level;if(dimension==0&&Has(p,8)&&MagneticFoot.AssistReady(p))level+=1f;if(dimension==0&&Has(p,11))level+=s.resilienceBlocks*1.5f;if(dimension==1||dimension==2){if(s.LeaderActive)level+=1.5f;if(Has(p,2)&&s.AerialDuel())level+=1f;if(dimension==1&&Has(p,8)&&s.GroundDuel())level+=2f;}return level;}
+    void LeaderContactEffect(){if(!AbilityMode.Runtime&&PlayerSkills.Enabled&&LeaderActive&&ContactLinked(Other()))PlayerSkills.ShowRearLeader(player);}
     public static void OnBallTouch(Collision2D c){
-        MagneticFoot.CushionGroundContact(c);ObservePossession(c);
+        MagneticFoot.CushionGroundContact(c);ObserveBlockedShot(c);
         if(c!=null&&c.collider!=null&&!c.collider.isTrigger){var touched=c.collider.GetComponentInParent<SkillRework>();foreach(var owner in all)if(owner!=null&&owner.nativeCannonFlight&&(touched!=owner||Time.time-owner.nativeCannonStarted>.08f))owner.nativeCannonFlight=false;}
         if(c!=null&&c.collider!=null&&!c.collider.isTrigger){var touched=c.collider.GetComponentInParent<SkillRework>();foreach(var owner in all)if(owner!=null&&owner.hookActive&&touched!=owner)owner.CancelHook();}
-        if(AbilityMode.Enabled||!PlayerSkills.Enabled||c==null||c.collider==null||c.contactCount==0)return;
+        if(AbilityMode.Runtime||!PlayerSkills.Enabled||c==null||c.collider==null||c.contactCount==0)return;
         var s=c.collider.GetComponentInParent<SkillRework>();if(s==null||s.Stopped||!s.LeaderActive||c.otherCollider!=s.ballShape)return;
         if(c.collider==s.head||s.ball.position.y>=s.body.position.y+s.Height*.15f||s.ContactLinked(s.Other()))PlayerSkills.ShowRearLeader(s.player);
     }
     public static void OnPlayerTouch(Component player,Collision2D c){
-        if(AbilityMode.Enabled||!PlayerSkills.Enabled||player==null||c==null||c.collider==null||c.contactCount==0)return;
+        if(AbilityMode.Runtime||!PlayerSkills.Enabled||player==null||c==null||c.collider==null||c.contactCount==0)return;
         var s=player.GetComponent<SkillRework>();var other=c.collider.GetComponentInParent<SkillRework>();
         if(s!=null&&!s.Stopped&&s.LeaderActive&&other!=null&&other!=s)PlayerSkills.ShowRearLeader(player);
     }
     public static float NativeJumpScale(Component p){return AbilityMode.JumpTempo(Effective(p,2))/AbilityMode.JumpTempo(4);}
-    public static int ShootingLevel(Component p){return Mathf.Max(0,Mathf.RoundToInt(Effective(p,0)));}
+    public static float ShootingLevel(Component p){return Mathf.Max(0,Effective(p,0));}
     public static void Tackled(Component p){var s=p!=null?p.GetComponent<SkillRework>():null;if(s!=null)s.knockedUntil=Time.time+.85f;}
     public static Vector2 OrdinaryShot(Component p,Vector2 shot){var s=p!=null?p.GetComponent<SkillRework>():null;if(s==null||!Has(p,10)||!s.RallyLive)return shot;PlayerSkills.ShowFormless(p);return shot*1.2f;}
     public static Vector2 RecoveryShotDirection(Component p,Vector2 incoming){if(incoming.sqrMagnitude<.0001f)return Vector2.right*(p.name=="Fan"?1f:-1f);incoming.x=Mathf.Abs(incoming.x)*(p.name=="Fan"?1f:-1f);return incoming.normalized;}
-    void ActivateTrumpet(){if(trumpetUsed||!Has(player,11))return;trumpetUsed=trumpetActive=true;PlayerSkills.ShowPassive(player,11);}
-    static void ObservePossession(Collision2D c){
-        if(c==null||c.collider==null||c.contactCount==0||c.collider.isTrigger||Time.timeScale<=0f||LanMultiplayer.IsRemoteSimulation)return;
-        var touched=c.collider.GetComponentInParent<SkillRework>();if(touched==null||!touched.RallyLive||c.otherCollider!=touched.ballShape)return;
-        // Every genuine player/ball touch counts, including a high-speed deflection or contested contact.
-        foreach(var owner in all)if(owner!=null&&owner!=touched&&owner.trumpetActive)owner.trumpetActive=false;
-        touched.ActivateTrumpet();
+    // Each actual launched shot can earn at most one block; commands and contact duels never earn credit.
+    bool TouchingBall(){foreach(var c in shapes)if(c.enabled&&!c.isTrigger&&c.IsTouching(ballShape))return true;return false;}
+    bool ShotDuel(SkillRework other){return other!=null&&ContactLinked(other);}
+    void ObserveScore(){if(manager==null)return;int a=(int)score1.GetValue(manager),b=(int)score2.GetValue(manager);if(a!=observedP1||b!=observedP2||(bool)goaling.GetValue(manager)){resilienceBlocks=0;if(pendingShot==this)pendingShot=null;}observedP1=a;observedP2=b;}
+    public static int ResilienceStacks(Component p){var s=p!=null?p.GetComponent<SkillRework>():null;if(s==null)return 0;s.ObserveScore();return Has(p,11)?s.resilienceBlocks:0;}
+    public static int ResilienceFor(string side){foreach(var s in all)if(s!=null&&s.player!=null&&s.player.name==side)return ResilienceStacks(s.player);return 0;}
+    public static void ApplyResilience(int fan,int zhao){if(!LanMultiplayer.IsRemoteSimulation)return;foreach(var s in all)if(s!=null&&s.player!=null){s.ObserveScore();int n=Has(s.player,11)?Mathf.Max(0,s.player.name=="Fan"?fan:zhao):0;if(n>s.resilienceBlocks)PlayerSkills.ShowPassive(s.player,11);s.resilienceBlocks=n;}}
+    public static void TrackShot(Component p,Vector2 velocity){
+        if(LanMultiplayer.IsRemoteSimulation)return;var s=p!=null?p.GetComponent<SkillRework>():null;pendingShot=null;
+        if(s==null||s.Stopped||!s.RallyLive||!Has(p,11)||s.facing*velocity.x<=.1f||s.ShotDuel(s.Other()))return;
+        s.ObserveScore();pendingShot=s;shotAt=Time.time;shotOrigin=s.ball.position;shotSeparated=!s.TouchingBall();
     }
-    void UpdatePossession(){if(!RallyLive){trumpetActive=false;return;}if(trumpetActive&&Time.time-lastTrumpetFx>.65f){PlayerSkills.ShowPassive(player,11);lastTrumpetFx=Time.time;}}
-    public static void ResetPossessionRound(){kickoffSide=null;foreach(var s in all)if(s!=null){s.trumpetActive=s.trumpetUsed=false;s.lastTrumpetFx=-10f;}}
-    public static void SetKickoff(string side){kickoffSide=side;if(side==null)return;foreach(var s in all)if(s!=null&&s.player!=null&&s.player.name==side)s.ActivateTrumpet();}
+    static void ObserveBlockedShot(Collision2D c){
+        var s=pendingShot;if(s==null||c==null||c.collider==null||c.contactCount==0||c.collider.isTrigger||Time.timeScale<=0f||LanMultiplayer.IsRemoteSimulation)return;
+        if(!s.RallyLive||!Has(s.player,11)||c.otherCollider!=s.ballShape){pendingShot=null;return;}
+        var touched=c.collider.GetComponentInParent<SkillRework>();
+        if(touched==s){if(shotSeparated)pendingShot=null;return;}
+        if(touched==null){
+            if(s.goal!=null&&s.goal.transform.parent!=null&&c.collider.transform.IsChildOf(s.goal.transform.parent)){
+                pendingShot=null;bool postDeparted=shotSeparated||!s.TouchingBall();
+                if(postDeparted&&!s.ShotDuel(s.Other())&&s.facing*(s.ball.position.x-shotOrigin.x)>s.ballShape.bounds.extents.x*.1f){s.ObserveScore();s.resilienceBlocks++;PlayerSkills.ShowPassive(s.player,11);}
+            }else if(c.collider!=s.floorShape)pendingShot=null;
+            return;
+        }
+        // A real opponent touch consumes this shot even if it is an excluded close contest.
+        pendingShot=null;bool departed=shotSeparated||!s.TouchingBall();
+        if(!departed||s.ShotDuel(touched)||s.facing*(s.ball.position.x-shotOrigin.x)<=s.ballShape.bounds.extents.x*.1f)return;
+        s.ObserveScore();s.resilienceBlocks++;PlayerSkills.ShowPassive(s.player,11);
+    }
+    void MonitorShot(){ObserveScore();if(pendingShot!=this)return;if(!RallyLive||!Has(player,11)||ShotDuel(Other())||(Time.time-shotAt>.2f&&ball.velocity.sqrMagnitude<.04f)){pendingShot=null;return;}if(!TouchingBall())shotSeparated=true;}
+    public static void ResetShotTracking(){pendingShot=null;}
     bool AwkwardPose(){if(Time.time<=knockedUntil||Time.time<=bicycleUntil||Mathf.Abs(Mathf.DeltaAngle(body.rotation,0))>28f)return true;float a=(float)stick.GetType().GetField("L_Up_Leg").GetValue(stick),b=(float)stick.GetType().GetField("R_Up_Leg").GetValue(stick);return !Air&&Mathf.Abs(Mathf.DeltaAngle(a,b))>85f;}
     public static bool LowerBody(Collider2D c){return c!=null&&(c.name.IndexOf("Leg",StringComparison.OrdinalIgnoreCase)>=0||c.name.IndexOf("Foot",StringComparison.OrdinalIgnoreCase)>=0);}
     public static int Quality(float roll,int shooting=4){return roll<.2f?0:2;}
     public bool Bicycle {get{return Time.time<=bicycleUntil;}}
     bool BicycleRange(float margin=0f){float behind=-facing*(ball.position.x-body.position.x);return behind>-margin&&behind<=Width+margin&&ball.position.y>=body.GetComponent<Collider2D>().bounds.center.y-margin&&ball.position.y<=head.bounds.max.y+head.bounds.size.y+margin;}
-    public static float NativeContactForce(Component p){if(AbilityMode.Enabled||!PlayerSkills.Enabled)return 1f;var s=p!=null?p.GetComponent<SkillRework>():null;if(s==null||s.Stopped)return 1f;var other=s.Other();if(other==null)return 1f;return s.ContactLinked(other)?(.6f+Effective(p,1)*.05f)/.8f:1f;}
+    public static float NativeContactForce(Component p){if(AbilityMode.Runtime||!PlayerSkills.Enabled)return 1f;var s=p!=null?p.GetComponent<SkillRework>():null;if(s==null||s.Stopped)return 1f;var other=s.Other();if(other==null)return 1f;return s.ContactLinked(other)?(.6f+Effective(p,1)*.05f)/.8f:1f;}
     public static bool WantsBicycle(Component p){var s=p!=null?p.GetComponent<SkillRework>():null;return s!=null&&!s.Stopped&&s.RallyLive&&Has(p,10)&&!s.Bicycle&&!s.turned&&Time.time-s.lastBicycle>1.25f&&!s.bicycleOpportunity&&s.BicycleRange();}
     public static bool Mirrored(Component p){var s=p!=null?p.GetComponent<SkillRework>():null;return s!=null&&s.turned;}
     public static bool InBicycle(Component p){var s=p!=null?p.GetComponent<SkillRework>():null;return s!=null&&!s.Stopped&&(s.Bicycle||s.turned);}
@@ -374,9 +394,9 @@ public sealed class SkillRework : MonoBehaviour {
         if(t>=.335f&&raised){ReleaseShot(true);}
     }
     void Update(){if(Time.timeScale<=0f&&hookActive)CancelHook();}
-    void FixedUpdate(){if(Stopped){Clear();return;}if(LanMultiplayer.IsRemoteSimulation)return;
+    void FixedUpdate(){ObserveScore();if(Stopped){Clear();return;}if(LanMultiplayer.IsRemoteSimulation)return;
         if(hookReleaseUntil>=0f&&Time.time>=hookReleaseUntil)RestoreHookCollisions();
-        UpdatePossession();NativeCannonFlight();
+        MonitorShot();NativeCannonFlight();
         AutoBicycle();
         LeaderContactEffect();
         if(turned&&Time.fixedTime>observedAt){observedSpin=Mathf.DeltaAngle(observedAngle,body.rotation)/(Time.fixedTime-observedAt);observedAngle=body.rotation;observedAt=Time.fixedTime;}
@@ -400,8 +420,9 @@ public sealed class SkillRework : MonoBehaviour {
             if(getupAt>=0){float goalY=Floor()+standingBodyHeight;float vy=Mathf.Clamp((goalY-body.position.y)*9f,-2f*Scale,3.2f*Scale);float dv=Mathf.Clamp(vy-body.velocity.y,-36f*Scale*Time.fixedDeltaTime,36f*Scale*Time.fixedDeltaTime);foreach(var limb in rig)limb.AddForce(Vector2.up*dv*limb.mass,ForceMode2D.Impulse);if(Time.time-getupAt>.46f&&Mathf.Abs(Mathf.DeltaAngle(body.rotation,0f))<18f)bicycleUntil=-1f;}
             if(elapsed>2.35f)bicycleUntil=-1f;recoverUntil=Time.time+.5f;
         }
+        if(turned&&getupAt>=0)RestoreFacing();
         if(!Bicycle){if(hookActive)CancelHook();RestoreFacing();}
-        if(!AbilityMode.Enabled&&PlayerSkills.Enabled&&AerialDuel()){var o=Other();bool contact=false;foreach(var a in shapes)foreach(var b in o.shapes)if(a.IsTouching(b))contact=true;float advantage=Effective(player,1)-Effective(o.player,1);if(contact&&advantage>0){float turn=-facing*Mathf.Min(90,advantage*35)*Time.fixedDeltaTime; o.body.AddTorque(turn*o.body.inertia,ForceMode2D.Impulse);body.AddTorque(-turn*.2f*body.inertia,ForceMode2D.Impulse);}}
+        if(!AbilityMode.Runtime&&PlayerSkills.Enabled&&AerialDuel()){var o=Other();bool contact=false;foreach(var a in shapes)foreach(var b in o.shapes)if(a.IsTouching(b))contact=true;float advantage=Effective(player,1)-Effective(o.player,1);if(contact&&advantage>0){float turn=-facing*Mathf.Min(90,advantage*35)*Time.fixedDeltaTime; o.body.AddTorque(turn*o.body.inertia,ForceMode2D.Impulse);body.AddTorque(-turn*.2f*body.inertia,ForceMode2D.Impulse);}}
     }
     public static Vector2 NativeCannon(Component p,Vector2 incoming){var s=p.GetComponent<SkillRework>();Vector2 baseline=PlayerSkills.CannonVelocity(p.name=="Fan"?1f:-1f,incoming);if(s==null)return baseline;float total=AbilityMode.CannonTotal(p);Vector2 shot=baseline*AbilityMode.CannonSpeed(total);if(total<=12)return shot;
         float radius=s.ballShape.bounds.extents.y;s.nativeCannonTarget=new Vector2(s.facing>0?s.goal.bounds.min.x+radius*.3f:s.goal.bounds.max.x-radius*.3f,BallBoundaryGuard.FindGoalCeiling(s.goal)-radius-(total>=14?.1f:.16f)*s.Scale);s.nativeCannonSpeed=shot.magnitude;s.nativeCannonLob=UnityEngine.Random.value<.5f;
@@ -409,15 +430,15 @@ public sealed class SkillRework : MonoBehaviour {
             float slope=(s.nativeCannonTarget.y-origin.y+4f*height)/distance,low=0,high=s.nativeCannonSpeed,vx=0,vy=0;for(int i=0;i<22;i++){vx=(low+high)*.5f;vy=slope*vx+4f*height*vx*vx*Time.fixedDeltaTime/(distance*distance);if(vx*vx+vy*vy>s.nativeCannonSpeed*s.nativeCannonSpeed)high=vx;else low=vx;}s.nativeCannonGravity=-8f*height*vx*vx/(distance*distance);shot=new Vector2(s.facing*vx,vy);
         }else shot=Aim(p,s.ball.position,s.nativeCannonSpeed,8,100f);s.nativeCannonFlight=true;s.nativeCannonStarted=Time.time;return shot;}
     void NativeCannonFlight(){if(!nativeCannonFlight)return;float age=Time.time-nativeCannonStarted;if(!RallyLive||age>2.2f||facing*(nativeCannonTarget.x-ball.position.x)<=ballShape.bounds.extents.x*.25f){nativeCannonFlight=false;return;}Vector2 velocity=nativeCannonLob?(ball.velocity+Vector2.up*nativeCannonGravity*Time.fixedDeltaTime)*(1f+ball.drag*Time.fixedDeltaTime)-Physics2D.gravity*ball.gravityScale*Time.fixedDeltaTime:Aim(player,ball.position,nativeCannonSpeed,8,100f);if(!nativeCannonLob&&BallFlightSafety.WillHit(ball,velocity,player,age)){nativeCannonFlight=false;return;}ball.AddForce((velocity-ball.velocity)*ball.mass,ForceMode2D.Impulse);}
-    public static Vector2 Aim(Component p,Vector2 origin,float speed,int level,float accuracy){var s=p.GetComponent<SkillRework>();if(s==null||s.goal==null)return Vector2.right*(p.name=="Fan"?speed:-speed);float radius=s.ballShape.bounds.extents.y;Vector2 target=new Vector2(s.facing>0?s.goal.bounds.min.x+radius*.3f:s.goal.bounds.max.x-radius*.3f,BallBoundaryGuard.FindGoalCeiling(s.goal)-radius-.14f*s.Scale);target.y+=UnityEngine.Random.Range(-1f,1f)*AbilityMode.ShotSpread(level)*s.Scale/Mathf.Max(.1f,accuracy);float dx=Mathf.Abs(target.x-origin.x),dy=target.y-origin.y,g=Mathf.Max(.1f,-Physics2D.gravity.y*s.ball.gravityScale),v2=speed*speed,disc=v2*v2-g*(g*dx*dx+2*dy*v2);if(dx>.01f&&disc>=0){float tangent=(g*dx*dx+2*dy*v2)/(dx*(v2+Mathf.Sqrt(disc))),vx=speed/Mathf.Sqrt(1+tangent*tangent);return new Vector2(s.facing*vx,vx*tangent);}return (target-origin).normalized*speed;}
-    static bool NativeMagneticContact(Collision2D c){if(AbilityMode.Enabled||c==null||c.collider==null||LanMultiplayer.IsRemoteSimulation)return false;var s=c.collider.GetComponentInParent<SkillRework>();if(s==null||s.Stopped||!s.RallyLive||Time.time>s.magneticShotUntil||!Has(s.player,8)||!MagneticFoot.AssistReady(s.player))return false;bool sweet=false;for(int i=0;i<c.contactCount;i++){var pt=c.GetContact(i);Vector2 n=pt.normal;if(Vector2.Dot(n,s.ball.position-pt.point)<0)n=-n;sweet|=PlayerSkills.IsStrikeFoot(s.player,c.collider,pt.point,n,true);}if(!sweet||(Has(s.player,5)&&PowerShot.ShootingSkillSpace(s.player)&&!s.magneticPower))return false;int level=ShootingLevel(s.player);float speed=Mathf.Clamp(Mathf.Max(8,s.ball.velocity.magnitude),8,19)*(s.magneticPower?PowerShot.SpeedMultiplier:1f)*AbilityMode.Strength(level)/AbilityMode.Strength(4);Vector2 shot=OrdinaryShot(s.player,Aim(s.player,s.ball.position,speed,level,1));PlayerSkills.CancelShotFlights();BuildPlayer.CancelFlights();s.ball.AddForce((shot-s.ball.velocity)*s.ball.mass,ForceMode2D.Impulse);s.magneticShotUntil=-1f;PlayerSkills.ShowMagneticFoot(s.player);return true;}
-    public static bool OnBallContact(Collision2D c){if(NativeMagneticContact(c))return true;if(c==null||c.collider==null)return false;var s=c.collider.GetComponentInParent<SkillRework>();if(s==null||s.Stopped||!s.RallyLive||LanMultiplayer.IsRemoteSimulation||Time.time>s.armedUntil||!Has(s.player,10)||!LowerBody(c.collider)||c.otherCollider!=s.ballShape)return false;bool sweet=false,valid=false;for(int i=0;i<c.contactCount;i++){var pt=c.GetContact(i);Vector2 n=pt.normal;if(Vector2.Dot(n,s.ball.position-pt.point)<0)n=-n;if(!s.StrikeContact(c.collider,pt.point,n,s.Bicycle))continue;valid=true;sweet|=PlayerSkills.IsStrikeFoot(s.player,c.collider,pt.point,n,true);}if(!valid)return false;if(sweet&&!s.AwkwardPose()){if(AbilityMode.Enabled||PowerShot.IsPowerCommand(s.player)||(Has(s.player,5)&&PowerShot.ShootingSkillSpace(s.player)))return false;s.armedUntil=-1f;PowerShot.CompleteHeader(s.player);Vector2 clean=OrdinaryShot(s.player,s.ball.velocity);PlayerSkills.CancelShotFlights();BuildPlayer.CancelFlights();s.ball.AddForce((clean-s.ball.velocity)*s.ball.mass,ForceMode2D.Impulse);return true;}
+    public static Vector2 Aim(Component p,Vector2 origin,float speed,float level,float accuracy){var s=p.GetComponent<SkillRework>();if(s==null||s.goal==null)return Vector2.right*(p.name=="Fan"?speed:-speed);float radius=s.ballShape.bounds.extents.y;Vector2 target=new Vector2(s.facing>0?s.goal.bounds.min.x+radius*.3f:s.goal.bounds.max.x-radius*.3f,BallBoundaryGuard.FindGoalCeiling(s.goal)-radius-.14f*s.Scale);target.y+=UnityEngine.Random.Range(-1f,1f)*AbilityMode.ShotSpread(level)*s.Scale/Mathf.Max(.1f,accuracy);float dx=Mathf.Abs(target.x-origin.x),dy=target.y-origin.y,g=Mathf.Max(.1f,-Physics2D.gravity.y*s.ball.gravityScale),v2=speed*speed,disc=v2*v2-g*(g*dx*dx+2*dy*v2);if(dx>.01f&&disc>=0){float tangent=(g*dx*dx+2*dy*v2)/(dx*(v2+Mathf.Sqrt(disc))),vx=speed/Mathf.Sqrt(1+tangent*tangent);return new Vector2(s.facing*vx,vx*tangent);}return (target-origin).normalized*speed;}
+    static bool NativeMagneticContact(Collision2D c){if(AbilityMode.Runtime||c==null||c.collider==null||LanMultiplayer.IsRemoteSimulation)return false;var s=c.collider.GetComponentInParent<SkillRework>();if(s==null||s.Stopped||!s.RallyLive||Time.time>s.magneticShotUntil||!Has(s.player,8)||!MagneticFoot.AssistReady(s.player))return false;bool sweet=false;for(int i=0;i<c.contactCount;i++){var pt=c.GetContact(i);Vector2 n=pt.normal;if(Vector2.Dot(n,s.ball.position-pt.point)<0)n=-n;sweet|=PlayerSkills.IsStrikeFoot(s.player,c.collider,pt.point,n,true);}if(!sweet||(Has(s.player,5)&&PowerShot.ShootingSkillSpace(s.player)&&!s.magneticPower))return false;float level=ShootingLevel(s.player);float speed=Mathf.Clamp(Mathf.Max(8,s.ball.velocity.magnitude),8,19)*(s.magneticPower?PowerShot.SpeedMultiplier:1f)*AbilityMode.Strength(level)/AbilityMode.Strength(4);Vector2 shot=OrdinaryShot(s.player,Aim(s.player,s.ball.position,speed,level,1));PlayerSkills.CancelShotFlights();BuildPlayer.CancelFlights();s.ball.AddForce((shot-s.ball.velocity)*s.ball.mass,ForceMode2D.Impulse);TrackShot(s.player,shot);s.magneticShotUntil=-1f;PlayerSkills.ShowMagneticFoot(s.player);return true;}
+    public static bool OnBallContact(Collision2D c){if(NativeMagneticContact(c))return true;if(c==null||c.collider==null)return false;var s=c.collider.GetComponentInParent<SkillRework>();if(s==null||s.Stopped||!s.RallyLive||LanMultiplayer.IsRemoteSimulation||Time.time>s.armedUntil||!Has(s.player,10)||!LowerBody(c.collider)||c.otherCollider!=s.ballShape)return false;bool sweet=false,valid=false;for(int i=0;i<c.contactCount;i++){var pt=c.GetContact(i);Vector2 n=pt.normal;if(Vector2.Dot(n,s.ball.position-pt.point)<0)n=-n;if(!s.StrikeContact(c.collider,pt.point,n,s.Bicycle))continue;valid=true;sweet|=PlayerSkills.IsStrikeFoot(s.player,c.collider,pt.point,n,true);}if(!valid)return false;if(sweet&&!s.AwkwardPose()){if(AbilityMode.Runtime||PowerShot.IsPowerCommand(s.player)||(Has(s.player,5)&&PowerShot.ShootingSkillSpace(s.player)))return false;s.armedUntil=-1f;PowerShot.CompleteHeader(s.player);Vector2 clean=OrdinaryShot(s.player,s.ball.velocity);PlayerSkills.CancelShotFlights();BuildPlayer.CancelFlights();s.ball.AddForce((clean-s.ball.velocity)*s.ball.mass,ForceMode2D.Impulse);TrackShot(s.player,clean);return true;}
         bool bicycle=s.Bicycle;if(bicycle&&(s.bicycleStruck||s.landedAt>=0||c.collider.name.IndexOf("Up_Leg",StringComparison.OrdinalIgnoreCase)>=0||Time.time-s.started<.08f))return false;return s.ReleaseShot(bicycle);
     }
-    bool ReleaseShot(bool bicycle){var s=this;if(!s.RallyLive||s.Stopped||LanMultiplayer.IsRemoteSimulation||(bicycle&&(s.bicycleStruck||s.landedAt>=0)))return false;int level=ShootingLevel(s.player);float normalSpeed=Mathf.Clamp(Mathf.Max(10f,bicycle&&s.hookActive?s.hookIncoming.magnitude:s.ball.velocity.magnitude),10f,19f)*(AbilityMode.Enabled?AbilityMode.Strength(level):AbilityMode.Strength(level)/AbilityMode.Strength(4));Vector2 shot;int quality=-1;
+    bool ReleaseShot(bool bicycle){var s=this;if(!s.RallyLive||s.Stopped||LanMultiplayer.IsRemoteSimulation||(bicycle&&(s.bicycleStruck||s.landedAt>=0)))return false;float level=ShootingLevel(s.player);float normalSpeed=Mathf.Clamp(Mathf.Max(10f,bicycle&&s.hookActive?s.hookIncoming.magnitude:s.ball.velocity.magnitude),10f,19f)*(AbilityMode.Enabled?AbilityMode.Strength(level):AbilityMode.Strength(level)/AbilityMode.Strength(4));Vector2 shot;int quality=-1;
         if(bicycle){quality=Quality(UnityEngine.Random.value,AbilityMode.Enabled?AbilityMode.For(s.player).Levels[0]:4);float speed=normalSpeed*1.2f*(quality==0?.8f:1.2f);shot=quality==0?new Vector2(s.facing*.5f,.86f).normalized*speed:Aim(s.player,s.ball.position,speed,8,1f);}
         else shot=RecoveryShotDirection(s.player,s.ball.velocity)*normalSpeed*1.2f;
-        PlayerSkills.CancelShotFlights();BuildPlayer.CancelFlights();PowerShot.CompleteHeader(s.player);s.ball.collisionDetectionMode=CollisionDetectionMode2D.Continuous;s.ball.AddForce((shot-s.ball.velocity)*s.ball.mass,ForceMode2D.Impulse);if(bicycle){s.strikeAt=Time.time;s.strikeLeg=new Vector2(s.poseBones[6].rotation,s.poseBones[7].rotation);}s.armedUntil=-1f;if(bicycle){s.bicycleStruck=true;s.EndHook(true);}ShotCloseup.End(s.player);PlayerSkills.ShowFormless(s.player);return true;
+        PlayerSkills.CancelShotFlights();BuildPlayer.CancelFlights();PowerShot.CompleteHeader(s.player);s.ball.collisionDetectionMode=CollisionDetectionMode2D.Continuous;s.ball.AddForce((shot-s.ball.velocity)*s.ball.mass,ForceMode2D.Impulse);TrackShot(s.player,shot);if(bicycle){s.strikeAt=Time.time;s.strikeLeg=new Vector2(s.poseBones[6].rotation,s.poseBones[7].rotation);}s.armedUntil=-1f;if(bicycle){s.bicycleStruck=true;s.EndHook(true);}ShotCloseup.End(s.player);PlayerSkills.ShowFormless(s.player);return true;
     }
     void MirrorRig(bool mirror){
         Vector2 center=body.position;Vector2[] velocities=new Vector2[rig.Length];float[] spins=new float[rig.Length];Vector2 average=Vector2.zero;
@@ -427,11 +448,18 @@ public sealed class SkillRework : MonoBehaviour {
         for(int i=0;i<rig.Length;i++){rig[i].velocity=new Vector2(2*average.x-velocities[i].x,velocities[i].y);rig[i].angularVelocity=-spins[i];}
     }
     void TurnBack(){if(turned)return;MirrorRig(true);turned=true;BeginPose();LanMultiplayer.Mirror(player.name,true);}
-    void RestoreFacing(bool force=false){if(!turned)return;if(!force){if(Bicycle||Air||!FeetOnFloor()||Mathf.Abs(Mathf.DeltaAngle(body.rotation,0))>18f||Mathf.Abs(body.velocity.y)>.7f||Mathf.Abs(observedSpin)>65f){standSince=-1f;return;}if(standSince<0)standSince=Time.time;if(Time.time-standSince<.1f)return;}standSince=-1f;ReleasePose();MirrorRig(false);turned=false;LanMultiplayer.Mirror(player.name,false);}
+    bool UprightSupported(){return body!=null&&FeetOnFloor()&&body.position.y-Floor()>=Height*.37f&&Mathf.Abs(Mathf.DeltaAngle(body.rotation,0f))<18f;}
+    void RestoreFacing(bool force=false){
+        if(!turned)return;
+        // Actual upright support ends recovery immediately. Residual joint spin must never latch AI input off.
+        if(!force&&(!UprightSupported()||(Bicycle&&getupAt<0)))return;
+        bicycleUntil=armedUntil=recoverUntil=-1f;standSince=-1f;observedSpin=0f;
+        EndHook();ReleasePose();MirrorRig(false);turned=false;LanMultiplayer.Mirror(player.name,false);
+    }
     public static void ApplyMirror(Component p,bool on){var s=p!=null?p.GetComponent<SkillRework>():null;if(s==null)return;if(on&&!s.turned){s.MirrorRig(true);s.turned=true;}else if(!on&&s.turned)s.RestoreFacing(true);}
     void LateUpdate(){if(!LanMultiplayer.IsRemoteSimulation&&!Bicycle)RestoreFacing();}
     public static void ResetAll(){ShotCloseup.ClearAll();foreach(var s in all)if(s!=null){if(GameAIMod.BallOutThisRally&&s.turned&&s.isActiveAndEnabled){s.EndHook();s.armedUntil=s.magneticShotUntil=-1f;continue;}s.Clear();}}
-    void Clear(){trumpetActive=false;nativeCannonFlight=false;EndHook();ReleasePose();landedAt=getupAt=-1f;bicycleStruck=false;magneticShotUntil=-1f;magneticHop=false;RestoreFacing(true);armedUntil=bicycleUntil=recoverUntil=knockedUntil=-1f;bicycleOpportunity=false;ShotCloseup.End(player);}
+    void Clear(){if(pendingShot==this)pendingShot=null;nativeCannonFlight=false;EndHook();ReleasePose();landedAt=getupAt=-1f;bicycleStruck=false;magneticShotUntil=-1f;magneticHop=false;RestoreFacing(true);armedUntil=bicycleUntil=recoverUntil=knockedUntil=-1f;bicycleOpportunity=false;ShotCloseup.End(player);}
     void OnDisable(){Clear();}void OnDestroy(){Clear();all.Remove(this);}
 }
 

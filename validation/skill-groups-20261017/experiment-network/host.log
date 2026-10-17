@@ -1,0 +1,66 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/groups-network-experiment/host/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/groups-network-experiment/host/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/groups-network-experiment/host/FanZhiYi_Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; threaded=0
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.830 seconds
+Microsoft Media Foundation video decoding to texture disabled: graphics device is Null, only Direct3D 11 and Direct3D 12 (only on desktop) are supported for hardware-accelerated video decoding.
+UnloadTime: 0.507900 ms
+[LAN] Hosting 192.168.1.219:28950 build=87e7319bf9a0407cabdabd6dd8793f9b 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+[LAN] HELLO accepted from 127.0.0.1:61859 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS two independent players connected through production UDP handshake 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS roles remain independently selected before choosing skill groups 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS special room opens each player's group selector before match starts 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS room heartbeats preserve unfinished local group choice 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.179100 ms
+
+Unloading 141 unused Assets to reduce memory usage. Loaded Objects now: 1024.
+Total: 0.642500 ms (FindLiveObjects: 0.042100 ms CreateObjectMapping: 0.010200 ms MarkObjects: 0.271000 ms  DeleteObjects: 0.318700 ms)
+
+GROUPPAIR PASS match starts only after both group confirmations 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS host and guest agree on swapped skill ownership in the actual match 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS special group gameplay is active on both ends without enabling point allocation 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS gameplay snapshots continue after the new pre-match phase 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR COMPLETE role=host checks=8 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 63ac -> priority: 1 
+  Thread -> id: 2df0 -> priority: 1 
+  Thread -> id: 3ddc -> priority: 1 
+  Thread -> id: 806c -> priority: 1 
+  Thread -> id: 604 -> priority: 1 
+  Thread -> id: a20 -> priority: 1 
+  Thread -> id: 39e8 -> priority: 1 
+  Thread -> id: 7cfc -> priority: 1 
+  Thread -> id: 5094 -> priority: 1 
+  Thread -> id: 6bf8 -> priority: 1 
+  Thread -> id: 3648 -> priority: 1 
+  Thread -> id: 3f64 -> priority: 1 

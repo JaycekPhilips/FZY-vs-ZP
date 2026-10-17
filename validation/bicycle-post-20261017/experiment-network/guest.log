@@ -1,0 +1,78 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/groups-network-experiment/guest/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/groups-network-experiment/guest/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/groups-network-experiment/guest/FanZhiYi_Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; threaded=0
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.805 seconds
+Microsoft Media Foundation video decoding to texture disabled: graphics device is Null, only Direct3D 11 and Direct3D 12 (only on desktop) are supported for hardware-accelerated video decoding.
+UnloadTime: 0.564300 ms
+[LAN] Joining 127.0.0.1:28950 build=7dcb0942a1cc4b8880894088ceb7ce75 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+[LAN] WELCOME accepted from 127.0.0.1:28950 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS two independent players connected through production UDP handshake 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS roles remain independently selected before choosing skill groups 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS special room opens each player's group selector before match starts 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS room heartbeats preserve unfinished local group choice 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.161900 ms
+
+Unloading 141 unused Assets to reduce memory usage. Loaded Objects now: 1024.
+Total: 0.636200 ms (FindLiveObjects: 0.064400 ms CreateObjectMapping: 0.017900 ms MarkObjects: 0.283700 ms  DeleteObjects: 0.269600 ms)
+
+GROUPPAIR PASS match starts only after both group confirmations 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS host and guest agree on swapped skill ownership in the actual match 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS special group gameplay is active on both ends without enabling point allocation 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS real blocked shot and fractional bonus replicate from host to guest 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS native goal clears the replicated bonus on both ends 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS actual bicycle mirror state reaches both host and guest 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS standing recovery restores facing and releases action lock on both network players 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR PASS gameplay snapshots continue after the new pre-match phase 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+GROUPPAIR COMPLETE role=guest checks=12 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 3fd4 -> priority: 1 
+  Thread -> id: 520c -> priority: 1 
+  Thread -> id: 6108 -> priority: 1 
+  Thread -> id: 46cc -> priority: 1 
+  Thread -> id: 7584 -> priority: 1 
+  Thread -> id: 2808 -> priority: 1 
+  Thread -> id: 6854 -> priority: 1 
+  Thread -> id: e08 -> priority: 1 
+  Thread -> id: 39a0 -> priority: 1 
+  Thread -> id: 610 -> priority: 1 
+  Thread -> id: 73c8 -> priority: 1 
+  Thread -> id: 6850 -> priority: 1 

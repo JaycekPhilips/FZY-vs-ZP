@@ -1,0 +1,253 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.915 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.618000 ms
+ABILITY PASS special opponent-selection page exposes skill introduction 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS real special-mode start opens loadouts before loading match 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS ability opponent-selection page exposes skill introduction 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS reading skill introduction preserves the current lottery result 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS group title and two clear choices 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS rendered UI has real field background and readable content: 技能组选择.png 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS first human chooses defense then second human gets a turn 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS back navigation preserves both choices 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS both humans confirm before match starts 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS human Fan can choose defense while Zhao AI keeps defense 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS human Zhao can choose attack while Fan AI keeps attack 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS all twelve skills have concise descriptions without numeric or allocation details 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS rendered UI has real field background and readable content: 技能介绍.png 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS skill introduction returns to preceding page 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS LAN accepts the full attack group and rejects arbitrary extra skills 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS LAN player confirms only their owned character 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.164200 ms
+
+Unloading 146 unused Assets to reduce memory usage. Loaded Objects now: 1021.
+Total: 0.640800 ms (FindLiveObjects: 0.044000 ms CreateObjectMapping: 0.009600 ms MarkObjects: 0.206500 ms  DeleteObjects: 0.380200 ms)
+
+ABILITY PASS swapped groups grant exactly their skills without character-only leftovers 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS fixed groups run one skill implementation per player without duplicate native effects 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS Zhao attack group starts its own attack trumpet on kickoff 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS defense fortress and attack trumpet jump bonuses follow selected owners 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS Zhao attack group actually launches cannon header toward Fan's goal 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.670800 ms
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 1091.
+Total: 1.243900 ms (FindLiveObjects: 0.060200 ms CreateObjectMapping: 0.018800 ms MarkObjects: 0.203400 ms  DeleteObjects: 0.961100 ms)
+
+ABILITY PASS default groups retain existing Fan attack and Zhao defense skills 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.297300 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.360600 ms (FindLiveObjects: 0.035000 ms CreateObjectMapping: 0.008800 ms MarkObjects: 0.234300 ms  DeleteObjects: 1.082000 ms)
+
+ABILITY PASS ability mode keeps independent purchased skills 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.327000 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.417100 ms (FindLiveObjects: 0.036100 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.232400 ms  DeleteObjects: 1.139900 ms)
+
+ABILITY PASS classic mode remains without special skills 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.317700 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.463500 ms (FindLiveObjects: 0.034300 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.223500 ms  DeleteObjects: 1.196600 ms)
+
+ABILITY PASS real pitch rolling slows in style=0 direction=1 speed=0.4985435 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS coasting ball eventually rests without spin reaccelerating style=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.288400 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.308700 ms (FindLiveObjects: 0.032200 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.190300 ms  DeleteObjects: 1.077200 ms)
+
+ABILITY PASS real pitch rolling slows in style=1 direction=-1 speed=-0.4985435 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS coasting ball eventually rests without spin reaccelerating style=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.284000 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.250400 ms (FindLiveObjects: 0.033200 ms CreateObjectMapping: 0.016100 ms MarkObjects: 0.198300 ms  DeleteObjects: 1.002300 ms)
+
+ABILITY PASS real pitch rolling slows in style=2 direction=1 speed=0.4985435 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS coasting ball eventually rests without spin reaccelerating style=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.286900 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.370200 ms (FindLiveObjects: 0.032700 ms CreateObjectMapping: 0.008500 ms MarkObjects: 0.239400 ms  DeleteObjects: 1.089400 ms)
+
+ABILITY PASS pitch resistance never brakes an airborne ball 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS pause does not apply friction 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.334300 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 0.765500 ms (FindLiveObjects: 0.036500 ms CreateObjectMapping: 0.008900 ms MarkObjects: 0.229200 ms  DeleteObjects: 0.490400 ms)
+
+ABILITY PASS real low-ball retreat keeps moving rather than remaining rigid style=1 actor=Zhao delta=2.675827 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS retreat speed cap stays at twice normal style=1 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS recovery never attracts, pins or stops detached rear ball style=1 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS even rear body contact is not a repeating scripted ball brake style=1 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.291900 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.166700 ms (FindLiveObjects: 0.038700 ms CreateObjectMapping: 0.008500 ms MarkObjects: 0.396200 ms  DeleteObjects: 0.723000 ms)
+
+ABILITY PASS real low-ball retreat keeps moving rather than remaining rigid style=1 actor=Fan delta=-2.21897 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS retreat speed cap stays at twice normal style=1 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS recovery never attracts, pins or stops detached rear ball style=1 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS even rear body contact is not a repeating scripted ball brake style=1 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.285400 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.255400 ms (FindLiveObjects: 0.040900 ms CreateObjectMapping: 0.009200 ms MarkObjects: 0.236700 ms  DeleteObjects: 0.968200 ms)
+
+ABILITY PASS real low-ball retreat keeps moving rather than remaining rigid style=2 actor=Zhao delta=2.71805 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS retreat speed cap stays at twice normal style=2 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS recovery never attracts, pins or stops detached rear ball style=2 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS even rear body contact is not a repeating scripted ball brake style=2 actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.332100 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1087.
+Total: 1.322000 ms (FindLiveObjects: 0.035900 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.240300 ms  DeleteObjects: 1.037100 ms)
+
+ABILITY PASS real low-ball retreat keeps moving rather than remaining rigid style=2 actor=Fan delta=-2.204525 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS retreat speed cap stays at twice normal style=2 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS recovery never attracts, pins or stops detached rear ball style=2 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS even rear body contact is not a repeating scripted ball brake style=2 actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=48 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 7574 -> priority: 1 
+  Thread -> id: 140c -> priority: 1 
+  Thread -> id: a1c -> priority: 1 
+  Thread -> id: 8210 -> priority: 1 
+  Thread -> id: 56b4 -> priority: 1 
+  Thread -> id: 4fd4 -> priority: 1 
+  Thread -> id: 8698 -> priority: 1 
+  Thread -> id: 2468 -> priority: 1 
+  Thread -> id: 18cc -> priority: 1 
+  Thread -> id: 82f0 -> priority: 1 
+  Thread -> id: 3dbc -> priority: 1 
+  Thread -> id: 64d4 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

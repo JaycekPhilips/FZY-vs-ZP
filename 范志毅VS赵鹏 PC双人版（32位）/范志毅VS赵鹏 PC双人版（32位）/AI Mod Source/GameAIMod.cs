@@ -360,7 +360,8 @@ public static class GameAIMod
                 ControlsSettingsPanel.Open(parent, template, UpdateRulesIntroduction);
             });
         }
-        AddChoice(template, overlay.transform, "返回", chooseOpponent ? -220f : -200f, delegate
+        if(chooseOpponent&&(PlayerSkills.Enabled||AbilityMode.Enabled)) AddChoice(template,overlay.transform,"技能介绍",-200f,delegate{SkillGuidePanel.Open(parent,template);});
+        AddChoice(template, overlay.transform, "返回", chooseOpponent ? ((PlayerSkills.Enabled||AbilityMode.Enabled)?-280f:-220f) : -200f, delegate
         {
             overlay.name = "Retired Selection";
             overlay.SetActive(false);
@@ -374,6 +375,7 @@ public static class GameAIMod
     {
         AbilityMode.Enabled = false;
         PlayerSkills.Enabled = enabled;
+        SkillGroups.Reset(enabled);
         if (modeOverlay != null)
         {
             modeOverlay.name = "Retired Selection";
@@ -415,12 +417,13 @@ public static class GameAIMod
 
     private static void StartGame(int selectedMode)
     {
-        if (!AbilityMode.Enabled) { BeginGame(selectedMode); return; }
+        if (!AbilityMode.Enabled && !PlayerSkills.Enabled) { BeginGame(selectedMode); return; }
         Button template = menuPanel != null ? menuPanel.GetComponentInChildren<Button>(true) : null;
         if (template == null) return;
         Canvas canvas = menuPanel.GetComponentInParent<Canvas>();
         Transform parent = canvas != null ? canvas.transform : menuPanel.transform;
         if (modeOverlay != null) modeOverlay.SetActive(false);
+        if(PlayerSkills.Enabled){SkillGroupPanel.Open(parent,template,selectedMode,delegate{BeginGame(selectedMode);},delegate{if(modeOverlay!=null)modeOverlay.SetActive(true);});return;}
         AbilitySetupPanel.Open(parent, template, selectedMode, delegate { BeginGame(selectedMode); }, delegate { if (modeOverlay != null) modeOverlay.SetActive(true); });
     }
 
@@ -445,12 +448,12 @@ public static class GameAIMod
         BeginGame(0);
     }
 
-    public static void OnBallRestart(int restart){OnBallReset();SkillRework.SetKickoff(restart==2?"Fan":restart==0?"Zhao":null);}
-    public static void OnInitialKickoff(){SkillRework.ResetPossessionRound();var type=Type.GetType("Ball, Assembly-CSharp");var ball=type!=null?UnityEngine.Object.FindObjectOfType(type) as Component:null;if(ball!=null)SkillRework.SetKickoff(ball.transform.position.x<-.05f?"Fan":ball.transform.position.x>.05f?"Zhao":null);}
+    public static void OnBallRestart(int restart){OnBallReset();}
+    public static void OnInitialKickoff(){SkillRework.ResetShotTracking();}
     public static void OnBallReset()
     {
         ballOutThisRally = false;
-        SkillRework.ResetPossessionRound();
+        SkillRework.ResetShotTracking();
         BallBoundaryGuard boundary = UnityEngine.Object.FindObjectOfType<BallBoundaryGuard>();
         if (boundary != null) boundary.ResetRally();
         PlayerSkills.ResetAll();
@@ -502,6 +505,7 @@ public static class GameAIMod
 
     public static void AttachBallBoundaryGuard(Component ball)
     {
+        if(ball!=null&&ball.GetComponent<PitchFriction>()==null)ball.gameObject.AddComponent<PitchFriction>();
         if (ball == null || ball.GetComponent<BallBoundaryGuard>() != null) return;
         ball.gameObject.AddComponent<BallBoundaryGuard>().Initialize(ball);
     }
