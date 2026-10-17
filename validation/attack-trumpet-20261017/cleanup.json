@@ -1,0 +1,18 @@
+{
+  "formalGamesAndRepositoryMatch": true,
+  "selfplayRun": false,
+  "remainingTestCopies": 0,
+  "completedAt": "2026-10-17T12:47:07.0414665+08:00",
+  "removed": [
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-attacktrumpet.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-attacktrumpet-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-attacktrumpet.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-attacktrumpet-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\EditAttackTrumpet.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\RefineAttackTrumpet.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\TestAttackTrumpet.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\PublishAttackTrumpet.py"
+  ]
+}

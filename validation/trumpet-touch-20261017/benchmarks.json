@@ -1,0 +1,86 @@
+[
+  {
+    "edition": "original",
+    "logHash": "c9a852e9f990958a5b97eb1a8eb44ba0c91007a62489231b0004373c8c14d3ce",
+    "shooting": [
+      {
+        "boosted": false,
+        "effective": 8.0,
+        "speed": 12.0
+      },
+      {
+        "boosted": true,
+        "effective": 10.0,
+        "speed": 13.2
+      }
+    ],
+    "jumping": [
+      {
+        "boosted": false,
+        "effective": 8.0,
+        "peak": 6.110206
+      },
+      {
+        "boosted": true,
+        "effective": 10.0,
+        "peak": 6.760206
+      }
+    ],
+    "combat": [
+      {
+        "boosted": false,
+        "drive": 1.25,
+        "progress": -0.02015439,
+        "contacts": 30.0
+      },
+      {
+        "boosted": true,
+        "drive": 1.375,
+        "progress": 0.1697282,
+        "contacts": 30.0
+      }
+    ]
+  },
+  {
+    "edition": "experiment",
+    "logHash": "bd82ea725c552a3ed00d625d46f4a57771a23b20054c7f3602690e0f85868c4c",
+    "shooting": [
+      {
+        "boosted": false,
+        "effective": 8.0,
+        "speed": 12.0
+      },
+      {
+        "boosted": true,
+        "effective": 10.0,
+        "speed": 13.2
+      }
+    ],
+    "jumping": [
+      {
+        "boosted": false,
+        "effective": 8.0,
+        "peak": 6.164433
+      },
+      {
+        "boosted": true,
+        "effective": 10.0,
+        "peak": 6.814433
+      }
+    ],
+    "combat": [
+      {
+        "boosted": false,
+        "drive": 1.25,
+        "progress": 0.2214693,
+        "contacts": 30.0
+      },
+      {
+        "boosted": true,
+        "drive": 1.375,
+        "progress": 0.2433973,
+        "contacts": 28.0
+      }
+    ]
+  }
+]

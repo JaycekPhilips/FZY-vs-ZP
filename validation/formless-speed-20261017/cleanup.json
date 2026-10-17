@@ -1,0 +1,21 @@
+{
+  "removed": [
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-formlessspeed.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-formlessspeed-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-downintercept.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-original-downintercept-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-release",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-formlessspeed.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-formlessspeed-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-downintercept.log",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）\\AI Mod Source\\build\\ability-experiment-downintercept-validation.json",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\EditFormlessSpeed.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\TestFormlessSpeed.py",
+    "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\PublishFormlessSpeed.py"
+  ],
+  "selfplayRun": false,
+  "formalGamesAndRepositoryMatch": true,
+  "remainingTestCopies": 0,
+  "completedAt": "2026-10-17T13:11:40.3910024+08:00"
+}

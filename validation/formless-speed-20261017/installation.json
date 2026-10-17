@@ -1,0 +1,52 @@
+{
+  "backup": {
+    "path": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\backup-before-formless-speed-20261017-130528"
+  },
+  "githubUpdated": false,
+  "editions": [
+    {
+      "selfplayExempt": true,
+      "checks": 47,
+      "modHash": "6A953225243BBA25250843BF6B31F906B226F651A2CACC75E18AE6D43EFE98D2",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "policyHash": "836C4730C9D07240207B3AAF60017E954C55921A2173B43E7F4543355C31B9F8",
+      "evidence": [
+        {
+          "count": 23,
+          "suite": "formlessspeed",
+          "logHash": "C9E6F00C3ADD93D8D70B94BA26C1641B9AFA00943F78C4F8803BEE0694F20263"
+        },
+        {
+          "count": 24,
+          "suite": "downintercept",
+          "logHash": "EC61C8E9D71C9583D044E2B4144BB09E28088049F56A13AC6FC5ECBD52386EF9"
+        }
+      ],
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003",
+      "edition": "original",
+      "installedAt": "2026-10-17T13:10:59.3713777+08:00"
+    },
+    {
+      "selfplayExempt": true,
+      "checks": 47,
+      "modHash": "8E2E9B7F282474CA67B24BA7C81AF1C8555F8C88A6D27D94D8EF7162130FD411",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "policyHash": "E0CD5F6A22B9000554269D1FAF9BDC6BAD7305DAEBBD575579B0E29B848777B9",
+      "evidence": [
+        {
+          "count": 23,
+          "suite": "formlessspeed",
+          "logHash": "66E80667602FD693B87F8029ECB983862ACB26364BA09AD927661EE91DC53A7B"
+        },
+        {
+          "count": 24,
+          "suite": "downintercept",
+          "logHash": "003F46899BEE6625C63A5C81938D8120702EEA993414C6F2A47BDACF7D962334"
+        }
+      ],
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658",
+      "edition": "experiment",
+      "installedAt": "2026-10-17T13:10:59.5440894+08:00"
+    }
+  ]
+}

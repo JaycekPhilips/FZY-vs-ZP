@@ -1,0 +1,226 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-original/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.853 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.835400 ms
+ABILITY PASS existing shooting-point quality probabilities unchanged by hook assist 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.191700 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1017.
+Total: 0.563200 ms (FindLiveObjects: 0.033000 ms CreateObjectMapping: 0.009600 ms MarkObjects: 0.192700 ms  DeleteObjects: 0.327400 ms)
+
+ABILITY PASS automatic assisted bicycle starts without input actor=Fan high/fast=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS raised instep hooks exactly once toward opposing goal with continuous ball path actor=Fan high/fast=False shots=1 gap=0.006000012 footLift=1.395423 maxStep=0.1289564 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS hook releases once, restores original collision settings and gets up smoothly actor=Fan high/fast=False turned=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.916400 ms
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 1077.
+Total: 1.199500 ms (FindLiveObjects: 0.030800 ms CreateObjectMapping: 0.007900 ms MarkObjects: 0.179400 ms  DeleteObjects: 0.981200 ms)
+
+ABILITY PASS automatic assisted bicycle starts without input actor=Fan high/fast=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS raised instep hooks exactly once toward opposing goal with continuous ball path actor=Fan high/fast=True shots=1 gap=0.006000042 footLift=1.375748 maxStep=0.1710227 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS hook releases once, restores original collision settings and gets up smoothly actor=Fan high/fast=True turned=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.281100 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1077.
+Total: 1.153500 ms (FindLiveObjects: 0.037600 ms CreateObjectMapping: 0.008300 ms MarkObjects: 0.189500 ms  DeleteObjects: 0.917700 ms)
+
+ABILITY PASS pause cancels hook and restores owned collider states actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS reset clears assisted shot and collider changes actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.311300 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1077.
+Total: 1.282200 ms (FindLiveObjects: 0.037000 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.236600 ms  DeleteObjects: 1.000200 ms)
+
+ABILITY PASS real opponent touch interrupts hook without forcing a shot actor=Fan contacts=3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.311000 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.352800 ms (FindLiveObjects: 0.054100 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.260800 ms  DeleteObjects: 1.029300 ms)
+
+ABILITY PASS real goal blocks new bicycle and armed shot even while movement is not stopped actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.304200 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.241800 ms (FindLiveObjects: 0.032900 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.194600 ms  DeleteObjects: 1.005800 ms)
+
+ABILITY PASS real rear thigh contact cannot fire or drag a recovery shot forward actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.318400 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.321000 ms (FindLiveObjects: 0.037600 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.224100 ms  DeleteObjects: 1.050800 ms)
+
+ABILITY PASS real back/torso contact cannot fire or drag a recovery shot forward actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.265400 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.354000 ms (FindLiveObjects: 0.032100 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.238900 ms  DeleteObjects: 1.074300 ms)
+
+ABILITY PASS automatic assisted bicycle starts without input actor=Zhao high/fast=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS raised instep hooks exactly once toward opposing goal with continuous ball path actor=Zhao high/fast=False shots=1 gap=0.006000012 footLift=1.570936 maxStep=0.1589911 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS hook releases once, restores original collision settings and gets up smoothly actor=Zhao high/fast=False turned=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.301300 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.218500 ms (FindLiveObjects: 0.032000 ms CreateObjectMapping: 0.015800 ms MarkObjects: 0.251500 ms  DeleteObjects: 0.918900 ms)
+
+ABILITY PASS automatic assisted bicycle starts without input actor=Zhao high/fast=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS raised instep hooks exactly once toward opposing goal with continuous ball path actor=Zhao high/fast=True shots=1 gap=0.005999982 footLift=1.530411 maxStep=0.1600036 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS hook releases once, restores original collision settings and gets up smoothly actor=Zhao high/fast=True turned=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.309500 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.158800 ms (FindLiveObjects: 0.032300 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.197000 ms  DeleteObjects: 0.920800 ms)
+
+ABILITY PASS pause cancels hook and restores owned collider states actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS reset clears assisted shot and collider changes actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.272100 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.280500 ms (FindLiveObjects: 0.031800 ms CreateObjectMapping: 0.008800 ms MarkObjects: 0.198100 ms  DeleteObjects: 1.041500 ms)
+
+ABILITY PASS real opponent touch interrupts hook without forcing a shot actor=Zhao contacts=3 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.304300 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.223600 ms (FindLiveObjects: 0.032800 ms CreateObjectMapping: 0.007800 ms MarkObjects: 0.179000 ms  DeleteObjects: 1.003700 ms)
+
+ABILITY PASS real goal blocks new bicycle and armed shot even while movement is not stopped actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.283500 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.258100 ms (FindLiveObjects: 0.030700 ms CreateObjectMapping: 0.007900 ms MarkObjects: 0.208200 ms  DeleteObjects: 1.011000 ms)
+
+ABILITY PASS real rear thigh contact cannot fire or drag a recovery shot forward actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.284300 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1078.
+Total: 1.082500 ms (FindLiveObjects: 0.052100 ms CreateObjectMapping: 0.008000 ms MarkObjects: 0.178400 ms  DeleteObjects: 0.843800 ms)
+
+ABILITY PASS real back/torso contact cannot fire or drag a recovery shot forward actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.608400 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.243000 ms (FindLiveObjects: 0.032100 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.179200 ms  DeleteObjects: 1.023200 ms)
+
+ABILITY PASS automatic no-input start or complete rig reflection actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS mirrored windup at normal speed actor=Fan height=1.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS backward half somersault direction actor=Fan min=-115.5574 max=24.43829 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual boot collision shoots toward opposing goal actor=Fan height=1.2 offset=0.58 contacts=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS back landing then quick getup before turn actor=Fan landed=True getup=True earlyFoot=False angle=-0.7016412 feet=True nativeGround=True held=True turned=False scale=0.8 vy=-0.03127185 spin=18.7793 until=-1 getupAt=19.9 standSince=-1 now=20.92 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS connected rig stays smooth actor=Fan error=0.07392625 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS visible arm swing and scissor with continuous pose actor=Fan arm=103.4645 scissor=104.8761 maxTargetSpeed=1515.285 bodyStep=23.77232 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS both mirrored elbows bend forward and vary with actual forward elbow flexion and restrained shoulder spread actor=Fan left=69.23956 right=48.18652 leftRange=60.15015 rightRange=46.98907 spread=174.6529 wrongBendSeconds=0.02 minInnerRaise=0.003707975 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=33 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 689c -> priority: 1 
+  Thread -> id: 517c -> priority: 1 
+  Thread -> id: 65a0 -> priority: 1 
+  Thread -> id: 91dc -> priority: 1 
+  Thread -> id: 699c -> priority: 1 
+  Thread -> id: 5380 -> priority: 1 
+  Thread -> id: 5f1c -> priority: 1 
+  Thread -> id: 2f04 -> priority: 1 
+  Thread -> id: 7bfc -> priority: 1 
+  Thread -> id: 8868 -> priority: 1 
+  Thread -> id: 85ec -> priority: 1 
+  Thread -> id: 8cd8 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

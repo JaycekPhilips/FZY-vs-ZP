@@ -15,8 +15,8 @@ public static class AbilityMode
     public static bool LotteryDrawn {get;private set;}
     public static void ResetLottery(){LotteryDrawn=false;budget=12;Reset();}
     public static int DrawBudget(){if(LotteryDrawn)return Budget;budget=UnityEngine.Random.Range(12,25);LotteryDrawn=true;Reset();return Budget;}
-    public static readonly string[] Skills={"旋风盘带","炮弹式头球","空中堡垒","强力抢断","后防领袖","弧线落叶射门","紧急回防","进攻提速","磁力脚","伸脚抢截","无定形射门"};
-    public static readonly string[] Descriptions={"带球向前推进速度提升40%","头球键：三项合计12为基准；高于12不增加球速，保留球路修正；平快与头球吊射各50%，低于12轻度减弱","强化起跳与反应；近身争高空球时等效对抗、跳跃各提升1","真实接触或隔球顶牛：失衡并击退一个身位","打平或领先时，等效对抗、跳跃各提升1.5","射门键：距对手至少球场1/8且非顶牛：真实脚部弧线落叶","向己方球门移动：加速回防，身后球自动救球","向对方球门移动且球在前方：提速60%","射门时辅助脚部迎接身前高球，射门质量等效提升1点，最高8","向下键：手动下落，正常速度6倍；不限球高","尴尬姿态射门保留90%球速和精度；跳跃＋射门：身后上半身至头顶加一头，50%机会倒挂金钩"};
+    public static readonly string[] Skills={"旋风盘带","炮弹式头球","空中堡垒","强力抢断","后防领袖","弧线落叶射门","紧急回防","进攻提速","磁力脚","伸脚抢截","无定形射门","进攻号手"};
+    public static readonly string[] Descriptions={"带球向前推进速度提升40%","头球键：临时加成后三项合计12为基准；13/14/15点球速+5%/+10%/+20%，15点封顶，球路14点封顶；平快与头球吊射各50%","强化起跳与反应；近身争高空球时等效对抗、跳跃各提升1","真实接触或隔球顶牛：失衡并击退一个身位","打平或领先时，等效对抗、跳跃各提升1.5","射门键：距对手至少球场1/8且非顶牛：真实脚部弧线落叶","向己方球门移动：加速回防，身后球自动救球","向对方球门移动且球在前方：提速60%","经典地面跑姿提高步频，带球速度+20%，地面对抗+2；高空迎球射门质量+1，可突破8","向下键：手动下落，正常速度6倍；不限球高","非特殊射门球速120%，不附加死角瞄准；自动倒钩50%，差/好概率20%/80%、最终球速96%/144%，保留勾球辅助","我方开球立即发动，否则首次触球发动；射门、跳跃各+2，至对手下一次触球，每回合仅一次"};
     public sealed class Build
     {
         public readonly int[] Levels={4,4,4}; public int Purchased;
@@ -30,22 +30,22 @@ public static class AbilityMode
     public static readonly Build[] Builds={new Build(),new Build()};
     static int Count(int mask){int n=0;while(mask!=0){n+=mask&1;mask>>=1;}return n;}
     public static Build For(Component player){return Builds[player!=null&&player.name=="Zhao"?1:0];}
-    public static float Strength(int level){return .6f+Mathf.Clamp(level,0,MaxLevel)*.05f;}
+    public static float Strength(float level){return .6f+Mathf.Max(0,level)*.05f;}
     // Four points reproduce the special-mode baseline; below four is a steep penalty,
     // above four grants a modest bonus. Movement/control skills use contest, aerial skills jump.
-    public static float SkillStrength(int level){level=Mathf.Clamp(level,0,MaxLevel);if(level<=4){float progress=level/4f;return .25f+.75f*progress*progress;}return 1f+(level-4)*.025f;}
+    public static float SkillStrength(float level){level=Mathf.Max(0,level);if(level<=4){float progress=level/4f;return .25f+.75f*progress*progress;}return 1f+(level-4)*.025f;}
     public static float TackleResistance(float ours,float theirs){float gap=theirs-ours;if(gap>2)return 0f;return gap<=0?1f-gap*.05f:gap<=1?Mathf.Lerp(1f,.55f,gap):Mathf.Lerp(.55f,.22f,gap-1);}
-    public static int CannonTotal(Component player){Build b=For(player);return b.Levels[0]+b.Levels[1]+b.Levels[2];}
-    public static float CannonSpeed(int total){return total>=12?1f:Mathf.Max(.85f,1f-.0125f*(12-Mathf.Max(0,total)));}
-    public static float LeafSpeed(int level){return 1f+Mathf.Max(0,Mathf.Clamp(level,0,MaxLevel)-4)*.05f;}
+    public static float CannonTotal(Component player){return SkillRework.Effective(player,0)+SkillRework.Effective(player,1)+SkillRework.Effective(player,2);}
+    public static float CannonSpeed(float total){if(total<12)return Mathf.Max(.85f,1f-.0125f*(12-Mathf.Max(0,total)));float extra=Mathf.Clamp(total-12,0,3);return 1f+(extra<=2?extra*.05f:.1f+(extra-2)*.1f);}
+    public static float LeafSpeed(int level){return 1f+Mathf.Max(0,level-4)*.05f;}
     public static float ShotSkillStrength(int level){return SkillStrength(level);}
     public static int SkillDimension(int skill){return skill==1||skill==4||skill==5?0:skill==2||skill==9?2:1;}
-    public static float SkillStrength(Component player,int skill){return skill==1?1f:(Enabled?SkillStrength(For(player).Levels[SkillDimension(skill)]):1f);}
+    public static float SkillStrength(Component player,int skill){return skill==1?1f:(Enabled?SkillStrength(SkillRework.Effective(player,SkillDimension(skill))):1f);}
     public static float JumpTempo(float level){return 1f+Mathf.Max(0,level-4)*.0625f;}
-    public static float JumpReaction(float level){return Mathf.Lerp(.14f,.025f,Mathf.Clamp(level,0,MaxLevel)/(float)MaxLevel);}
+    public static float JumpReaction(float level){return level<=MaxLevel?Mathf.Lerp(.14f,.025f,Mathf.Max(0,level)/(float)MaxLevel):.025f/(1f+(level-MaxLevel)*.15f);}
     public static float JumpGravity(Component player){if(!Enabled||player==null)return 1f;float tempo=JumpTempo(SkillRework.Effective(player,2));return tempo*tempo;}
     public static float JumpMultiplier(Component player){float tempo=Enabled?JumpTempo(SkillRework.Effective(player,2)):1f;return tempo*(Has(player,2)?PlayerSkills.ZhaoJumpMultiplier*Mathf.Sqrt(SkillStrength(Mathf.Min(4,For(player).Levels[2]))):1f);}
-    public static float ShotSpread(int level){float miss=1f-Mathf.Clamp(level,0,MaxLevel)/(float)MaxLevel;return .02f+1.5f*miss*miss;}
+    public static float ShotSpread(int level){float miss=Mathf.Max(0,1f-Mathf.Max(0,level)/(float)MaxLevel);return (.02f+1.5f*miss*miss)/(1f+Mathf.Max(0,level-MaxLevel)*.25f);}
     public static bool Has(Component player,int skill){return Enabled&&For(player).Has(skill);}
     public static void Reset(){foreach(Build b in Builds)b.Reset();}
     public static void Randomize(int player)
@@ -156,7 +156,7 @@ public sealed class BuildPlayer : MonoBehaviour
 {
     Component controller,manager,stick;Animator animator;float animatorSpeed,dribbleUntil=-1f,knockUntil=-1f,knockOrigin,knockSign,knockDistance;FieldInfo stopping,grounded;Rigidbody2D body,ball;Collider2D ballShape,headShape,goal,ownGoal;Rigidbody2D[] limbs;Collider2D[] colliders;Transform head,foot;float direction,mass,height,width,standingBottom,standingHead,normalJumpSpeed,normalSpeed,groundY,scale;int mask;
     object[] muscles;FieldInfo gain;float[] normalGains;FieldInfo[] targetFields;float staggerUntil=-1f,lastContest=-10f,kickUntil=-1f,headUntil=-1f,lastKickContact=-10f,rescueUntil=-1f,rescueSpeed,rescueRecover=-1f,lastJump=-10f,flatUntil=-1f;bool power,rescueHeld,rescueWaiting,headRescue;RescuePlanner.Plan rescuePlan;float lastJumpQueued=-10f,rescueAssistAt=-10f,rescueAssistUntil=-1f,lastRescuePhysics=-1f;
-    readonly float[] effects={-10f,-10f,-10f,-10f,-10f,-10f,-10f,-10f,-10f,-10f,-10f};
+    readonly float[] effects={-10f,-10f,-10f,-10f,-10f,-10f,-10f,-10f,-10f,-10f,-10f,-10f};
     static BuildPlayer glowOwner; static float glowUntil=-1f,lastTrail=-10f; static Color glowColor; static readonly List<Vector2> ballTrail=new List<Vector2>();
     public void ShowSkill(int skill){if(Stopped()||skill<0||skill>=effects.Length||!Has(skill))return;if(Time.time-effects[skill]>=.55f)effects[skill]=Time.time;}
     void Highlight(int skill,float duration){ShowSkill(skill);glowOwner=this;glowUntil=Time.time+duration;glowColor=PlayerSkills.EffectColor(skill);ballTrail.Clear();lastTrail=-10f;}
@@ -170,7 +170,7 @@ public sealed class BuildPlayer : MonoBehaviour
     static BuildPlayer cannonFlightOwner;float cannonStarted,cannonFlightSpeed,cannonArcHeight,cannonLobGravity;Vector2 cannonTarget,cannonOrigin;bool cannonLob;
     static BuildPlayer flightOwner;float flightStart=-10f,flightDuration,flightLift;Vector2 flightOrigin,flightTarget;int flightKind;
     AbilityMode.Build Build {get{return AbilityMode.For(controller);}}
-    bool Has(int i){return Build.Has(i);}int Level(int i){return Build.Levels[i];}float Combat(){return SkillRework.Effective(controller,1);}
+    bool Has(int i){return Build.Has(i);}int Level(int i){return Mathf.RoundToInt(SkillRework.Effective(controller,i));}float Combat(){return SkillRework.Effective(controller,1);}
     public void Initialize(Component player)
     {
         controller=player;animator=(Animator)player.GetType().GetField("anim").GetValue(player);animatorSpeed=animator.speed;direction=player.name=="Fan"?1f:-1f;Type t=player.GetType();body=(Rigidbody2D)t.GetField("rb").GetValue(player);foot=(Transform)t.GetField("footTrans").GetValue(player);grounded=t.GetField("isOnGround");mask=(int)(LayerMask)t.GetField("ground").GetValue(player);normalSpeed=(float)t.GetField("maxVelocity").GetValue(player);limbs=player.GetComponentsInChildren<Rigidbody2D>();colliders=player.GetComponentsInChildren<Collider2D>();head=player.transform.Find("Head");headShape=head.GetComponent<Collider2D>();scale=Mathf.Abs(player.transform.lossyScale.x)/.8f;
@@ -249,7 +249,7 @@ public sealed class BuildPlayer : MonoBehaviour
         float horizontal=normalSpeed*(.8f+Mathf.Min(4,level)*.05f);
         for(float time=AbilityMode.JumpReaction(level);time<=1.0f;time+=.025f){Vector2 predicted=ball.position+ball.velocity*time+Vector2.up*(.5f*Physics2D.gravity.y*ball.gravityScale*time*time);float delta=predicted.y-head.position.y;if(delta<-.12f*height||delta>coverage)continue;
             float vx=(predicted.x-head.position.x-CannonApproachOffset())/time,vy=(delta+.5f*gravity*time*time)/time;if(Mathf.Abs(vx)>horizontal||vy<0||vy>maxVertical)continue;
-            float error=level==AbilityMode.MaxLevel?0f:(1f-level/(float)AbilityMode.MaxLevel)*width*.12f;vx+=UnityEngine.Random.Range(-error,error)/time;
+            float error=Mathf.Max(0,1f-level/(float)AbilityMode.MaxLevel)*width*.12f;vx+=UnityEngine.Random.Range(-error,error)/time;
             interceptLaunch=new Vector2(vx,vy);interceptAt=Time.time+time;interceptUntil=interceptAt+.18f;interceptPending=true;return true;}
         return false;
     }
@@ -361,7 +361,7 @@ public sealed class BuildPlayer : MonoBehaviour
         cannonAppliedHead=(float)targetFields[1].GetValue(stick)+cannonPoseOffset;cannonAppliedBody=(float)targetFields[0].GetValue(stick)+cannonPoseOffset*.2f;SetTarget(1,cannonAppliedHead);SetTarget(0,cannonAppliedBody);cannonPoseApplied=true;
     }
     Vector2 CannonLaunch(Vector2 incoming){
-        int total=AbilityMode.CannonTotal(controller);Vector2 baseline=PlayerSkills.CannonVelocity(direction,incoming);if(total==12)return baseline;
+        float total=AbilityMode.CannonTotal(controller);Vector2 baseline=PlayerSkills.CannonVelocity(direction,incoming);if(total==12)return baseline;
         float speed=baseline.magnitude*AbilityMode.CannonSpeed(total);
         if(total>12)return AimVelocity(CannonGoalTarget(),speed);
         // The minimum is exactly the ordinary shot. Glancing hits approach that
@@ -480,9 +480,9 @@ public sealed class BuildPlayer : MonoBehaviour
         int level=SkillRework.ShootingLevel(controller);bool space=PowerShot.ShootingSkillSpace(controller);bool leaf=Has(5)&&!power&&space,burst=false;float strength=leaf||burst?AbilityMode.ShotSkillStrength(level):AbilityMode.Strength(level);
         if(burst){float floor=BallBoundaryGuard.FindGoalFloor(goal)+ballShape.bounds.extents.y+.035f;float vertical=ball.position.y>floor+.1f?-Mathf.Clamp((ball.position.y-floor)*12f,2f,16f):.2f;Launch(new Vector2(direction*PowerShot.SkillBurstSpeed(ball.velocity.magnitude)*strength,vertical));Highlight(4,.85f);flatUntil=Time.time+.6f;return;}
         if(leaf){PlayerSkills.CancelShotFlights();leafCurve=new LeafShotProfile(ball,ballShape,goal,direction,mask,1f,level);flightStart=Time.time;flightOwner=this;flightDuration=leafCurve.curveTravelTime/PlayerSkills.FanVolleySpeedMultiplier;flightOrigin=leafCurve.curveOrigin;flightTarget=leafCurve.curveDestination;flightLift=leafCurve.curveArcHeight;Highlight(5,Mathf.Min(6f,flightDuration+.8f));Flight();return;}
-        Vector2 target=ShotTarget(level);bool weird=UnityEngine.Random.value<(level==AbilityMode.MaxLevel?.85f:Mathf.Max(0,level-4)*.10f);
+        Vector2 target=ShotTarget(level);bool weird=!Has(10)&&UnityEngine.Random.value<(level>=AbilityMode.MaxLevel?.85f:Mathf.Min(.95f,Mathf.Max(0,level-4)*.10f));
         if(weird){leafCurve=null;flightOrigin=ball.position;flightTarget=target;flightDuration=Mathf.Clamp(Mathf.Abs(target.x-ball.position.x)/(18f*strength),.55f,1.6f);flightLift=UnityEngine.Random.Range(2.2f,4.2f)*scale;flightKind=UnityEngine.Random.value<.5f?1:0;flightStart=Time.time;flightOwner=this;ball.collisionDetectionMode=CollisionDetectionMode2D.Continuous;Flight();return;}
-        float speed=ball.velocity.magnitude;if(power)speed=direction>0?speed*PowerShot.SpeedMultiplier:Mathf.Clamp(Mathf.Max(17f,speed*1.65f),17f,23f)*PowerShot.SpeedMultiplier;Launch(AimVelocity(target,speed*strength));
+        float speed=ball.velocity.magnitude;if(power)speed=direction>0?speed*PowerShot.SpeedMultiplier:Mathf.Clamp(Mathf.Max(17f,speed*1.65f),17f,23f)*PowerShot.SpeedMultiplier;Launch(SkillRework.OrdinaryShot(controller,AimVelocity(target,speed*strength)));
     }
 
     void Flight()

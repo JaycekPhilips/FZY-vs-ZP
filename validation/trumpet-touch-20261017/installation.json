@@ -1,0 +1,42 @@
+{
+  "backup": {
+    "path": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\backup-before-trumpet-touch-20261017-132557"
+  },
+  "githubUpdated": false,
+  "editions": [
+    {
+      "gameAssemblyHash": "B2B26CDA8CE27721DBA8BDF59D7B7A3479F85F3F1FE8544B8B7BDD884A6CC484",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "selfplayExempt": true,
+      "installedAt": "2026-10-17T13:31:37.7035902+08:00",
+      "edition": "original",
+      "modHash": "DC21F1AAA1997481235B344628F3895C22F7B03C8541E9A62A61AA184A48F684",
+      "policyHash": "3DAD8877D3B4F8E19EE1E707AFF53699C8D7AA7367CC3014481B6762389F2BF8",
+      "evidence": [
+        {
+          "suite": "trumpettouch",
+          "logHash": "C9A852E9F990958A5B97EB1A8EB44BA0C91007A62489231B0004373C8C14D3CE",
+          "count": 36
+        }
+      ],
+      "checks": 36
+    },
+    {
+      "gameAssemblyHash": "BDE134826CFB0624CA4270FFB340CD24211C2E3E727BF7547E56696663868422",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "selfplayExempt": true,
+      "installedAt": "2026-10-17T13:31:37.8755617+08:00",
+      "edition": "experiment",
+      "modHash": "DAEE550C581C335DA4B0DAFC6B014AF9884CD529830582563B5FD6F4EDD0476B",
+      "policyHash": "E4C8E6EB18FD8C9806EF9A3DE59F19B418F96EDA107093F105B1675A8C72D654",
+      "evidence": [
+        {
+          "suite": "trumpettouch",
+          "logHash": "BD82EA725C552A3ED00D625D46F4A57771A23B20054C7F3602690E0F85868C4C",
+          "count": 36
+        }
+      ],
+      "checks": 36
+    }
+  ]
+}

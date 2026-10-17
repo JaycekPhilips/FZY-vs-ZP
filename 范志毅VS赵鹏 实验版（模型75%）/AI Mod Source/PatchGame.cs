@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using Mono.Cecil;
@@ -254,7 +254,7 @@ internal static class PatchGame
             MethodReference axis = game.ImportReference(FindMethod(aiType, "GetAxis"));
             MethodReference button = game.ImportReference(FindMethod(aiType, "GetButtonDown"));
             MethodReference extraPush = game.ImportReference(FindMethod(aiType, "GetExtraPushGate"));
-            MethodReference onBallReset = game.ImportReference(FindMethod(aiType, "OnBallReset"));
+            MethodReference onBallReset = game.ImportReference(FindMethod(aiType, "OnBallRestart"));
 
             TypeDefinition player = FindType(game, "PlayerController");
             MethodReference placeAtGoal = game.ImportReference(FindMethod(aiType, "PlaceAtGoalLine"));
@@ -315,10 +315,14 @@ internal static class PatchGame
             foreach (Instruction instruction in new List<Instruction>(ballReset.Body.Instructions))
             {
                 if (instruction.OpCode != OpCodes.Ret) continue;
+                resetIl.InsertBefore(instruction, resetIl.Create(OpCodes.Ldarg_1));
                 resetIl.InsertBefore(instruction, resetIl.Create(OpCodes.Call, onBallReset));
                 resetReturns++;
             }
             if (resetReturns != 1) throw new InvalidOperationException("Unexpected Ball.Reset return count: " + resetReturns);
+            MethodDefinition initialKickoffStart=FindMethod(FindType(game,"Ball"),"Start");
+            ILProcessor initialIl=initialKickoffStart.Body.GetILProcessor();
+            foreach(Instruction instruction in new List<Instruction>(initialKickoffStart.Body.Instructions))if(instruction.OpCode==OpCodes.Ret)initialIl.InsertBefore(instruction,initialIl.Create(OpCodes.Call,game.ImportReference(FindMethod(aiType,"OnInitialKickoff"))));
             FixBallSound(game);
             game.Write(args[2]);
             Console.WriteLine("Patched input calls: " + (updateCalls + fixedCalls) + "; menu hook: " + returns + "; reset hook: " + resetReturns + "; ball volume: fixed");

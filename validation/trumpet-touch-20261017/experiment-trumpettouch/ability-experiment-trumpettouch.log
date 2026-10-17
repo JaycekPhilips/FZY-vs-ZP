@@ -1,0 +1,253 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.897 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.555500 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.178200 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1017.
+Total: 0.526300 ms (FindLiveObjects: 0.035100 ms CreateObjectMapping: 0.009200 ms MarkObjects: 0.194100 ms  DeleteObjects: 0.287600 ms)
+
+ABILITY PASS native kickoff sets immediate or first-touch pending state actor=Fan mode=1 ownServe=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS own touch activates/retains bonus across a distant fast flight without possession timeout actor=Fan ownServe=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS first opponent touch after activation immediately ends bonus including fast head deflections actor=Fan ownServe=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS later own touches cannot reactivate same round actor=Fan ownServe=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS next native own kickoff immediately renews once-per-round bonus actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.042000 ms
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1083.
+Total: 1.115000 ms (FindLiveObjects: 0.042800 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.213500 ms  DeleteObjects: 0.849600 ms)
+
+ABILITY PASS native kickoff sets immediate or first-touch pending state actor=Zhao mode=2 ownServe=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS own touch activates/retains bonus across a distant fast flight without possession timeout actor=Zhao ownServe=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS first opponent touch after activation immediately ends bonus including fast head deflections actor=Zhao ownServe=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS later own touches cannot reactivate same round actor=Zhao ownServe=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS next native own kickoff immediately renews once-per-round bonus actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.466800 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.498100 ms (FindLiveObjects: 0.043100 ms CreateObjectMapping: 0.009400 ms MarkObjects: 0.336200 ms  DeleteObjects: 1.109000 ms)
+
+ABILITY PASS native kickoff sets immediate or first-touch pending state actor=Fan mode=1 ownServe=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS own touch activates/retains bonus across a distant fast flight without possession timeout actor=Fan ownServe=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS first opponent touch after activation immediately ends bonus including fast head deflections actor=Fan ownServe=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS later own touches cannot reactivate same round actor=Fan ownServe=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS next native own kickoff immediately renews once-per-round bonus actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.323900 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.186300 ms (FindLiveObjects: 0.033600 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.201500 ms  DeleteObjects: 0.942800 ms)
+
+ABILITY PASS native kickoff sets immediate or first-touch pending state actor=Zhao mode=2 ownServe=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS own touch activates/retains bonus across a distant fast flight without possession timeout actor=Zhao ownServe=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS first opponent touch after activation immediately ends bonus including fast head deflections actor=Zhao ownServe=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS later own touches cannot reactivate same round actor=Zhao ownServe=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS next native own kickoff immediately renews once-per-round bonus actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.304400 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.161700 ms (FindLiveObjects: 0.052900 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.241900 ms  DeleteObjects: 0.858500 ms)
+
+ABILITY PASS both buyers transfer active bonus by real touch symmetrically 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS both bonuses stay spent after each opponent has touched 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS unassigned neutral restart waits for actual first touch 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS goal celebration stops both bonuses and cannot activate from a late touch 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.280100 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.167100 ms (FindLiveObjects: 0.032600 ms CreateObjectMapping: 0.008000 ms MarkObjects: 0.189700 ms  DeleteObjects: 0.936600 ms)
+
+OVERFLOW_SHOOT boosted=False effective=8 speed=12 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.342400 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.111500 ms (FindLiveObjects: 0.033400 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.213300 ms  DeleteObjects: 0.855900 ms)
+
+OVERFLOW_SHOOT boosted=True effective=10 speed=13.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS effective ten shooting beats eight in actual release speed and normal ballistic accuracy speed8=12 speed10=13.2 spread8=0.06517226 spread10=0.04344821 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.332800 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.236400 ms (FindLiveObjects: 0.034700 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.239200 ms  DeleteObjects: 0.953600 ms)
+
+OVERFLOW_JUMP boosted=False effective=8 peak=6.164433 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.286200 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.309600 ms (FindLiveObjects: 0.032000 ms CreateObjectMapping: 0.008600 ms MarkObjects: 0.214000 ms  DeleteObjects: 1.054600 ms)
+
+OVERFLOW_JUMP boosted=True effective=10 peak=6.814433 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS effective ten jump beats eight in real takeoff speed and response peak8=6.164433 peak10=6.814433 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.287400 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.165200 ms (FindLiveObjects: 0.034200 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.205600 ms  DeleteObjects: 0.916600 ms)
+
+OVERFLOW_COMBAT boosted=False drive=1.25 progress=0.2214693 contacts=30 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.306300 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.257200 ms (FindLiveObjects: 0.034000 ms CreateObjectMapping: 0.009200 ms MarkObjects: 0.208600 ms  DeleteObjects: 1.005000 ms)
+
+OVERFLOW_COMBAT boosted=True drive=1.375 progress=0.2433973 contacts=28 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS effective ten combat beats eight in actual contact thrust and contested forward progress drive8=1.25 drive10=1.375 progress8=0.2214693 progress10=0.2433973 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.285100 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.191900 ms (FindLiveObjects: 0.034100 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.206700 ms  DeleteObjects: 0.942600 ms)
+
+ABILITY PASS automatic assisted bicycle starts without input actor=Fan high/fast=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS raised instep hooks exactly once toward opposing goal with continuous ball path actor=Fan high/fast=False shots=1 gap=0.004500002 footLift=1.036829 maxStep=0.1064949 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS hook releases once, restores original collision settings and gets up smoothly actor=Fan high/fast=False turned=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.305700 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.133600 ms (FindLiveObjects: 0.043700 ms CreateObjectMapping: 0.016100 ms MarkObjects: 0.223400 ms  DeleteObjects: 0.850000 ms)
+
+ABILITY PASS automatic assisted bicycle starts without input actor=Zhao high/fast=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS raised instep hooks exactly once toward opposing goal with continuous ball path actor=Zhao high/fast=False shots=1 gap=0.004499987 footLift=1.173828 maxStep=0.1191889 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS hook releases once, restores original collision settings and gets up smoothly actor=Zhao high/fast=False turned=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.306300 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.223800 ms (FindLiveObjects: 0.034700 ms CreateObjectMapping: 0.008400 ms MarkObjects: 0.191800 ms  DeleteObjects: 0.988500 ms)
+
+ABILITY PASS ordinary formless upgrade is exactly 120 percent and applies only to owner 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS cannon route target is capped at fourteen while speed can rise to fifteen 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.308800 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.139600 ms (FindLiveObjects: 0.053200 ms CreateObjectMapping: 0.017000 ms MarkObjects: 0.228600 ms  DeleteObjects: 0.840200 ms)
+
+ABILITY PASS every shop button buys/cancels normally without displaying any skill description 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=36 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 4a54 -> priority: 1 
+  Thread -> id: 5ad0 -> priority: 1 
+  Thread -> id: 2120 -> priority: 1 
+  Thread -> id: 6314 -> priority: 1 
+  Thread -> id: 4b10 -> priority: 1 
+  Thread -> id: 8ad8 -> priority: 1 
+  Thread -> id: 9180 -> priority: 1 
+  Thread -> id: 6968 -> priority: 1 
+  Thread -> id: 8e74 -> priority: 1 
+  Thread -> id: a7c -> priority: 1 
+  Thread -> id: 84b4 -> priority: 1 
+  Thread -> id: 5fbc -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

@@ -1,0 +1,42 @@
+{
+  "backup": {
+    "path": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\backup-before-bicycle-hook-20261016-100914"
+  },
+  "githubUpdated": false,
+  "editions": [
+    {
+      "installedAt": "2026-10-16T10:11:29.7735059+08:00",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "policyHash": "E3F813060B11BC56DD15F7758D8AE20535273595B6641CB7B1F985BDAAA2A7DE",
+      "checks": 33,
+      "selfplayExempt": true,
+      "evidence": [
+        {
+          "logHash": "579CA4E381D65895A9C79E0BD8D314185746BF6C014AB85FB39703DD1BA43B00",
+          "count": 33,
+          "suite": "bicyclehook"
+        }
+      ],
+      "edition": "original",
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003",
+      "modHash": "FBB0D9C3404C5319F7153274F13D1E97073B8BFDDCF44365B4ABF9EB5A54C0F9"
+    },
+    {
+      "installedAt": "2026-10-16T10:11:29.9428590+08:00",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "policyHash": "7B4D9464E56289F273592489F06018EC3B0BD3FD4BA8D29F16F7D749D0FF7AAB",
+      "checks": 33,
+      "selfplayExempt": true,
+      "evidence": [
+        {
+          "logHash": "2B33FFCACFF657D7274C3A7D6F2D66CC36BDDC27C6AE01981AF6F08399B6CC53",
+          "count": 33,
+          "suite": "bicyclehook"
+        }
+      ],
+      "edition": "experiment",
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658",
+      "modHash": "35D3A6CE33AB6B1D85DE7B2D8B74BE0E1E5D78BF0828676DDB3E4A750FAA0816"
+    }
+  ]
+}

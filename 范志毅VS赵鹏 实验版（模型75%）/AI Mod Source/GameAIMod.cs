@@ -445,9 +445,12 @@ public static class GameAIMod
         BeginGame(0);
     }
 
+    public static void OnBallRestart(int restart){OnBallReset();SkillRework.SetKickoff(restart==2?"Fan":restart==0?"Zhao":null);}
+    public static void OnInitialKickoff(){SkillRework.ResetPossessionRound();var type=Type.GetType("Ball, Assembly-CSharp");var ball=type!=null?UnityEngine.Object.FindObjectOfType(type) as Component:null;if(ball!=null)SkillRework.SetKickoff(ball.transform.position.x<-.05f?"Fan":ball.transform.position.x>.05f?"Zhao":null);}
     public static void OnBallReset()
     {
         ballOutThisRally = false;
+        SkillRework.ResetPossessionRound();
         BallBoundaryGuard boundary = UnityEngine.Object.FindObjectOfType<BallBoundaryGuard>();
         if (boundary != null) boundary.ResetRally();
         PlayerSkills.ResetAll();

@@ -1,0 +1,352 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.722 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.599800 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.276800 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1017.
+Total: 0.491800 ms (FindLiveObjects: 0.044800 ms CreateObjectMapping: 0.009300 ms MarkObjects: 0.228900 ms  DeleteObjects: 0.208400 ms)
+
+ABILITY PASS mode ownership swaps magnetic to Fan and down intercept to Zhao; trumpet enabled mode=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.881900 ms
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 0.910100 ms (FindLiveObjects: 0.053800 ms CreateObjectMapping: 0.015500 ms MarkObjects: 0.175300 ms  DeleteObjects: 0.665400 ms)
+
+ABILITY PASS mode ownership swaps magnetic to Fan and down intercept to Zhao; trumpet enabled mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.444200 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1082.
+Total: 1.052200 ms (FindLiveObjects: 0.052700 ms CreateObjectMapping: 0.016500 ms MarkObjects: 0.308300 ms  DeleteObjects: 0.674000 ms)
+
+ABILITY PASS mode ownership swaps magnetic to Fan and down intercept to Zhao; trumpet enabled mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS cannon speed returns at +5/+10/+20 percent, caps at fifteen including fractional buffs 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS effective-stat benefits continue above eight without raising allocation limits 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS bicycle keeps two quality bands 20/80 while allocated levels remain capped at eight 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.386900 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.227100 ms (FindLiveObjects: 0.054000 ms CreateObjectMapping: 0.014000 ms MarkObjects: 0.281300 ms  DeleteObjects: 0.877200 ms)
+
+ABILITY PASS real possession activates shot/jump +2 without spending allocation points actor=Fan mode=1 contacts=1 active=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual cannon uses buffed total and capped twenty percent gain actor=Fan mode=1 ratio=1.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS opponent takes actual possession and immediately removes trumpet bonus actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS regaining possession cannot reactivate within same round actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS next actual round reset makes trumpet available again actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS special-mode Fan owns trumpet after reset 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.322100 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.023300 ms (FindLiveObjects: 0.032500 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.254400 ms  DeleteObjects: 0.728000 ms)
+
+ABILITY PASS real possession activates shot/jump +2 without spending allocation points actor=Fan mode=2 contacts=1 active=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual cannon uses buffed total and capped twenty percent gain actor=Fan mode=2 ratio=1.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS opponent takes actual possession and immediately removes trumpet bonus actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS regaining possession cannot reactivate within same round actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS next actual round reset makes trumpet available again actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS trumpet reaches ten effective shooting/jump with eight allocated actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.328000 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.221100 ms (FindLiveObjects: 0.054700 ms CreateObjectMapping: 0.015200 ms MarkObjects: 0.279600 ms  DeleteObjects: 0.871000 ms)
+
+ABILITY PASS real possession activates shot/jump +2 without spending allocation points actor=Zhao mode=2 contacts=4 active=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS actual cannon uses buffed total and capped twenty percent gain actor=Zhao mode=2 ratio=1.2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS opponent takes actual possession and immediately removes trumpet bonus actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS regaining possession cannot reactivate within same round actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS next actual round reset makes trumpet available again actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS trumpet reaches ten effective shooting/jump with eight allocated actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.322200 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1089.
+Total: 1.546400 ms (FindLiveObjects: 0.052000 ms CreateObjectMapping: 0.015800 ms MarkObjects: 0.241900 ms  DeleteObjects: 1.236200 ms)
+
+ABILITY PASS rear leader and ground magnetic stack above eight only at contact combat=11.5 jump=9.5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.276000 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.220800 ms (FindLiveObjects: 0.031100 ms CreateObjectMapping: 0.008100 ms MarkObjects: 0.195900 ms  DeleteObjects: 0.985400 ms)
+
+ABILITY PASS magnetic aerial command adds effective shot point above eight and into cannon total actor=Fan boosted=5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.304100 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.316000 ms (FindLiveObjects: 0.033000 ms CreateObjectMapping: 0.008000 ms MarkObjects: 0.255000 ms  DeleteObjects: 1.019400 ms)
+
+ABILITY PASS magnetic aerial command adds effective shot point above eight and into cannon total actor=Zhao boosted=5 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.314800 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.287100 ms (FindLiveObjects: 0.052300 ms CreateObjectMapping: 0.014000 ms MarkObjects: 0.188700 ms  DeleteObjects: 1.031700 ms)
+
+ABILITY PASS ground magnetic keeps all classic gait targets instead of slide pose actor=Fan mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS magnetic forward dribble adds twenty percent speed actor=Fan mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS real native-gait dribble remains joined and keeps ball in front actor=Fan mode=1 error=0.02579362 minAhead=-0.01774514 furthest=0.4062454 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.315000 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.351800 ms (FindLiveObjects: 0.051400 ms CreateObjectMapping: 0.015400 ms MarkObjects: 0.266500 ms  DeleteObjects: 1.018000 ms)
+
+ABILITY PASS ground magnetic keeps all classic gait targets instead of slide pose actor=Fan mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS magnetic forward dribble adds twenty percent speed actor=Fan mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS real native-gait dribble remains joined and keeps ball in front actor=Fan mode=2 error=0.09290155 minAhead=-0.0110836 furthest=0.4088545 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.296100 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.271100 ms (FindLiveObjects: 0.031500 ms CreateObjectMapping: 0.008000 ms MarkObjects: 0.195400 ms  DeleteObjects: 1.036000 ms)
+
+ABILITY PASS ground magnetic keeps all classic gait targets instead of slide pose actor=Zhao mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS magnetic forward dribble adds twenty percent speed actor=Zhao mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS real native-gait dribble remains joined and keeps ball in front actor=Zhao mode=2 error=0.06936719 minAhead=-0.0280385 furthest=0.4065442 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.323200 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.301200 ms (FindLiveObjects: 0.054600 ms CreateObjectMapping: 0.016600 ms MarkObjects: 0.204700 ms  DeleteObjects: 1.024900 ms)
+
+ABILITY PASS ordinary formless upgrade is exactly 120 percent and applies only to owner 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS cannon route target is capped at fourteen while speed can rise to fifteen 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.305900 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1085.
+Total: 1.346300 ms (FindLiveObjects: 0.033000 ms CreateObjectMapping: 0.007900 ms MarkObjects: 0.191900 ms  DeleteObjects: 1.113200 ms)
+
+ABILITY PASS every shop button buys/cancels normally without displaying any skill description 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.337500 ms
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1090.
+Total: 1.378300 ms (FindLiveObjects: 0.062400 ms CreateObjectMapping: 0.017100 ms MarkObjects: 0.227500 ms  DeleteObjects: 1.070800 ms)
+
+ABILITY PASS actual awkward lower-body contact triggers 120 percent shot actor=Fan thigh=True fired=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.389700 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1090.
+Total: 1.291100 ms (FindLiveObjects: 0.034400 ms CreateObjectMapping: 0.017000 ms MarkObjects: 0.209100 ms  DeleteObjects: 1.030300 ms)
+
+ABILITY PASS real back/torso contact cannot fire or drag a recovery shot forward actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.287900 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1090.
+Total: 1.475600 ms (FindLiveObjects: 0.053700 ms CreateObjectMapping: 0.016000 ms MarkObjects: 0.286500 ms  DeleteObjects: 1.118800 ms)
+
+ABILITY PASS automatic assisted bicycle starts without input actor=Fan high/fast=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS raised instep hooks exactly once toward opposing goal with continuous ball path actor=Fan high/fast=False shots=1 gap=0.004500002 footLift=1.044434 maxStep=0.1058584 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS hook releases once, restores original collision settings and gets up smoothly actor=Fan high/fast=False turned=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.320600 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1090.
+Total: 1.513300 ms (FindLiveObjects: 0.093200 ms CreateObjectMapping: 0.015800 ms MarkObjects: 0.198100 ms  DeleteObjects: 1.205600 ms)
+
+ABILITY PASS automatic assisted bicycle starts without input actor=Fan high/fast=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS raised instep hooks exactly once toward opposing goal with continuous ball path actor=Fan high/fast=True shots=1 gap=0.004500017 footLift=1.017767 maxStep=0.1294671 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS hook releases once, restores original collision settings and gets up smoothly actor=Fan high/fast=True turned=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.324900 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1090.
+Total: 1.322800 ms (FindLiveObjects: 0.033100 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.194800 ms  DeleteObjects: 1.086000 ms)
+
+ABILITY PASS real goal blocks new bicycle and armed shot even while movement is not stopped actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.296700 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1090.
+Total: 1.335700 ms (FindLiveObjects: 0.035300 ms CreateObjectMapping: 0.007800 ms MarkObjects: 0.197300 ms  DeleteObjects: 1.095100 ms)
+
+ABILITY PASS actual awkward lower-body contact triggers 120 percent shot actor=Zhao thigh=True fired=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.316000 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1090.
+Total: 1.363800 ms (FindLiveObjects: 0.055400 ms CreateObjectMapping: 0.009900 ms MarkObjects: 0.189200 ms  DeleteObjects: 1.108700 ms)
+
+ABILITY PASS real back/torso contact cannot fire or drag a recovery shot forward actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.329300 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1090.
+Total: 1.228500 ms (FindLiveObjects: 0.038600 ms CreateObjectMapping: 0.009000 ms MarkObjects: 0.219200 ms  DeleteObjects: 0.961300 ms)
+
+ABILITY PASS automatic assisted bicycle starts without input actor=Zhao high/fast=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS raised instep hooks exactly once toward opposing goal with continuous ball path actor=Zhao high/fast=False shots=1 gap=0.004499987 footLift=1.175802 maxStep=0.1179487 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS hook releases once, restores original collision settings and gets up smoothly actor=Zhao high/fast=False turned=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.302300 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1090.
+Total: 1.267100 ms (FindLiveObjects: 0.033600 ms CreateObjectMapping: 0.008200 ms MarkObjects: 0.195400 ms  DeleteObjects: 1.029700 ms)
+
+ABILITY PASS automatic assisted bicycle starts without input actor=Zhao high/fast=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS raised instep hooks exactly once toward opposing goal with continuous ball path actor=Zhao high/fast=True shots=1 gap=0.004500017 footLift=1.139316 maxStep=0.1200027 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS hook releases once, restores original collision settings and gets up smoothly actor=Zhao high/fast=True turned=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.283100 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1090.
+Total: 1.215300 ms (FindLiveObjects: 0.030500 ms CreateObjectMapping: 0.007700 ms MarkObjects: 0.195600 ms  DeleteObjects: 0.981400 ms)
+
+ABILITY PASS real goal blocks new bicycle and armed shot even while movement is not stopped actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=57 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 970 -> priority: 1 
+  Thread -> id: 8640 -> priority: 1 
+  Thread -> id: cf4 -> priority: 1 
+  Thread -> id: 32bc -> priority: 1 
+  Thread -> id: 1128 -> priority: 1 
+  Thread -> id: 356c -> priority: 1 
+  Thread -> id: 26d0 -> priority: 1 
+  Thread -> id: 6630 -> priority: 1 
+  Thread -> id: 7b28 -> priority: 1 
+  Thread -> id: 6540 -> priority: 1 
+  Thread -> id: 33e4 -> priority: 1 
+  Thread -> id: 77dc -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

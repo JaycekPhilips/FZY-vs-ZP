@@ -104,14 +104,14 @@ public sealed class PlayerSkills : MonoBehaviour
     private float burstFloorHeight;
     private float lastMovementFx = -10f;
     private int lastMovementSkill = -1;
-    private readonly float[] effects = { -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f };
-    private static readonly string[] names = { "旋风盘带", "炮弹式头球", "空中堡垒", "强力抢断", "后防领袖", "弧线落叶射门", "紧急回防", "进攻提速", "磁力脚", "伸脚抢截", "无定形射门" };
+    private readonly float[] effects = { -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f, -10f };
+    private static readonly string[] names = { "旋风盘带", "炮弹式头球", "空中堡垒", "强力抢断", "后防领袖", "弧线落叶射门", "紧急回防", "进攻提速", "磁力脚", "伸脚抢截", "无定形射门", "进攻号手" };
     private static readonly Color[] colors = {
         new Color(1f, .76f, .12f), new Color(1f, .36f, .12f),
         new Color(.25f, .83f, 1f), new Color(.4f, 1f, .3f),
         new Color(1f, .93f, .3f), new Color(.87f, .45f, 1f),
         new Color(.2f, .95f, 1f), new Color(1f, .6f, .15f),
-        new Color(1f, .45f, .65f), new Color(.3f, .8f, 1f),new Color(1f,.85f,.55f)
+        new Color(1f, .45f, .65f), new Color(.3f, .8f, 1f),new Color(1f,.85f,.55f),new Color(1f,.65f,.15f)
     };
 
     // A rearward movement command starts one bounded rescue attempt. Steering
@@ -553,6 +553,7 @@ public sealed class PlayerSkills : MonoBehaviour
         if(AbilityMode.Enabled||!Enabled||player==null||player.name!="Zhao")return;var skills=player.GetComponent<PlayerSkills>();
         if(skills!=null&&!skills.Stopped()&&Time.time-skills.effects[4]>=.55f)skills.effects[4]=Time.time;
     }
+    public static void ShowPassive(Component p,int index){if(p==null||!SkillRework.Has(p,index))return;if(AbilityMode.Enabled){AbilityMode.ShowSkill(p,index);return;}var s=p.GetComponent<PlayerSkills>();if(s!=null&&!s.Stopped()&&Time.time-s.effects[index]>=.55f)s.effects[index]=Time.time;}
     public static void ShowFormless(Component p){if(AbilityMode.Enabled)AbilityMode.ShowSkill(p,10);else {var s=p.GetComponent<PlayerSkills>();if(s!=null)s.effects[10]=Time.time;}}
     private void Show(int index)
     {
@@ -592,7 +593,7 @@ public sealed class PlayerSkills : MonoBehaviour
             if (headUntil >= now && HeadReachable())
             {
                 float speed = Mathf.Clamp(Mathf.Max(13f, ball.velocity.magnitude * 1.55f), 13f, 19f);
-                Vector2 target = CannonVelocity(direction,ball.velocity);
+                Vector2 target = SkillRework.NativeCannon(controller,ball.velocity);
                 EnableContinuousBall();
                 ball.AddForce((target - ball.velocity) * ball.mass, ForceMode2D.Impulse);
                 CancelCurves();
@@ -1231,11 +1232,11 @@ public sealed class PlayerSkills : MonoBehaviour
     public static bool CanQuickDrop(Component player)
     {
         PlayerSkills skills = player != null ? player.GetComponent<PlayerSkills>() : null;
-        return skills != null && skills.fan && !skills.Stopped() && !DownIntercept.Active(player) && !skills.TouchesGround() &&
+        return skills != null && SkillRework.Has(player,9) && !skills.Stopped() && !DownIntercept.Active(player) && !skills.TouchesGround() &&
             skills.DropClearance() > .18f;
     }
 
-    public static void FootIntercept(Component player){PlayerSkills s=player!=null?player.GetComponent<PlayerSkills>():null;if(s!=null&&s.fan&&!s.Stopped())s.Show(9);}
+    public static void FootIntercept(Component player){PlayerSkills s=player!=null?player.GetComponent<PlayerSkills>():null;if(s!=null&&SkillRework.Has(player,9)&&!s.Stopped())s.Show(9);}
 
     private float DropClearance()
     {
@@ -1359,7 +1360,7 @@ public sealed class PlayerSkills : MonoBehaviour
             float progress = age / .8f;
             Color color = colors[index];
             color.a = 1f - progress * progress;
-            Vector3 anchor = index == 8 ? MagneticFoot.VisualAnchor(controller) : index == 1 ? head.position : index == 2 || index == 3 || index == 4 || index == 10 || index == 5 || index == 6 || index == 7 || index == 9 ? (Vector3)body.position :
+            Vector3 anchor = index == 8 ? MagneticFoot.VisualAnchor(controller) : index == 1 ? head.position : index == 2 || index == 3 || index == 4 || index == 10 || index == 11 || index == 5 || index == 6 || index == 7 || index == 9 ? (Vector3)body.position :
                 (foot != null ? foot.position + Vector3.up * .3f : (Vector3)body.position);
             Vector3 projected = camera.WorldToScreenPoint(anchor);
             if (projected.z <= 0f) continue;
@@ -1400,6 +1401,7 @@ public sealed class PlayerSkills : MonoBehaviour
                     Line(top, top + new Vector2(-7f, 10f) * scale, 3f * scale);
                     Line(top, top + new Vector2(7f, 10f) * scale, 3f * scale);
                 }
+            if(index==11){Line(center+new Vector2(-direction*20f,-6f)*scale,center+new Vector2(direction*20f,-16f)*scale,3f*scale);Line(center+new Vector2(-direction*20f,6f)*scale,center+new Vector2(direction*20f,16f)*scale,3f*scale);Line(center+new Vector2(direction*20f,-16f)*scale,center+new Vector2(direction*20f,16f)*scale,3f*scale);}
             if(index==4){Vector2 top=center+new Vector2(0,-32f)*scale;Line(top,center+new Vector2(25f,5f)*scale,3f*scale);Line(top,center+new Vector2(-25f,5f)*scale,3f*scale);Line(center+new Vector2(-25f,5f)*scale,center+new Vector2(0,30f)*scale,3f*scale);Line(center+new Vector2(25f,5f)*scale,center+new Vector2(0,30f)*scale,3f*scale);}
             if (index == 5)
                 for (int part = 0; part < 24; part++)
@@ -1541,10 +1543,10 @@ public sealed class LeafShotProfile
     {ball=football;ballCollider=shape;direction=facing;groundMask=mask;power=strength;Prepare(goal);}
     public LeafShotProfile(Rigidbody2D football,Collider2D shape,Collider2D goal,float facing,int mask,float strength,int level):this(football,shape,goal,facing,mask,1f)
     {
-        shootingLevel=Mathf.Clamp(level,0,AbilityMode.MaxLevel);if(shootingLevel==4)return;
+        shootingLevel=Mathf.Max(0,level);if(shootingLevel==4)return;
         float radius=ballCollider.bounds.extents.y,scale=Mathf.Max(.25f,radius/.2f),floor=BallBoundaryGuard.FindGoalFloor(goal),bar=BallBoundaryGuard.FindGoalCeiling(goal);
         pace=AbilityMode.LeafSpeed(shootingLevel);curveForwardSpeed*=pace;curveTravelTime/=pace;
-        float mastery=shootingLevel/8f;correction=Mathf.Lerp(2.5f,13f,mastery);
+        float mastery=shootingLevel/8f;correction=2.5f+10.5f*mastery;
         float ceiling=curveOrigin.y+FanVolleyArcHeight;
         foreach(var hit in Physics2D.RaycastAll(curveOrigin+Vector2.up*.05f,Vector2.up,30f,groundMask))if(hit.collider!=null&&hit.collider!=ballCollider&&!hit.collider.isTrigger&&hit.normal.y<-.5f&&hit.collider.transform.root.name!="Fan"&&hit.collider.transform.root.name!="Zhao"){ceiling=hit.point.y-radius-.2f;break;}
         float available=Mathf.Max(0,ceiling-Mathf.Max(curveOrigin.y,bar-radius));
@@ -1703,7 +1705,7 @@ public sealed class DownIntercept : MonoBehaviour {
     CollisionDetectionMode2D[] savedModes;readonly RaycastHit2D[] groundHits=new RaycastHit2D[24];
     public static void Attach(Component p){if(p!=null&&p.GetComponent<DownIntercept>()==null)p.gameObject.AddComponent<DownIntercept>().Initialize(p);}
     public static void RescaleStanding(Component p,float factor){DownIntercept d=p!=null?p.GetComponent<DownIntercept>():null;if(d!=null)d.scale*=factor;}
-    public static bool HasSkill(Component p){return AbilityMode.Enabled?AbilityMode.Has(p,9):PlayerSkills.Enabled&&p!=null&&p.name=="Fan";}
+    public static bool HasSkill(Component p){return AbilityMode.Enabled?AbilityMode.Has(p,9):PlayerSkills.Enabled&&SkillRework.Has(p,9);}
     public static bool Active(Component p){DownIntercept d=p!=null?p.GetComponent<DownIntercept>():null;return d!=null&&d.active&&!d.Stopped();}
     public static void ResetAll(){foreach(var d in UnityEngine.Object.FindObjectsOfType<DownIntercept>()){d.End();d.lastPress=-10f;}}
     void Initialize(Component p){player=p;Type t=p.GetType();body=(Rigidbody2D)t.GetField("rb").GetValue(p);animator=(Animator)t.GetField("anim").GetValue(p);grounded=t.GetField("isOnGround");mask=(int)(LayerMask)t.GetField("ground").GetValue(p);limbs=p.GetComponentsInChildren<Rigidbody2D>();shapes=p.GetComponentsInChildren<Collider2D>();savedModes=new CollisionDetectionMode2D[limbs.Length];foreach(var b in limbs)mass+=b.mass;scale=Mathf.Max(.1f,Mathf.Abs(p.transform.lossyScale.x)/.8f);manager=UnityEngine.Object.FindObjectOfType(t.Assembly.GetType("GameManager")) as Component;if(manager!=null)stopping=manager.GetType().GetField("isStopping");}
@@ -1714,7 +1716,7 @@ public sealed class DownIntercept : MonoBehaviour {
     Vector2 RigVelocity(){Vector2 v=Vector2.zero;foreach(var b in limbs)if(b!=null)v+=b.velocity*b.mass;return v/Mathf.Max(.001f,mass);}
     void End(){if(active)for(int i=0;i<limbs.Length;i++)if(limbs[i]!=null)limbs[i].collisionDetectionMode=savedModes[i];active=false;referenceSpeed=0;}
     void Show(){if(AbilityMode.Enabled){var b=player.GetComponent<BuildPlayer>();if(b!=null)b.FootIntercept();}else if(HasSkill(player))PlayerSkills.FootIntercept(player);}
-    void Update(){if(Stopped()){End();return;}if(active||!GameAIMod.GetDownCommand(player)||Ground())return;lastPress=Time.time;referenceSpeed=Mathf.Max(0,-RigVelocity().y);multiplier=HasSkill(player)?6f:1.5f;startedAt=Time.time;active=true;for(int i=0;i<limbs.Length;i++){savedModes[i]=limbs[i].collisionDetectionMode;limbs[i].collisionDetectionMode=CollisionDetectionMode2D.Continuous;}PlayerMovement.NotifyAction(player);Show();}
+    void Update(){if(Stopped()){End();return;}if(active||!GameAIMod.GetDownCommand(player)||Ground())return;lastPress=Time.time;referenceSpeed=Mathf.Max(0,-RigVelocity().y);multiplier=HasSkill(player)?6f:3f;startedAt=Time.time;active=true;for(int i=0;i<limbs.Length;i++){savedModes[i]=limbs[i].collisionDetectionMode;limbs[i].collisionDetectionMode=CollisionDetectionMode2D.Continuous;}PlayerMovement.NotifyAction(player);Show();}
     void FixedUpdate(){
         if(!active)return;if(Stopped()||Ground()){End();return;}
         float gravity=0,drag=0;foreach(var b in limbs)if(b!=null){gravity+=b.mass*b.gravityScale;drag+=b.mass*b.drag;}gravity=Mathf.Max(0,-Physics2D.gravity.y*gravity/Mathf.Max(.001f,mass));drag/=Mathf.Max(.001f,mass);float dt=Time.fixedDeltaTime;

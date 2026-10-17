@@ -1,0 +1,42 @@
+{
+  "backup": {
+    "path": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\.work\\backup-before-attack-trumpet-20261017-123443"
+  },
+  "githubUpdated": false,
+  "editions": [
+    {
+      "modHash": "D922574BA135B135E1954849414C7D79D8EBBBB1457C925A6919DC381C20809C",
+      "gameAssemblyHash": "87B15BB2650CE611A5AC22B5ACFA45847FAD2441F457DD07DA233629A547B003",
+      "policyHash": "98A7E53ACFC7C2F9194B5B60216753D3C95A55C278C3D70B80C6231952D8F55D",
+      "edition": "original",
+      "installedAt": "2026-10-17T12:44:59.1300722+08:00",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 PC双人版（32位）\\范志毅VS赵鹏 PC双人版（32位）",
+      "checks": 57,
+      "evidence": [
+        {
+          "suite": "attacktrumpet",
+          "count": 57,
+          "logHash": "3F0E39CCE15A5012C9ED3183F024866341C6D31416348EDAA2DAABEC15B94BFD"
+        }
+      ],
+      "selfplayExempt": true
+    },
+    {
+      "modHash": "7CB712BD12AF54F839EFFF5978DA98BCB9DE11150FD0DD14BA8818EF36BDCD8D",
+      "gameAssemblyHash": "6125CA2DD3090AF3E17CA2BA8D93E16E6C39CB78F87EF1AF304E9C23698DC658",
+      "policyHash": "D878ECCFA5D066D005B380466A52ADB7A32C337A9A15EDC9E831BBEC0B4528E5",
+      "edition": "experiment",
+      "installedAt": "2026-10-17T12:44:59.3287152+08:00",
+      "game": "C:\\Users\\Alienware\\Documents\\范志毅VS赵鹏\\范志毅VS赵鹏 实验版（模型75%）",
+      "checks": 57,
+      "evidence": [
+        {
+          "suite": "attacktrumpet",
+          "count": 57,
+          "logHash": "5E83AEEE942A5717EFFD29CF0BE5FEF8DF03FC03E3C649880157A5D7F779FCE7"
+        }
+      ],
+      "selfplayExempt": true
+    }
+  ]
+}

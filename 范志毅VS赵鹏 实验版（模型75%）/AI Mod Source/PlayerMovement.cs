@@ -155,7 +155,7 @@ public sealed class PlayerMovement : MonoBehaviour
         if(animator!=null&&(PlayerSkills.RescueActive(controller)||PlayerSkills.RescueRecovering(controller)||BuildPlayer.Rescuing(controller))&&(bool)groundField.GetValue(controller)&&Mathf.Abs(body.velocity.x)>.3f&&Time.time>=actionProtectionUntil)animator.SetFloat("Horizontal",Mathf.Sign(body.velocity.x));
         PlayerSkills.NotifyMovement(controller, input);
         if (animator == null || Mathf.Abs(input) <= .1f || Time.time < actionProtectionUntil) { RestoreCadence(); return; }
-        float sprint = PlayerSkills.GetMovementSkillMultiplier(controller,input)*AbilityMode.Movement(controller,input);
+        float sprint = PlayerSkills.GetMovementSkillMultiplier(controller,input)*AbilityMode.Movement(controller,input)*MagneticFoot.MovementMultiplier(controller,input);
         bool retreat=input*(fan?1f:-1f)<-.1f;if(retreat)sprint=Mathf.Max(1f,sprint);
         if (fan && sprint <= 1f&&!retreat) { RestoreCadence(); return; }
         List<AnimatorClipInfo> clips = CurrentClips();

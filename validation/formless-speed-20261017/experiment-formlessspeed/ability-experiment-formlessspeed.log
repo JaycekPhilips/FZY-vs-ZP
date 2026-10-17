@@ -1,0 +1,190 @@
+Mono path[0] = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/Managed'
+Mono config path = 'C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/MonoBleedingEdge/etc'
+AS: AutoStreaming module initializing.Initialize engine version: 2019.4.33f1c1 (c2f94a8bebb3)
+[Subsystems] Discovering subsystems at path C:/Users/Alienware/Documents/范志毅VS赵鹏/范志毅VS赵鹏 PC双人版（32位）/范志毅VS赵鹏 PC双人版（32位）/AI Mod Source/build/ability-test-player-experiment/FanZhiYi_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d58)
+    Vendor:   (null)
+    VRAM:     3072 MB
+    Driver:   32.0.15.9608
+Begin MonoManager ReloadAssembly
+- Completed reload, in  1.812 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.849400 ms
+ABILITY PASS poor/good quality remains twenty/eighty with no middle band 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.175000 ms
+
+Unloading 143 unused Assets to reduce memory usage. Loaded Objects now: 1017.
+Total: 0.697800 ms (FindLiveObjects: 0.067300 ms CreateObjectMapping: 0.011700 ms MarkObjects: 0.255700 ms  DeleteObjects: 0.362600 ms)
+
+ABILITY PASS ordinary formless boost preserves incoming direction and adds exactly twenty percent without corner aim mode=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.131100 ms
+
+Unloading 37 unused Assets to reduce memory usage. Loaded Objects now: 1080.
+Total: 1.127100 ms (FindLiveObjects: 0.061400 ms CreateObjectMapping: 0.016800 ms MarkObjects: 0.276600 ms  DeleteObjects: 0.771600 ms)
+
+ABILITY PASS ordinary formless boost preserves incoming direction and adds exactly twenty percent without corner aim mode=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.477200 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1082.
+Total: 0.972600 ms (FindLiveObjects: 0.035100 ms CreateObjectMapping: 0.009400 ms MarkObjects: 0.209000 ms  DeleteObjects: 0.718800 ms)
+
+ABILITY PASS ordinary formless boost preserves incoming direction and adds exactly twenty percent without corner aim mode=2 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.345400 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.111200 ms (FindLiveObjects: 0.030800 ms CreateObjectMapping: 0.007400 ms MarkObjects: 0.213800 ms  DeleteObjects: 0.858600 ms)
+
+ABILITY PASS actual awkward lower-body contact triggers 120 percent shot actor=Fan thigh=True fired=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.379600 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 0.970700 ms (FindLiveObjects: 0.031500 ms CreateObjectMapping: 0.008000 ms MarkObjects: 0.187000 ms  DeleteObjects: 0.743900 ms)
+
+ABILITY PASS actual bicycle applies formless 1.2 exactly once and quality multiplier actor=Fan poor=True finalRatio=0.9600001 expected=0.96 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS both quality bands retain raised instep hook and goalward release actor=Fan poor=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS single release, original collisions and smooth recovery after quality change actor=Fan poor=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.277100 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.138800 ms (FindLiveObjects: 0.060400 ms CreateObjectMapping: 0.008900 ms MarkObjects: 0.182900 ms  DeleteObjects: 0.886300 ms)
+
+ABILITY PASS actual bicycle applies formless 1.2 exactly once and quality multiplier actor=Fan poor=False finalRatio=1.44 expected=1.44 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS both quality bands retain raised instep hook and goalward release actor=Fan poor=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS single release, original collisions and smooth recovery after quality change actor=Fan poor=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.279200 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.178300 ms (FindLiveObjects: 0.030700 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.273400 ms  DeleteObjects: 0.865200 ms)
+
+ABILITY PASS real back/torso contact cannot fire or drag a recovery shot forward actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.323900 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.145900 ms (FindLiveObjects: 0.032500 ms CreateObjectMapping: 0.016100 ms MarkObjects: 0.188100 ms  DeleteObjects: 0.909000 ms)
+
+ABILITY PASS real goal blocks new bicycle and armed shot even while movement is not stopped actor=Fan 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.265500 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.045400 ms (FindLiveObjects: 0.030200 ms CreateObjectMapping: 0.007800 ms MarkObjects: 0.232300 ms  DeleteObjects: 0.774700 ms)
+
+ABILITY PASS actual awkward lower-body contact triggers 120 percent shot actor=Zhao thigh=True fired=1 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.295200 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.049200 ms (FindLiveObjects: 0.054600 ms CreateObjectMapping: 0.009400 ms MarkObjects: 0.179300 ms  DeleteObjects: 0.805200 ms)
+
+ABILITY PASS actual bicycle applies formless 1.2 exactly once and quality multiplier actor=Zhao poor=True finalRatio=0.9600001 expected=0.96 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS both quality bands retain raised instep hook and goalward release actor=Zhao poor=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS single release, original collisions and smooth recovery after quality change actor=Zhao poor=True 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.289700 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.158000 ms (FindLiveObjects: 0.032700 ms CreateObjectMapping: 0.008700 ms MarkObjects: 0.188400 ms  DeleteObjects: 0.928000 ms)
+
+ABILITY PASS actual bicycle applies formless 1.2 exactly once and quality multiplier actor=Zhao poor=False finalRatio=1.44 expected=1.44 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS both quality bands retain raised instep hook and goalward release actor=Zhao poor=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY PASS single release, original collisions and smooth recovery after quality change actor=Zhao poor=False 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.287800 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.081800 ms (FindLiveObjects: 0.041000 ms CreateObjectMapping: 0.007500 ms MarkObjects: 0.186500 ms  DeleteObjects: 0.846200 ms)
+
+ABILITY PASS real back/torso contact cannot fire or drag a recovery shot forward actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.276900 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.194000 ms (FindLiveObjects: 0.029800 ms CreateObjectMapping: 0.015600 ms MarkObjects: 0.285200 ms  DeleteObjects: 0.862900 ms)
+
+ABILITY PASS real goal blocks new bicycle and armed shot even while movement is not stopped actor=Zhao 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.280000 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1084.
+Total: 1.049100 ms (FindLiveObjects: 0.051500 ms CreateObjectMapping: 0.008800 ms MarkObjects: 0.184300 ms  DeleteObjects: 0.804000 ms)
+
+ABILITY PASS every shop button buys/cancels normally without displaying any skill description 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+ABILITY COMPLETE checks=23 failures=0 
+(Filename: E:\unity\Runtime/Export/Debug/Debug.bindings.h Line: 39)
+
+Setting up 12 worker threads for Enlighten.
+  Thread -> id: 5420 -> priority: 1 
+  Thread -> id: eb4 -> priority: 1 
+  Thread -> id: 55e4 -> priority: 1 
+  Thread -> id: 1178 -> priority: 1 
+  Thread -> id: 3b04 -> priority: 1 
+  Thread -> id: 7cd4 -> priority: 1 
+  Thread -> id: 1660 -> priority: 1 
+  Thread -> id: 68c8 -> priority: 1 
+  Thread -> id: 8054 -> priority: 1 
+  Thread -> id: 75cc -> priority: 1 
+  Thread -> id: 1734 -> priority: 1 
+  Thread -> id: 2c94 -> priority: 1 
+Curl error 42: Callback aborted
+ 
+(Filename:  Line: 867)
+

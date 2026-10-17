@@ -14,7 +14,7 @@ public sealed class MagneticFoot : MonoBehaviour
     private Rigidbody2D body, ball;
     private Rigidbody2D[] physicalLimbs; private float nativeSpeed;
     private Collider2D ballCollider;
-    private FieldInfo stopping, bodyTargetField;
+    private FieldInfo stopping, bodyTargetField,groundedField;
     private readonly List<AnimatorClipInfo> clips = new List<AnimatorClipInfo>(4);
     private Leg[] legs;
     private float direction;
@@ -37,12 +37,12 @@ public sealed class MagneticFoot : MonoBehaviour
     public static void Attach(Component player,bool forShot=false)
     {
         if(player==null||player.GetComponent<MagneticFoot>()!=null)return;
-        if(!forShot&&((!PlayerSkills.Enabled&&!AbilityMode.Has(player,8)&&!Passive(player))||(player.name!="Zhao"&&!AbilityMode.Has(player,8)&&!Passive(player))))return;
+        if(!forShot&&!SkillRework.Has(player,8)&&!Passive(player))return;
         MagneticFoot skill = player.gameObject.AddComponent<MagneticFoot>();
         skill.controller = player; skill.direction = player.name=="Fan"?1f:-1f;
         Type pt = player.GetType(), st = pt.Assembly.GetType("StickManController");
         skill.stick = player.GetComponent(st);
-        skill.bodyTargetField = st.GetField("body");
+        skill.bodyTargetField = st.GetField("body");skill.groundedField=pt.GetField("isOnGround");
         skill.body = pt.GetField("rb").GetValue(player) as Rigidbody2D;
         skill.physicalLimbs = player.GetComponentsInChildren<Rigidbody2D>(); skill.nativeSpeed = (float)pt.GetField("maxVelocity").GetValue(player);
         skill.animator = pt.GetField("anim").GetValue(player) as Animator;
@@ -89,11 +89,12 @@ public sealed class MagneticFoot : MonoBehaviour
     public static float MovementMultiplier(Component player, float input)
     {
         MagneticFoot skill = player != null ? player.GetComponent<MagneticFoot>() : null;
-        if (skill == null || Passive(player) || !skill.Active || input * skill.direction <= .1f || !skill.Eligible()) return 1f;
-        // Match Fan's ordinary forward speed while magnetic foot owns the
-        // feet. Its short control pose remains independent of the speed cap.
-        return skill.direction < 0f ? 1f / PlayerMovement.ZhaoForwardMultiplier : 1f;
+        return skill!=null&&skill.Carrying(input)?1.2f:1f;
     }
+    bool Carrying(float input){if(!SkillRework.Has(controller,8)||input*direction<=.1f||ball==null||Time.timeScale<=0||Time.time<protectedUntil||!(bool)groundedField.GetValue(controller)||(manager!=null&&(bool)stopping.GetValue(manager)))return false;
+        float scale=Mathf.Abs(transform.lossyScale.x)/.8f,ahead=direction*(ball.position.x-body.position.x);var floor=GameObject.Find("Down").GetComponent<Collider2D>();return ahead>=-.1f*scale&&ahead<=1.5f*scale&&ball.position.y<floor.bounds.max.y+.7f*scale&&(ball.velocity-body.velocity).magnitude<12f*scale;
+    }
+    public static void CushionGroundContact(Collision2D c){if(c==null||c.collider==null||!SkillRework.LowerBody(c.collider))return;var s=c.collider.GetComponentInParent<MagneticFoot>();if(s==null||!s.Carrying(GameAIMod.GetAxis(s.controller.name=="Fan"?"Horizontal":"Horizontal2",s.controller)))return;float scale=Mathf.Abs(s.transform.lossyScale.x)/.8f,run=Mathf.Max(0,s.direction*s.body.velocity.x),forward=s.direction*s.ball.velocity.x,target=Mathf.Clamp(forward,run*.85f,run+1.5f*scale);s.ball.AddForce(Vector2.right*(s.direction*target-s.ball.velocity.x)*s.ball.mass,ForceMode2D.Impulse);}
     public static Vector3 VisualAnchor(Component player)
     {
         MagneticFoot skill=player!=null?player.GetComponent<MagneticFoot>():null;
@@ -188,6 +189,11 @@ public sealed class MagneticFoot : MonoBehaviour
         MagneticFoot skill=stick != null ? stick.GetComponent<MagneticFoot>() : null;
         if(skill==null)return;
         if(skill.AerialEligible()){skill.Release();skill.aerialPose=true;skill.Pose(skill.legs[0],skill.ball.position+skill.ball.velocity*.025f-Vector2.right*skill.direction*skill.ballCollider.bounds.extents.x*.7f);skill.aerialPose=false;PlayerSkills.ShowMagneticFoot(skill.controller);return;}
+        if(SkillRework.Has(skill.controller,8)){
+            skill.Release();if(!skill.Carrying(GameAIMod.GetAxis(skill.controller.name=="Fan"?"Horizontal":"Horizontal2",skill.controller)))return;skill.Active=true;
+            foreach(var leg in skill.legs){leg.lastUpperGain=leg.upperGain*1.12f;leg.lastLowerGain=leg.lowerGain*1.12f;leg.controlledGains=true;leg.force.SetValue(leg.upperMuscle,leg.lastUpperGain);leg.force.SetValue(leg.lowerMuscle,leg.lastLowerGain);}
+            if(Time.time-skill.lastEffect>.55f){PlayerSkills.ShowMagneticFoot(skill.controller);skill.lastEffect=Time.time;}return;
+        }
         if(!skill.Eligible()){skill.Release();return;}
         skill.Active=true;
         float radius=skill.ballCollider.bounds.extents.x;
@@ -215,7 +221,7 @@ public sealed class MagneticFoot : MonoBehaviour
         }
         if(legs!=null)foreach(Leg leg in legs)leg.controlledGains=false;Active=false;
     }
-    void Update(){if(!Eligible())Release();}
+    void Update(){if(SkillRework.Has(controller,8)){if(!Carrying(GameAIMod.GetAxis(controller.name=="Fan"?"Horizontal":"Horizontal2",controller)))Release();}else if(!Eligible())Release();}
     void FixedUpdate()
     {
         if(!Eligible())
