@@ -80,6 +80,70 @@ internal static class PatchGame
         il.InsertAfter(load, multiply);
     }
 
+    private static void SilenceKickSound(ModuleDefinition game)
+    {
+        MethodDefinition collision = FindMethod(FindType(game, "Ball"), "OnCollisionEnter2D");
+        bool namesKickSound = false;
+        int soundCalls = 0;
+        ILProcessor il = collision.Body.GetILProcessor();
+        foreach (Instruction instruction in new List<Instruction>(collision.Body.Instructions))
+        {
+            if (instruction.OpCode == OpCodes.Ldstr && instruction.Operand as string == "踢球声")
+                namesKickSound = true;
+            MethodReference called = instruction.Operand as MethodReference;
+            if (called == null || called.DeclaringType.Name != "AudioMgr" || called.Name != "PlaySound") continue;
+            instruction.OpCode = OpCodes.Pop;
+            instruction.Operand = null;
+            Instruction last = instruction;
+            for (int i = 0; i < 3; i++)
+            {
+                Instruction pop = il.Create(OpCodes.Pop);
+                il.InsertAfter(last, pop);
+                last = pop;
+            }
+            soundCalls++;
+        }
+        if (!namesKickSound || soundCalls != 1)
+            throw new InvalidOperationException("Unexpected Ball kick sound call count: " + soundCalls);
+        Console.WriteLine("Original kick sound silenced");
+    }
+
+    private static void ReplaceBackgroundMusic(ModuleDefinition game, ModuleDefinition ai)
+    {
+        TypeDefinition audio = FindType(game, "AudioMgr");
+        MethodReference startMusic = game.ImportReference(FindMethod(FindType(ai, "GameAIMod"), "PrepareReplacementMusic"));
+        MethodReference setVolume = game.ImportReference(FindMethod(FindType(ai, "GameAIMod"), "SetReplacementMusicVolume"));
+        int replaced = 0;
+        foreach (MethodDefinition method in audio.Methods)
+        {
+            if (method.Name != "PlayBKMusic") continue;
+            method.Body.Instructions.Clear();
+            method.Body.ExceptionHandlers.Clear();
+            method.Body.Variables.Clear();
+            method.Body.InitLocals = false;
+            ILProcessor musicIl = method.Body.GetILProcessor();
+            musicIl.Append(musicIl.Create(OpCodes.Call, startMusic));
+            musicIl.Append(musicIl.Create(OpCodes.Ret));
+            replaced++;
+        }
+        if (replaced != 2) throw new InvalidOperationException("Unexpected background music overload count: " + replaced);
+
+        MethodDefinition changeVolume = FindMethod(audio, "ChangeBKValue");
+        int volumeHooks = 0;
+        ILProcessor volumeIl = changeVolume.Body.GetILProcessor();
+        foreach (Instruction instruction in new List<Instruction>(changeVolume.Body.Instructions))
+        {
+            FieldReference field = instruction.Operand as FieldReference;
+            if (instruction.OpCode != OpCodes.Stfld || field == null || field.Name != "bkValue") continue;
+            Instruction load = volumeIl.Create(OpCodes.Ldarg_1);
+            Instruction call = volumeIl.Create(OpCodes.Call, setVolume);
+            volumeIl.InsertAfter(instruction, load);
+            volumeIl.InsertAfter(load, call);
+            volumeHooks++;
+        }
+        if (volumeHooks != 1) throw new InvalidOperationException("Unexpected background music volume field count: " + volumeHooks);
+        Console.WriteLine("Both original background music entry points replaced");
+    }
     private static void SilenceMovementDebugLog(MethodDefinition fixedUpdate)
     {
         int count = 0;
@@ -320,6 +384,8 @@ internal static class PatchGame
             ILProcessor initialIl=initialKickoffStart.Body.GetILProcessor();
             foreach(Instruction instruction in new List<Instruction>(initialKickoffStart.Body.Instructions))if(instruction.OpCode==OpCodes.Ret)initialIl.InsertBefore(instruction,initialIl.Create(OpCodes.Call,game.ImportReference(FindMethod(aiType,"OnInitialKickoff"))));
             FixBallSound(game);
+            SilenceKickSound(game);
+            ReplaceBackgroundMusic(game, ai);
             game.Write(args[2]);
             Console.WriteLine("Patched input calls: " + (updateCalls + fixedCalls) + "; menu hook: " + returns + "; reset hook: " + resetReturns + "; ball volume: fixed");
         }

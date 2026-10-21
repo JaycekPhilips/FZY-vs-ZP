@@ -2,8 +2,8 @@
     {
         "edition": "original",
         "archive": "downloads/fzy-vs-zp-original-win32.zip",
-        "archiveBytes": 28085343,
-        "archiveSha256": "5fb3ba1adf1bc5b668c6fa0df82beae1e8f3408b2313126fabb80e25cafcd64f",
+        "archiveBytes": 30791234,
+        "archiveSha256": "9b3b40f4c26a621bbf2ec1beb9896b82944ab2eb037e69cf700e0f4b03f60e6f",
         "files": [
             {
                 "path": "FanZhiYi.exe",
@@ -42,8 +42,8 @@
             },
             {
                 "path": "AI Mod Source/Assembly-CSharp.patched.dll",
-                "bytes": 42496,
-                "sha256": "b2b26cda8ce27721dba8bdf59d7b7a3479f85f3f1fe8544b8b7bdd884a6cc484"
+                "bytes": 41984,
+                "sha256": "285de529c98b680604c76bbf368be1879a7d90e1fb211b422621a233435eb6e5"
             },
             {
                 "path": "AI Mod Source/ControlBindings.cs",
@@ -52,8 +52,8 @@
             },
             {
                 "path": "AI Mod Source/GameAIMod.cs",
-                "bytes": 84280,
-                "sha256": "8b84d538cd4b63cc672d12485feb473188cc987ad7fea6b58bc654b7b1d9759d"
+                "bytes": 88218,
+                "sha256": "a85d35ef3623624f9f8310ab3de8a53fa740e1cd77daaa34e2ff030328e1445c"
             },
             {
                 "path": "AI Mod Source/LanMultiplayer.cs",
@@ -72,8 +72,8 @@
             },
             {
                 "path": "AI Mod Source/PatchGame.cs",
-                "bytes": 19799,
-                "sha256": "67b4cfe835e59a31b4d4c42f1a3e3d4152d24304db488302fe0912062c5695ef"
+                "bytes": 23304,
+                "sha256": "5bc33c91278fb7f6f8a51a5cf99b54ce8a1d22952b0982e634e7c79914b69777"
             },
             {
                 "path": "AI Mod Source/PlayerMovement.cs",
@@ -162,13 +162,13 @@
             },
             {
                 "path": "FanZhiYi_Data/Managed/Assembly-CSharp.dll",
-                "bytes": 42496,
-                "sha256": "b2b26cda8ce27721dba8bdf59d7b7a3479f85f3f1fe8544b8b7bdd884a6cc484"
+                "bytes": 41984,
+                "sha256": "285de529c98b680604c76bbf368be1879a7d90e1fb211b422621a233435eb6e5"
             },
             {
                 "path": "FanZhiYi_Data/Managed/GameAIMod.dll",
-                "bytes": 223744,
-                "sha256": "8c0bc1880187bc6fbde52b2764d6a068803fde636612f857fd896d2328b7ff6f"
+                "bytes": 227328,
+                "sha256": "1f845808286172d577fde74879943f815a961ae63171ec427197d4ecc6276dc3"
             },
             {
                 "path": "FanZhiYi_Data/Managed/Mono.Security.dll",
@@ -749,14 +749,19 @@
                 "path": "MonoBleedingEdge/etc/mono/mconfig/config.xml",
                 "bytes": 25817,
                 "sha256": "0c56e34c69124510fa8c19e7b4c2ca6c1c4ff460ae19f798dd0ca035809e396d"
+            },
+            {
+                "path": "181319 - 朋友的酒 (司凤版).ogg",
+                "bytes": 2706370,
+                "sha256": "9e6209e392b6ba057aee64e859a238808e91b992ac4cfca01ab4aed1f5228dcd"
             }
         ]
     },
     {
         "edition": "experimental",
         "archive": "downloads/fzy-vs-zp-experimental-win32.zip",
-        "archiveBytes": 28080402,
-        "archiveSha256": "8e13a3c16cf1ad94a467aa2d7f2b0073e60853691f9f411cbf8ae9a34b56ca39",
+        "archiveBytes": 30786441,
+        "archiveSha256": "bfc1d3393407a1c10ce8b08a7d1e344f5f1c7147711806281489276022330da7",
         "files": [
             {
                 "path": "FanZhiYi.exe",
@@ -800,8 +805,8 @@
             },
             {
                 "path": "AI Mod Source/Assembly-CSharp.patched.dll",
-                "bytes": 42496,
-                "sha256": "bde134826cfb0624ca4270ffb340cd24211c2e3e727bf7547e56696663868422"
+                "bytes": 41984,
+                "sha256": "7ed30d49f0444c69a3ffb50d01561b89def30c4ac9598b5d0e237b66bb194b62"
             },
             {
                 "path": "AI Mod Source/ControlBindings.cs",
@@ -815,8 +820,8 @@
             },
             {
                 "path": "AI Mod Source/GameAIMod.cs",
-                "bytes": 84454,
-                "sha256": "afc6c3c2a516fc47ed353bdb3c2e142fadc6fdf3b4dd155ad1cc0ff954116d0b"
+                "bytes": 88392,
+                "sha256": "28444267c24fcdb7f6cc5d764daa2edfb977b57998248a34c65b99bc22985710"
             },
             {
                 "path": "AI Mod Source/LanMultiplayer.cs",
@@ -835,8 +840,8 @@
             },
             {
                 "path": "AI Mod Source/PatchGame.cs",
-                "bytes": 20235,
-                "sha256": "22260204cfb10c6b6dc29d61aad7f9a362bda43ad3c9126130a255f3d83f312c"
+                "bytes": 23740,
+                "sha256": "029643d28dacb9c8952c2666f4a1f73ca4b26fe5a79184c94c2a738755767090"
             },
             {
                 "path": "AI Mod Source/PlayerMovement.cs",
@@ -925,13 +930,13 @@
             },
             {
                 "path": "FanZhiYi_Data/Managed/Assembly-CSharp.dll",
-                "bytes": 42496,
-                "sha256": "bde134826cfb0624ca4270ffb340cd24211c2e3e727bf7547e56696663868422"
+                "bytes": 41984,
+                "sha256": "7ed30d49f0444c69a3ffb50d01561b89def30c4ac9598b5d0e237b66bb194b62"
             },
             {
                 "path": "FanZhiYi_Data/Managed/GameAIMod.dll",
-                "bytes": 228864,
-                "sha256": "003e76a71cac3420019d891933d243034dc45cb5730e980fb191e898de6112d4"
+                "bytes": 231936,
+                "sha256": "1889194a5b411d94d7fa3d2adc387f3fc317f258610ea2e1074d50cd563acc3c"
             },
             {
                 "path": "FanZhiYi_Data/Managed/Mono.Security.dll",
@@ -1512,6 +1517,11 @@
                 "path": "MonoBleedingEdge/etc/mono/mconfig/config.xml",
                 "bytes": 25817,
                 "sha256": "0c56e34c69124510fa8c19e7b4c2ca6c1c4ff460ae19f798dd0ca035809e396d"
+            },
+            {
+                "path": "181319 - 朋友的酒 (司凤版).ogg",
+                "bytes": 2706370,
+                "sha256": "9e6209e392b6ba057aee64e859a238808e91b992ac4cfca01ab4aed1f5228dcd"
             }
         ]
     }

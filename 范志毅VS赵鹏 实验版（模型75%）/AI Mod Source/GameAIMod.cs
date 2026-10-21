@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
 // Runs in both styles. Continuous entry checks share the native scoring and
 // restart coroutines, so one-shot trigger overlap cannot miss corner entries.
@@ -171,6 +173,8 @@ public sealed class BallBoundaryGuard : MonoBehaviour
 // Kept in a separate assembly so the original game's serialized components stay intact.
 public static class GameAIMod
 {
+    private static float replacementMusicVolume = 1f;
+    internal static float ReplacementMusicVolume { get { return replacementMusicVolume; } }
     // 0: two players; 1: Fan is human; 2: Zhao is human.
     private static int mode;
     private static readonly Dictionary<int, AIState> states = new Dictionary<int, AIState>();
@@ -225,6 +229,8 @@ public static class GameAIMod
 
     public static void SetupMenu(Component panel)
     {
+        PrepareReplacementMusic();
+        StopReplacementMusic();
         states.Clear();
         ballBody = null;
         ballOutThisRally = false;
@@ -448,8 +454,27 @@ public static class GameAIMod
         BeginGame(0);
     }
 
+    public static void PrepareReplacementMusic()
+    {
+        LocalReplacementMusic.Prepare();
+        LocalReplacementMusic.SetVolume(replacementMusicVolume);
+    }
+    public static void PlayReplacementMusic()
+    {
+        LocalReplacementMusic.Play();
+        LocalReplacementMusic.SetVolume(replacementMusicVolume);
+    }
+    public static void StopReplacementMusic()
+    {
+        LocalReplacementMusic.Stop();
+    }
+    public static void SetReplacementMusicVolume(float value)
+    {
+        replacementMusicVolume = Mathf.Clamp01(value);
+        LocalReplacementMusic.SetVolume(replacementMusicVolume);
+    }
     public static void OnBallRestart(int restart){OnBallReset();}
-    public static void OnInitialKickoff(){SkillRework.ResetShotTracking();}
+    public static void OnInitialKickoff(){SkillRework.ResetShotTracking();PlayReplacementMusic();}
     public static void OnBallReset()
     {
         ballOutThisRally = false;
@@ -1440,5 +1465,102 @@ public sealed class PhysicsHitBuffer
         if (hits.Capacity < count) hits.Capacity = buffer.Length;
         for (int i = 0; i < count; i++) hits.Add(buffer[i]);
         return hits;
+    }
+}
+
+
+public sealed class LocalReplacementMusic : MonoBehaviour
+{
+    private static LocalReplacementMusic instance;
+    private AudioSource source;
+    private float volume = 1f;
+    private bool playbackRequested;
+
+    public static void Prepare()
+    {
+        if (instance != null) return;
+        GameObject host = new GameObject("ReplacementBackgroundMusic");
+        DontDestroyOnLoad(host);
+        instance = host.AddComponent<LocalReplacementMusic>();
+    }
+
+    public static void Play()
+    {
+        if (instance == null) Prepare();
+        if (instance != null) instance.RequestPlayback();
+    }
+
+    public static void Stop()
+    {
+        if (instance != null) instance.StopPlayback();
+    }
+
+    public static void SetVolume(float value)
+    {
+        if (instance != null) instance.ApplyVolume(value);
+    }
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+        source = gameObject.AddComponent<AudioSource>();
+        source.playOnAwake = false;
+        source.loop = true;
+        source.spatialBlend = 0f;
+        ApplyVolume(GameAIMod.ReplacementMusicVolume);
+        StartCoroutine(LoadTrack());
+    }
+
+    private void RequestPlayback()
+    {
+        playbackRequested = true;
+        if (source != null && source.clip != null && !source.isPlaying) source.Play();
+    }
+
+    private void StopPlayback()
+    {
+        playbackRequested = false;
+        if (source != null && source.isPlaying) source.Stop();
+    }
+
+    private void ApplyVolume(float value)
+    {
+        volume = Mathf.Clamp01(value);
+        if (source != null) source.volume = volume;
+    }
+
+    private IEnumerator LoadTrack()
+    {
+        string path = Path.GetFullPath(Path.Combine(Application.dataPath, "..", "181319 - 朋友的酒 (司凤版).ogg"));
+        if (!File.Exists(path))
+        {
+            Debug.LogError("Replacement background music was not found: " + path);
+            yield break;
+        }
+        using (UnityWebRequest request = UnityWebRequestMultimedia.GetAudioClip(new System.Uri(path).AbsoluteUri, AudioType.OGGVORBIS))
+        {
+            yield return request.SendWebRequest();
+            if (request.isNetworkError || request.isHttpError)
+            {
+                Debug.LogError("Replacement background music could not be loaded: " + request.error);
+                yield break;
+            }
+            AudioClip clip = DownloadHandlerAudioClip.GetContent(request);
+            if (clip == null)
+            {
+                Debug.LogError("Replacement background music decoded to an empty clip.");
+                yield break;
+            }
+            source.clip = clip;
+            source.loop = true;
+            source.volume = volume;
+            if (playbackRequested) source.Play();
+        }
     }
 }
